@@ -1,0 +1,432 @@
+@media (max-width: 767px) and (min-width: 320px) {
+    .section-title {
+        flex-shrink: initial;
+    }
+}
+@media (max-width: 1499px) and (min-width: 1341px) {
+    .whatsapp-api-banner,
+    .bg-reseller-banner,
+    .otp-api-banner,
+    .rcs-messaging-bg,
+    .email-banner,
+    .voice-api-banner,
+    .bulk-sms-banner,
+    .bulk-wa-banner {
+        height: 600px;
+    }
+    .bulk-wa-banner .relative {
+        top: 120px;
+        width: 80%;
+        margin-left: 90px;
+    }
+    .whatsapp-api-banner .relative {
+        top: 200px;
+        width: 50%;
+        margin-left: 90px;
+    }
+    .bulk-sms-banner .relative {
+        top: 160px;
+        left: 120px;
+    }
+    .otp-api-banner .relative {
+        width: 81%;
+        left: -30px;
+        top:130px;
+    }
+    .email-banner .relative {
+    top: 140px;
+    width: 60%;
+    margin-left: 90px;
+}
+    .hero-banner {
+        height: 650px;
+    }
+    .pt-section {
+        padding-top: 3rem;
+    }
+    .hero-banner::before {
+        top: 110px;
+        right: 470px;
+    }
+}
+
+@media (max-width: 1340px) and (min-width: 1200px) {
+    .whatsapp-api-banner,
+    .otp-api-banner,
+    .bulk-sms-banner,
+    .email-banner,
+    .rcs-messaging-bg,
+    .voice-api-banner,
+    .bulk-wa-banner {
+        height: 600px;
+    }
+    .bg-reseller-banner {
+        height: 510px;
+    }
+    .bulk-wa-banner .relative {
+        top: 100px;
+        width: 80%;
+        margin-left: 90px;
+    }
+    .whatsapp-api-banner .relative {
+        top: 200px;
+        width: 50%;
+        margin-left: 90px;
+    }
+    .rcs-messaging-bg .relative {
+        top: 120px;
+        left: 30px;
+    }
+    .voice-api-banner .relative {
+        top: 130px;
+        left: 30px;
+    }
+    .otp-api-banner .relative {
+        width: 81%;
+        left: -30px;
+        top: 100px;
+    }
+    .email-banner .relative {
+    top: 140px;
+    width: 60%;
+    margin-left: 80px;
+}
+    .bg-reseller-banner .relative {
+        top: 70px;
+    }
+    .pt-section {
+        padding-top: 3rem;
+    }
+    .hero-banner::before {
+        top: 110px;
+        right: 470px;
+    }
+    .hero-banner {
+        height: 570px;
+        padding: 0 40px;
+    }
+    .bulk-sms-banner .relative {
+    top: 160px;
+    left: 80px;
+}
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    .hero-banner::before {
+        top: 130px;
+        right: 420px;
+    }
+    .hero-banner {
+        height: 700px;
+    }
+    .about-us-banner {
+        height: 350px;
+    }
+    .whatsapp-api-banner,
+    .otp-api-banner,
+    .bulk-sms-banner,
+    .rcs-messaging-bg,
+    .voice-api-banner,
+    .email-banner,
+    .bulk-wa-banner {
+        height: 500px;
+        margin-top: 50px;
+    }
+    .bg-reseller-banner {
+        height: 450px;
+        margin-top: 50px;
+    }
+    .bulk-sms-banner .relative {
+        top: 90px;
+        width: 100%;
+        margin-left: 0;
+        left: 60px;
+    }
+    .bulk-wa-banner .relative {
+        top: 50px;
+        width: 85%;
+        margin-left: 60px;
+    }
+    .email-banner .relative {
+    top: 90px;
+    width: 80%;
+    margin-left: 60px;
+}
+    .whatsapp-api-banner .relative {
+        top: 100px;
+        width: 50%;
+        margin-left: 90px;
+    }
+    .rcs-messaging-bg .relative {
+        top: 115px;
+        left: 60px;
+    }
+    .voice-api-banner .relative {
+        top: 70px;
+        left: 60px;
+    }
+    .otp-api-banner .relative {
+               margin-left: 60px;
+
+        top: 115px;
+    }
+    .bg-reseller-banner .relative {
+        top: 30px;
+    }
+    .pt-section {
+        padding-top: 0rem;
+    }
+    .hero-banner::before {
+        top: 110px;
+        right: 470px;
+    }
+    .hero-banner {
+        height: 470px;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .hero-banner {
+        height: 340px;
+        background-repeat: no-repeat;
+        margin-top: 50px;
+    }
+    .hero-banner::before {
+        top: 130px;
+        right: 310px;
+    }
+    .about-us-banner {
+        height: 350px;
+    }
+    .whatsapp-api-banner,
+    .bg-reseller-banner,
+    .otp-api-banner,
+    .bulk-sms-banner,
+    .rcs-messaging-bg,
+    .email-banner,
+    .voice-api-banner,
+    .bulk-wa-banner {
+        height: 350px;
+        margin-top: 50px;
+    }
+    .bulk-wa-banner .relative {
+        top: 10px;
+        width: 98%;
+        margin-left: 30px;
+    }
+    .whatsapp-api-banner .relative {
+        top: 46px;
+        width: 50%;
+        margin-left: 30px;
+    }
+    .bulk-sms-banner .relative {
+        top: 40px;
+        width: 80%;
+        margin-left: 0px;
+        left: 10px;
+    }
+    .email-banner .relative {
+    top: 30px;
+    width: 95%;
+    margin-left: 20px;
+}
+    .voice-api-banner .relative {
+        top: 25px;
+    }
+    .otp-api-banner .relative {
+        width: 90%;
+        left: -40px;
+        top: 35px;
+    }
+    .bg-reseller-banner .relative {
+        top: 24px;
+    }
+    .pt-section {
+        padding-top: 0rem;
+    }
+    .comn-cta-section {
+        background-position: 0px -30px;
+    }
+    .hero-banner h1 {
+        width: 60%;
+    }
+    .rcs-messaging-bg .relative
+ {
+    top: 60px;
+}
+}
+
+@media (max-width: 767px) and (min-width: 576px) {
+    .about-us-banner {
+        height: 350px;
+    }
+    .all-pricing-card {
+        width: 400px;
+        padding: 20px;
+        margin: auto;
+    }
+    .all-pricing-card .p-4 {
+        margin-bottom: 40px;
+    }
+    .whatsapp-api-banner,
+    .bg-reseller-banner,
+    .otp-api-banner,
+    .rcs-messaging-bg,
+    .bulk-sms-banner,
+    .email-banner,
+    .voice-api-banner,
+    .bulk-wa-banner {
+        height: 350px;
+    }
+    .whatsapp-api-banner .relative {
+        top: 100px;
+        width: 50%;
+        margin-left: 30px;
+    }
+    .bulk-wa-banner .relative {
+        top: 0px;
+        width: 98%;
+        margin-left: 20px;
+    }
+    .rcs-messaging-bg .relative {
+        top: 0px;
+    }
+    .voice-api-banner .relative {
+        top: 50px;
+    }
+    .otp-api-banner .relative {
+        width: 90%;
+        left: -40px;
+        top: 50px;
+    }
+    .email-banner .relative {
+    top: 30px;
+    width: 100%;
+    margin-left: 15px;
+}
+    .bg-reseller-banner .relative {
+        top: 70px;
+    }
+    .pt-section {
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 575px) and (min-width: 320px) {
+    .pt-section {
+        padding-top: 0rem;
+    }
+    .about-us-banner {
+        height: 260px;
+        background-size: cover;
+        background-position: right;
+        background-repeat: no-repeat;
+    }
+    .all-pricing-card {
+        width: 100%;
+        padding: 20px;
+        margin: auto;
+    }
+    .xl\:p-6.p-4.rounded-xl.shadow-lg.border.border-gray-200.hover\:border-\[\#187609\].flex.flex-col.justify-between.transition-all.duration-300 {
+        margin-bottom: 30px;
+    }
+       
+    
+}
+
+@media (max-width: 767px) and (min-width: 320px) {
+    /* .hero-banner {
+        background-repeat: no-repeat;
+        height: auto;
+        position: relative;
+        background-size: contain;
+    } */
+    .product-tab {
+        border: 2px solid black;
+        width: 100%;
+        border-radius: 3px;
+        margin: 10px auto;
+    }
+    button.subcat-tab.px-5.py-2\.5.text-lg.font-medium.transition-all.duration-200.whitespace-nowrap.border-transparent.text-gray-600,
+    button.subcat-tab.px-5.py-2\.5.text-lg.font-medium.transition-all.duration-200.whitespace-nowrap.hover\:text-\[\#049a3d\].hover\:border-gray-300.border-transparent.text-gray-600,
+    button.subcat-tab.px-5.py-2\.5.text-lg.font-medium.transition-all.duration-200.whitespace-nowrap.border-\[\#049a3d\].text-\[\#049a3d\] {
+        padding: 5px !important;
+        font-size: 14px;
+        margin: 10px 2px !important;
+        white-space: normal !important;
+        line-height: 1.3 !important;
+    }
+    .product-tab {
+        white-space: normal !important;
+    }
+    .sticky-cards,
+    .feature-card {
+        position: sticky;
+        top: 60px;
+        z-index: 1;
+        transition: all 0.3s ease-in-out;
+    }
+    #button {
+        bottom: 10px;
+        right: 10px;
+    }
+    .wa-fixed-btn {
+        bottom: 10px;
+        left: 10px;
+    }
+    .hero-banner {
+        background-image: url("/images/hero-banner-home-mob.jpg");
+        background-size: contain;
+        background-position: top;
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background-color: white;
+        background-repeat: no-repeat;
+        margin-top: 40px;
+    }
+}
+.email-banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin-top: 40px;
+}
+
+
+.email-banner .relative {
+    top: 20px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+
+    .email-banner{
+        background-image: url("../images/banners/bulk-email-mobile.png") !important;
+        background-size: contain !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-color: #07110d;
+        height: 100vh;
+    }
+
+    .email-banner .relative{
+        top: 20px;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+}
+
+
+@media (max-width: 476px) and (min-width: 320px) {
+     .hero-banner {
+        background-size: cover !important; 
+    }
+    .hero-banner p {
+        display: none;
+    }
+}

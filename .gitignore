@@ -1,0 +1,23 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Local files
+*.log
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+bootstrap/cache/
+.vscode/
+
+# Build output
+public/build/
+
+# GitHub
+.DS_Store
