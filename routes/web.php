@@ -55,6 +55,28 @@ if (!empty($shortDomain)) {
     });
 }
 
+// Run database migration & clear cache via browser (for shared hosting without SSH)
+Route::get('/run-migration', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        $migrateOutput = \Illuminate\Support\Facades\Artisan::output();
+
+        \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+        $optimizeOutput = \Illuminate\Support\Facades\Artisan::output();
+
+        return "<div style='font-family:sans-serif;padding:30px;max-width:700px;margin:auto;'>"
+             . "<h2 style='color:#16a34a;'>&#10004; Database Migrated Successfully!</h2>"
+             . "<pre style='background:#f1f5f9;padding:15px;border-radius:10px;font-size:13px;'>" . e($migrateOutput) . "\n" . e($optimizeOutput) . "</pre>"
+             . "<p><a href='/' style='color:#16a34a;font-weight:bold;'>&larr; Go to Homepage</a></p>"
+             . "</div>";
+    } catch (\Throwable $e) {
+        return "<div style='font-family:sans-serif;padding:30px;max-width:700px;margin:auto;'>"
+             . "<h2 style='color:#dc2626;'>&#10008; Migration Error</h2>"
+             . "<pre style='background:#fee2e2;color:#991b1b;padding:15px;border-radius:10px;font-size:13px;'>" . e($e->getMessage()) . "</pre>"
+             . "</div>";
+    }
+});
+
 Route::view('/whatsapp-business-api', 'Website.whatsapp_business_api');
 Route::get('/blog_list', [VlogMastersController::class, 'blog_list']);
 Route::get('/blog_details/{id}', [VlogMastersController::class, 'blog_details']);
