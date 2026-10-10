@@ -62,9 +62,9 @@ class WhatsappLinkController extends Controller
             ]);
         }
 
-        // Subdomain branding (e.g. https://w.textorasms.com/aabpbe)
-        $shortDomain = env('WHATSAPP_SHORT_DOMAIN', 'w.textorasms.com');
-        $shortUrl = 'https://' . $shortDomain . '/' . $slug;
+        // Subdomain branding (e.g. https://w.textorasms.com/aabpbe) or path fallback for temporary domains
+        $shortDomain = env('WHATSAPP_SHORT_DOMAIN');
+        $shortUrl = !empty($shortDomain) ? 'https://' . $shortDomain . '/' . $slug : url('/w/' . $slug);
         $pathUrl  = url('/w/' . $slug);
 
         return response()->json([
