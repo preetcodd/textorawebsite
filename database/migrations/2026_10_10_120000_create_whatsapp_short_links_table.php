@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('whatsapp_short_links', function (Blueprint $table) {
-            $table->id();
-            $table->string('slug', 12)->unique()->index();
-            $table->string('country_code', 10);
-            $table->string('phone_number', 25);
-            $table->text('message')->nullable();
-            $table->text('target_url');
-            $table->unsignedBigInteger('clicks')->default(0);
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('whatsapp_short_links')) {
+            Schema::create('whatsapp_short_links', function (Blueprint $table) {
+                $table->id();
+                $table->string('slug', 12)->unique()->index();
+                $table->string('country_code', 10);
+                $table->string('phone_number', 25);
+                $table->text('message')->nullable();
+                $table->text('target_url');
+                $table->unsignedBigInteger('clicks')->default(0);
+                $table->timestamps();
+            });
+        }
     }
 
     /**

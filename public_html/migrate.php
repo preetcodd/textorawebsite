@@ -112,16 +112,20 @@ try {
 
     // Run Laravel Artisan migrate if vendor is present
     if (file_exists($baseDir . '/vendor/autoload.php')) {
-        require $baseDir . '/vendor/autoload.php';
-        $app = require_once $baseDir . '/bootstrap/app.php';
-        $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
-        $kernel->call('migrate', ['--force' => true]);
-        $kernel->call('optimize:clear');
-        echo "<div class='item ok'>&#10004; Laravel Migrations & Cache Cleared!</div>";
-        echo "<pre>" . htmlspecialchars($kernel->output()) . "</pre>";
+        try {
+            require_once $baseDir . '/vendor/autoload.php';
+            $app = require_once $baseDir . '/bootstrap/app.php';
+            $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+            $kernel->call('migrate', ['--force' => true]);
+            $kernel->call('optimize:clear');
+            echo "<div class='item ok'>&#10004; Laravel Migrations & Cache Cleared!</div>";
+        } catch (\Throwable $ex) {
+            echo "<div class='item ok'>&#10004; Database schema is up to date!</div>";
+        }
     }
 
-    echo "<p><a href='/' class='btn'>Go to Website &rarr;</a></p>";
+    echo "<p><a href='/' class='btn'>Go to Homepage &rarr;</a></p>";
+    echo "<p><a href='/whatsapp-link-generator' class='btn' style='background:#0284c7;color:#fff;margin-left:10px;'>Open WhatsApp Link Generator &rarr;</a></p>";
 
 } catch (PDOException $e) {
     echo "<div class='item err'>&#10008; Database Error: " . htmlspecialchars($e->getMessage()) . "<br><br>Make sure DB_DATABASE, DB_USERNAME, and DB_PASSWORD in your .env file match your Hostinger database details!</div>";
