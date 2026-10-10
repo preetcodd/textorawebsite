@@ -9,11 +9,6 @@ node_modules/
 
 # Local files
 *.log
-storage/logs/
-storage/framework/cache/
-storage/framework/sessions/
-storage/framework/views/
-bootstrap/cache/
 .vscode/
 
 # Build output
