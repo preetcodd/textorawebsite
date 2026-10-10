@@ -9,6 +9,7 @@ use App\Http\Controllers\VlogMastersController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\WhatsappLinkController;
 
 
 Route::get('/', function () {
@@ -43,6 +44,14 @@ Route::view('/voice-call', 'Website.voice_api');
 Route::view('/services-web', 'Website.services');
 Route::view('/sms-api', 'Website.otp_api');
 Route::view('/whatsapp-link-generator', 'Website.whatsapp_link_generator');
+Route::post('/whatsapp-links/generate', [WhatsappLinkController::class, 'store'])->name('whatsapp.generate');
+Route::get('/w/{slug}', [WhatsappLinkController::class, 'redirect'])->name('whatsapp.w.redirect');
+
+// Subdomain short link route for w.textorasms.com
+Route::domain(env('WHATSAPP_SHORT_DOMAIN', 'w.textorasms.com'))->group(function () {
+    Route::get('/{slug}', [WhatsappLinkController::class, 'redirect'])->name('whatsapp.subdomain.redirect');
+});
+
 Route::view('/whatsapp-business-api', 'Website.whatsapp_business_api');
 Route::get('/blog_list', [VlogMastersController::class, 'blog_list']);
 Route::get('/blog_details/{id}', [VlogMastersController::class, 'blog_details']);

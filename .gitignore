@@ -18,6 +18,8 @@ bootstrap/cache/
 
 # Build output
 public/build/
+public/
+public_html/storage/
 
 # GitHub
 .DS_Store

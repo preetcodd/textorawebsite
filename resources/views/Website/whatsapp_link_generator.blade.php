@@ -560,10 +560,10 @@
                                     <p class="text-xs text-slate-600 leading-relaxed">
 
                                         <strong class="text-slate-800">
-                                            Browser-based generation.
+                                            Branded Short Link & QR Code.
                                         </strong>
 
-                                        Your WhatsApp number and message are used directly in your browser to create the link.
+                                        Generates a clean <span class="font-semibold text-green-700">w.textorasms.com</span> short link with instant WhatsApp redirection and high-resolution QR code.
 
                                     </p>
 
@@ -1866,44 +1866,118 @@
 
 
             /* =====================================================
-               GENERATE
+               GENERATE (BRANDED SHORT LINK)
             ====================================================== */
 
-            function generate() {
+            async function generate() {
 
-                const link =
-                    createWhatsappLink();
+                const code =
+                    countryCode.value;
 
+                const number =
+                    phoneNumber.value.trim();
 
-                if (!link) {
+                const text =
+                    message.value.trim();
+
+                if (!number || number.length < 6) {
+
+                    phoneError.classList.remove('hidden');
+
+                    phoneNumber.focus();
+
                     return;
+
                 }
 
+                phoneError.classList.add('hidden');
 
-                currentWhatsappLink =
-                    link;
+                const originalBtnContent =
+                    generateBtn.innerHTML;
 
+                generateBtn.disabled = true;
+                generateBtn.innerHTML =
+                    '<i class="fa-solid fa-circle-notch fa-spin"></i> Generating Short Link...';
 
-                generatedLink.value =
-                    link;
+                const csrfToken =
+                    document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
 
+                try {
 
-                resultArea.classList.remove(
-                    'hidden'
-                );
-
-
-                generateQRCode(link);
-
-
-                setTimeout(function () {
-
-                    resultArea.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
+                    const response = await fetch('/whatsapp-links/generate', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        body: JSON.stringify({
+                            country_code: code,
+                            phone_number: number,
+                            message: text
+                        })
                     });
 
-                }, 100);
+                    const data = await response.json();
+
+                    if (response.ok && data.status === 'success') {
+
+                        currentWhatsappLink =
+                            data.short_url;
+
+                        generatedLink.value =
+                            data.short_url;
+
+                        resultArea.classList.remove(
+                            'hidden'
+                        );
+
+                        generateQRCode(data.short_url);
+
+                        setTimeout(function () {
+                            resultArea.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                        }, 100);
+
+                    } else {
+                        // Fallback to client-side direct link if backend error
+                        console.warn('Backend returned error, falling back to direct link:', data);
+                        const fallbackLink = createWhatsappLink();
+                        if (fallbackLink) {
+                            currentWhatsappLink = fallbackLink;
+                            generatedLink.value = fallbackLink;
+                            resultArea.classList.remove('hidden');
+                            generateQRCode(fallbackLink);
+                            setTimeout(function () {
+                                resultArea.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center'
+                                });
+                            }, 100);
+                        }
+                    }
+
+                } catch (err) {
+                    console.error('Fetch error, falling back to direct link:', err);
+                    const fallbackLink = createWhatsappLink();
+                    if (fallbackLink) {
+                        currentWhatsappLink = fallbackLink;
+                        generatedLink.value = fallbackLink;
+                        resultArea.classList.remove('hidden');
+                        generateQRCode(fallbackLink);
+                        setTimeout(function () {
+                            resultArea.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                        }, 100);
+                    }
+                } finally {
+                    generateBtn.disabled = false;
+                    generateBtn.innerHTML = originalBtnContent;
+                }
 
             }
 
