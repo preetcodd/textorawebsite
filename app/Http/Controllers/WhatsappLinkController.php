@@ -62,10 +62,11 @@ class WhatsappLinkController extends Controller
             ]);
         }
 
-        // Subdomain branding (e.g. https://w.textorasms.com/aabpbe) or path fallback for temporary domains
+        // Subdomain branding (e.g. https://w.textorasms.com/aabpbe) for production, local URL for local dev
         $shortDomain = env('WHATSAPP_SHORT_DOMAIN');
-        $shortUrl = !empty($shortDomain) ? 'https://' . $shortDomain . '/' . $slug : url('/w/' . $slug);
-        $pathUrl  = url('/w/' . $slug);
+        $isLocalHost = in_array($request->getHost(), ['127.0.0.1', 'localhost']) || app()->environment('local');
+        $shortUrl    = (!empty($shortDomain) && !$isLocalHost) ? 'https://' . $shortDomain . '/' . $slug : url('/w/' . $slug);
+        $pathUrl     = url('/w/' . $slug);
 
         return response()->json([
             'status'     => 'success',

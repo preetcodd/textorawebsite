@@ -261,27 +261,25 @@ Visit the application at **`http://localhost:8000`** (or `http://127.0.0.1:8000`
 
 ## 🗄️ Database Management & Data Seeding
 
-### Seeding the Administrator Account
+### Creating an Administrator Account
 
-To access the back-office dashboard, seed an administrator user using Tinker or the built-in seeder:
+To access the back-office dashboard, authorized developers can provision an administrator account securely using Tinker:
 
 ```bash
-php artisan db:seed --class=UserSeeder
+php artisan tinker
 ```
 
-Or via Tinker:
 ```php
-php artisan tinker
-App\Models\User::firstOrCreate(
-    ['email' => 'support@textorasms.com'],
-    [
-        'name' => 'Admin',
-        'password' => bcrypt('Admin@456'),
-        'role' => 'Admin',
-        'is_active' => true,
-    ]
-);
+\App\Models\User::create([
+    'name' => 'Administrator',
+    'email' => 'admin@yourcompany.com',
+    'password' => bcrypt('YOUR_SECURE_PASSWORD'),
+    'role' => 'Admin',
+    'is_active' => true,
+]);
 ```
+
+> **Security Note:** Never commit actual passwords or sensitive credentials to version control. Always choose a strong, unique password for production and staging environments.
 
 ### Dynamic Pricing & Blog Data
 
@@ -289,25 +287,20 @@ The public pricing page (`/pricing-web`) and blog pages (`/blog_list`) retrieve 
 - **`pricing_masters`**: Manages all service plans (WhatsApp Business API, Bulk WhatsApp, SMS, RCS, Voice, Email). Features are stored in a native JSON column (`features`), supporting dynamic feature lists.
 - **`vlog_masters`**: Manages published blog articles, cover image paths, and publication dates.
 
-To seed the complete live pricing matrix and all blog articles identically to the hosted production website, execute the automated seeding utility:
+To seed baseline tables:
 ```bash
-python scratch/seed_live_data.py
+php artisan db:seed
 ```
 
 ---
 
-## 🔐 Admin Dashboard & Back-Office Suite
+## 🔐 Admin Dashboard & Access Control
 
 The back-office portal is accessible at **`/login`** and managed through **`/dashboard`**.
 
-### Default Administrator Credentials
-
-| Field | Value |
-| :--- | :--- |
-| **Login URL** | `/login` |
-| **Email Address** | `support@textorasms.com` |
-| **Password** | `Admin@456` |
-| **Role** | `Admin` |
+Access is protected by role-based authorization:
+- **Admin**: Full access to Client management, Pricing matrix, Inquiries/Leads tracker, and Blog CMS.
+- **Customer**: Access restricted to customer-specific views and services.
 
 ### Administrative Modules
 
