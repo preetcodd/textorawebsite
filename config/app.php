@@ -54,6 +54,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'whatsapp_short_domain' => env('WHATSAPP_SHORT_DOMAIN', null),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

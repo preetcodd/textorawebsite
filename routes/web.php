@@ -48,9 +48,12 @@ Route::post('/whatsapp-links/generate', [WhatsappLinkController::class, 'store']
 Route::get('/w/{slug}', [WhatsappLinkController::class, 'redirect'])->name('whatsapp.w.redirect');
 
 // Subdomain short link route for custom domain (e.g. w.textorasms.com)
-$shortDomain = env('WHATSAPP_SHORT_DOMAIN');
+$shortDomain = config('app.whatsapp_short_domain') ?: env('WHATSAPP_SHORT_DOMAIN');
 if (!empty($shortDomain)) {
     Route::domain($shortDomain)->group(function () {
+        Route::get('/', function () {
+            return redirect('https://textorasms.com/whatsapp-link-generator');
+        });
         Route::get('/{slug}', [WhatsappLinkController::class, 'redirect'])->name('whatsapp.subdomain.redirect');
     });
 }
