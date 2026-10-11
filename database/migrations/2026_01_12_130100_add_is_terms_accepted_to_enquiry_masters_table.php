@@ -10,9 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('enquiry_masters', function (Blueprint $table) {
-            $table->boolean('is_terms_accepted')->default(false)->after('message');
-        });
+        if (Schema::hasTable('enquiry_masters') && !Schema::hasColumn('enquiry_masters', 'is_terms_accepted')) {
+            Schema::table('enquiry_masters', function (Blueprint $table) {
+                $table->boolean('is_terms_accepted')->default(false)->after('message');
+            });
+        }
     }
 
     /**

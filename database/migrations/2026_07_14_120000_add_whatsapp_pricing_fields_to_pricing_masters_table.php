@@ -11,12 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('pricing_masters', function (Blueprint $table) {
-            $table->decimal('setup_cost', 10, 2)->nullable()->after('yearly_total_messages');
-            $table->string('billing_type')->nullable()->after('setup_cost');
-            $table->decimal('marketing_price', 10, 4)->nullable()->after('billing_type');
-            $table->decimal('utility_price', 10, 4)->nullable()->after('marketing_price');
-        });
+        if (Schema::hasTable('pricing_masters')) {
+            Schema::table('pricing_masters', function (Blueprint $table) {
+                if (!Schema::hasColumn('pricing_masters', 'setup_cost')) {
+                    $table->decimal('setup_cost', 10, 2)->nullable()->after('yearly_total_messages');
+                }
+                if (!Schema::hasColumn('pricing_masters', 'billing_type')) {
+                    $table->string('billing_type')->nullable()->after('setup_cost');
+                }
+                if (!Schema::hasColumn('pricing_masters', 'marketing_price')) {
+                    $table->decimal('marketing_price', 10, 4)->nullable()->after('billing_type');
+                }
+                if (!Schema::hasColumn('pricing_masters', 'utility_price')) {
+                    $table->decimal('utility_price', 10, 4)->nullable()->after('marketing_price');
+                }
+            });
+        }
     }
 
     /**
