@@ -127,9 +127,12 @@ class PricingTable extends Component implements HasForms, HasTable
                                 'monthly_price' => $record->monthly_price,
                                 'monthly_total_messages' => $record->monthly_total_messages,
                                 'setup_cost' => $record->setup_cost,
-'billing_type' => $record->billing_type,
-'marketing_price' => $record->marketing_price,
-'utility_price' => $record->utility_price,
+                                'billing_type' => $record->billing_type,
+                                'marketing_price' => $record->marketing_price,
+                                'utility_price' => $record->utility_price,
+                                'authentication_price' => $record->authentication_price,
+                                'service_price' => $record->service_price,
+                                'extra_costs' => $record->extra_costs ?? [],
                                 'yearly_price' => $record->yearly_price,
                                 'yearly_total_messages' => $record->yearly_total_messages,
 
@@ -211,13 +214,37 @@ class PricingTable extends Component implements HasForms, HasTable
                 ->numeric()
                 ->label('Utility Price'),
 
+            TextInput::make('authentication_price')
+                ->numeric()
+                ->label('OTP / Authentication Price (₹)'),
+
+            TextInput::make('service_price')
+                ->numeric()
+                ->label('Service Price (₹)'),
+
         ]),
+
+        Repeater::make('extra_costs')
+            ->label('Additional / Custom Extra Costs')
+            ->schema([
+                TextInput::make('label')
+                    ->placeholder('Cost Name (e.g. OTP, Service, Setup)')
+                    ->required(),
+                TextInput::make('price')
+                    ->placeholder('Rate / Price (e.g. ₹0.15/Conversation)')
+                    ->required(),
+            ])
+            ->columns(2)
+            ->reorderable()
+            ->reorderableWithButtons()
+            ->collapsible()
+            ->columnSpanFull(),
 
     ]),
                                 
-                            /* ===== FEATURES : 2 INPUTS PER ROW ===== */
+                            /* ===== FEATURES : REORDERABLE ===== */
                             Repeater::make('features')
-                                ->label('Features')
+                                ->label('Features (Drag or use arrows to rearrange)')
                                 ->schema([
                                     TextInput::make('value')
                                         ->hiddenLabel()
@@ -228,7 +255,8 @@ class PricingTable extends Component implements HasForms, HasTable
                                         ]),
                                 ])
                                 ->grid(2)               // ✅ TWO FEATURES PER ROW
-                                ->reorderable(false)    // ❌ remove drag icons
+                                ->reorderable()         // ✅ Drag & drop to arrange
+                                ->reorderableWithButtons() // ✅ Arrow buttons to arrange
                                 ->collapsible(false)
                                 ->columnSpanFull(),
                         ]))
@@ -238,7 +266,13 @@ class PricingTable extends Component implements HasForms, HasTable
                             if (isset($data['features'])) {
                                 $data['features'] = collect($data['features'])
                                     ->pluck('value')
-                                    ->filter()
+                                    ->filter(fn($f) => !empty(trim($f ?? '')))
+                                    ->values()
+                                    ->toArray();
+                            }
+                            if (isset($data['extra_costs'])) {
+                                $data['extra_costs'] = collect($data['extra_costs'])
+                                    ->filter(fn($item) => !empty(trim($item['label'] ?? '')))
                                     ->values()
                                     ->toArray();
                             }

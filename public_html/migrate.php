@@ -110,6 +110,27 @@ try {
     $pdo->exec($sql);
     echo "<div class='item ok'>&#10004; Table 'whatsapp_short_links' created successfully!</div>";
 
+    // Ensure pricing_masters extra cost columns exist
+    try {
+        $checkCol = $pdo->query("SHOW COLUMNS FROM `pricing_masters` LIKE 'authentication_price'")->fetch();
+        if (!$checkCol) {
+            $pdo->exec("ALTER TABLE `pricing_masters` ADD COLUMN `authentication_price` decimal(10,4) NULL AFTER `utility_price`");
+            echo "<div class='item ok'>&#10004; Added column 'authentication_price' to 'pricing_masters'!</div>";
+        }
+        $checkCol2 = $pdo->query("SHOW COLUMNS FROM `pricing_masters` LIKE 'service_price'")->fetch();
+        if (!$checkCol2) {
+            $pdo->exec("ALTER TABLE `pricing_masters` ADD COLUMN `service_price` decimal(10,4) NULL AFTER `authentication_price`");
+            echo "<div class='item ok'>&#10004; Added column 'service_price' to 'pricing_masters'!</div>";
+        }
+        $checkCol3 = $pdo->query("SHOW COLUMNS FROM `pricing_masters` LIKE 'extra_costs'")->fetch();
+        if (!$checkCol3) {
+            $pdo->exec("ALTER TABLE `pricing_masters` ADD COLUMN `extra_costs` json NULL AFTER `service_price`");
+            echo "<div class='item ok'>&#10004; Added column 'extra_costs' to 'pricing_masters'!</div>";
+        }
+    } catch (\Throwable $t) {
+        // Ignored if table does not exist yet
+    }
+
     // Run Laravel Artisan migrate if vendor is present
     if (file_exists($baseDir . '/vendor/autoload.php')) {
         try {

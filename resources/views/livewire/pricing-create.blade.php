@@ -132,7 +132,6 @@
         />
     </div>
 
-
     <div>
         <x-input.label :required="false">Utility Price</x-input.label>
         <x-input 
@@ -145,20 +144,90 @@
         />
     </div>
 
+    <div>
+        <x-input.label :required="false">OTP / Authentication Price</x-input.label>
+        <x-input 
+            wire:model="authentication_price"
+            type="number"
+            step="0.01"
+            label="OTP Price"
+            placeholder="0.00"
+            min="0"
+        />
+    </div>
+
+    <div>
+        <x-input.label :required="false">Service Price</x-input.label>
+        <x-input 
+            wire:model="service_price"
+            type="number"
+            step="0.01"
+            label="Service Price"
+            placeholder="0.00"
+            min="0"
+        />
+    </div>
+
+</div>
+
+<div class="mt-4 pt-3 border-t border-gray-200">
+    <div class="flex items-center justify-between mb-2">
+        <label class="text-sm font-semibold text-gray-700">Additional / Custom Extra Costs</label>
+        <button wire:click="addExtraCost" type="button" class="text-xs bg-green-50 text-green-700 hover:bg-green-100 font-semibold px-2.5 py-1 rounded border border-green-300 cursor-pointer">
+            + Add Extra Cost
+        </button>
+    </div>
+    @if(!empty($extra_costs))
+        <div class="space-y-2">
+            @foreach($extra_costs as $cIdx => $cost)
+                <div class="flex items-center space-x-2 bg-gray-50 p-2 rounded border border-gray-200">
+                    <input wire:model="extra_costs.{{ $cIdx }}.label" placeholder="Cost Name (e.g. OTP, Service, Setup)" class="flex-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm bg-white" />
+                    <input wire:model="extra_costs.{{ $cIdx }}.price" placeholder="Rate (e.g. ₹0.15/Conversation)" class="flex-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm bg-white" />
+                    <div class="flex space-x-1">
+                        <button wire:click="moveExtraCostUp({{ $cIdx }})" type="button" title="Move Up" class="px-2 py-1 text-xs rounded bg-white border border-gray-300 hover:bg-gray-100 cursor-pointer {{ $cIdx === 0 ? 'opacity-30 cursor-not-allowed' : '' }}" {{ $cIdx === 0 ? 'disabled' : '' }}>
+                            ▲
+                        </button>
+                        <button wire:click="moveExtraCostDown({{ $cIdx }})" type="button" title="Move Down" class="px-2 py-1 text-xs rounded bg-white border border-gray-300 hover:bg-gray-100 cursor-pointer {{ $cIdx === count($extra_costs)-1 ? 'opacity-30 cursor-not-allowed' : '' }}" {{ $cIdx === count($extra_costs)-1 ? 'disabled' : '' }}>
+                            ▼
+                        </button>
+                    </div>
+                    <button wire:click="removeExtraCost({{ $cIdx }})" type="button" title="Remove" class="text-red-500 hover:text-red-700 p-1 cursor-pointer">
+                        ✕
+                    </button>
+                </div>
+            @endforeach
+        </div>
+    @endif
 </div>
                     </div>
                 </x-input.wrapper>
             </div>
 
             <div class="md:col-span-2">
-                <x-input.label :required="true">Features</x-input.label>
+                <div class="flex items-center justify-between mb-1">
+                    <x-input.label :required="true">Features (Arrange using ▲ / ▼)</x-input.label>
+                    <span class="text-xs text-gray-500">Order saved here matches website display</span>
+                </div>
                 <x-input.wrapper :valid="!$errors->has('features')">
                     <div class="space-y-2">
                         @foreach($features as $index => $feature)
-                            <div class="flex items-center space-x-2">
+                            <div class="flex items-center space-x-2 bg-gray-50 p-1.5 rounded-md border border-gray-200">
+                                <div class="flex flex-col space-y-0.5">
+                                    <button wire:click="moveFeatureUp({{ $index }})" type="button" title="Move Up"
+                                        class="text-gray-500 hover:text-blue-600 disabled:opacity-20 px-1 text-xs font-bold leading-none cursor-pointer"
+                                        {{ $index === 0 ? 'disabled' : '' }}>
+                                        ▲
+                                    </button>
+                                    <button wire:click="moveFeatureDown({{ $index }})" type="button" title="Move Down"
+                                        class="text-gray-500 hover:text-blue-600 disabled:opacity-20 px-1 text-xs font-bold leading-none cursor-pointer"
+                                        {{ $index === count($features) - 1 ? 'disabled' : '' }}>
+                                        ▼
+                                    </button>
+                                </div>
+                                <span class="text-xs font-semibold text-gray-400 w-5 text-center">{{ $index + 1 }}.</span>
                                 <div class="flex-1">
                                     <x-input wire:model="features.{{ $index }}" placeholder="Enter a feature"
-                                        class="w-full" />
+                                        class="w-full bg-white" />
                                     @error("features.{$index}")
                                         <span class="text-red-500 text-sm">{{ $message }}</span>
                                     @enderror
@@ -179,12 +248,13 @@
                     @enderror
                     <div class="mt-2">
                         <x-button wire:click="addFeature" type="button"
-                            class="text-green-500 hover:text-green-600 bg-transparent hover:bg-transparent p-2 rounded transition-colors cursor-pointer"
+                            class="text-green-600 hover:text-green-700 bg-transparent hover:bg-transparent p-2 rounded transition-colors cursor-pointer flex items-center space-x-1"
                             wire:loading.attr="disabled">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
+                            <span class="text-sm font-medium">Add Feature</span>
                         </x-button>
                     </div>
                 </x-input.wrapper>

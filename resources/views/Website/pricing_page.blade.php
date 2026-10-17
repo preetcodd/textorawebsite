@@ -353,6 +353,31 @@
                 <strong>₹{{ number_format($plan->utility_price,2) }}/Conversation</strong>
             </div>
 
+            @if(!is_null($plan->authentication_price))
+            <div class="flex justify-between">
+                <span>OTP</span>
+                <strong>₹{{ number_format((float)$plan->authentication_price, 2) }}/Conversation</strong>
+            </div>
+            @endif
+
+            @if(!is_null($plan->service_price))
+            <div class="flex justify-between">
+                <span>Service</span>
+                <strong>₹{{ number_format((float)$plan->service_price, 2) }}/Conversation</strong>
+            </div>
+            @endif
+
+            @if(!empty($plan->extra_costs) && is_array($plan->extra_costs))
+                @foreach ($plan->extra_costs as $extra)
+                    @if(!empty(trim($extra['label'] ?? '')) && !empty(trim($extra['price'] ?? '')))
+                        <div class="flex justify-between">
+                            <span>{{ $extra['label'] }}</span>
+                            <strong>{{ str_starts_with(trim($extra['price']), '₹') || str_starts_with(trim($extra['price']), '$') ? $extra['price'] : (is_numeric(trim($extra['price'])) ? '₹' . number_format((float)$extra['price'], 2) : $extra['price']) }}</strong>
+                        </div>
+                    @endif
+                @endforeach
+            @endif
+
         </div>
 
         <ul class="lg:space-y-2 space-y-1 mb-4 border-t-2 border-gray-100 py-3">
@@ -438,6 +463,19 @@
                                                                 </div>
                                                             </div>
 
+                                                            @if(!empty($plan->extra_costs) && is_array($plan->extra_costs))
+                                                                <div class="space-y-1 my-2 text-sm text-gray-600">
+                                                                    @foreach ($plan->extra_costs as $extra)
+                                                                        @if(!empty(trim($extra['label'] ?? '')) && !empty(trim($extra['price'] ?? '')))
+                                                                            <div class="flex justify-between">
+                                                                                <span>{{ $extra['label'] }}:</span>
+                                                                                <strong class="text-gray-800">{{ str_starts_with(trim($extra['price']), '₹') || str_starts_with(trim($extra['price']), '$') ? $extra['price'] : (is_numeric(trim($extra['price'])) ? '₹' . number_format((float)$extra['price'], 2) : $extra['price']) }}</strong>
+                                                                            </div>
+                                                                        @endif
+                                                                    @endforeach
+                                                                </div>
+                                                            @endif
+
                                                             <ul
                                                                 class="lg:space-y-2 space-y-1 mb-4 border-t-2 border-gray-100 py-3">
                                                                 @foreach ($plan->features ?? [] as $feature)
@@ -513,6 +551,19 @@
                                                                 {{ $unitLabel }}
                                                             </div>
                                                         </div>
+
+                                                        @if(!empty($plan->extra_costs) && is_array($plan->extra_costs))
+                                                            <div class="space-y-1 my-2 text-sm text-gray-600">
+                                                                @foreach ($plan->extra_costs as $extra)
+                                                                    @if(!empty(trim($extra['label'] ?? '')) && !empty(trim($extra['price'] ?? '')))
+                                                                        <div class="flex justify-between">
+                                                                            <span>{{ $extra['label'] }}:</span>
+                                                                            <strong class="text-gray-800">{{ str_starts_with(trim($extra['price']), '₹') || str_starts_with(trim($extra['price']), '$') ? $extra['price'] : (is_numeric(trim($extra['price'])) ? '₹' . number_format((float)$extra['price'], 2) : $extra['price']) }}</strong>
+                                                                        </div>
+                                                                    @endif
+                                                                @endforeach
+                                                            </div>
+                                                        @endif
 
                                                         <ul
                                                             class="lg:space-y-2 space-y-1 mb-4 border-t-2 border-gray-100 py-3">

@@ -24,12 +24,14 @@ class PricingMaster extends Model
         'yearly_price',
         'yearly_total_messages',
         
-           // NEW WhatsApp Pricing
-    'setup_cost',
-    'billing_type',
-    'marketing_price',
-    'utility_price',
-
+        // NEW WhatsApp Pricing & Extra Costs
+        'setup_cost',
+        'billing_type',
+        'marketing_price',
+        'utility_price',
+        'authentication_price',
+        'service_price',
+        'extra_costs',
 
         // JSON features
         'features',
@@ -41,10 +43,13 @@ class PricingMaster extends Model
         'monthly_price' => 'decimal:2',
         'yearly_price' => 'decimal:2',
         
-          // NEW WhatsApp Pricing
-    'setup_cost' => 'decimal:2',
-    'marketing_price' => 'decimal:4',
-    'utility_price' => 'decimal:4',
+        // NEW WhatsApp Pricing & Extra Costs
+        'setup_cost' => 'decimal:2',
+        'marketing_price' => 'decimal:4',
+        'utility_price' => 'decimal:4',
+        'authentication_price' => 'decimal:4',
+        'service_price' => 'decimal:4',
+        'extra_costs' => 'array',
 
         // ✅ REQUIRED for JSON column
         'features' => 'array',
