@@ -55,7 +55,7 @@ COPY . /var/www/html
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
 # Ensure proper permissions for storage, bootstrap cache and public_html
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/public_html \
  && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80

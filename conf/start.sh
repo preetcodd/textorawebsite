@@ -3,8 +3,10 @@ set -e
 
 echo "==> Running Laravel Deployment Tasks on Render..."
 
-# Create storage symlink if not present
+# Create storage symlink in both public and public_html
 php /var/www/html/artisan storage:link || true
+rm -rf /var/www/html/public_html/storage
+ln -sfn /var/www/html/storage/app/public /var/www/html/public_html/storage || true
 
 # Run database migrations
 echo "==> Running Database Migrations..."
