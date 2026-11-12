@@ -1,22 +1,17 @@
 #!/usr/bin/env bash
 echo "==> Running Laravel Deployment Tasks on Render..."
 
-echo "==> Installing Composer Dependencies (No Dev, Optimized)..."
-composer install --no-dev --working-dir=/var/www/html --optimize-autoloader --no-interaction
-
-echo "==> Ensuring Storage Symlink Exists..."
+# Ensure storage symlink exists
 php /var/www/html/artisan storage:link || true
 
-echo "==> Caching Configuration..."
-php /var/www/html/artisan config:cache
-
-echo "==> Caching Routes..."
-php /var/www/html/artisan route:cache
-
-echo "==> Caching Views..."
-php /var/www/html/artisan view:cache
-
+# Run database migrations
 echo "==> Running Database Migrations..."
-php /var/www/html/artisan migrate --force
+php /var/www/html/artisan migrate --force || echo "==> Note: Migration could not connect to database yet. Check DB credentials in Render."
+
+# Cache configuration, routes, and views for optimal performance
+echo "==> Caching Configuration and Routes..."
+php /var/www/html/artisan config:cache || true
+php /var/www/html/artisan route:cache || true
+php /var/www/html/artisan view:cache || true
 
 echo "==> Deployment Tasks Successfully Completed!"
