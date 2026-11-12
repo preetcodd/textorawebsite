@@ -1,31 +1,62 @@
-FROM richarvey/nginx-php-fpm:3.1.6
+FROM php:8.3-fpm-alpine
+
+# Install system dependencies and build libraries
+RUN apk add --no-cache \
+    bash \
+    nginx \
+    supervisor \
+    libpq \
+    libzip \
+    icu-libs \
+    libpng \
+    libjpeg-turbo \
+    freetype \
+ && apk add --no-cache --virtual .build-deps \
+    $PHPIZE_DEPS \
+    postgresql-dev \
+    libzip-dev \
+    icu-dev \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    freetype-dev \
+ && docker-php-ext-configure gd --with-freetype --with-jpeg \
+ && docker-php-ext-install \
+    pdo_pgsql \
+    pdo_mysql \
+    intl \
+    zip \
+    gd \
+    opcache \
+    bcmath \
+ && apk del .build-deps
+
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Set working directory
 WORKDIR /var/www/html
 
-# Copy all project files into container
+# Environment variables
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+ENV LOG_CHANNEL=stderr
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+# Copy configuration files
+COPY conf/nginx/nginx-site.conf /etc/nginx/http.d/default.conf
+COPY conf/supervisor/supervisord.conf /etc/supervisord.conf
+COPY conf/start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Copy application files
 COPY . /var/www/html
 
-# Image configurations for Nginx and PHP-FPM
-ENV SKIP_COMPOSER 1
-ENV WEBROOT /var/www/html/public_html
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
-
-# Laravel Production Defaults
-ENV APP_ENV production
-ENV APP_DEBUG false
-ENV LOG_CHANNEL stderr
-
-# Install Composer dependencies during Docker build so vendor/autoload.php is pre-packaged
+# Install Composer dependencies at build time (PHP 8.3 satisfies openspout & filament)
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
-# Ensure writable permissions for Laravel storage and cache
-RUN chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache
-
-# Ensure startup deployment script is executable
-RUN chmod +x /var/www/html/scripts/00-laravel-deploy.sh
+# Ensure proper permissions for storage, bootstrap cache and public_html
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+ && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80
 
