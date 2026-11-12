@@ -3953,10 +3953,16 @@ header nav a.logo-link img {
 }
 
 header nav .mobile-actions {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    gap: 8px !important;
-    flex-shrink: 0 !important;
+    display: none !important;
+}
+
+@media (max-width: 1023px) {
+    header nav .mobile-actions {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        gap: 8px !important;
+        flex-shrink: 0 !important;
+    }
 }

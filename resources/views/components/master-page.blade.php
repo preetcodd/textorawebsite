@@ -140,7 +140,7 @@
 
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}?v=23">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}?v=26">
 
     <link rel="stylesheet" href="{{ URL::asset('css/media.css') }}?v=24">
 
