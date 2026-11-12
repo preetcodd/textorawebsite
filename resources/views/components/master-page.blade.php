@@ -266,17 +266,17 @@
 
     <header class="bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm fixed w-full top-0 z-40 transition-all duration-300">
 
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex flex-row flex-nowrap justify-between items-center">
 
             <!-- Logo -->
 
-            <a href="{{ url('/') }}" class="flex items-center">
+            <a href="{{ url('/') }}" class="logo-link flex items-center flex-shrink-0 !w-auto">
 
                 <img src="{{ URL::asset('/images/textorasms-svg-logo.svg') }}"
 
                      alt="Textora SMS Logo"
 
-                     class="w-[160px] sm:w-[180px] h-auto">
+                     class="w-[140px] sm:w-[175px] h-auto object-contain">
 
             </a>
 
@@ -687,13 +687,20 @@
 
             </div>
 
-            <!-- Mobile Hamburger -->
+            <!-- Mobile Action Buttons & Hamburger -->
+            <div class="mobile-actions flex items-center gap-2 lg:hidden">
+                <button onclick="openModall()"
+                    class="bg-[#049a3d] hover:bg-[#037f32] text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow-sm transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-calendar-check text-[10px]"></i>
+                    <span>Demo</span>
+                </button>
 
-            <button onclick="toggleSidebar()" class="lg:hidden text-3xl text-gray-700">
-
-                <i class="fa-solid fa-bars-staggered"></i>
-
-            </button>
+                <button onclick="toggleSidebar()"
+                    class="w-10 h-10 flex items-center justify-center text-slate-700 hover:text-[#049a3d] hover:bg-slate-100 rounded-lg transition"
+                    aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars-staggered text-xl"></i>
+                </button>
+            </div>
 
         </nav>
 

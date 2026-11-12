@@ -2517,9 +2517,11 @@ img[src*="signature"]{
     width:140px!important;
 }
 
-/* Buttons */
+/* Buttons - scoped to CTA buttons instead of all links */
 
-a{
+.cta-buttons a,
+.hero-cta a,
+.about-cta a{
     width:100%;
     justify-content:center;
 }
@@ -2963,7 +2965,7 @@ ABOUT PAGE RESPONSIVE
         line-height:28px !important;
     }
 
-    .flex{
+    .flex.flex-wrap{
         flex-wrap:wrap;
     }
 
@@ -3915,4 +3917,46 @@ html {
 .interactive-chip:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px -2px rgba(4, 154, 61, 0.25);
+}
+
+
+/* =========================================
+   HEADER MOBILE STABILITY (PREVENTS LOGO & HAMBURGER WRAPPING)
+========================================= */
+header nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+header nav a.logo-link {
+    width: auto !important;
+    max-width: max-content !important;
+    display: inline-flex !important;
+    justify-content: flex-start !important;
+    flex-shrink: 0 !important;
+}
+
+header nav a.logo-link img {
+    width: 145px !important;
+    max-width: 155px !important;
+    height: auto !important;
+}
+
+@media (min-width: 640px) {
+    header nav a.logo-link img {
+        width: 175px !important;
+        max-width: 180px !important;
+    }
+}
+
+header nav .mobile-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
 }
