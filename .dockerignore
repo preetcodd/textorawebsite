@@ -1,0 +1,11 @@
+/node_modules
+/vendor
+.env
+.env.*
+*.log
+.git
+.github
+.vscode
+public_html/images/client-logo-backup/
+public_html/storage
+storage/*.key
