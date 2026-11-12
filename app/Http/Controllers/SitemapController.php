@@ -14,6 +14,7 @@ class SitemapController extends Controller
             '/about-us',
             '/pricing-web',
             '/contact-us',
+            '/portfolio',
             '/term-and-Conditions',
             '/privacy-policy',
             '/refund_policy',

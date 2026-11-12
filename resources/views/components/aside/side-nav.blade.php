@@ -72,8 +72,14 @@
                 'url' => route('blog.index'),
             ],
             [
+                'title' => 'Portfolio',
+                'icon' => 'fa-solid fa-briefcase',
+                'activeWhen' => Route::is('portfolio.*'),
+                'url' => route('portfolio.index'),
+            ],
+            [
                 'title' => 'Enquiry',
-                'icon' => 'fa-solid fa-blog',   
+                'icon' => 'fa-solid fa-envelope-open-text',   
                 'activeWhen' => Route::is('enquiry.*'),
                 'url' => route('enquiry.index'),
             ],

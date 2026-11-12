@@ -1,1058 +1,360 @@
-<x-master-page title="Contact Us | Textora SMS">
-    @push('head-scripts')
-        <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1, 
-            "name": "Home",
-            "item": "https://www.textorasms.com/"
-          },{
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Contact Us",
-            "item": "https://www.textorasms.com/contact-us"
-          }]
-        }
-        </script>
-    @endpush
-    @php
-        function activeNav($path)
-        {
-            return Request::path() === $path ? 'text-green-700 font-semibold' : 'text-gray-700';
-        }
-    @endphp
-   {{-- =========================
-    HERO SECTION START
-========================= --}}
+<x-master-page title="Contact Us | Textora Technologies - Enterprise CPaaS & Software Solutions">
 
-<section class="relative overflow-hidden bg-gradient-to-br from-white via-green-50 to-white">
+@push('head-scripts')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": "https://textorasms.com/contact-us/#webpage",
+  "url": "https://textorasms.com/contact-us",
+  "name": "Contact Textora Technologies | Enterprise Sales, Support & DLT Assistance",
+  "description": "Get in touch with Textora Technologies. Official Meta WhatsApp Business API partner, Bulk SMS gateway, RCS messaging, and in-house CRM/HRMS solutions. 24/7 dedicated support.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Textora Technologies Pvt. Ltd.",
+    "logo": "https://textorasms.com/images/textorasms-svg-logo.svg",
+    "telephone": "+91-9187054466",
+    "email": "support@textorasms.com"
+  }
+}
+</script>
+@endpush
 
-    <!-- Background Effects -->
-    <div class="absolute top-[-120px] right-[-120px] w-96 h-96 bg-green-200/20 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-[-120px] left-[-120px] w-80 h-80 bg-emerald-200/20 rounded-full blur-3xl"></div>
+<main class="text-slate-900 bg-white">
 
-    <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20 relative z-10">
+<!-- =========================================================
+     HERO SECTION
+     Outcome-focused, compact padding, no AI cartoons
+========================================================= -->
+<section class="relative pt-28 pb-12 md:pt-32 lg:pt-36 lg:pb-16 bg-gradient-to-b from-[#f6faf7] via-white to-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-100/40 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="grid lg:grid-cols-2 gap-14 items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+            
+            <!-- Left: Hero Text -->
+            <div class="lg:col-span-7 space-y-5 text-center lg:text-left" data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-[#049a3d] animate-pulse"></span>
+                    <span>Direct Enterprise Assistance</span>
+                </div>
 
-            {{-- Left Content --}}
-            <div>
-
-                <span
-                    class="inline-flex items-center px-5 py-2 rounded-full bg-green-100 text-[#049A3D] font-semibold mb-6">
-                    🚀 Trusted Business Communication Platform
-                </span>
-
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
-
-                    Let's Build Your
-
-                    <span class="text-[#049A3D]">
-                        Business Communication
-                    </span>
-
-                    Together
-
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                    Let's Build Your <br>
+                    <span class="text-[#049a3d]">Business Communication</span> Together
                 </h1>
 
-                <p class="mt-6 text-xl text-gray-600 leading-9 max-w-xl">
-
-                    Whether you're looking for Bulk SMS, WhatsApp Business API,
-                    RCS Messaging or Voice Solutions, our experts are here to
-                    help you choose the perfect communication platform.
-
+                <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                    Whether you require official WhatsApp Business API, Bulk SMS gateway onboarding, RCS rich messaging, or our in-house <strong>Textora CRM & HRMS</strong> platforms, our enterprise architects are ready to assist.
                 </p>
 
-                <div class="flex flex-wrap gap-4 mt-10">
-
-                    <a href="#contact-form"
-                        class="bg-[#049A3D] hover:bg-[#037b31] text-white px-8 py-4 rounded-xl font-semibold shadow-lg transition">
-
-                        Schedule Free Demo
-
+                <!-- Quick Action Buttons -->
+                <div class="flex flex-wrap gap-3.5 justify-center lg:justify-start pt-1">
+                    <a href="#contact-form" 
+                       class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#049a3d] to-[#038334] text-white font-bold text-sm shadow-md shadow-emerald-700/25 hover:shadow-lg hover:-translate-y-0.5 transition duration-200">
+                        <span>Send an Inquiry</span>
+                        <i class="fa-solid fa-arrow-down text-xs ml-1.5"></i>
                     </a>
-
-                    <a href="https://wa.me/919187054466"
-                        target="_blank"
-                        class="border-2 border-[#049A3D] text-[#049A3D] hover:bg-green-50 px-8 py-4 rounded-xl font-semibold transition">
-
-                        WhatsApp Us
-
+                    
+                    <a href="https://wa.me/919187054466?text=Hi%20Textora%20Team,%20I%20would%20like%20to%20inquire%20about%20your%20services" 
+                       target="_blank"
+                       class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white text-slate-700 border border-slate-200 font-bold text-sm hover:border-[#049a3d] hover:text-[#049a3d] transition duration-200 shadow-xs">
+                        <i class="fa-brands fa-whatsapp text-emerald-600 text-base"></i>
+                        <span>Chat on WhatsApp</span>
                     </a>
-
                 </div>
 
-                {{-- Stats --}}
-                <div class="grid grid-cols-3 gap-5 mt-14">
-
-                    <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 text-center">
-
-                        <h3 class="text-3xl font-bold text-[#049A3D]">
-                            30 Min
-                        </h3>
-
-                        <p class="text-gray-500 mt-2 text-sm">
-                            Average Response
-                        </p>
-
+                <!-- Fast Proof Metrics -->
+                <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200/80 text-center lg:text-left">
+                    <div>
+                        <div class="text-xl sm:text-2xl font-black text-slate-900">&lt; 15 Min</div>
+                        <div class="text-xs text-slate-500 font-medium">Average Response Time</div>
                     </div>
-
-                    <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 text-center">
-
-                        <h3 class="text-3xl font-bold text-[#049A3D]">
-                            24×7
-                        </h3>
-
-                        <p class="text-gray-500 mt-2 text-sm">
-                            Customer Support
-                        </p>
-
+                    <div>
+                        <div class="text-xl sm:text-2xl font-black text-slate-900">24/7/365</div>
+                        <div class="text-xs text-slate-500 font-medium">NOC Monitoring & Helpdesk</div>
                     </div>
-
-                    <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 text-center">
-
-                        <h3 class="text-3xl font-bold text-[#049A3D]">
-                            10K+
-                        </h3>
-
-                        <p class="text-gray-500 mt-2 text-sm">
-                            Happy Clients
-                        </p>
-
+                    <div>
+                        <div class="text-xl sm:text-2xl font-black text-slate-900">500+</div>
+                        <div class="text-xs text-slate-500 font-medium">Active Enterprise Clients</div>
                     </div>
-
                 </div>
-
             </div>
 
-            {{-- Right Image --}}
-            <div class="relative">
+            <!-- Right: Realistic Corporate Desk & Live Infrastructure Card (No AI cartoons!) -->
+            <div class="lg:col-span-5" data-aos="fade-left">
+                <div class="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-800">Direct Support Channels</span>
+                        </div>
+                        <span class="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                            Available Now
+                        </span>
+                    </div>
 
-                <div
-                    class="bg-white rounded-3xl p-4 shadow-2xl border border-gray-100">
+                    <div class="mt-5 space-y-3.5">
+                        <!-- Channel 1: Enterprise Sales -->
+                        <div class="p-3.5 rounded-xl bg-[#fafcfb] border border-slate-200/80 hover:border-emerald-400 transition flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-[#049a3d] flex items-center justify-center text-base">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-slate-800">Direct Sales & Enterprise Quoting</div>
+                                    <div class="text-xs text-slate-500">+91 91870 54466</div>
+                                </div>
+                            </div>
+                            <a href="tel:+919187054466" class="px-3 py-1 rounded-lg bg-emerald-50 text-[#049a3d] hover:bg-[#049a3d] hover:text-white font-bold text-xs transition">
+                                Call
+                            </a>
+                        </div>
 
-                    <img
-                        src="{{ asset('images/contact-hero.png') }}"
-                        alt="Contact Us"
-                        class="w-full h-auto rounded-2xl object-cover">
+                        <!-- Channel 2: WhatsApp Hotline -->
+                        <div class="p-3.5 rounded-xl bg-[#fafcfb] border border-slate-200/80 hover:border-emerald-400 transition flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-lg">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-slate-800">Official WhatsApp Priority Desk</div>
+                                    <div class="text-xs text-slate-500">Quick onboarding & pricing quotes</div>
+                                </div>
+                            </div>
+                            <a href="https://wa.me/919187054466" target="_blank" class="px-3 py-1 rounded-lg bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition">
+                                Chat
+                            </a>
+                        </div>
 
+                        <!-- Channel 3: DLT & Technical Help -->
+                        <div class="p-3.5 rounded-xl bg-[#fafcfb] border border-slate-200/80 hover:border-blue-400 transition flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-base">
+                                    <i class="fa-solid fa-file-shield"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-slate-800">DLT Compliance & Registration</div>
+                                    <div class="text-xs text-slate-500">Free entity & header approval help</div>
+                                </div>
+                            </div>
+                            <button type="button" onclick="openModall()" class="px-3 py-1 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-600 hover:text-white font-bold text-xs transition">
+                                Inquire
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- System Status Bar -->
+                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span>Telecom Gateway Status: <strong class="text-slate-700">Operational</strong></span>
+                        </span>
+                        <span class="font-mono text-emerald-700 font-bold">99.98% Uptime</span>
+                    </div>
                 </div>
-
             </div>
 
         </div>
-
     </div>
-
 </section>
 
-{{-- =========================
-    HERO SECTION END
-========================= --}}
-{{-- =======================================
-        PREMIUM CONTACT INFO CARDS
-======================================= --}}
-
-<section class="relative -mt-8 z-20 pb-12">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-5">
-
-
-            {{-- Call Sales --}}
-            <div
-                class="group bg-white/90 backdrop-blur rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-1">
-
-                <div
-                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-green-600 text-white flex items-center justify-center text-xl shadow-lg mb-4 group-hover:scale-110 transition">
-
-                    <i class="fas fa-phone-alt"></i>
-
+<!-- =========================================================
+     STRUCTURED CONTACT INFO TILES
+========================================================= -->
+<section class="py-8 bg-white border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            
+            <div class="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/80 hover:border-emerald-400 transition">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-[#049a3d] flex items-center justify-center text-lg mb-3">
+                    <i class="fa-solid fa-building"></i>
                 </div>
-
-
-                <h3 class="text-lg font-bold text-gray-900">
-                    Call Sales
-                </h3>
-
-                <p class="text-sm text-gray-500 mt-1">
-                    Speak with our experts.
+                <h3 class="text-sm font-bold text-slate-900">Head Office</h3>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                    Textora Technologies Pvt. Ltd.<br>
+                    5a, 1A Cross Rd, Dollar Scheme Colony, 1st Stage, BTM 1st Stage, Bengaluru, Karnataka 560068
                 </p>
-
-
-                <a href="tel:+919187054466"
-                    class="inline-flex items-center gap-2 mt-4 text-green-600 font-semibold text-sm hover:text-green-700">
-
-                    +91 9187054466
-                    <span>→</span>
-
-                </a>
-
+                <div class="mt-3 text-[11px] font-bold text-[#049a3d]">Mon – Sat: 9:30 AM – 7:00 PM</div>
             </div>
 
-
-
-
-            {{-- Email --}}
-            <div
-                class="group bg-white/90 backdrop-blur rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-1">
-
-
-                <div
-                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 text-white flex items-center justify-center text-xl shadow-lg mb-4 group-hover:scale-110 transition">
-
-                    <i class="fas fa-envelope"></i>
-
+            <div class="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/80 hover:border-emerald-400 transition">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-[#049a3d] flex items-center justify-center text-lg mb-3">
+                    <i class="fa-solid fa-phone"></i>
                 </div>
-
-
-                <h3 class="text-lg font-bold text-gray-900">
-                    Email Us
-                </h3>
-
-
-                <p class="text-sm text-gray-500 mt-1">
-                    Send your enquiry anytime.
+                <h3 class="text-sm font-bold text-slate-900">Call Us</h3>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                    Sales: +91 91870 54466<br>
+                    Enterprise: +91 761 400 0000
                 </p>
-
-
-                <a href="mailto:support@textorasms.com"
-                    class="inline-flex mt-4 text-blue-600 font-semibold text-sm hover:text-blue-700">
-
-                    support@textorasms.com
-
-                </a>
-
-
+                <a href="tel:+919187054466" class="mt-3 inline-block text-[11px] font-bold text-[#049a3d] hover:underline">Click to call &rarr;</a>
             </div>
 
-
-
-
-            {{-- WhatsApp --}}
-            <div
-                class="group bg-white/90 backdrop-blur rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-1">
-
-
-                <div
-                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 text-white flex items-center justify-center text-xl shadow-lg mb-4 group-hover:scale-110 transition">
-
-                    <i class="fab fa-whatsapp"></i>
-
+            <div class="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/80 hover:border-emerald-400 transition">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-[#049a3d] flex items-center justify-center text-lg mb-3">
+                    <i class="fa-solid fa-envelope"></i>
                 </div>
-
-
-                <h3 class="text-lg font-bold text-gray-900">
-                    WhatsApp
-                </h3>
-
-
-                <p class="text-sm text-gray-500 mt-1">
-                    Instant team support.
+                <h3 class="text-sm font-bold text-slate-900">Email Inquiries</h3>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                    Sales: sales@textorasms.com<br>
+                    Support: support@textorasms.com
                 </p>
-
-
-                <a href="https://wa.me/919187054466"
-                    target="_blank"
-                    class="inline-flex items-center gap-2 mt-4 text-green-600 font-semibold text-sm">
-
-                    Start Chat
-                    <span>→</span>
-
-                </a>
-
-
+                <a href="mailto:support@textorasms.com" class="mt-3 inline-block text-[11px] font-bold text-[#049a3d] hover:underline">Write an email &rarr;</a>
             </div>
 
-
-
-
-            {{-- Office --}}
-            <div
-                class="group bg-white/90 backdrop-blur rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 p-6 hover:-translate-y-1">
-
-
-                <div
-                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 text-white flex items-center justify-center text-xl shadow-lg mb-4 group-hover:scale-110 transition">
-
-
-                    <i class="fas fa-map-marker-alt"></i>
-
-
+            <div class="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/80 hover:border-emerald-400 transition">
+                <div class="w-10 h-10 rounded-xl bg-emerald-50 text-[#049a3d] flex items-center justify-center text-lg mb-3">
+                    <i class="fa-brands fa-whatsapp"></i>
                 </div>
-
-
-                <h3 class="text-lg font-bold text-gray-900">
-                    Visit Office
-                </h3>
-
-
-                <p class="text-sm text-gray-500 mt-1">
-                    BTM Layout, Bengaluru
+                <h3 class="text-sm font-bold text-slate-900">WhatsApp Connect</h3>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                    Instant Chat Support<br>
+                    Live Demo scheduling
                 </p>
-
-
-                <a href="https://maps.app.goo.gl/YZ6g564PG73fUGuq7"
-                    target="_blank"
-                    class="inline-flex items-center gap-2 mt-4 text-orange-600 font-semibold text-sm">
-
-                    Get Directions
-                    <span>→</span>
-
-                </a>
-
-
+                <a href="https://wa.me/919187054466" target="_blank" class="mt-3 inline-block text-[11px] font-bold text-[#049a3d] hover:underline">Open WhatsApp &rarr;</a>
             </div>
-
 
         </div>
-
     </div>
-
 </section>
 
-{{-- =======================================
-        PREMIUM CONTACT INFO CARDS END
-======================================= --}}
-{{-- ===========================
-    PREMIUM CONTACT SECTION START
-=========================== --}}
-
-<section id="contact-form" class="py-24 bg-gradient-to-b from-[#F8FBF9] via-white to-[#F8FBF9]">
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-        {{-- Heading --}}
-        <div class="text-center mb-14">
-
-            <span
-                class="inline-flex items-center rounded-full bg-green-100 px-5 py-2 text-sm font-semibold text-green-700">
-                Contact Us
+<!-- =========================================================
+     INQUIRY FORM & LOCATION SECTION
+========================================================= -->
+<section id="contact-form" class="py-12 lg:py-16 bg-[#fafcfb]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-paper-plane text-emerald-600"></i>
+                Send Message
             </span>
-
-            <h2 class="mt-5 text-4xl lg:text-5xl font-bold text-gray-900">
-                We'd Love To Hear From You
+            <h2 class="mt-2 text-3xl font-black text-slate-900 tracking-tight">
+                Get a Customized Proposal
             </h2>
-
-            <p class="mt-4 text-lg text-gray-500 max-w-3xl mx-auto">
-                Whether you need Bulk SMS, WhatsApp Business API, RCS Messaging,
-                Voice SMS or Email Marketing, our team is here to help.
+            <p class="mt-1 text-xs sm:text-sm text-slate-500">
+                Fill in your project requirements and our team will get back to you with pricing, platform walkthrough, or free DLT assistance.
             </p>
-
         </div>
 
-        <div class="grid lg:grid-cols-3 gap-8 items-start">
-
-            {{-- ==========================================
-                CONTACT FORM
-            =========================================== --}}
-
-            <div
-                class="lg:col-span-2 bg-white rounded-[28px] border border-gray-100 shadow-xl p-6 lg:p-8 h-fit">
-
-                <div class="mb-5">
-
-                    <h3 class="text-2xl md:text-3xl font-bold text-gray-900">
-                        Send Us A Message
-                    </h3>
-
-                <p class="text-sm text-gray-500 mt-2">
-                        Fill in the form below and our team will get back to you shortly.
-                    </p>
-
-                </div>
-
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Contact Form -->
+            <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
                 <form method="POST"
-                    action="{{ url('enquiry-web') }}"
-                    id="contact-frm"
-                    onsubmit="return validateContactForm(event)"
-                    class="space-y-4"
-
+                      action="{{ url('enquiry-web') }}"
+                      id="contact-frm"
+                      onsubmit="return validateContactForm(event)"
+                      class="space-y-4">
+                    
                     @csrf
+                    <input type="hidden" name="isFormType" value="Contact">
 
-                    <input
-                        type="hidden"
-                        name="isFormType"
-                        value="Contact">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
+                            <input type="text" name="name" required placeholder="John Doe"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-[#049a3d] focus:border-[#049a3d] outline-none transition">
+                        </div>
 
-                    {{-- Row 1 --}}
-
-                    <div class="grid md:grid-cols-2 gap-5">
-
-                        <input
-                            type="text"
-                            name="name"
-                            required
-                            minlength="2"
-                            maxlength="50"
-                            placeholder="Full Name*"
-                            class="w-full rounded-xl border border-gray-200 px-5 py-3.5 focus:border-green-500 focus:ring-green-500">
-
-                        <input
-                            type="text"
-                            name="company"
-                            placeholder="Company Name"
-                            class="w-full rounded-xl border border-gray-200 px-5 py-3.5 focus:border-green-500 focus:ring-green-500">
-
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Mobile / WhatsApp Number *</label>
+                            <input type="tel" name="mobile" required placeholder="+91 98765 43210"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-[#049a3d] focus:border-[#049a3d] outline-none transition">
+                        </div>
                     </div>
 
-                    {{-- Row 2 --}}
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Business Email *</label>
+                            <input type="email" name="email" required placeholder="name@company.com"
+                                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-[#049a3d] focus:border-[#049a3d] outline-none transition">
+                        </div>
 
-                    <div class="grid md:grid-cols-2 gap-5">
-
-                        <input
-                            type="email"
-                            name="email"
-                            required
-                            placeholder="Email Address*"
-                            class="w-full rounded-xl border border-gray-200 px-5 py-3.5 focus:border-green-500 focus:ring-green-500">
-
-                        <input
-                            type="tel"
-                            name="contact"
-                            required
-                            minlength="10"
-                            maxlength="15"
-                            pattern="[0-9]{10,15}"
-                            placeholder="Phone Number*"
-                            class="w-full rounded-xl border border-gray-200 px-5 py-3.5 focus:border-green-500 focus:ring-green-500">
-
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Service / Solution of Interest *</label>
+                            <select name="service" required
+                                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-[#049a3d] focus:border-[#049a3d] outline-none transition bg-white">
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="WhatsApp Business API">WhatsApp Business API</option>
+                                <option value="Bulk SMS & OTP Gateway">Bulk SMS & OTP Gateway (DLT)</option>
+                                <option value="RCS Business Messaging">RCS Business Messaging</option>
+                                <option value="Voice Call OBD & IVR">Voice Call OBD & IVR</option>
+                                <option value="Textora CRM Suite">Textora CRM Suite (Purchase/SaaS)</option>
+                                <option value="Textora HRMS Suite">Textora HRMS Suite (Purchase/SaaS)</option>
+                                <option value="Website Development">Website & Software Development</option>
+                                <option value="Reseller Program">Reseller Partner Program</option>
+                            </select>
+                        </div>
                     </div>
-
-                    {{-- Service --}}
 
                     <div>
-
-                        <select
-                            name="service"
-                            class="w-full rounded-xl border border-gray-200 px-5 py-3.5 focus:border-green-500 focus:ring-green-500">
-
-                            <option value="">
-                                Service Interested In*
-                            </option>
-
-                            <option>
-                                Bulk SMS
-                            </option>
-
-                            <option>
-                                WhatsApp Business API
-                            </option>
-
-                            <option>
-                                RCS Messaging
-                            </option>
-
-                            <option>
-                                Voice SMS
-                            </option>
-
-                            <option>
-                                Email Marketing
-                            </option>
-
-                            <option>
-                                Website Development
-                            </option>
-
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Estimated Monthly Volume / Timeline</label>
+                        <select name="volume"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-[#049a3d] focus:border-[#049a3d] outline-none transition bg-white">
+                            <option value="Under 25,000 / Starter">Under 25,000 messages / Starter</option>
+                            <option value="25,000 - 100,000 / Growth">25,000 – 100,000 messages / Growth</option>
+                            <option value="100,000 - 1,000,000 / Enterprise">100,000 – 1,000,000 messages / Enterprise</option>
+                            <option value="1M+ High Volume / Dedicated Pipe">1M+ High Volume / Dedicated Pipe</option>
+                            <option value="Software Product Purchase / CRM / HRMS">Software Product Purchase (CRM / HRMS)</option>
                         </select>
-
                     </div>
-
-                    {{-- Message --}}
 
                     <div>
-
-                        <textarea
-                            rows="5"
-                            name="message"
-                            required
-                            placeholder="Your Message*"
-                            class="w-full rounded-xl border border-gray-200 px-5 py-4 focus:border-green-500 focus:ring-green-500"></textarea>
-
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Tell Us About Your Requirements</label>
+                        <textarea name="message" rows="3" placeholder="Please share details about your use-case, existing systems, or questions..."
+                                  class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm focus:ring-2 focus:ring-[#049a3d] focus:border-[#049a3d] outline-none transition"></textarea>
                     </div>
-{{-- Checkbox --}}
-<div class="flex items-start mt-6">
 
-    <input
-        type="checkbox"
-        id="terms"
-        name="terms"
-        required
-        class="mt-1 h-5 w-5 rounded border-gray-300 text-[#049A3D] focus:ring-[#049A3D]">
-
-    <div class="ml-3 text-sm">
-
-        <label for="terms" class="text-gray-600 leading-relaxed cursor-pointer">
-
-            I agree to Textora
-            <a href="{{ url('/privacy-policy') }}"
-               class="text-[#049A3D] font-medium hover:underline">
-                Privacy Policy
-            </a>
-            and consent to receive marketing and transactional updates via
-            RCS, SMS, WhatsApp and email.
-
-        </label>
-
-    </div>
-
-</div>
-                    {{-- Button --}}
-
-                    <button
-                        type="submit"
-                        class="w-full rounded-xl bg-gradient-to-r from-green-600 to-green-500 py-4 text-white font-semibold text-lg shadow-lg transition duration-300 hover:scale-[1.01] hover:shadow-xl">
-
-                        Send Message 🚀
-
+                    <button type="submit"
+                            class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#049a3d] to-[#038334] text-white font-bold text-sm shadow-md hover:shadow-lg transition">
+                        Submit Inquiry & Get Free Quote
                     </button>
 
+                    <p class="text-[11px] text-slate-400 text-center mt-2">
+                        🔒 Your data is protected by strict confidentiality. No spam guaranteed.
+                    </p>
                 </form>
-
             </div>
 
-            {{-- RIGHT SIDEBAR STARTS IN PART 2 --}}
-                        {{-- ==========================================
-                RIGHT SIDEBAR
-            =========================================== --}}
-<div class="bg-gradient-to-br from-[#F8FCF9] to-white rounded-[28px] border border-green-100 shadow-lg p-6">
-
-
-    {{-- Top Section --}}
-    <div class="relative">
-
-
-        {{-- Heading --}}
-        <h3 class="text-[22px] font-bold text-gray-900 leading-tight max-w-[220px]">
-
-            Need Immediate
-            Assistance?
-
-        </h3>
-
-
-        <p class="mt-2 text-xs text-gray-500 leading-5 max-w-[230px]">
-
-            Our team is available to help you with all your business communication requirements.
-
-        </p>
-
-
-
-        {{-- Headphone Image --}}
-        <div class="absolute right-0 top-0">
-
-            <img 
-                src="{{ asset('images/headphone.png') }}"
-                class="w-32 xl:w-36 object-contain"
-                alt="Support">
-
-        </div>
-
-
-
-    </div>
-
-
-
-
-    {{-- Contact Details --}}
-    <div class="mt-8 space-y-4">
-
-
-        {{-- Item --}}
-        <div class="flex items-center gap-3">
-
-            <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center text-lg">
-                📞
-            </div>
-
-
-            <div>
-                <p class="text-[11px] font-bold text-gray-500 uppercase">
-                    Sales Team
-                </p>
-
-                <p class="text-sm font-bold text-gray-900">
-                    +91 9187054466
-                </p>
-            </div>
-
-        </div>
-
-
-
-
-        <div class="flex items-center gap-3">
-
-            <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center text-lg">
-                ✉️
-            </div>
-
-
-            <div>
-
-                <p class="text-[11px] font-bold text-gray-500 uppercase">
-                    Support Email
-                </p>
-
-                <p class="text-sm font-bold text-gray-900">
-                    support@textorasms.com
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-
-
-        <div class="flex items-center gap-3">
-
-            <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center text-lg">
-                🕒
-            </div>
-
-
-            <div>
-
-                <p class="text-[11px] font-bold text-gray-500 uppercase">
-                    Business Hours
-                </p>
-
-                <p class="text-sm font-bold text-gray-900">
-                    Mon - Sat | 10 AM - 7 PM
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-
-
-        <div class="flex items-center gap-3">
-
-            <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center text-lg">
-                ⚡
-            </div>
-
-
-            <div>
-
-                <p class="text-[11px] font-bold text-gray-500 uppercase">
-                    Response Time
-                </p>
-
-                <p class="text-sm font-bold text-green-600">
-                    Less than 30 Minutes
-                </p>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-
-
-    {{-- Divider --}}
-    <div class="border-t border-gray-200 my-6"></div>
-
-
-
-
-    {{-- Why Contact --}}
-    <h3 class="text-xl font-bold text-gray-900 mb-4">
-
-        Why Contact Textora?
-
-    </h3>
-
-
-
-
-    <div class="grid grid-cols-4 gap-2">
-
-
-        <div class="rounded-xl border border-gray-200 p-3 text-center">
-
-            <div class="text-lg">
-                🚀
-            </div>
-
-            <p class="text-xs font-bold mt-1">
-                Fast
-            </p>
-
-            <span class="text-[10px] text-gray-500">
-                Onboarding
-            </span>
-
-        </div>
-
-
-
-        <div class="rounded-xl border border-gray-200 p-3 text-center">
-
-            <div class="text-lg">
-                🛡️
-            </div>
-
-            <p class="text-xs font-bold mt-1">
-                Enterprise
-            </p>
-
-            <span class="text-[10px] text-gray-500">
-                Security
-            </span>
-
-        </div>
-
-
-
-
-        <div class="rounded-xl border border-gray-200 p-3 text-center">
-
-            <div class="text-lg">
-                👨‍💼
-            </div>
-
-            <p class="text-xs font-bold mt-1">
-                Dedicated
-            </p>
-
-            <span class="text-[10px] text-gray-500">
-                Manager
-            </span>
-
-        </div>
-
-
-
-
-        <div class="rounded-xl border border-gray-200 p-3 text-center">
-
-            <div class="text-lg">
-                ⚙️
-            </div>
-
-            <p class="text-xs font-bold mt-1">
-                Custom
-            </p>
-
-            <span class="text-[10px] text-gray-500">
-                Solutions
-            </span>
-
-        </div>
-
-
-    </div>
-
-
-</div>
-</section>
-<!-- Company Info Section -->
-<section class="company-info" style="padding:70px 20px;background:#f8f9fa;">
-
-    <div style="
-        max-width:1200px;
-        margin:auto;
-        display:flex;
-        justify-content:space-between;
-        align-items:flex-start;
-        gap:70px;
-        flex-wrap:wrap;
-    ">
-
-        <!-- Company -->
-        <div style="flex:1;min-width:280px;">
-
-            <h2 style="
-                font-size:32px;
-                font-weight:700;
-                color:#111;
-                line-height:1.3;
-                margin:0 0 20px;
-            ">
-                Textora Technologies <br> Pvt Ltd
-            </h2>
-
-            <p style="
-                color:#666;
-                font-size:17px;
-                line-height:1.8;
-                margin:0;
-            ">
-                Business Communication &
-                Digital Solutions Platform
-            </p>
-
-        </div>
-
-        <!-- Registered Office -->
-        <div style="flex:1;min-width:280px;">
-
-            <h3 style="
-                font-size:28px;
-                font-weight:700;
-                color:#111;
-                margin:0 0 20px;
-            ">
-                Registered Office
-            </h3>
-
-            <p style="
-                color:#666;
-                font-size:17px;
-                line-height:1.9;
-                margin:0;
-            ">
-               5a, 1A Cross Rd, near Silk Board Metro Station, Dollar Scheme Colony, 1st Stage, <br>BTM 1st Stage, Bengaluru, Karnataka 560068
-            </p>
-
-        </div>
-
-        <!-- Social Media -->
-        <div style="flex:1;min-width:280px;">
-
-            <h3 style="
-                font-size:28px;
-                font-weight:700;
-                color:#111;
-                margin:0 0 20px;
-            ">
-                Connect With Us
-            </h3>
-
-            <div style="display:flex;gap:16px;">
-
-                <a href="https://www.linkedin.com/company/textora-technologies-pvt-ltd"
-                   target="_blank"
-                   style="
-                        width:52px;
-                        height:52px;
-                        border-radius:50%;
-                        background:#0A66C2;
-                        color:#fff;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        text-decoration:none;
-                        font-size:22px;
-                        transition:.3s;
-                        box-shadow:0 8px 18px rgba(0,0,0,.15);
-                   ">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-
-                <a href="https://www.instagram.com/textoratech/"
-                   target="_blank"
-                   style="
-                        width:52px;
-                        height:52px;
-                        border-radius:50%;
-                        background:#E4405F;
-                        color:#fff;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        text-decoration:none;
-                        font-size:22px;
-                        transition:.3s;
-                        box-shadow:0 8px 18px rgba(0,0,0,.15);
-                   ">
-                    <i class="fab fa-instagram"></i>
-                </a>
-
-                <a href="https://www.facebook.com/people/Textora-Technologies-Pvt-Ltd/61584312038555/"
-                   target="_blank"
-                   style="
-                        width:52px;
-                        height:52px;
-                        border-radius:50%;
-                        background:#1877F2;
-                        color:#fff;
-                        display:flex;
-                        align-items:center;
-                        justify-content:center;
-                        text-decoration:none;
-                        font-size:22px;
-                        transition:.3s;
-                        box-shadow:0 8px 18px rgba(0,0,0,.15);
-                   ">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>{{-- ===========================
-    GOOGLE MAP SECTION START
-=========================== --}}
-
-<section class="py-10 bg-white">
-
-    <div class="w-full">
-
-        <!-- Heading -->
-        <div class="text-center mb-6 px-6">
-
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900">
-                Visit Our Office
-            </h2>
-
-            <p class="mt-3 text-lg text-gray-600">
-                Textora Technologies Pvt Ltd, Bengaluru
-            </p>
-
-        </div>
-
-        <!-- Google Map -->
-        <div class="overflow-hidden shadow-xl border-t border-b border-gray-200">
-
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8548946956325!2d77.6163425751674!3d12.9170462873933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae14fa06a2f323%3A0x9c377e39a4deeada!2s5a%2C%201A%20Cross%20Rd%2C%20Dollar%20Scheme%20Colony%2C%20Stage%202%2C%20BTM%20Layout%2C%20Bengaluru%2C%20Karnataka%20560068!5e0!3m2!1sen!2sin!4v1765187783058!5m2!1sen!2sin"
-                class="w-full h-[450px] md:h-[500px] lg:h-[550px]"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Textora Technologies Pvt Ltd Location">
-            </iframe>
-
-        </div>
-
-    </div>
-
-</section>
-
-{{-- ===========================
-    GOOGLE MAP SECTION END
-=========================== --}}
-{{-- ===========================
-    FAQ SECTION START
-=========================== --}}
-
-<section class="py-20 bg-gray-50">
-
-    <div class="max-w-5xl mx-auto px-6">
-
-        <div class="text-center mb-12">
-
-            <span class="inline-block px-4 py-2 bg-green-100 text-[#049A3D] rounded-full font-semibold text-sm">
-                FAQ
-            </span>
-
-            <h2 class="text-4xl md:text-5xl font-bold mt-5 text-gray-900">
-                Frequently Asked Questions
-            </h2>
-
-            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
-                Get quick answers to common questions about WhatsApp Business API,
-                Bulk SMS, RCS Messaging and our communication solutions.
-            </p>
-
-        </div>
-
-        <div class="space-y-4">
-
-            <!-- FAQ 1 -->
-            <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-
-                <button
-                    class="faq-btn w-full flex justify-between items-center p-6 text-left">
-
-                    <span class="font-semibold text-lg text-gray-900">
-                        What services does Textora Technologies provide?
-                    </span>
-
-                    <span class="faq-icon text-3xl font-light text-[#049A3D]">+</span>
-
-                </button>
-
-                <div class="faq-content hidden px-6 pb-6 text-gray-600 leading-8">
-                    We provide WhatsApp Business API, Bulk SMS, RCS Messaging,
-                    Voice OBD, OTP SMS, Promotional SMS and complete business
-                    communication solutions.
+            <!-- Google Map & Office Info -->
+            <div class="lg:col-span-5 space-y-6">
+                
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
+                    <h3 class="text-base font-bold text-slate-900 mb-2">Visit Our Corporate Office</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        We welcome prospective enterprise partners and clients for in-person consultations, system demos, and architectural planning sessions.
+                    </p>
+
+                    <div class="rounded-2xl overflow-hidden border border-slate-200 h-[260px] bg-slate-100">
+                        <iframe 
+                            src="https://maps.google.com/maps?q=5a,+1A+Cross+Rd,+Dollar+Scheme+Colony,+1st+Stage,+BTM+1st+Stage,+Bengaluru,+Karnataka+560068&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-[#049a3d]"></i> BTM 1st Stage, Bengaluru, Karnataka</span>
+                        <a href="https://maps.app.goo.gl/YZ6g564PG73fUGuq7" target="_blank" class="font-bold text-[#049a3d] hover:underline">Open in Google Maps &rarr;</a>
+                    </div>
                 </div>
 
-            </div>
-
-            <!-- FAQ 2 -->
-            <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-
-                <button
-                    class="faq-btn w-full flex justify-between items-center p-6 text-left">
-
-                    <span class="font-semibold text-lg text-gray-900">
-                        Can I get a free demo before purchasing?
-                    </span>
-
-                    <span class="faq-icon text-3xl font-light text-[#049A3D]">+</span>
-
-                </button>
-
-                <div class="faq-content hidden px-6 pb-6 text-gray-600 leading-8">
-                    Yes. We offer a free product demo to help you understand our
-                    platform and choose the best communication solution for your
-                    business.
-                </div>
-
-            </div>
-
-            <!-- FAQ 3 -->
-            <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-
-                <button
-                    class="faq-btn w-full flex justify-between items-center p-6 text-left">
-
-                    <span class="font-semibold text-lg text-gray-900">
-                        How long does WhatsApp API setup take?
-                    </span>
-
-                    <span class="faq-icon text-3xl font-light text-[#049A3D]">+</span>
-
-                </button>
-
-                <div class="faq-content hidden px-6 pb-6 text-gray-600 leading-8">
-                    The setup time depends on Meta verification and business
-                    documents. In most cases, activation is completed within a
-                    few business days after approval.
-                </div>
-
-            </div>
-
-            <!-- FAQ 4 -->
-            <div class="faq-item bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
-
-                <button
-                    class="faq-btn w-full flex justify-between items-center p-6 text-left">
-
-                    <span class="font-semibold text-lg text-gray-900">
-                        Do you provide technical support after setup?
-                    </span>
-
-                    <span class="faq-icon text-3xl font-light text-[#049A3D]">+</span>
-
-                </button>
-
-                <div class="faq-content hidden px-6 pb-6 text-gray-600 leading-8">
-                    Yes. Our technical team provides support for API integration,
-                    campaign management, troubleshooting and onboarding.
+                <!-- Trust Box -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl p-6 text-white border border-slate-800">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+                            <i class="fa-solid fa-shield-check"></i>
+                        </div>
+                        <h4 class="text-sm font-bold text-white">DLT Regulatory Guarantee</h4>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Every messaging template and sender header provisioned through Textora complies 100% with TRAI Indian telecom standards, preventing message blocking and fine risks.
+                    </p>
                 </div>
 
             </div>
@@ -1060,148 +362,20 @@
         </div>
 
     </div>
-
 </section>
 
-{{-- ===========================
-    FAQ SECTION END
-=========================== --}}
+</main>
 
-
-{{-- ===========================
-    PREMIUM BOTTOM CTA
-=========================== --}}
-
-<section class="relative py-16 overflow-hidden bg-[#0F172A]">
-
-    <!-- Background -->
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0D3D2C] via-[#145A40] to-[#0D3D2C] opacity-100"></div>
-
-    <!-- Glow -->
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[520px] h-[520px] bg-green-500/20 rounded-full blur-[170px]"></div>
-    <div class="absolute bottom-[-180px] right-[-120px] w-96 h-96 bg-emerald-400/10 rounded-full blur-[150px]"></div>
-    <div class="absolute top-[-120px] left-[-100px] w-80 h-80 bg-green-300/10 rounded-full blur-[120px]"></div>
-
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
-
-        <div class="rounded-[36px] border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl px-8 md:px-14 py-14 text-center">
-
-            <!-- Badge -->
-            <span class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-green-500/10 border border-green-400/20 text-green-300 text-sm font-semibold">
-
-                <i class="fas fa-rocket"></i>
-                Let's Connect
-
-            </span>
-
-            <!-- Heading -->
-            <h2 class="mt-6 text-4xl lg:text-5xl font-black text-white leading-tight">
-
-                Ready To Grow Your
-
-                <span class="text-green-400">
-                    Business With Textora?
-                </span>
-
-            </h2>
-
-            <!-- Description -->
-            <p class="mt-5 max-w-3xl mx-auto text-lg text-gray-300 leading-8">
-
-                Connect with our experts and launch powerful
-                <strong class="text-white">
-                    WhatsApp Business API, Bulk SMS, RCS Messaging,
-                    Email Marketing and Voice Solutions
-                </strong>
-                for your business.
-
-            </p>
-
-            <!-- Buttons -->
-            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-5">
-
-                <a href="#contact-form"
-                    class="px-9 py-4 rounded-xl bg-green-500 hover:bg-green-600 text-white font-semibold shadow-xl transition duration-300">
-
-                    Get Free Demo
-
-                </a>
-
-                <a href="https://wa.me/919187054466"
-                    target="_blank"
-                    class="px-9 py-4 rounded-xl border border-white/20 bg-white/5 hover:bg-white hover:text-green-700 text-white font-semibold transition duration-300">
-
-                    Chat on WhatsApp
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-{{-- ===========================
-    PREMIUM BOTTOM CTA END
-=========================== --}}
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* ==========================
-       FAQ Accordion
-    ========================== */
-    const faqButtons = document.querySelectorAll(".faq-btn");
-
-    faqButtons.forEach(button => {
-
-        button.addEventListener("click", function () {
-
-            const item = this.closest(".faq-item");
-            const content = item.querySelector(".faq-content");
-            const icon = item.querySelector(".faq-icon");
-
-            const isOpen = !content.classList.contains("hidden");
-
-            // Close all FAQs
-            document.querySelectorAll(".faq-item").forEach(faq => {
-                faq.querySelector(".faq-content").classList.add("hidden");
-                faq.querySelector(".faq-icon").textContent = "+";
-            });
-
-            // Open clicked FAQ
-            if (!isOpen) {
-                content.classList.remove("hidden");
-                icon.textContent = "−";
-            }
-
-        });
-
-    });
-
-});
-
-
-/* ==========================
-   Contact Form Validation
-========================== */
 function validateContactForm(event) {
-
-    const form = document.getElementById("contact-frm");
-
+    const form = document.getElementById('contact-frm');
     if (!form.checkValidity()) {
-
         event.preventDefault();
         event.stopPropagation();
-
-        alert("Please fill in all required fields correctly.");
-
+        alert('Please fill in all required fields correctly.');
         form.reportValidity();
-
         return false;
     }
-
     return true;
 }
 </script>

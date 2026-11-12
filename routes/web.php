@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientMasterController;
 use App\Http\Controllers\EnquiryMasterController;
+use App\Http\Controllers\PortfolioMasterController;
 use App\Http\Controllers\PricingMasterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -29,6 +30,7 @@ Route::view('/about-us', 'Website.about_us');
 // In routes/web.php (or relevant routes file) - unchanged
 Route::get('/pricing-web', [PricingMasterController::class, 'pricing_web_view']);
 Route::view('/contact-us', 'Website.contact_us');
+Route::get('/portfolio', [PortfolioMasterController::class, 'portfolio_web_view'])->name('portfolio.web');
 Route::view('/term-and-Conditions', 'Website.terms_condition');
 Route::view('/privacy-policy', 'Website.privacy_policy');
 Route::view('/refund_policy', 'Website.refund_policy');
@@ -100,6 +102,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('clients', ClientMasterController::class);
     Route::resource('pricing', PricingMasterController::class);
     Route::resource('blog', VlogMastersController::class);
+    Route::resource('portfolio-manage', PortfolioMasterController::class)->names('portfolio');
     Route::resource('enquiry', EnquiryMasterController::class);
 });
 

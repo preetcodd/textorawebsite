@@ -627,8 +627,7 @@ window.whatsappPlans = @json($whatsappPlans);
 </script>
    
  {{-- WhatsApp Pricing Calculator --}}
-<div id="whatsapp-calculator"
-    class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<div id="whatsapp-calculator" class="scroll-mt-24 md:scroll-mt-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 <div class="text-center mb-10">
     
 
@@ -1377,6 +1376,22 @@ if (whatsappTab) {
     const defaultTab = document.querySelector('.product-tab');
     if (defaultTab) defaultTab.click();
 }
+
+/* Deep link scroll directly to calculator if #whatsapp-calculator or #calculator is in URL */
+function handleCalculatorScroll() {
+    const hash = window.location.hash;
+    if (hash === '#whatsapp-calculator' || hash === '#calculator' || hash === '#pricing-calculator') {
+        if (whatsappTab) whatsappTab.click();
+        setTimeout(function() {
+            const calcEl = document.getElementById('whatsapp-calculator');
+            if (calcEl) {
+                calcEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 200);
+    }
+}
+handleCalculatorScroll();
+window.addEventListener('hashchange', handleCalculatorScroll);
 
         });
         function sendWhatsappQuote() {

@@ -15,6 +15,7 @@ node_modules/
 public/build/
 public/
 public_html/storage/
+public_html/images/client-logo-backup/
 
 # GitHub
 .DS_Store
