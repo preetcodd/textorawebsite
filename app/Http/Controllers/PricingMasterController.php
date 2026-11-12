@@ -18,11 +18,11 @@ class PricingMasterController extends Controller
     }
     public function pricing_web_view()
     {
-        // Custom ordering for category: STARTER PLAN, BUSINESS PLAN, ENTERPRISE PLAN
+        // Custom ordering for category: STARTER PLAN, BUSINESS PLAN, ENTERPRISE PLAN (compatible with PostgreSQL, MySQL, SQLite)
         $pricings = PricingMaster::where('is_active', true)
             ->orderBy('service')
             ->orderBy('subcategory')
-            ->orderByRaw("FIELD(category, 'STARTER PLAN', 'BUSINESS PLAN', 'ENTERPRISE PLAN')")
+            ->orderByRaw("CASE category WHEN 'STARTER PLAN' THEN 1 WHEN 'BUSINESS PLAN' THEN 2 WHEN 'ENTERPRISE PLAN' THEN 3 ELSE 4 END")
             ->get()
             ->groupBy(['service', 'subcategory']);
 

@@ -25,6 +25,14 @@ Route::get('/dashboard-client', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard_client');
 
+// Admin shortcut route
+Route::get('/admin', function () {
+    if (\Illuminate\Support\Facades\Auth::check()) {
+        return redirect()->route('dashboard');
+    }
+    return redirect()->route('login');
+});
+
 Route::view('/about-us', 'Website.about_us');
 // Route::view('/pricing-web', 'Website.pricing_page');
 // In routes/web.php (or relevant routes file) - unchanged

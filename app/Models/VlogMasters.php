@@ -14,5 +14,6 @@ class VlogMasters extends Model
         'date',
         'title',
         'description',
+        'is_published',
     ];
 }
