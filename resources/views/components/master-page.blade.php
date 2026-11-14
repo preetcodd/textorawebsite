@@ -276,7 +276,7 @@
 
                      alt="Textora SMS Logo"
 
-                     class="w-[140px] sm:w-[175px] h-auto object-contain">
+                     class="w-[170px] sm:w-[210px] md:w-[230px] h-auto object-contain">
 
             </a>
 

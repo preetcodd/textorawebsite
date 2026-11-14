@@ -150,11 +150,11 @@
                     <div class="port-item flex flex-col justify-between bg-white rounded-3xl border border-slate-200 p-7 shadow-xs hover-card-elevate hover:border-emerald-500 transition duration-300" data-category="{{ e($item->category) }}">
                         <div>
                             <!-- Client Logo Header -->
-                            <div class="flex items-center justify-between pb-5 border-b border-slate-100">
-                                <div class="h-10 flex items-center">
-                                    <img src="{{ $item->logo_url }}" alt="{{ $item->client_name }}" class="h-8 max-h-9 w-auto max-w-[120px] object-contain">
+                            <div class="flex items-center justify-between gap-4 pb-5 border-b border-slate-100">
+                                <div class="h-14 sm:h-16 flex items-center">
+                                    <img src="{{ $item->logo_url }}" alt="{{ $item->client_name }}" class="h-10 sm:h-12 max-h-14 w-auto max-w-[150px] sm:max-w-[180px] object-contain">
                                 </div>
-                                <span class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+                                <span class="text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full shrink-0">
                                     {{ $item->badge }}
                                 </span>
                             </div>
