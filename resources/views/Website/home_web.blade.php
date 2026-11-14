@@ -63,7 +63,7 @@
      HERO SECTION
      Tighter top padding, reduced gap with header, outcome-focused
 ========================================================= -->
-<section class="relative pt-24 pb-12 sm:pt-28 md:pt-32 lg:pt-36 md:pb-16 bg-gradient-to-b from-[#f6faf7] via-[#fbfdfc] to-white overflow-hidden">
+<section class="relative pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-32 lg:pb-24 bg-[#fafafa] border-b border-slate-200/80 overflow-hidden">
     <!-- Subtle Background Glows -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[360px] bg-gradient-to-tr from-emerald-100/40 via-teal-100/30 to-transparent blur-3xl pointer-events-none"></div>
 
@@ -71,7 +71,7 @@
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <!-- Left: Hero Copy & Value Proposition -->
-            <div class="lg:col-span-7 text-center lg:text-left space-y-5">
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
                 
                 <!-- Trust Badge Pill -->
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold tracking-wide shadow-sm">
