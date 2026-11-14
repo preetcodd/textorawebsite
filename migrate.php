@@ -154,18 +154,36 @@ try {
         echo "<div class='item ok'>&#10004; Seeded 9 initial production case studies into 'portfolio_masters'!</div>";
     }
 
-    // Storage Symlink Check
+    // Storage Symlink Check & Upload Directories Preparation
     $pubStorage = $baseDir . '/public_html/storage';
     $appPub = $baseDir . '/storage/app/public';
+    $vlogsDir = $appPub . '/vlogs';
+    $tmpDir = $baseDir . '/storage/app/livewire-tmp';
+
+    // Ensure upload directories exist with 775 permissions
+    if (!is_dir($vlogsDir)) @mkdir($vlogsDir, 0775, true);
+    if (!is_dir($tmpDir)) @mkdir($tmpDir, 0775, true);
+    @chmod($appPub, 0775);
+    @chmod($vlogsDir, 0775);
+    @chmod($tmpDir, 0775);
+
+    // If public_html/storage exists as a regular folder (not a symlink), rename it to make way for symlink
+    if (file_exists($pubStorage) && !is_link($pubStorage)) {
+        @rename($pubStorage, $pubStorage . '_backup_' . date('Ymd_His'));
+    }
+
     if (!file_exists($pubStorage) && file_exists($appPub)) {
-        if (@symlink($appPub, $pubStorage)) {
+        if (@symlink('../storage/app/public', $pubStorage) || @symlink($appPub, $pubStorage)) {
             echo "<div class='item ok'>&#10004; Storage Symlink created (public_html/storage &rarr; storage/app/public)!</div>";
         } else {
-            echo "<div class='item ok'>&#10004; Dynamic storage fallback route active for image serving.</div>";
+            echo "<div class='item ok'>&#10004; Symlink function restricted. Dynamic Laravel storage route will serve images.</div>";
         }
     } else {
-        echo "<div class='item ok'>&#10004; Storage folder verified.</div>";
+        echo "<div class='item ok'>&#10004; Storage folder verified & linked!</div>";
     }
+
+    $imageCount = is_dir($vlogsDir) ? count(glob($vlogsDir . '/*')) : 0;
+    echo "<div class='item ok'>&#10004; Verified " . $imageCount . " blog image files in storage/app/public/vlogs/</div>";
 
     // Ensure pricing_masters extra cost columns exist
     try {

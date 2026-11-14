@@ -99,11 +99,22 @@ class VlogTable extends Component implements HasForms, HasTable
                                             ->default($record->description)
                                             ->required()
                                             ->label('Description'),
+                                        \Filament\Forms\Components\Toggle::make('is_published')
+                                            ->default($record->is_published)
+                                            ->label('Published on Website'),
                                     ])
                                     ->columns(2),
                             ]);
                         })
                         ->color('primary'),
+
+                    Action::make('toggle_status')
+                        ->label(fn(VlogMasters $record) => $record->is_published ? 'Unpublish' : 'Publish')
+                        ->icon(fn(VlogMasters $record) => $record->is_published ? 'heroicon-o-x-circle' : 'heroicon-o-check-circle')
+                        ->color(fn(VlogMasters $record) => $record->is_published ? 'warning' : 'success')
+                        ->action(function (VlogMasters $record) {
+                            $record->update(['is_published' => !$record->is_published]);
+                        }),
 
                     DeleteAction::make(),
                 ])

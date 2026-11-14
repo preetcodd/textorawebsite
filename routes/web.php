@@ -75,7 +75,32 @@ Route::get('/run-migration', function () {
         \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
         $migrateOutput = \Illuminate\Support\Facades\Artisan::output();
 
-        // Ensure storage link exists
+        // 1. Ensure storage folders and permissions exist for admin uploads
+        $vlogsDir = storage_path('app/public/vlogs');
+        $tmpDir = storage_path('app/livewire-tmp');
+        if (!is_dir($vlogsDir)) @mkdir($vlogsDir, 0775, true);
+        if (!is_dir($tmpDir)) @mkdir($tmpDir, 0775, true);
+        @chmod(storage_path('app/public'), 0775);
+        @chmod($vlogsDir, 0775);
+        @chmod($tmpDir, 0775);
+
+        // 2. Ensure public_html/storage symlink exists
+        $publicStorage = public_path('storage');
+        $targetStorage = storage_path('app/public');
+        if (file_exists($publicStorage) && !is_link($publicStorage)) {
+            @rename($publicStorage, $publicStorage . '_backup_' . date('Ymd_His'));
+        }
+
+        $symlinkResult = 'Already linked';
+        if (!file_exists($publicStorage) && file_exists($targetStorage)) {
+            if (@symlink('../storage/app/public', $publicStorage) || @symlink($targetStorage, $publicStorage)) {
+                $symlinkResult = 'Symlink created successfully (public_html/storage -> storage/app/public)';
+            } else {
+                $symlinkResult = 'Symlink function blocked by host. Dynamic route fallback active.';
+            }
+        }
+
+        // Try Artisan storage:link as well
         try {
             \Illuminate\Support\Facades\Artisan::call('storage:link');
             $storageOutput = \Illuminate\Support\Facades\Artisan::output();
@@ -83,23 +108,23 @@ Route::get('/run-migration', function () {
             $storageOutput = $stEx->getMessage();
         }
 
-        // Manual symlink fallback for shared hosting
-        $publicStorage = public_path('storage');
-        $targetStorage = storage_path('app/public');
-        if (!file_exists($publicStorage) && file_exists($targetStorage)) {
-            @symlink($targetStorage, $publicStorage);
-        }
-
         \Illuminate\Support\Facades\Artisan::call('optimize:clear');
         $optimizeOutput = \Illuminate\Support\Facades\Artisan::output();
 
+        $imageCount = is_dir($vlogsDir) ? count(glob($vlogsDir . '/*')) : 0;
+
         return "<div style='font-family:sans-serif;padding:30px;max-width:700px;margin:auto;'>"
              . "<h2 style='color:#16a34a;'>&#10004; Database Migrated & Storage Linked Successfully!</h2>"
+             . "<div style='background:#f0fdf4;border:1px solid #bbf7d0;padding:12px 16px;border-radius:8px;margin-bottom:15px;color:#166534;'>"
+             . "<strong>Storage Symlink:</strong> " . e($symlinkResult) . "<br>"
+             . "<strong>Blog Images in storage/app/public/vlogs:</strong> " . $imageCount . " files"
+             . "</div>"
              . "<pre style='background:#f1f5f9;padding:15px;border-radius:10px;font-size:13px;'>" 
              . e($migrateOutput) . "\n" 
              . e($storageOutput) . "\n" 
              . e($optimizeOutput) . "</pre>"
-             . "<p><a href='/' style='color:#16a34a;font-weight:bold;'>&larr; Go to Homepage</a></p>"
+             . "<p><a href='/blog_list' style='color:#16a34a;font-weight:bold;margin-right:15px;'>&larr; View Blog List</a>"
+             . "<a href='/' style='color:#0284c7;font-weight:bold;'>Go to Homepage &rarr;</a></p>"
              . "</div>";
     } catch (\Throwable $e) {
         return "<div style='font-family:sans-serif;padding:30px;max-width:700px;margin:auto;'>"
@@ -112,11 +137,26 @@ Route::get('/run-migration', function () {
 // Fail-safe storage route for blog & uploaded images if symlink is missing on shared hosting
 Route::get('/storage/{path}', function ($path) {
     $cleanPath = str_replace(['..', "\0"], '', $path);
+
+    // 1. Primary Laravel public storage disk
     $filePath = storage_path('app/public/' . $cleanPath);
-    if (!file_exists($filePath)) {
-        abort(404);
+    if (file_exists($filePath) && is_file($filePath)) {
+        return response()->file($filePath);
     }
-    return response()->file($filePath);
+
+    // 2. Direct public_html fallback
+    $altPath = public_path('storage/' . $cleanPath);
+    if (file_exists($altPath) && is_file($altPath)) {
+        return response()->file($altPath);
+    }
+
+    // 3. Base path fallback
+    $basePath = base_path('storage/app/public/' . $cleanPath);
+    if (file_exists($basePath) && is_file($basePath)) {
+        return response()->file($basePath);
+    }
+
+    abort(404);
 })->where('path', '.*');
 
 Route::view('/whatsapp-business-api', 'Website.whatsapp_business_api');

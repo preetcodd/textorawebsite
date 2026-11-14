@@ -64,6 +64,15 @@
                 <x-input.error-message>{{ $errors->first('description') }}</x-input.error-message>
             </div>
 
+            <!-- Publish Status -->
+            <div class="col-span-2 flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-lg">
+                <input type="checkbox" id="vlogPublish" wire:model="is_published"
+                    class="w-5 h-5 text-green-600 rounded focus:ring-green-500 cursor-pointer">
+                <label for="vlogPublish" class="text-sm font-medium text-gray-800 cursor-pointer select-none">
+                    Publish immediately (make visible on customer-facing Blog List)
+                </label>
+            </div>
+
         </x-grid>
 
         <x-slot name="footer">

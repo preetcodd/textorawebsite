@@ -16,12 +16,14 @@ class VlogCreate extends Component
     public $date;
     public $title;
     public $description;
+    public $is_published = true;
 
     protected $rules = [
         'image' => 'required|image|max:2048',
         'date' => 'required|date',
         'title' => 'required|string|max:255',
         'description' => 'required|string',
+        'is_published' => 'nullable|boolean',
     ];
 
     public function createVlog(): void
@@ -34,6 +36,12 @@ class VlogCreate extends Component
             'description' => 'required|string',
         ]);
 
+        // Ensure vlogs directory exists
+        $vlogsDir = storage_path('app/public/vlogs');
+        if (!is_dir($vlogsDir)) {
+            @mkdir($vlogsDir, 0775, true);
+        }
+
         // Store image in storage/app/public/vlogs
         $path = $this->image->store('vlogs', 'public');
 
@@ -43,7 +51,7 @@ class VlogCreate extends Component
             'date' => $this->date,
             'title' => $this->title,
             'description' => $this->description,
-            'is_published' => false,
+            'is_published' => (bool)$this->is_published,
         ]);
 
         // Close modal
@@ -54,6 +62,7 @@ class VlogCreate extends Component
 
         // Reset form fields
         $this->reset(['image', 'date', 'title', 'description']);
+        $this->is_published = true;
     }
 
 
