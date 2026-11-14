@@ -63,7 +63,7 @@
      HERO SECTION
      Tighter top padding, reduced gap with header, outcome-focused
 ========================================================= -->
-<section class="relative pt-8 pb-12 md:pt-12 md:pb-16 bg-gradient-to-b from-[#f6faf7] via-[#fbfdfc] to-white overflow-hidden">
+<section class="relative pt-24 pb-12 sm:pt-28 md:pt-32 lg:pt-36 md:pb-16 bg-gradient-to-b from-[#f6faf7] via-[#fbfdfc] to-white overflow-hidden">
     <!-- Subtle Background Glows -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[360px] bg-gradient-to-tr from-emerald-100/40 via-teal-100/30 to-transparent blur-3xl pointer-events-none"></div>
 
@@ -126,7 +126,7 @@
             </div>
 
             <!-- Right: Attractive Smartphone WhatsApp Experience Mockup (Enclosed & Modern) -->
-            <div class="lg:col-span-5 flex justify-center relative" data-aos="fade-left" data-aos-duration="700">
+            <div class="lg:col-span-5 flex justify-center relative pt-2 lg:pt-6" data-aos="fade-left" data-aos-duration="700">
                 
                 <!-- Ambient Backdrop Glow -->
                 <div class="absolute -top-10 -right-10 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -589,7 +589,7 @@
                 </div>
 
                 <div class="mt-6 pt-4 border-t border-slate-100">
-                    <a href="{{ url('/api-docs-web') }}" class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#049a3d] hover:text-emerald-800 transition">
+                    <a href="{{ url('/contact-us') }}" class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#049a3d] hover:text-emerald-800 transition">
                         <span>Read API Documentation</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
@@ -729,7 +729,7 @@
                     <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle text-emerald-400 text-[8px]"></i> 99.98% Gateway SLA</span>
                     <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-emerald-400 text-[10px]"></i> AES-256 Encrypted</span>
                 </div>
-                <a href="{{ url('/api-docs-web') }}" class="font-bold text-emerald-400 hover:text-emerald-300">Browse Full API Reference &rarr;</a>
+                <a href="{{ url('/contact-us') }}" class="font-bold text-emerald-400 hover:text-emerald-300">Browse Full API Reference &rarr;</a>
             </div>
         </div>
 

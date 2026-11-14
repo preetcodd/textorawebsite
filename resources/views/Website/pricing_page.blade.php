@@ -627,506 +627,309 @@ window.whatsappPlans = @json($whatsappPlans);
 </script>
    
  {{-- WhatsApp Pricing Calculator --}}
-<div id="whatsapp-calculator" class="scroll-mt-24 md:scroll-mt-28 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-<div class="text-center mb-10">
-    
-
-    <h2 class="text-5xl font-extrabold mt-5">
-        <span class="text-green-600">WhatsApp</span>
-        Pricing Calculator
-    </h2>
-
-    <p class="mt-4 text-gray-500 text-xl">
-        Calculate Marketing & Utility conversation pricing instantly.
-    </p>
-
-</div>
-
-<div class="relative overflow-hidden rounded-[32px]
-bg-white/90 backdrop-blur-xl
-border border-green-100
-shadow-[0_25px_80px_rgba(0,0,0,.12)]
-p-10 ">
-
-<div class="absolute -top-20 -left-20 w-72 h-72 bg-green-200 rounded-full blur-3xl opacity-30"></div>
-<div class="absolute -bottom-20 -right-20 w-72 h-72 bg-yellow-200 rounded-full blur-3xl opacity-30"></div>
-
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-<div class="relative overflow-hidden rounded-[32px]
-bg-white/90 backdrop-blur-xl
-border border-green-100
-shadow-[0_25px_80px_rgba(0,0,0,.12)]
-p-10 pb-22">
-
-    <div class="space-y-6">
-
-
-        <!-- Select Plan -->
-        <div>
-
-<label
-    for="whatsappPlan"
-    class="block mb-3 text-lg md:text-xl font-bold text-gray-900">
-    Select Plan
-</label>
-
-   <select
-    id="whatsappPlan"
-    class="w-full h-16 text-lg font-semibold rounded-2xl border-2 border-green-200 bg-white px-5 shadow-md transition duration-300 hover:border-green-500 focus:ring-2 focus:ring-green-500 focus:border-green-500">
-    <option value="starter">Starter Plan</option>
-    <option value="business">Business Plan</option>
-    <option value="enterprise">Enterprise Plan</option>
-</select>
-
+<div id="whatsapp-calculator" class="scroll-mt-24 md:scroll-mt-28 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="text-center mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold tracking-wide mb-2 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>INTERACTIVE ROI ESTIMATOR</span>
         </div>
-        <!-- Marketing Input -->
-        <div>
-
-            <label class="font-semibold text-gray-800">
-                Marketing Conversations
-            </label>
-<input
-                id="marketingCount"
-                type="number"
-                value="5000"
-                class="w-full mt-2 rounded-xl border border-gray-300 p-4 focus:ring-2 focus:ring-green-500">
- </div>
-  <!-- Utility Input -->
-        <div>
-
-            <label class="font-semibold text-gray-800">
-                Utility Conversations
-            </label>
-              <input
-                id="utilityCount"
-                type="number"
-                value="5000"
-                class="w-full mt-2 rounded-xl border border-gray-300 p-4 focus:ring-2 focus:ring-green-500">
-   </div>
-     <!-- WhatsApp Conversation Types -->
-
-        <div class="mt-6 bg-white rounded-2xl shadow-md border border-gray-100 p-3 md:p-5">
-
-
-            <div class="flex items-start md:items-center justify-between gap-2 mb-4">
-
-
-                <h3 class="text-lg font-bold text-gray-900">
-                    Understand WhatsApp Pricing
-                </h3>
-
-
-                <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">
-                    Meta
-                </span>
-
-
-            </div>
- <!-- Marketing Conversation -->
-
-            <div class="bg-green-50 rounded-xl p-3 md:p-4 mb-3 md:mb-4">
-
-
-                <div class="flex items-center">
-
-
-                    <div class="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center text-lg">
-                        📢
-                    </div>
-
-
-                    <div class="ml-3">
-
-                        <h4 class="font-bold text-green-700">
-                            Marketing Conversation
-                        </h4>
-
-
-                        <p class="text-xs text-gray-600">
-                            Promote business & generate sales
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-3 text-xs md:text-sm">
-
-
-                    <div class="bg-white rounded-lg px-3 py-2 text-xs md:text-sm">
-                        ✔ Offers
-                    </div>
-
-
-                    <div class="bg-white rounded-lg px-3 py-2 text-xs md:text-sm"">
-                        ✔ Discounts
-                    </div>
-
-
-                    <div class="bg-white rounded-lg px-3 py-2 text-xs md:text-sm">
-                        ✔ Product Launch
-                    </div>
-
-
-                    <div class="bg-white rounded-lg px-3 py-2 text-xs md:text-sm">
-                        ✔ Lead Generation
-                    </div>
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-
-
-
-            <!-- Utility Conversation -->
-
-
-            <div class="bg-blue-50 rounded-xl p-3 md:p-4">
-
-
-                <div class="flex items-center">
-
-
-                    <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center text-lg">
-                        🔔
-                    </div>
-
-
-                    <div class="ml-3">
-
-                        <h4 class="font-bold text-blue-700">
-                            Utility Conversation
-                        </h4>
-
-
-                        <p class="text-xs text-gray-600">
-                            Transaction & customer updates
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-
-
-
-                <div class="grid grid-cols-2 gap-2 mt-3 text-sm">
-
-
-                    <div class="bg-white rounded-lg px-3 py-2 text-xs md:text-sm">
-                        ✔ OTP
-                    </div>
-
-
-                    <div class="bg-white rounded-lg px-3 py-2 text-xs md:text-sm">
-                        ✔ Order Updates
-                    </div>
-
-
-                    <div class="bg-white rounded-lg px-3 py-2 text-xs md:text-sm">
-                        ✔ Payment Alerts
-                    </div>
-
-
-                    <div class="bg-white rounded-lg px-3 py-2 text-xs md:text-sm">
-                        ✔ Appointment
-                    </div>
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-
-
-            <!-- Note -->
-
-            <div class="mt-3 bg-yellow-50 border border-yellow-200 rounded-xl p-2.5 md:p-3">
-
-
-                <p class="text-[11px] md:text-xs text-gray-700 leading-5">
-
-                    <b>Note:</b>
-                    WhatsApp pricing depends on Marketing and Utility conversation volume.
-                    Charges are calculated according to Meta conversation categories.
-
-                </p>
-
-
-            </div>
-
-
-
-
-        </div>
-
-
-
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+            <span class="text-[#049a3d]">WhatsApp</span> Pricing Calculator
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto mt-1.5">
+            Instant transparent pricing for Marketing &amp; Utility conversations with official Meta category rates.
+        </p>
     </div>
 
+    <!-- Unified Compact Card Container -->
+    <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
+        <!-- Top accent gradient strip -->
+        <div class="h-1.5 w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-green-600"></div>
 
+        <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
 
-</div>
-<!-- RIGHT PANEL -->
-<div class="p-6 lg:p-10 bg-gradient-to-br from-slate-50 to-white rounded-r-3xl">
+            <!-- LEFT COLUMN: Inputs & Plan Selection (7 cols) -->
+            <div class="lg:col-span-7 p-5 sm:p-7 space-y-5 bg-white">
 
-    <div class="sticky top-6">
+                <!-- 1. Select Plan Tier -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                        1. Select Plan Tier
+                    </label>
 
-        <!-- Main Card -->
-        <div class="rounded-3xl bg-white shadow-2xl border border-gray-200 overflow-hidden">
+                    <!-- Hidden select for full JS compatibility -->
+                    <select id="whatsappPlan" class="hidden">
+                        <option value="starter" selected>Starter Plan</option>
+                        <option value="business">Business Plan</option>
+                        <option value="enterprise">Enterprise Plan</option>
+                    </select>
 
-            <!-- Header -->
-            <div class="bg-gradient-to-r from-green-600 to-emerald-700 text-white p-6">
+                    <!-- 3 Segmented Interactive Cards -->
+                    <div class="grid grid-cols-3 gap-2 sm:gap-2.5">
+                        <button type="button" onclick="setCalcPlan('starter')" id="calcPlanBtn-starter"
+                            class="calc-plan-btn p-2.5 sm:p-3 rounded-xl border-2 border-[#049a3d] bg-emerald-50/70 text-left transition duration-150 flex flex-col justify-between cursor-pointer">
+                            <div class="flex items-center justify-between w-full">
+                                <span class="text-xs sm:text-sm font-bold text-slate-900">Starter</span>
+                                <i class="fa-solid fa-circle-check text-xs text-[#049a3d] calc-plan-check"></i>
+                            </div>
+                            <span class="text-[11px] text-[#049a3d] font-semibold mt-1">₹0 Setup</span>
+                        </button>
 
-                <div class="flex justify-between items-center">
+                        <button type="button" onclick="setCalcPlan('business')" id="calcPlanBtn-business"
+                            class="calc-plan-btn p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 text-left transition duration-150 flex flex-col justify-between cursor-pointer">
+                            <div class="flex items-center justify-between w-full">
+                                <span class="text-xs sm:text-sm font-bold text-slate-900">Business</span>
+                                <span class="text-[9px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded-full">POPULAR</span>
+                            </div>
+                            <span class="text-[11px] text-slate-500 mt-1">High Volume</span>
+                        </button>
 
-                    <div>
-                        <p class="text-sm opacity-80">
-                            Total Conversations
-                        </p>
+                        <button type="button" onclick="setCalcPlan('enterprise')" id="calcPlanBtn-enterprise"
+                            class="calc-plan-btn p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 text-left transition duration-150 flex flex-col justify-between cursor-pointer">
+                            <div class="flex items-center justify-between w-full">
+                                <span class="text-xs sm:text-sm font-bold text-slate-900">Enterprise</span>
+                                <i class="fa-solid fa-crown text-[10px] text-amber-500"></i>
+                            </div>
+                            <span class="text-[11px] text-slate-500 mt-1">Custom SLA</span>
+                        </button>
+                    </div>
+                </div>
 
-                        <h2 id="totalMessages"
-                            class="text-5xl font-extrabold mt-2">
-                            10,000
-                        </h2>
+                <!-- 2. Marketing Conversations Input -->
+                <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label for="marketingCount" class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span>Marketing Conversations</span>
+                        </label>
+                        <span class="text-[11px] text-slate-400 hidden sm:inline">Promotions, Offers &amp; Sales</span>
                     </div>
 
-                    <div>
-                        <span id="selectedPlanName"
-                              class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold">
+                    <div class="relative rounded-xl border border-slate-200 shadow-xs focus-within:ring-2 focus-within:ring-emerald-500 focus-within:border-emerald-500 bg-slate-50/50">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-emerald-600">
+                            <i class="fa-solid fa-bullhorn text-xs"></i>
+                        </div>
+                        <input
+                            id="marketingCount"
+                            type="number"
+                            min="0"
+                            step="500"
+                            value="5000"
+                            class="block w-full pl-9 pr-16 py-2.5 text-sm sm:text-base font-semibold text-slate-900 bg-transparent rounded-xl focus:outline-none"
+                            placeholder="0">
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-xs text-slate-400 font-medium">
+                            msgs/mo
+                        </div>
+                    </div>
+
+                    <!-- Quick Preset Chips -->
+                    <div class="flex items-center gap-1.5 mt-2 overflow-x-auto pb-0.5">
+                        <span class="text-[11px] text-slate-400 shrink-0 font-medium">Presets:</span>
+                        <button type="button" onclick="setVolume('marketingCount', 1000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">1k</button>
+                        <button type="button" onclick="setVolume('marketingCount', 5000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">5k</button>
+                        <button type="button" onclick="setVolume('marketingCount', 10000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">10k</button>
+                        <button type="button" onclick="setVolume('marketingCount', 25000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">25k</button>
+                        <button type="button" onclick="setVolume('marketingCount', 50000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">50k</button>
+                    </div>
+                </div>
+
+                <!-- 3. Utility Conversations Input -->
+                <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label for="utilityCount" class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                            <span>Utility Conversations</span>
+                        </label>
+                        <span class="text-[11px] text-slate-400 hidden sm:inline">OTPs, Order Status &amp; Alerts</span>
+                    </div>
+
+                    <div class="relative rounded-xl border border-slate-200 shadow-xs focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 bg-slate-50/50">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-blue-600">
+                            <i class="fa-solid fa-bell text-xs"></i>
+                        </div>
+                        <input
+                            id="utilityCount"
+                            type="number"
+                            min="0"
+                            step="500"
+                            value="5000"
+                            class="block w-full pl-9 pr-16 py-2.5 text-sm sm:text-base font-semibold text-slate-900 bg-transparent rounded-xl focus:outline-none"
+                            placeholder="0">
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-xs text-slate-400 font-medium">
+                            msgs/mo
+                        </div>
+                    </div>
+
+                    <!-- Quick Preset Chips -->
+                    <div class="flex items-center gap-1.5 mt-2 overflow-x-auto pb-0.5">
+                        <span class="text-[11px] text-slate-400 shrink-0 font-medium">Presets:</span>
+                        <button type="button" onclick="setVolume('utilityCount', 1000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">1k</button>
+                        <button type="button" onclick="setVolume('utilityCount', 5000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">5k</button>
+                        <button type="button" onclick="setVolume('utilityCount', 10000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">10k</button>
+                        <button type="button" onclick="setVolume('utilityCount', 25000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">25k</button>
+                        <button type="button" onclick="setVolume('utilityCount', 50000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">50k</button>
+                    </div>
+                </div>
+                <!-- 4. Compact Category Guide Strip -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                    <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-100 text-xs">
+                        <div class="font-bold text-emerald-800 flex items-center gap-1.5 mb-1">
+                            <i class="fa-solid fa-bullhorn text-[11px]"></i>
+                            <span>Marketing Category</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-snug">
+                            Promotional offers, seasonal broadcasts, cart recovery &amp; product launches.
+                        </p>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-blue-50/70 border border-blue-100 text-xs">
+                        <div class="font-bold text-blue-800 flex items-center gap-1.5 mb-1">
+                            <i class="fa-solid fa-shield-halved text-[11px]"></i>
+                            <span>Utility Category</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 leading-snug">
+                            Mission-critical OTPs, transactional alerts, booking &amp; order status updates.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- RIGHT COLUMN: Cost Breakdown & WhatsApp Quote (5 cols) -->
+            <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-[#062c19] text-white p-5 sm:p-7 flex flex-col justify-between">
+                <div>
+                    <!-- Top Bar: Total Volume & Selected Plan -->
+                    <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
+                        <div>
+                            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Total Volume</span>
+                            <div class="flex items-baseline gap-1.5 mt-0.5">
+                                <span id="totalMessages" class="text-2xl sm:text-3xl font-black text-white font-mono">10,000</span>
+                                <span class="text-xs text-slate-400">conversations</span>
+                            </div>
+                        </div>
+
+                        <span id="selectedPlanName" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                             Starter Plan
                         </span>
                     </div>
 
-                </div>
-
-            </div>
-
-            <!-- Pricing -->
-            <div class="p-4">
-
-                <h3 class="text-lg font-bold mb-4">
-                    Cost Breakdown
-                </h3>
-
-                <div class="space-y-2.5">
-
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-600">
-                            Setup Fee
-                        </span>
-
-                        <strong id="setupFee"
-                                class="text-base font-semibold"">
-                            ₹0
-                        </strong>
-                    </div>
-
-                    <div class="flex justify-between items-start">
-
-                        <div>
-
-                            <div class="font-medium">
-                                Marketing
-                            </div>
-
-                            <small id="marketingInfo"
-                                   class="text-gray-500">
-                            </small>
-
+                    <!-- Itemized Cost Breakdown -->
+                    <div class="py-3.5 space-y-2.5 text-xs sm:text-sm">
+                        <div class="flex justify-between items-center text-slate-300">
+                            <span>One-Time Setup Fee</span>
+                            <strong id="setupFee" class="font-semibold text-white">₹0</strong>
                         </div>
 
-                        <strong id="marketingCost"
-                                class="text-lg text-green-700">
-                            ₹0
-                        </strong>
-
-                    </div>
-
-                    <div class="flex justify-between items-start">
-
-                        <div>
-
-                            <div class="font-medium">
-                                Utility
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-slate-300">Marketing Cost</span>
+                                <span id="marketingInfo" class="block text-[11px] text-slate-400 font-mono">5,000 × ₹0.00</span>
                             </div>
-
-                            <small id="utilityInfo"
-                                   class="text-gray-500">
-                            </small>
-
+                            <strong id="marketingCost" class="text-emerald-400 font-bold text-sm sm:text-base">₹0</strong>
                         </div>
 
-                        <strong id="utilityCost"
-                                class="text-lg text-blue-700">
-                            ₹0
-                        </strong>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-slate-300">Utility Cost</span>
+                                <span id="utilityInfo" class="block text-[11px] text-slate-400 font-mono">5,000 × ₹0.00</span>
+                            </div>
+                            <strong id="utilityCost" class="text-cyan-400 font-bold text-sm sm:text-base">₹0</strong>
+                        </div>
 
+                        <div class="pt-2 border-t border-white/10 flex justify-between items-center text-slate-300">
+                            <span>Subtotal</span>
+                            <strong id="subTotal" class="font-semibold text-white">₹0</strong>
+                        </div>
+
+                        <div class="flex justify-between items-center text-slate-300">
+                            <span>GST (18%)</span>
+                            <strong id="gstAmount" class="font-semibold text-amber-400">₹0</strong>
+                        </div>
                     </div>
-
-                    <hr class="my-2">
-
-                    <div class="flex justify-between">
-
-                        <span class="font-semibold">
-                            Subtotal
-                        </span>
-
-                        <strong id="subTotal"
-                                class="text-lg">
-                            ₹0
-                        </strong>
-
-                    </div>
-
-                    <div class="flex justify-between">
-
-                        <span class="font-semibold">
-                            GST (18%)
-                        </span>
-
-                        <strong id="gstAmount"
-                                class="text-orange-600">
-                            ₹0
-                        </strong>
-
-                    </div>
-
                 </div>
 
-            </div>
-<!-- Final Amount -->
-<div class="relative bg-gradient-to-r from-green-600 via-green-700 to-emerald-700 text-white rounded-b-3xl overflow-hidden">
-
-    <!-- Left Content -->
-    <div class="p-4 md:p-7 pr-24 md:pr-48">
-
-        <div class="text-xs md:text-base opacity-90">
-            Total Payable
-        </div>
-
-        <div id="finalAmount"
-            class="mt-1 md:mt-2 text-xl sm:text-2xl md:text-4xl font-extrabold leading-tight whitespace-nowrap">
-            ₹0
-        </div>
-
-        <div class="mt-1 md:mt-2 text-[11px] md:text-sm opacity-80">
-            Including GST
-        </div>
-
-    </div>
-
-    <!-- Right Images -->
-    <div
-        class="absolute right-1 bottom-0 md:right-4 md:bottom-0 flex items-end pointer-events-none">
-
-        <!-- Coins -->
-        <img src="{{ asset('images/coins.png') }}"
-            class="w-7 md:w-12 relative left-1 md:left-3 z-10">
-
-        <!-- Calculator -->
-        <img src="{{ asset('images/calculator.png') }}"
-            class="w-14 md:w-24 z-20">
-
-        <!-- WhatsApp -->
-        <img src="{{ asset('images/whatsapp-icon.png') }}"
-            class="w-7 md:w-12 relative -left-1 md:-left-3 z-30">
-
-    </div>
-
-</div>
-<!-- Summary -->
-            <div class="p-6 bg-gray-50 border-t">
-
-                <h4 class="font-bold text-lg mb-5">
-                    Summary
-                </h4>
-
-                <div class="space-y-3">
-
-                    <div class="flex justify-between">
-                        <span>Plan</span>
-                        <strong id="summaryPlan">
-                            Starter Plan
-                        </strong>
+                <!-- Bottom: Total Payable & Primary Quote Button -->
+                <div class="pt-3.5 border-t border-white/10 space-y-3">
+                    <div class="flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-slate-300 block font-medium">Estimated Monthly Payable</span>
+                            <span class="text-[10px] text-emerald-400">Includes Meta API fees &amp; 18% GST</span>
+                        </div>
+                        <div id="finalAmount" class="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">
+                            ₹0
+                        </div>
                     </div>
 
-                    <div class="flex justify-between">
-                        <span>Total</span>
-                        <strong id="summaryTotal">
-                            10,000
-                        </strong>
+                    <button
+                        type="button"
+                        onclick="sendWhatsappQuote()"
+                        class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-[#049a3d] hover:from-emerald-400 hover:to-[#038334] text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-950/60 hover:-translate-y-0.5 transition duration-200 flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Get Instant Quote on WhatsApp</span>
+                    </button>
+
+                    <div class="flex items-center justify-center gap-3 text-[11px] text-slate-400 pt-0.5">
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-emerald-400 text-[9px]"></i> Meta Partner</span>
+                        <span>&bull;</span>
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-file-invoice text-emerald-400 text-[9px]"></i> GST Invoice</span>
+                        <span>&bull;</span>
+                        <span class="flex items-center gap-1"><i class="fa-solid fa-bolt text-emerald-400 text-[9px]"></i> 24h Setup</span>
                     </div>
 
-                    <div class="flex justify-between">
-                        <span>Marketing</span>
-                        <strong id="summaryMarketing">
-                            5,000
-                        </strong>
+                    <!-- Hidden summary spans for sendWhatsappQuote backwards compatibility -->
+                    <div class="hidden" aria-hidden="true">
+                        <span id="summaryPlan">Starter Plan</span>
+                        <span id="summaryTotal">10,000</span>
+                        <span id="summaryMarketing">5,000</span>
+                        <span id="summaryUtility">5,000</span>
                     </div>
-
-                    <div class="flex justify-between">
-                        <span>Utility</span>
-                        <strong id="summaryUtility">
-                            5,000
-                        </strong>
-                    </div>
-
-                </div>
-
-                <button
-                    onclick="sendWhatsappQuote()"
-                    class="w-full mt-7 py-4 rounded-2xl bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold text-lg shadow-xl transition duration-300">
-
-                    🚀 Get Instant Quote
-
-                </button>
-
-                <div class="mt-5 flex justify-center gap-4 text-xs text-gray-500">
-
-                    <span>🔒 Secure</span>
-
-                    <span>✔ GST Invoice</span>
-
-                    <span>⚡ Instant Setup</span>
-
                 </div>
 
             </div>
 
         </div>
-
     </div>
-
-</div>
-
-
-
-   
-
-
 </div>
     </main>
 
     <!-- ==================== JAVASCRIPT ==================== -->
     <script>
        document.addEventListener('DOMContentLoaded', function () {
+
+    window.setCalcPlan = function(planKey) {
+        const planDropdown = document.getElementById('whatsappPlan');
+        if (!planDropdown) return;
+        planDropdown.value = planKey;
+        
+        const planNameEl = document.getElementById('selectedPlanName');
+        if (planNameEl && planDropdown.options[planDropdown.selectedIndex]) {
+            planNameEl.innerText = planDropdown.options[planDropdown.selectedIndex].text;
+        }
+
+        ['starter', 'business', 'enterprise'].forEach(function(key) {
+            const btn = document.getElementById('calcPlanBtn-' + key);
+            if (btn) {
+                if (key === planKey) {
+                    btn.className = 'calc-plan-btn p-2.5 sm:p-3 rounded-xl border-2 border-[#049a3d] bg-emerald-50/70 text-left transition duration-150 flex flex-col justify-between cursor-pointer';
+                    const icon = btn.querySelector('.calc-plan-check');
+                    if (icon) icon.className = 'fa-solid fa-circle-check text-xs text-[#049a3d] calc-plan-check';
+                } else {
+                    btn.className = 'calc-plan-btn p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 text-left transition duration-150 flex flex-col justify-between cursor-pointer';
+                    const icon = btn.querySelector('.calc-plan-check');
+                    if (icon) icon.className = 'fa-regular fa-circle text-xs text-slate-300 calc-plan-check';
+                }
+            }
+        });
+
+        calculateWhatsappPrice();
+    };
+
+    window.setVolume = function(inputId, val) {
+        const el = document.getElementById(inputId);
+        if (el) {
+            el.value = val;
+            calculateWhatsappPrice();
+        }
+    };
 
     function toggleCalculator(target) {
         const calculator = document.getElementById('whatsapp-calculator');

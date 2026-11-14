@@ -38,6 +38,7 @@ Route::view('/about-us', 'Website.about_us');
 // In routes/web.php (or relevant routes file) - unchanged
 Route::get('/pricing-web', [PricingMasterController::class, 'pricing_web_view']);
 Route::view('/contact-us', 'Website.contact_us');
+Route::redirect('/api-docs-web', '/contact-us');
 Route::get('/portfolio', [PortfolioMasterController::class, 'portfolio_web_view'])->name('portfolio.web');
 Route::view('/term-and-Conditions', 'Website.terms_condition');
 Route::view('/privacy-policy', 'Website.privacy_policy');
