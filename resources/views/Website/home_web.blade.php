@@ -1,4 +1,4 @@
-<x-master-page
+﻿<x-master-page
     title="Official WhatsApp Business API, Bulk SMS Gateway & Enterprise CRM | Textora"
     description="Textora Technologies provides Enterprise WhatsApp Business API, Bulk SMS Gateway, RCS Messaging, Voice OBD, and in-house Textora CRM & HRMS suites. 100% TRAI DLT compliant with multi-operator routing."
     keywords="WhatsApp Business API, Bulk SMS Gateway, RCS Messaging, OTP SMS, Voice OBD, DLT Registration, Textora CRM, Textora HRMS, CPaaS India"
@@ -64,8 +64,8 @@
      Tighter top padding, reduced gap with header, outcome-focused
 ========================================================= -->
 <section class="relative pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-32 lg:pb-24 bg-[#fafafa] border-b border-slate-200/80 overflow-hidden">
-    <!-- Subtle Background Glows -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[360px] bg-gradient-to-tr from-emerald-100/40 via-teal-100/30 to-transparent blur-3xl pointer-events-none"></div>
+
+
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -74,52 +74,52 @@
             <div class="lg:col-span-7 text-center lg:text-left space-y-6">
                 
                 <!-- Trust Badge Pill -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-bold tracking-wide shadow-sm">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span>OFFICIAL META TECH PARTNER &bull; 100% TRAI DLT REGISTERED</span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#049a3d]"></span>
+                    <span>Official Meta Tech Partner &middot; 100% TRAI DLT Compliant</span>
                 </div>
 
                 <!-- Primary Headline -->
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] font-black tracking-tight text-slate-900 leading-[1.12]">
-                    Scale Business Messaging on <br class="hidden sm:inline">
-                    <span class="text-[#049a3d] relative">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-semibold tracking-tight text-slate-900 leading-[1.15]">
+                    Enterprise messaging infrastructure for <br class="hidden sm:inline">
+                    <span class="text-[#049a3d]">
                         WhatsApp, SMS & RCS
                     </span>
                 </h1>
 
                 <!-- Outcome-Oriented Subhead -->
                 <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                    Broadcast high-converting campaigns, automate 24/7 customer journeys with verified WhatsApp chatbots, and dispatch mission-critical OTPs in <strong class="text-slate-800 font-semibold">under 2.4 seconds</strong> with smart multi-operator failover.
+                    Direct telecom routes, sub-2.4s OTP dispatch, and high-throughput campaign broadcasting with smart multi-operator failover across Airtel, Jio, and Vi.
                 </p>
 
                 <!-- Dual Action CTAs -->
-                <div class="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start pt-1">
+                <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-1">
                     <a href="{{ url('pricing-web') }}" 
-                        class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#049a3d] to-[#038334] text-white font-bold text-sm shadow-md shadow-emerald-700/25 hover:shadow-lg hover:shadow-emerald-700/35 hover:-translate-y-0.5 transition duration-200">
+                        class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#049a3d] text-white font-medium text-sm hover:bg-[#038334] transition">
                         <span>Explore Pricing & Plans</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </a>
                     
                     <button type="button" onclick="openModall()" 
-                        class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-slate-700 font-bold text-sm border border-slate-200 shadow-sm hover:border-[#049a3d] hover:text-[#049a3d] hover:-translate-y-0.5 transition duration-200">
-                        <i class="fa-regular fa-calendar-check text-[#049a3d]"></i>
+                        class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white text-slate-700 font-medium text-sm border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition">
+                        <i class="fa-regular fa-calendar text-slate-500"></i>
                         <span>Book 15-Min Live Demo</span>
                     </button>
                 </div>
 
                 <!-- Core Proof Points -->
-                <div class="pt-5 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                <div class="pt-6 border-t border-slate-200 grid grid-cols-3 gap-4 text-center lg:text-left">
                     <div>
-                        <div class="text-xl sm:text-2xl font-black text-slate-900">10M+</div>
-                        <div class="text-xs text-slate-500 font-medium">Daily Messages Routed</div>
+                        <div class="text-xl sm:text-2xl font-semibold text-slate-900 font-mono tracking-tight">10M+</div>
+                        <div class="text-xs text-slate-500 mt-0.5">Daily messages routed</div>
                     </div>
                     <div>
-                        <div class="text-xl sm:text-2xl font-black text-slate-900">&lt; 2.4s</div>
-                        <div class="text-xs text-slate-500 font-medium">Average OTP Latency</div>
+                        <div class="text-xl sm:text-2xl font-semibold text-slate-900 font-mono tracking-tight">&lt; 2.4s</div>
+                        <div class="text-xs text-slate-500 mt-0.5">Average OTP latency</div>
                     </div>
                     <div>
-                        <div class="text-xl sm:text-2xl font-black text-slate-900">99.98%</div>
-                        <div class="text-xs text-slate-500 font-medium">Platform Uptime SLA</div>
+                        <div class="text-xl sm:text-2xl font-semibold text-slate-900 font-mono tracking-tight">99.98%</div>
+                        <div class="text-xs text-slate-500 mt-0.5">Platform uptime SLA</div>
                     </div>
                 </div>
 

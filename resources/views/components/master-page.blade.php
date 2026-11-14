@@ -660,11 +660,6 @@
 
                             </a>
 
-                            <a href="{{ route('login') }}" class="flex items-center gap-2.5 px-4 py-2.5 text-sm text-slate-700 hover:bg-emerald-50 hover:text-[#049a3d] transition border-t border-slate-100">
-                                <i class="fa-solid fa-user-shield text-xs text-emerald-600"></i>
-                                <span>Admin Portal Login</span>
-                            </a>
-
                         </div>
 
                     </div>
@@ -1301,15 +1296,15 @@
 
         <li>
 
-            <a href="#"
+            <a href="{{ route('login') }}"
 
-               onclick="openModal()"
+               onclick="event.preventDefault(); openModal();"
 
                id="footer-login-link"
 
                class="text-gray-300 hover:text-white transition duration-300">
 
-                Login
+                Admin Portal Login
 
             </a>
 
