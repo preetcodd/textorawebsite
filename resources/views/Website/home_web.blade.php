@@ -54,6 +54,53 @@
   .animate-logo-ticker:hover {
     animation-play-state: paused;
   }
+
+  /* Modern Subtle Floating Motion for Telemetry Badges */
+  @keyframes floatGentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .animate-float-gentle {
+    animation: floatGentle 5s ease-in-out infinite;
+  }
+  .animate-float-gentle-delayed {
+    animation: floatGentle 5s ease-in-out infinite;
+    animation-delay: 2.5s;
+  }
+
+  /* Cascading In-Phone Message Stream Entrance */
+  @keyframes messageSlideIn {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-message-in {
+    animation: messageSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-message-in-delayed {
+    animation: messageSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  }
+  .animate-message-in-delayed-2 {
+    animation: messageSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+  }
+
+  /* Modern Smooth Hover Lift Micro-Interaction */
+  .hover-lift {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+    border-color: #cbd5e1;
+  }
+
+  /* Code Playground Snippet Fade */
+  @keyframes snippetFade {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .snippet-block:not(.hidden) {
+    animation: snippetFade 0.2s ease-out;
+  }
 </style>
 @endpush
 
@@ -97,7 +144,7 @@
                     <a href="{{ url('pricing-web') }}" 
                         class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#049a3d] text-white font-medium text-sm hover:bg-[#038334] transition">
                         <span>Explore Pricing & Plans</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-200"></i>
                     </a>
                     
                     <button type="button" onclick="openModall()" 
@@ -125,107 +172,148 @@
 
             </div>
 
-            <!-- Right: Textora Telecom Gateway & Campaign Dispatch Terminal -->
-            <div class="lg:col-span-5 flex justify-center relative pt-2 lg:pt-0">
-                <div class="w-full max-w-lg bg-slate-900 rounded-2xl border border-slate-800 shadow-xl overflow-hidden font-sans">
-                    <!-- Terminal Window Header -->
-                    <div class="bg-slate-950/80 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block"></span>
-                            <span class="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block"></span>
-                            <span class="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block"></span>
-                            <span class="text-xs font-mono text-slate-400 ml-2">gateway // cluster-mumbai-01</span>
+            <!-- Right: Textora Telecom Gateway & Campaign Dispatch Terminal inside Smartphone Chassis -->
+            <div class="lg:col-span-5 flex justify-center relative pt-4 lg:pt-2" data-aos="fade-left" data-aos-duration="700">
+                
+                <!-- Floating Top-Right Telemetry Badge (Modern Gentle Float Motion) -->
+                <div class="absolute -top-3 -right-2 sm:-right-4 z-30 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md border border-slate-200/90 flex items-center gap-2 text-xs font-semibold text-slate-800 animate-float-gentle hidden sm:flex">
+                    <span class="w-2 h-2 rounded-full bg-[#049a3d] animate-pulse"></span>
+                    <span>Meta Cloud API</span>
+                    <span class="text-[10px] text-emerald-700 font-mono font-bold bg-emerald-50 px-1.5 py-0.5 rounded">&lt; 1.8s</span>
+                </div>
+
+                <!-- Floating Bottom-Left Telemetry Badge -->
+                <div class="absolute -bottom-4 -left-2 sm:-left-4 z-30 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md border border-slate-200/90 flex items-center gap-2 text-xs font-semibold text-slate-800 animate-float-gentle-delayed hidden sm:flex">
+                    <i class="fa-solid fa-shield-halved text-[#049a3d]"></i>
+                    <span>TRAI DLT Compliant</span>
+                    <span class="text-[10px] text-slate-500 font-mono">Zero Drops</span>
+                </div>
+
+                <!-- Smartphone Chassis (Sleek, Modern & Notch-Protected) -->
+                <div class="w-full max-w-[340px] sm:max-w-[360px] bg-slate-900 p-2.5 sm:p-3 rounded-[44px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] ring-1 ring-slate-800 relative z-10 transition-transform duration-300 hover:-translate-y-1">
+                    
+                    <!-- Dynamic Island Notch & Top Status Bar -->
+                    <div class="flex items-center justify-between px-5 py-1 mb-1 text-slate-400">
+                        <span class="text-[11px] font-mono font-semibold text-slate-300">10:42</span>
+                        
+                        <!-- Dynamic Island Notch Capsule -->
+                        <div class="w-20 h-3.5 bg-slate-950 rounded-full border border-slate-800/90 flex items-center justify-center gap-1.5 px-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span>
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                            <span class="text-[11px] font-mono text-emerald-400">ONLINE</span>
+
+                        <div class="flex items-center gap-1 text-[10px] text-slate-300">
+                            <i class="fa-solid fa-signal text-[9px]"></i>
+                            <i class="fa-solid fa-wifi text-[9px]"></i>
+                            <i class="fa-solid fa-battery-full text-[10px]"></i>
                         </div>
                     </div>
 
-                    <!-- Telemetry Strip -->
-                    <div class="bg-slate-900/90 px-4 py-2 border-b border-slate-800/80 grid grid-cols-3 gap-2 text-[11px] font-mono">
-                        <div class="text-slate-400">
-                            <span class="text-slate-500 block text-[10px]">META CLOUD API</span>
-                            <span class="text-emerald-400 font-semibold">200 OK &middot; 1.2s</span>
-                        </div>
-                        <div class="text-slate-400 border-x border-slate-800 px-2">
-                            <span class="text-slate-500 block text-[10px]">TRAI DLT</span>
-                            <span class="text-emerald-400 font-semibold">SCRUBBED &middot; 0% DROP</span>
-                        </div>
-                        <div class="text-slate-400 text-right">
-                            <span class="text-slate-500 block text-[10px]">CARRIER BIND</span>
-                            <span class="text-slate-200 font-semibold">AIRTEL / JIO / VI</span>
-                        </div>
-                    </div>
-
-                    <!-- Live Dispatch Streams Container -->
-                    <div class="p-4 space-y-3 bg-slate-950/50">
-                        <!-- Dispatch Stream 1: Verified WhatsApp Broadcast -->
-                        <div class="bg-slate-900 rounded-xl p-3 border border-slate-800 space-y-2">
-                            <div class="flex items-center justify-between text-xs">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-6 h-6 rounded-md bg-[#049a3d]/20 flex items-center justify-center text-[#049a3d]">
-                                        <i class="fa-brands fa-whatsapp text-xs"></i>
+                    <!-- Smartphone Screen -->
+                    <div class="bg-[#efeae2] rounded-[34px] overflow-hidden border border-slate-800 text-xs">
+                        
+                        <!-- WhatsApp Official Business Header -->
+                        <div class="bg-[#075e54] text-white px-3.5 py-3 flex items-center justify-between shadow-xs">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center p-0.5 shadow-xs shrink-0">
+                                    <img src="{{ asset('images/PNG/Icon.png') }}" alt="Textora" class="w-full h-full object-contain">
+                                </div>
+                                <div>
+                                    <div class="font-bold flex items-center gap-1 text-xs text-white">
+                                        <span>Textora Updates</span>
+                                        <i class="fa-solid fa-circle-check text-emerald-300 text-[10px]" title="Official Verified Green Tick"></i>
                                     </div>
-                                    <span class="font-medium text-slate-200">WhatsApp Business API</span>
-                                    <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded font-mono">VERIFIED</span>
-                                </div>
-                                <span class="text-[11px] font-mono text-slate-400">14s ago</span>
-                            </div>
-
-                            <div class="bg-slate-950 rounded-lg p-2.5 border border-slate-800/80 space-y-1 text-xs">
-                                <div class="flex items-center justify-between text-[11px] text-slate-400">
-                                    <span class="font-mono text-slate-300">Campaign: Festive Flash Sale</span>
-                                    <span class="text-emerald-400 font-mono font-medium">98.4% delivered</span>
-                                </div>
-                                <p class="text-slate-300 text-xs leading-relaxed">
-                                    50,000 messages dispatched via Meta Cloud API with instant interactive CTA buttons.
-                                </p>
-                            </div>
-
-                            <div class="flex items-center justify-between pt-1 text-[11px] font-mono text-slate-400">
-                                <span>Payload: TEMPLATE_INTERACTIVE</span>
-                                <span class="text-emerald-400">Latency: 1,420ms</span>
-                            </div>
-                        </div>
-
-                        <!-- Dispatch Stream 2: Mission-Critical SMS OTP Failover -->
-                        <div class="bg-slate-900 rounded-xl p-3 border border-slate-800 space-y-2">
-                            <div class="flex items-center justify-between text-xs">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-6 h-6 rounded-md bg-blue-500/15 flex items-center justify-center text-blue-400">
-                                        <i class="fa-solid fa-tower-broadcast text-xs"></i>
+                                    <div class="text-[10px] text-emerald-100 font-medium flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                                        <span>Official Business Account</span>
                                     </div>
-                                    <span class="font-medium text-slate-200">Telecom SMPP Gateway</span>
-                                    <span class="text-[10px] bg-blue-500/10 text-blue-400 border border-blue-500/20 px-1.5 py-0.5 rounded font-mono">PRIORITY 1</span>
                                 </div>
-                                <span class="text-[11px] font-mono text-slate-400">just now</span>
                             </div>
-
-                            <div class="bg-slate-950 rounded-lg p-2.5 border border-slate-800/80 space-y-1 text-xs">
-                                <div class="flex items-center justify-between text-[11px]">
-                                    <span class="font-mono text-slate-400">DLT ID: 110148920192 &middot; OTP Login</span>
-                                    <span class="text-emerald-400 font-mono font-medium">DELIVRD (1.8s)</span>
-                                </div>
-                                <p class="text-slate-400 text-xs font-mono">
-                                    Your Textora verification code is <span class="text-slate-100 font-bold bg-slate-800 px-1.5 py-0.5 rounded">482910</span>. Valid for 10 minutes.
-                                </p>
-                            </div>
-
-                            <div class="flex items-center justify-between pt-1 text-[11px] font-mono text-slate-400">
-                                <span>Route: AIRTEL_DLT_DIRECT</span>
-                                <span class="text-emerald-400">Smart Failover: READY</span>
+                            <div class="flex items-center gap-3 text-emerald-100 text-xs">
+                                <i class="fa-solid fa-phone cursor-pointer hover:text-white transition"></i>
+                                <i class="fa-solid fa-ellipsis-vertical cursor-pointer hover:text-white transition"></i>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Bottom Status Bar -->
-                    <div class="bg-slate-950 px-4 py-2.5 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                        <span class="flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                            <span>Throughput: 4,820 msg/sec</span>
-                        </span>
-                        <span class="text-slate-500">Uptime: 99.98%</span>
+                        <!-- Live Telecom Telemetry Sub-Ribbon (Embedded Gateway Status) -->
+                        <div class="bg-slate-950 text-slate-300 px-3 py-1.5 text-[10px] font-mono flex items-center justify-between border-b border-slate-800">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <span class="text-emerald-400 font-semibold">SMPP BIND: ACTIVE</span>
+                            </div>
+                            <div class="text-slate-400">
+                                <span>AIRTEL &middot; JIO &middot; VI &middot; 99.98%</span>
+                            </div>
+                        </div>
+
+                        <!-- Chat Conversation Canvas with Simulated Live Stream -->
+                        <div class="p-3 space-y-2.5 max-h-[355px] overflow-y-auto bg-[radial-gradient(#d4dbd7_1px,transparent_1px)] [background-size:12px_12px]">
+                            
+                            <!-- Security Notice -->
+                            <div class="text-center my-0.5">
+                                <span class="bg-[#e1f3fb] text-[#128c7e] text-[9px] font-semibold px-2.5 py-0.5 rounded-md shadow-2xs inline-block">
+                                    <i class="fa-solid fa-lock text-[8px]"></i> End-to-end encrypted via Meta Cloud
+                                </span>
+                            </div>
+
+                            <!-- Verified Campaign Broadcast Message with Interactive CTAs -->
+                            <div class="bg-white rounded-xl rounded-tl-none p-2.5 shadow-sm max-w-[92%] space-y-1.5 border border-slate-100 animate-message-in">
+                                <div class="relative rounded-lg overflow-hidden bg-slate-900 text-white p-2 border border-slate-800">
+                                    <div class="flex items-center justify-between text-[10px] font-semibold text-emerald-400">
+                                        <span>FESTIVE FLASH SALE BROADCAST</span>
+                                        <span class="text-slate-300 font-mono text-[9px]">98.6% Open</span>
+                                    </div>
+                                    <p class="text-[9px] text-slate-300 mt-0.5 leading-snug">Reach 50,000+ customers instantly with guaranteed delivery &amp; rich CTA buttons.</p>
+                                </div>
+                                <p class="text-slate-800 text-[10px] leading-snug">
+                                    Hi Rahul! Your festive promotion campaign has been approved. Launch to your audience or calculate cost:
+                                </p>
+                                <span class="text-[9px] text-slate-400 block text-right font-mono">10:42 AM</span>
+
+                                <!-- Interactive Action Chips -->
+                                <div class="pt-1.5 border-t border-slate-100 space-y-1">
+                                    <button type="button" onclick="openModall()" class="w-full py-1.5 px-2.5 bg-emerald-50 hover:bg-emerald-100 text-[#049a3d] font-bold text-[10px] rounded-lg flex items-center justify-center gap-1.5 transition duration-150">
+                                        <i class="fa-solid fa-bolt text-[9px]"></i>
+                                        <span>Launch Broadcast Now</span>
+                                    </button>
+                                    <a href="{{ url('pricing-web#whatsapp-calculator') }}" class="w-full py-1.5 px-2.5 bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-[10px] rounded-lg flex items-center justify-center gap-1.5 transition duration-150">
+                                        <i class="fa-solid fa-calculator text-[9px]"></i>
+                                        <span>Calculate Campaign Cost</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Outgoing User Response with Read Receipts -->
+                            <div class="bg-[#dcf8c6] rounded-xl rounded-tr-none p-2 shadow-xs max-w-[85%] ml-auto text-slate-800 text-[10px] animate-message-in-delayed">
+                                <p class="leading-snug">Broadcast triggered! 98.4% delivered in 14 seconds</p>
+                                <div class="flex items-center justify-end gap-1 text-[8px] text-slate-500 mt-0.5 font-mono">
+                                    <span>10:43 AM</span>
+                                    <i class="fa-solid fa-check-double text-blue-500"></i>
+                                </div>
+                            </div>
+
+                            <!-- Mission-Critical SMS OTP Failover Notification -->
+                            <div class="bg-white rounded-xl p-2 shadow-xs border-l-4 border-emerald-500 text-[10px] animate-message-in-delayed-2">
+                                <div class="font-bold text-slate-800 flex items-center justify-between text-[9px]">
+                                    <span class="flex items-center gap-1 text-emerald-800 font-mono"><i class="fa-solid fa-tower-broadcast text-emerald-600"></i> SMS OTP FAILOVER</span>
+                                    <span class="text-emerald-700 font-mono font-bold">&lt; 1.8s &middot; DELIVRD</span>
+                                </div>
+                                <p class="text-slate-600 text-[9px] mt-0.5">Your Textora security login OTP is <span class="font-mono font-bold text-slate-900 bg-slate-100 px-1 py-0.5 rounded">482910</span>. Valid for 10 minutes.</p>
+                            </div>
+
+                        </div>
+
+                        <!-- Chat Input Bar -->
+                        <div class="bg-[#f0f2f5] px-3 py-2 flex items-center gap-2 border-t border-slate-200">
+                            <i class="fa-regular fa-face-smile text-slate-500 text-xs"></i>
+                            <div class="flex-1 bg-white rounded-full px-2.5 py-1 text-[10px] text-slate-400">
+                                Type a message...
+                            </div>
+                            <div class="w-6 h-6 rounded-full bg-[#049a3d] text-white flex items-center justify-center text-[10px] shadow-xs">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -241,46 +329,46 @@
         <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
             
             <div class="text-center lg:text-left shrink-0">
-                <span class="text-xs font-black text-emerald-700 uppercase tracking-widest block mb-1">
-                    <i class="fa-solid fa-tower-broadcast mr-1"></i> ENTERPRISE MULTI-OPERATOR INFRASTRUCTURE
+                <span class="text-xs font-mono text-slate-500 block mb-1">
+                    telecom // carrier-infrastructure
                 </span>
-                <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Direct Telecom & Meta Cloud Gateways</h2>
-                <p class="text-xs text-slate-500 font-medium mt-0.5">Direct carrier SMPP binds & cloud tier-1 telecom connectivity with &lt; 2.4s latency</p>
+                <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Direct Telecom &amp; Meta Cloud Gateways</h2>
+                <p class="text-xs text-slate-500 mt-0.5">Direct carrier SMPP binds and tier-1 infrastructure with sub-2.4s delivery latency</p>
             </div>
 
             <!-- Operator & Platform Badges with Authentic Original Logos -->
             <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
                 
                 <!-- Airtel -->
-                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-red-500 transition duration-200 hover:-translate-y-0.5" title="Bharti Airtel Direct Telecom Gateway">
+                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150" title="Bharti Airtel Direct Telecom Gateway">
                     <img src="{{ asset('images/operators/airtel.png') }}" 
                          alt="Bharti Airtel" 
                          class="h-10 sm:h-12 w-auto max-w-[95px] object-contain">
                 </div>
 
                 <!-- Jio Reliance -->
-                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-500 transition duration-200 hover:-translate-y-0.5" title="Reliance Jio Direct Telecom Gateway">
+                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150" title="Reliance Jio Direct Telecom Gateway">
                     <img src="{{ asset('images/operators/jio.png') }}" 
                          alt="Reliance Jio" 
                          class="h-10 sm:h-12 w-auto max-w-[95px] object-contain">
                 </div>
 
                 <!-- Vodafone Idea (Vi) -->
-                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-red-600 transition duration-200 hover:-translate-y-0.5" title="Vodafone Idea (Vi) Direct Telecom Gateway">
+                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150" title="Vodafone Idea (Vi) Direct Telecom Gateway">
                     <img src="{{ asset('images/operators/vi.png') }}" 
                          alt="Vodafone Idea (Vi)" 
                          class="h-10 sm:h-12 w-auto max-w-[95px] object-contain">
                 </div>
 
                 <!-- BSNL -->
-                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-blue-600 transition duration-200 hover:-translate-y-0.5" title="BSNL Direct Telecom Gateway">
+                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150" title="BSNL Direct Telecom Gateway">
                     <img src="{{ asset('images/operators/bsnl.png') }}" 
                          alt="BSNL Telecom" 
                          class="h-10 sm:h-12 w-auto max-w-[95px] object-contain">
                 </div>
 
                 <!-- Meta Cloud API Partner -->
-                <div class="flex items-center justify-center h-16 sm:h-20 px-5 py-2 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-emerald-500 transition duration-200 hover:-translate-y-0.5 min-w-[130px]" title="Official Meta Cloud API Business Partner">
+                <div class="flex items-center justify-center h-16 sm:h-20 px-5 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150 min-w-[130px]" title="Official Meta Cloud API Business Partner">
                     <img src="{{ asset('images/operators/meta.png') }}" 
                          alt="Official Meta Business Partner" 
                          class="h-8 sm:h-10 w-auto max-w-[125px] object-contain">
@@ -306,12 +394,11 @@
 ========================================================= -->
 <section class="py-14 sm:py-20 bg-white border-b border-slate-100 overflow-hidden" data-aos="fade-up">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs sm:text-sm font-bold border border-emerald-200/90 shadow-xs mb-3">
-            <i class="fa-solid fa-handshake-angle text-[#049a3d]"></i>
-            OUR TRUSTED PARTNERS
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium border border-slate-200 mb-3">
+            Client network
         </span>
-        <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Trusted by Businesses <span class="text-[#049a3d]">Across Industries</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-semibold text-slate-900 tracking-tight">
+            Trusted by enterprises and fast-growing brands
         </h2>
         <p class="mt-3 text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Organizations trust Textora Technologies for secure, scalable and reliable business communication.
@@ -325,86 +412,86 @@
             <!-- Repeat 1 of Logos (Full Authentic Color & Sized for Maximum Clarity) -->
             <div class="flex items-center gap-6 sm:gap-8 md:gap-10 shrink-0 px-4 sm:px-6">
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="Reliable Properties" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="Reliable Properties" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="Tax Safar" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="Tax Safar" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="Surabhi Medical Science" class="h-16 sm:h-20 md:h-24 max-h-24 w-auto max-w-[130px] sm:max-w-[160px] md:max-w-[180px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="Surabhi Medical Science" class="h-16 sm:h-20 md:h-24 max-h-24 w-auto max-w-[130px] sm:max-w-[160px] md:max-w-[180px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="Sahyogi" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="Sahyogi" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="AIMT Leadership School" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="AIMT Leadership School" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="BTM Vet Clinic" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="BTM Vet Clinic" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="Design Exam" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="Design Exam" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="Parkway" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="Parkway" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="Shreeji" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="Shreeji" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="Jabalipuram" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[160px] sm:max-w-[190px] md:max-w-[220px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="Jabalipuram" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[160px] sm:max-w-[190px] md:max-w-[220px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="Arihant Enterprises" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="Arihant Enterprises" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="Rapid Drop" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[230px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="Rapid Drop" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[230px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="Nari" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="Nari" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
             </div>
 
             <!-- Repeat 2 of Logos (For seamless infinite loop) -->
             <div class="flex items-center gap-6 sm:gap-8 md:gap-10 shrink-0 px-4 sm:px-6">
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="Reliable Properties" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="Reliable Properties" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="Tax Safar" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="Tax Safar" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="Surabhi Medical Science" class="h-16 sm:h-20 md:h-24 max-h-24 w-auto max-w-[130px] sm:max-w-[160px] md:max-w-[180px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="Surabhi Medical Science" class="h-16 sm:h-20 md:h-24 max-h-24 w-auto max-w-[130px] sm:max-w-[160px] md:max-w-[180px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="Sahyogi" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="Sahyogi" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="AIMT Leadership School" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="AIMT Leadership School" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="BTM Vet Clinic" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="BTM Vet Clinic" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="Design Exam" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="Design Exam" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="Parkway" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="Parkway" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="Shreeji" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="Shreeji" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="Jabalipuram" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[160px] sm:max-w-[190px] md:max-w-[220px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="Jabalipuram" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[160px] sm:max-w-[190px] md:max-w-[220px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="Arihant Enterprises" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="Arihant Enterprises" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="Rapid Drop" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[230px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="Rapid Drop" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[230px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
                 <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="Nari" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="Nari" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
                 </div>
             </div>
         </div>
@@ -421,12 +508,11 @@
         
         <!-- Section Header -->
         <div class="text-center max-w-3xl mx-auto mb-12">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/70 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-                <i class="fa-solid fa-layer-group text-emerald-600"></i>
-                Enterprise CPaaS Suite
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
+                Solutions
             </span>
-            <h2 class="mt-3 text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                Unified Business Messaging <span class="text-[#049a3d]">Engineered to Scale</span>
+            <h2 class="mt-3 text-3xl sm:text-4xl font-semibold text-slate-900 tracking-tight leading-tight">
+                Unified business messaging engineered to scale
             </h2>
             <p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
                 Empower your marketing, transactional alerts, and customer support with official APIs, verified delivery, and zero telecom bottlenecks.
@@ -437,7 +523,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <!-- CARD 1: WhatsApp Business API -->
-            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover-lift flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-5">
                         <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl group-hover:bg-[#049a3d] group-hover:text-white transition duration-200">
@@ -465,7 +551,7 @@
                 <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                     <a href="{{ url('/whatsapp-business-api') }}" class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#049a3d] hover:text-emerald-800 transition">
                         <span>Explore WhatsApp API</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-200"></i>
                     </a>
                     <button type="button" onclick="openModall()" class="text-[11px] font-semibold text-slate-500 hover:text-slate-800">
                         Book Demo &rarr;
@@ -474,7 +560,7 @@
             </div>
 
             <!-- CARD 2: Bulk SMS Gateway & OTP Engine -->
-            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover-lift flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-5">
                         <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl group-hover:bg-[#049a3d] group-hover:text-white transition duration-200">
@@ -502,13 +588,13 @@
                 <div class="mt-6 pt-4 border-t border-slate-100">
                     <a href="{{ url('/bulk-sms') }}" class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#049a3d] hover:text-emerald-800 transition">
                         <span>View SMS Gateway</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-200"></i>
                     </a>
                 </div>
             </div>
 
             <!-- CARD 3: RCS Business Messaging -->
-            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover-lift flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-5">
                         <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl group-hover:bg-blue-600 group-hover:text-white transition duration-200">
@@ -536,13 +622,13 @@
                 <div class="mt-6 pt-4 border-t border-slate-100">
                     <a href="{{ url('/rcs-messaging') }}" class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-blue-600 hover:text-blue-800 transition">
                         <span>Discover RCS Solutions</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-200"></i>
                     </a>
                 </div>
             </div>
 
             <!-- CARD 4: Developer APIs & Webhook Engine -->
-            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover-lift flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-5">
                         <div class="w-12 h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center text-xl group-hover:bg-slate-900 group-hover:text-white transition duration-200">
@@ -570,13 +656,13 @@
                 <div class="mt-6 pt-4 border-t border-slate-100">
                     <a href="{{ url('/contact-us') }}" class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#049a3d] hover:text-emerald-800 transition">
                         <span>Read API Documentation</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-200"></i>
                     </a>
                 </div>
             </div>
 
             <!-- CARD 5: Voice Call OBD & Smart IVR -->
-            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover-lift flex flex-col justify-between">
                 <div>
                     <div class="flex items-center justify-between mb-5">
                         <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl group-hover:bg-[#049a3d] group-hover:text-white transition duration-200">
@@ -604,7 +690,7 @@
                 <div class="mt-6 pt-4 border-t border-slate-100">
                     <a href="{{ url('/voice-call') }}" class="inline-flex items-center gap-1.5 font-bold text-xs sm:text-sm text-[#049a3d] hover:text-emerald-800 transition">
                         <span>Explore Voice OBD</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-200"></i>
                     </a>
                 </div>
             </div>
@@ -673,7 +759,7 @@
                     &nbsp;&nbsp;-H <span class="text-amber-300">"Authorization: Bearer YOUR_API_KEY"</span> \<br>
                     &nbsp;&nbsp;-H <span class="text-amber-300">"Content-Type: application/json"</span> \<br>
                     &nbsp;&nbsp;-d '{<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">"to"</span>: <span class="text-amber-300">"+919876543210"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">"to"</span>: <span class="text-amber-300">"+919187054466"</span>,<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">"template"</span>: <span class="text-amber-300">"auth_otp_code"</span>,<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-300">"params"</span>: [<span class="text-amber-300">"482910"</span>]<br>
                     &nbsp;&nbsp;}'
@@ -682,7 +768,7 @@
                     <span class="text-slate-500">// Node.js Axios Example</span><br>
                     const axios = require('axios');<br><br>
                     await axios.post('https://api.textorasms.com/v1/whatsapp/send', {<br>
-                    &nbsp;&nbsp;to: '+919876543210',<br>
+                    &nbsp;&nbsp;to: '+919187054466',<br>
                     &nbsp;&nbsp;template: 'auth_otp_code',<br>
                     &nbsp;&nbsp;params: ['482910']<br>
                     }, { headers: { Authorization: `Bearer ${process.env.TEXTORA_KEY}` } });
@@ -690,7 +776,7 @@
                 <div id="snippet-python" class="snippet-block hidden leading-relaxed">
                     <span class="text-slate-500"># Python Requests Example</span><br>
                     import requests<br><br>
-                    payload = {"to": "+919876543210", "template": "auth_otp_code", "params": ["482910"]}<br>
+                    payload = {"to": "+919187054466", "template": "auth_otp_code", "params": ["482910"]}<br>
                     headers = {"Authorization": "Bearer YOUR_API_KEY"}<br>
                     res = requests.post("https://api.textorasms.com/v1/whatsapp/send", json=payload, headers=headers)
                 </div>
@@ -698,7 +784,7 @@
                     <span class="text-slate-500">// PHP cURL Example</span><br>
                     $ch = curl_init("https://api.textorasms.com/v1/whatsapp/send");<br>
                     curl_setopt($ch, CURLOPT_HTTPHEADER, ["Authorization: Bearer YOUR_API_KEY", "Content-Type: application/json"]);<br>
-                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["to" => "+919876543210", "template" => "auth_otp_code", "params" => ["482910"]]));<br>
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(["to" => "+919187054466", "template" => "auth_otp_code", "params" => ["482910"]]));<br>
                     curl_exec($ch);
                 </div>
             </div>
@@ -724,13 +810,11 @@
         
         <!-- Header -->
         <div class="text-center max-w-3xl mx-auto mb-12">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/70 text-emerald-800 text-xs font-bold uppercase tracking-wider">
-                <i class="fa-solid fa-box-open text-emerald-600"></i>
-                Proprietary In-House Solutions
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
+                Enterprise software
             </span>
-            <h2 class="mt-3 text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                Textora Enterprise Products: <br class="hidden sm:inline">
-                <span class="text-[#049a3d]">CRM & HRMS Business Suites</span>
+            <h2 class="mt-3 text-3xl sm:text-4xl font-semibold text-slate-900 tracking-tight leading-tight">
+                Textora enterprise software suites
             </h2>
             <p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
                 Engineered internally to run our own high-scale operations. We are now offering these battle-tested platforms for external enterprise deployment, licensing, and purchase.
@@ -741,8 +825,8 @@
         <div class="grid lg:grid-cols-2 gap-8">
             
             <!-- PRODUCT 1: TEXTORA CRM -->
-            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-40 h-40 bg-emerald-100/40 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="group bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover-lift flex flex-col justify-between relative overflow-hidden">
+                
 
                 <div>
                     <!-- Badge & Icon -->
@@ -815,8 +899,8 @@
             </div>
 
             <!-- PRODUCT 2: TEXTORA HRMS -->
-            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition duration-300 flex flex-col justify-between relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-40 h-40 bg-blue-100/40 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="group bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover-lift flex flex-col justify-between relative overflow-hidden">
+                
 
                 <div>
                     <!-- Badge & Icon -->
@@ -918,7 +1002,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <!-- PROJECT 1 -->
-            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:border-slate-300 hover:shadow-sm transition duration-150 flex flex-col justify-between">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[11px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-3 py-0.5 rounded-full">Logistics & Supply</span>
@@ -947,7 +1031,7 @@
             </div>
 
             <!-- PROJECT 2 -->
-            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:border-slate-300 hover:shadow-sm transition duration-150 flex flex-col justify-between">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[11px] font-bold uppercase tracking-wider bg-blue-100 text-blue-800 px-3 py-0.5 rounded-full">Healthcare</span>
@@ -975,7 +1059,7 @@
             </div>
 
             <!-- PROJECT 3 -->
-            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:border-slate-300 hover:shadow-sm transition duration-150 flex flex-col justify-between">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[11px] font-bold uppercase tracking-wider bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full">Real Estate</span>
@@ -1002,7 +1086,7 @@
             </div>
 
             <!-- PROJECT 4 -->
-            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:border-slate-300 hover:shadow-sm transition duration-150 flex flex-col justify-between">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[11px] font-bold uppercase tracking-wider bg-purple-100 text-purple-800 px-3 py-0.5 rounded-full">FinTech & Tax</span>
@@ -1030,7 +1114,7 @@
             </div>
 
             <!-- PROJECT 5 -->
-            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:border-slate-300 hover:shadow-sm transition duration-150 flex flex-col justify-between">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[11px] font-bold uppercase tracking-wider bg-rose-100 text-rose-800 px-3 py-0.5 rounded-full">Education & LMS</span>
@@ -1057,7 +1141,7 @@
             </div>
 
             <!-- PROJECT 6 -->
-            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-emerald-500 transition duration-300 flex flex-col justify-between">
+            <div class="group bg-[#fafcfb] rounded-2xl border border-slate-200 overflow-hidden hover:border-slate-300 hover:shadow-sm transition duration-150 flex flex-col justify-between">
                 <div class="p-6">
                     <div class="flex items-center justify-between mb-4">
                         <span class="text-[11px] font-bold uppercase tracking-wider bg-teal-100 text-teal-800 px-3 py-0.5 rounded-full">B2B E-Commerce</span>
@@ -1088,7 +1172,7 @@
         <div class="mt-10 text-center">
             <button type="button" onclick="openModall()" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md transition">
                 <span>Have a Web or Software Project? Request a Free Consultation</span>
-                <i class="fa-solid fa-arrow-right text-xs"></i>
+                <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-200"></i>
             </button>
         </div>
 
@@ -1375,29 +1459,29 @@
 <!-- =========================================================
      FINAL CONVERSION CTA BANNER
 ========================================================= -->
-<section class="bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 py-14 text-white relative overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-4 py-1.5 rounded-full border border-emerald-500/20">
-            Get Started Today
+<section class="bg-slate-900 py-14 text-white border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+            gateway // enterprise-onboarding
         </span>
 
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mt-4 mb-3 tracking-tight leading-tight">
-            Stop Losing Customers to Missed Messages.
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mt-4 mb-3 tracking-tight leading-tight">
+            Direct telecom routes with sub-2.4s verified latency
         </h2>
 
-        <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto mb-7 leading-relaxed">
-            Join hundreds of enterprises and high-growth brands that rely on Textora for high-speed OTP delivery, WhatsApp automation, and in-house CRM/HRMS solutions.
+        <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-7 leading-relaxed">
+            Connect with Textora engineers to configure dedicated SMPP binds, Meta Cloud API access, or schedule an enterprise platform walkthrough.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
+        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <button type="button" onclick="openModall()"
-                class="w-full sm:w-auto px-7 py-3.5 bg-[#049a3d] hover:bg-[#037f32] text-white font-bold rounded-xl shadow-lg shadow-emerald-900/50 hover:scale-[1.02] transition duration-200 text-sm">
-                Book a Free Consultation & Demo
+                class="w-full sm:w-auto px-6 py-3 bg-[#049a3d] hover:bg-[#037f32] text-white font-medium rounded-lg transition duration-150 text-sm">
+                Book a 15-Minute Platform Demo
             </button>
 
             <a href="{{ url('pricing-web') }}"
-                class="w-full sm:w-auto px-7 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition duration-200 text-sm">
-                View Pricing & Plans
+                class="w-full sm:w-auto px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium rounded-lg border border-slate-700 transition duration-150 text-sm">
+                View Pricing &amp; Plans
             </a>
         </div>
     </div>

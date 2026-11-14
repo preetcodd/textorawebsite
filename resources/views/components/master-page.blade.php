@@ -1304,7 +1304,7 @@
 
                class="text-gray-300 hover:text-white transition duration-300">
 
-                Admin Portal Login
+                Login
 
             </a>
 
