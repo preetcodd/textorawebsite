@@ -263,6 +263,21 @@ class PricingTable extends Component implements HasForms, HasTable
 
                         /* SAVE BACK TO JSON */
                         ->mutateFormDataUsing(function (array $data): array {
+                            // Ensure numeric fields are numbers or null (prevents PostgreSQL empty string syntax error)
+                            $numericFields = [
+                                'monthly_price', 'monthly_total_messages',
+                                'yearly_price', 'yearly_total_messages',
+                                'setup_cost', 'marketing_price', 'utility_price',
+                                'authentication_price', 'service_price'
+                            ];
+                            foreach ($numericFields as $field) {
+                                if (array_key_exists($field, $data)) {
+                                    if ($data[$field] === '' || $data[$field] === null) {
+                                        $data[$field] = in_array($field, ['monthly_price', 'yearly_price', 'setup_cost', 'marketing_price', 'utility_price', 'authentication_price', 'service_price']) ? null : 0;
+                                    }
+                                }
+                            }
+
                             if (isset($data['features'])) {
                                 $data['features'] = collect($data['features'])
                                     ->pluck('value')

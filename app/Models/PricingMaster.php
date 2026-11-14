@@ -58,6 +58,44 @@ class PricingMaster extends Model
     ];
 
     /**
+     * Mutators to ensure PostgreSQL receives valid numeric values or NULL instead of empty strings
+     */
+    public function setSetupCostAttribute($value)
+    {
+        $this->attributes['setup_cost'] = ($value === '' || $value === null) ? null : $value;
+    }
+
+    public function setMarketingPriceAttribute($value)
+    {
+        $this->attributes['marketing_price'] = ($value === '' || $value === null) ? null : $value;
+    }
+
+    public function setUtilityPriceAttribute($value)
+    {
+        $this->attributes['utility_price'] = ($value === '' || $value === null) ? null : $value;
+    }
+
+    public function setAuthenticationPriceAttribute($value)
+    {
+        $this->attributes['authentication_price'] = ($value === '' || $value === null) ? null : $value;
+    }
+
+    public function setServicePriceAttribute($value)
+    {
+        $this->attributes['service_price'] = ($value === '' || $value === null) ? null : $value;
+    }
+
+    public function setYearlyPriceAttribute($value)
+    {
+        $this->attributes['yearly_price'] = ($value === '' || $value === null) ? 0 : $value;
+    }
+
+    public function setYearlyTotalMessagesAttribute($value)
+    {
+        $this->attributes['yearly_total_messages'] = ($value === '' || $value === null) ? 0 : (int)$value;
+    }
+
+    /**
      * Toggle active/inactive status
      */
     public function toggleIsActive(): void

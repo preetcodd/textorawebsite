@@ -45,6 +45,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 # Copy configuration files
 COPY conf/nginx/nginx-site.conf /etc/nginx/http.d/default.conf
 COPY conf/supervisor/supervisord.conf /etc/supervisord.conf
+COPY conf/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
 COPY conf/start.sh /start.sh
 RUN chmod +x /start.sh
 
