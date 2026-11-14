@@ -69,18 +69,36 @@ if (!empty($shortDomain)) {
     });
 }
 
-// Run database migration & clear cache via browser (for shared hosting without SSH)
+// Run database migration, link storage & clear cache via browser (for shared hosting without SSH)
 Route::get('/run-migration', function () {
     try {
         \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
         $migrateOutput = \Illuminate\Support\Facades\Artisan::output();
 
+        // Ensure storage link exists
+        try {
+            \Illuminate\Support\Facades\Artisan::call('storage:link');
+            $storageOutput = \Illuminate\Support\Facades\Artisan::output();
+        } catch (\Throwable $stEx) {
+            $storageOutput = $stEx->getMessage();
+        }
+
+        // Manual symlink fallback for shared hosting
+        $publicStorage = public_path('storage');
+        $targetStorage = storage_path('app/public');
+        if (!file_exists($publicStorage) && file_exists($targetStorage)) {
+            @symlink($targetStorage, $publicStorage);
+        }
+
         \Illuminate\Support\Facades\Artisan::call('optimize:clear');
         $optimizeOutput = \Illuminate\Support\Facades\Artisan::output();
 
         return "<div style='font-family:sans-serif;padding:30px;max-width:700px;margin:auto;'>"
-             . "<h2 style='color:#16a34a;'>&#10004; Database Migrated Successfully!</h2>"
-             . "<pre style='background:#f1f5f9;padding:15px;border-radius:10px;font-size:13px;'>" . e($migrateOutput) . "\n" . e($optimizeOutput) . "</pre>"
+             . "<h2 style='color:#16a34a;'>&#10004; Database Migrated & Storage Linked Successfully!</h2>"
+             . "<pre style='background:#f1f5f9;padding:15px;border-radius:10px;font-size:13px;'>" 
+             . e($migrateOutput) . "\n" 
+             . e($storageOutput) . "\n" 
+             . e($optimizeOutput) . "</pre>"
              . "<p><a href='/' style='color:#16a34a;font-weight:bold;'>&larr; Go to Homepage</a></p>"
              . "</div>";
     } catch (\Throwable $e) {
@@ -90,6 +108,16 @@ Route::get('/run-migration', function () {
              . "</div>";
     }
 });
+
+// Fail-safe storage route for blog & uploaded images if symlink is missing on shared hosting
+Route::get('/storage/{path}', function ($path) {
+    $cleanPath = str_replace(['..', "\0"], '', $path);
+    $filePath = storage_path('app/public/' . $cleanPath);
+    if (!file_exists($filePath)) {
+        abort(404);
+    }
+    return response()->file($filePath);
+})->where('path', '.*');
 
 Route::view('/whatsapp-business-api', 'Website.whatsapp_business_api');
 Route::get('/blog_list', [VlogMastersController::class, 'blog_list']);

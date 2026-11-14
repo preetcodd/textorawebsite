@@ -175,7 +175,7 @@
                     Textora Technologies Pvt. Ltd.<br>
                     5a, 1A Cross Rd, Dollar Scheme Colony, 1st Stage, BTM 1st Stage, Bengaluru, Karnataka 560068
                 </p>
-                <div class="mt-3 text-[11px] font-bold text-[#049a3d]">Mon – Sat: 9:30 AM – 7:00 PM</div>
+                <div class="mt-3 text-[11px] font-bold text-[#049a3d]">Mon – Sat: 10:00 AM – 7:00 PM</div>
             </div>
 
             <div class="p-5 rounded-2xl bg-[#fafcfb] border border-slate-200/80 hover:border-emerald-400 transition">
