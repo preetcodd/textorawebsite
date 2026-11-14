@@ -125,133 +125,112 @@
 
             </div>
 
-            <!-- Right: Attractive Smartphone WhatsApp Experience Mockup (Enclosed & Modern) -->
-            <div class="lg:col-span-5 flex justify-center relative pt-2 lg:pt-6" data-aos="fade-left" data-aos-duration="700">
-                
-                <!-- Ambient Backdrop Glow -->
-                <div class="absolute -top-10 -right-10 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-blue-400/15 rounded-full blur-3xl pointer-events-none"></div>
-
-                <!-- Floating Top-Right Badge (Organic breakout) -->
-                <div class="absolute -top-4 -right-2 sm:-right-4 z-30 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg border border-emerald-100 flex items-center gap-2 text-xs font-bold text-slate-800 animate-float hidden sm:flex">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                    <span>Official Meta Cloud API</span>
-                    <span class="text-[10px] text-emerald-700 font-mono font-extrabold bg-emerald-50 px-1.5 py-0.5 rounded">&lt; 1.8s</span>
-                </div>
-
-                <!-- Floating Bottom-Left Badge -->
-                <div class="absolute -bottom-5 -left-2 sm:-left-4 z-30 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-lg border border-slate-200 flex items-center gap-2 text-xs font-bold text-slate-800 animate-float-delayed hidden sm:flex">
-                    <i class="fa-solid fa-shield-halved text-[#049a3d]"></i>
-                    <span>100% TRAI DLT Compliant</span>
-                    <span class="text-[10px] text-slate-500 font-medium">Zero Drops</span>
-                </div>
-
-                <!-- Smartphone Chassis -->
-                <div class="w-full max-w-[340px] sm:max-w-[360px] bg-slate-900 p-2.5 sm:p-3 rounded-[44px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] ring-1 ring-slate-800 relative z-10 hover-card-elevate">
-                    
-                    <!-- Top Speaker Bar & Camera Notch -->
-                    <div class="flex items-center justify-center gap-2 py-1 mb-1">
-                        <div class="w-12 h-1 bg-slate-700 rounded-full"></div>
-                        <div class="w-2.5 h-2.5 bg-slate-800 rounded-full border border-slate-700"></div>
+            <!-- Right: Textora Telecom Gateway & Campaign Dispatch Terminal -->
+            <div class="lg:col-span-5 flex justify-center relative pt-2 lg:pt-0">
+                <div class="w-full max-w-lg bg-slate-900 rounded-2xl border border-slate-800 shadow-xl overflow-hidden font-sans">
+                    <!-- Terminal Window Header -->
+                    <div class="bg-slate-950/80 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block"></span>
+                            <span class="text-xs font-mono text-slate-400 ml-2">gateway // cluster-mumbai-01</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                            <span class="text-[11px] font-mono text-emerald-400">ONLINE</span>
+                        </div>
                     </div>
 
-                    <!-- Phone Bezel & Screen -->
-                    <div class="bg-[#efeae2] rounded-[34px] overflow-hidden border border-slate-800 text-xs">
-                        
-                        <!-- WhatsApp Official Business Header -->
-                        <div class="bg-[#075e54] text-white px-3.5 py-3 flex items-center justify-between shadow-xs">
-                            <div class="flex items-center gap-2.5">
-                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center p-0.5 shadow-xs shrink-0">
-                                    <img src="{{ asset('images/PNG/Icon.png') }}" alt="Textora" class="w-full h-full object-contain">
-                                </div>
-                                <div>
-                                    <div class="font-extrabold flex items-center gap-1 text-xs text-white">
-                                        <span>Textora Updates</span>
-                                        <i class="fa-solid fa-circle-check text-emerald-300 text-[10px]" title="Official Verified Green Tick"></i>
-                                    </div>
-                                    <div class="text-[10px] text-emerald-100 font-medium flex items-center gap-1">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                                        <span>Official Business Account</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-3 text-emerald-100 text-xs">
-                                <i class="fa-solid fa-phone cursor-pointer hover:text-white transition"></i>
-                                <i class="fa-solid fa-ellipsis-vertical cursor-pointer hover:text-white transition"></i>
-                            </div>
+                    <!-- Telemetry Strip -->
+                    <div class="bg-slate-900/90 px-4 py-2 border-b border-slate-800/80 grid grid-cols-3 gap-2 text-[11px] font-mono">
+                        <div class="text-slate-400">
+                            <span class="text-slate-500 block text-[10px]">META CLOUD API</span>
+                            <span class="text-emerald-400 font-semibold">200 OK &middot; 1.2s</span>
                         </div>
+                        <div class="text-slate-400 border-x border-slate-800 px-2">
+                            <span class="text-slate-500 block text-[10px]">TRAI DLT</span>
+                            <span class="text-emerald-400 font-semibold">SCRUBBED &middot; 0% DROP</span>
+                        </div>
+                        <div class="text-slate-400 text-right">
+                            <span class="text-slate-500 block text-[10px]">CARRIER BIND</span>
+                            <span class="text-slate-200 font-semibold">AIRTEL / JIO / VI</span>
+                        </div>
+                    </div>
 
-                        <!-- Chat Conversation Canvas -->
-                        <div class="p-3 space-y-2.5 max-h-[380px] overflow-y-auto bg-[radial-gradient(#d4dbd7_1px,transparent_1px)] [background-size:12px_12px]">
-                            
-                            <!-- Security Notice -->
-                            <div class="text-center my-0.5">
-                                <span class="bg-[#e1f3fb] text-[#128c7e] text-[9px] font-semibold px-2.5 py-0.5 rounded-md shadow-2xs inline-block">
-                                    <i class="fa-solid fa-lock text-[8px]"></i> End-to-end encrypted via Meta Cloud servers
-                                </span>
+                    <!-- Live Dispatch Streams Container -->
+                    <div class="p-4 space-y-3 bg-slate-950/50">
+                        <!-- Dispatch Stream 1: Verified WhatsApp Broadcast -->
+                        <div class="bg-slate-900 rounded-xl p-3 border border-slate-800 space-y-2">
+                            <div class="flex items-center justify-between text-xs">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 rounded-md bg-[#049a3d]/20 flex items-center justify-center text-[#049a3d]">
+                                        <i class="fa-brands fa-whatsapp text-xs"></i>
+                                    </div>
+                                    <span class="font-medium text-slate-200">WhatsApp Business API</span>
+                                    <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-1.5 py-0.5 rounded font-mono">VERIFIED</span>
+                                </div>
+                                <span class="text-[11px] font-mono text-slate-400">14s ago</span>
                             </div>
 
-                            <!-- Bot Broadcast Message with Rich CTA -->
-                            <div class="bg-white rounded-xl rounded-tl-none p-2.5 shadow-sm max-w-[90%] space-y-1.5 border border-slate-100">
-                                <div class="relative rounded-lg overflow-hidden bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 text-white p-2">
-                                    <div class="flex items-center justify-between text-[10px] font-bold text-emerald-400">
-                                        <span>FESTIVE FLASH SALE BROADCAST</span>
-                                        <span class="text-slate-300 font-mono text-[9px]">98.6% Open</span>
-                                    </div>
-                                    <p class="text-[9px] text-slate-300 mt-0.5 leading-snug">Reach 50,000+ customers instantly with guaranteed delivery.</p>
+                            <div class="bg-slate-950 rounded-lg p-2.5 border border-slate-800/80 space-y-1 text-xs">
+                                <div class="flex items-center justify-between text-[11px] text-slate-400">
+                                    <span class="font-mono text-slate-300">Campaign: Festive Flash Sale</span>
+                                    <span class="text-emerald-400 font-mono font-medium">98.4% delivered</span>
                                 </div>
-                                <p class="text-slate-800 text-[10px] leading-snug">
-                                    Hi Rahul! Your festive promotion campaign has been approved. Launch to your audience or calculate cost:
+                                <p class="text-slate-300 text-xs leading-relaxed">
+                                    50,000 messages dispatched via Meta Cloud API with instant interactive CTA buttons.
                                 </p>
-                                <span class="text-[9px] text-slate-400 block text-right">10:42 AM</span>
-
-                                <!-- Quick Reply Action Chips -->
-                                <div class="pt-1.5 border-t border-slate-100 space-y-1">
-                                    <button type="button" onclick="openModall()" class="w-full py-1.5 px-2.5 bg-emerald-50 hover:bg-emerald-100 text-[#049a3d] font-bold text-[10px] rounded-lg flex items-center justify-center gap-1.5 transition">
-                                        <i class="fa-solid fa-bolt text-[9px]"></i>
-                                        <span>Launch Broadcast Now</span>
-                                    </button>
-                                    <a href="{{ url('pricing-web#whatsapp-calculator') }}" class="w-full py-1.5 px-2.5 bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-[10px] rounded-lg flex items-center justify-center gap-1.5 transition">
-                                        <i class="fa-solid fa-calculator text-[9px]"></i>
-                                        <span>Calculate Campaign Cost</span>
-                                    </a>
-                                </div>
                             </div>
 
-                            <!-- Outgoing User Response -->
-                            <div class="bg-[#dcf8c6] rounded-xl rounded-tr-none p-2 shadow-xs max-w-[85%] ml-auto text-slate-800 text-[10px]">
-                                <p class="leading-snug">Broadcast triggered! 98.4% delivered in 14 seconds</p>
-                                <div class="flex items-center justify-end gap-1 text-[8px] text-slate-500 mt-0.5">
-                                    <span>10:43 AM</span>
-                                    <i class="fa-solid fa-check-double text-blue-500"></i>
-                                </div>
-                            </div>
-
-                            <!-- Automated OTP SMS Fallback Card -->
-                            <div class="bg-white rounded-xl p-2 shadow-xs border-l-4 border-emerald-500 text-[10px]">
-                                <div class="font-bold text-slate-800 flex items-center justify-between text-[9px]">
-                                    <span class="flex items-center gap-1 text-emerald-800"><i class="fa-solid fa-tower-broadcast text-emerald-600"></i> SMS OTP FAILOVER</span>
-                                    <span class="text-emerald-700 font-mono font-bold">&lt; 1.8s</span>
-                                </div>
-                                <p class="text-slate-600 text-[9px] mt-0.5">Your Textora security login OTP is <span class="font-mono font-bold text-slate-900 bg-slate-100 px-1 py-0.5 rounded">482910</span>.</p>
-                            </div>
-
-                        </div>
-
-                        <!-- Chat Input Simulation -->
-                        <div class="bg-[#f0f2f5] px-3 py-2 flex items-center gap-2 border-t border-slate-200">
-                            <i class="fa-regular fa-face-smile text-slate-500 text-xs"></i>
-                            <div class="flex-1 bg-white rounded-full px-2.5 py-1 text-[10px] text-slate-400">
-                                Type a message...
-                            </div>
-                            <div class="w-6 h-6 rounded-full bg-[#128c7e] text-white flex items-center justify-center text-[10px] shadow-xs">
-                                <i class="fa-solid fa-paper-plane"></i>
+                            <div class="flex items-center justify-between pt-1 text-[11px] font-mono text-slate-400">
+                                <span>Payload: TEMPLATE_INTERACTIVE</span>
+                                <span class="text-emerald-400">Latency: 1,420ms</span>
                             </div>
                         </div>
 
+                        <!-- Dispatch Stream 2: Mission-Critical SMS OTP Failover -->
+                        <div class="bg-slate-900 rounded-xl p-3 border border-slate-800 space-y-2">
+                            <div class="flex items-center justify-between text-xs">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-6 h-6 rounded-md bg-blue-500/15 flex items-center justify-center text-blue-400">
+                                        <i class="fa-solid fa-tower-broadcast text-xs"></i>
+                                    </div>
+                                    <span class="font-medium text-slate-200">Telecom SMPP Gateway</span>
+                                    <span class="text-[10px] bg-blue-500/10 text-blue-400 border border-blue-500/20 px-1.5 py-0.5 rounded font-mono">PRIORITY 1</span>
+                                </div>
+                                <span class="text-[11px] font-mono text-slate-400">just now</span>
+                            </div>
+
+                            <div class="bg-slate-950 rounded-lg p-2.5 border border-slate-800/80 space-y-1 text-xs">
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="font-mono text-slate-400">DLT ID: 110148920192 &middot; OTP Login</span>
+                                    <span class="text-emerald-400 font-mono font-medium">DELIVRD (1.8s)</span>
+                                </div>
+                                <p class="text-slate-400 text-xs font-mono">
+                                    Your Textora verification code is <span class="text-slate-100 font-bold bg-slate-800 px-1.5 py-0.5 rounded">482910</span>. Valid for 10 minutes.
+                                </p>
+                            </div>
+
+                            <div class="flex items-center justify-between pt-1 text-[11px] font-mono text-slate-400">
+                                <span>Route: AIRTEL_DLT_DIRECT</span>
+                                <span class="text-emerald-400">Smart Failover: READY</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Status Bar -->
+                    <div class="bg-slate-950 px-4 py-2.5 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                            <span>Throughput: 4,820 msg/sec</span>
+                        </span>
+                        <span class="text-slate-500">Uptime: 99.98%</span>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </section>
 
 <!-- =========================================================
