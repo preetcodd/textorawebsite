@@ -347,6 +347,17 @@
                 <!-- Contact Form -->
                 <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
 
+                    @if ($errors->any() && old('isFormType') === 'Contact')
+                        <div class="mb-4 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm">
+                            <p class="font-bold mb-1">Please fix the following errors:</p>
+                            <ul class="list-disc list-inside space-y-0.5">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form method="POST"
                           action="{{ url('enquiry-web') }}"
                           id="contact-frm"

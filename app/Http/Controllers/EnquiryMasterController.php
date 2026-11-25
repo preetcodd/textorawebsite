@@ -2,21 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EnquiryAdminNotification;
+use App\Mail\EnquiryUserConfirmation;
 use App\Models\EnquiryMaster;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
-use Throwable;
+use Illuminate\Support\Facades\Mail;
 
 class EnquiryMasterController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         return view('enquiry.enquiry_index');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
+        // Support alternate field names from different website forms (mobile/contact, service/requirement, consent/terms)
+        $request->merge([
+            'contact' => $request->input('contact') ?: $request->input('mobile'),
+            'requirement' => $request->input('requirement') ?: $request->input('service'),
+            'terms' => $request->input('terms') ?: $request->input('consent'),
+        ]);
+
         $validated = $request->validate([
             'isFormType' => 'required|in:Contact,Demo,Business',
         ]);
@@ -28,15 +42,15 @@ class EnquiryMasterController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|max:255',
                 'contact' => 'required|string|max:20',
-                'region' => 'required|string|max:255',
-                'message' => 'required|string',
+                'region' => 'nullable|string|max:255',
+                'message' => 'nullable|string',
                 'company_name' => 'nullable|string|max:255',
                 'requirement' => 'nullable|string|max:255',
                 'other_service' => 'nullable|string|max:255',
-                'isFormType' => 'nullable',
+                'volume' => 'nullable|string|max:255',
                 'terms' => 'accepted',
             ];
-        } else {
+        } else { // Demo or Business
             $rules = [
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|max:255',
@@ -46,90 +60,49 @@ class EnquiryMasterController extends Controller
                 'other_service' => 'nullable|string|max:255',
                 'region' => 'nullable|string|max:255',
                 'message' => 'nullable|string',
-                'isFormType' => 'nullable',
                 'terms' => 'accepted',
             ];
         }
 
-        $validated = array_merge(
-            $validated,
-            $request->validate($rules)
-        );
+        $formValidated = $request->validate($rules);
 
-        // Handle Other Services
-        if ($request->requirement === 'Other Services') {
-            $validated['requirement'] = $request->input('other_service');
+        $requirement = $formValidated['requirement'] ?? null;
+        if ($requirement === 'Other Services' && !empty($formValidated['other_service'])) {
+            $requirement = $formValidated['other_service'];
         }
 
-        // Map form type for database
-        $validated['type'] = $validated['isFormType'];
-        unset($validated['isFormType']);
+        $message = trim((string) ($formValidated['message'] ?? ''));
+        if (!empty($formValidated['volume'])) {
+            $volumeLine = 'Estimated Volume: ' . $formValidated['volume'];
+            $message = $message !== '' ? $volumeLine . "\n\n" . $message : $volumeLine;
+        }
 
-        $validated['is_terms_accepted'] = 1;
-        unset($validated['terms']);
+        $enquiry = EnquiryMaster::create([
+            'name' => $formValidated['name'],
+            'email' => $formValidated['email'],
+            'contact' => $formValidated['contact'],
+            'region' => $formValidated['region'] ?? null,
+            'company_name' => $formValidated['company_name'] ?? null,
+            'requirement' => $requirement,
+            'type' => $formType,
+            'message' => $message !== '' ? $message : null,
+            'is_terms_accepted' => true,
+        ]);
 
-        // Remove extra field not required in database
-        unset($validated['other_service']);
-
-        // Save enquiry in database
-        $enquiry = EnquiryMaster::create($validated);
-
-        // Send confirmation email to customer
+        // Send admin notification and user confirmation emails without blocking enquiry save
         try {
-            $customerName = $enquiry->name;
-            $customerEmail = $enquiry->email;
-            $service = $enquiry->requirement ?: 'Not specified';
-            $company = $enquiry->company_name ?: 'Not specified';
+            $adminEmail = config('mail.admin_email');
+            if (!empty($adminEmail)) {
+                Mail::to($adminEmail)->send(new EnquiryAdminNotification($enquiry));
+            }
 
-            $subject = 'Thank You for Contacting Textora SMS';
-
-            $emailBody = "Dear {$customerName},\n\n";
-
-            $emailBody .= "Thank you for contacting Textora SMS!\n\n";
-
-            $emailBody .= "We have successfully received your {$formType} request.\n\n";
-
-            $emailBody .= "Your Enquiry Details:\n";
-            $emailBody .= "Name: {$customerName}\n";
-            $emailBody .= "Company: {$company}\n";
-            $emailBody .= "Service: {$service}\n\n";
-
-            $emailBody .= "Our team will review your request and contact you soon.\n\n";
-
-            // Support contact details
-            $emailBody .= "For more enquiries or assistance, contact us:\n";
-            $emailBody .= "Mobile: 09187054466\n";
-            $emailBody .= "Email: support@textorasms.com\n";
-            $emailBody .= "Website: https://textorasms.com\n\n";
-
-            $emailBody .= "Regards,\n";
-            $emailBody .= "Team Textora SMS";
-
-            Mail::raw($emailBody, function ($message) use (
-                $customerEmail,
-                $customerName,
-                $subject
-            ) {
-                $message->to($customerEmail, $customerName)
-                    ->subject($subject);
-            });
-
-            Log::info('Customer confirmation email sent successfully.', [
-                'enquiry_id' => $enquiry->id,
-                'email' => $customerEmail,
-            ]);
-
-        } catch (Throwable $e) {
-            Log::error('Customer confirmation email failed.', [
-                'enquiry_id' => $enquiry->id,
-                'email' => $enquiry->email,
-                'error' => $e->getMessage(),
-            ]);
+            if (!empty($enquiry->email)) {
+                Mail::to($enquiry->email)->send(new EnquiryUserConfirmation($enquiry));
+            }
+        } catch (\Throwable $e) {
+            Log::error('Failed to send enquiry emails for enquiry #' . $enquiry->id . ': ' . $e->getMessage());
         }
 
-        return redirect()->back()->with(
-            'success',
-            'Thank you! Your enquiry has been received. Our team will contact you soon.'
-        );
+        return redirect()->back()->with('success', 'Thank you! Your enquiry has been received. A confirmation email has been sent and our team will contact you soon.');
     }
 }

@@ -15,6 +15,7 @@ use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
@@ -73,6 +74,12 @@ class EnquiryTable extends Component implements HasForms, HasTable
                     ->sortable()
                     ->label('Type'),
 
+                TextColumn::make('message')
+                    ->limit(40)
+                    ->tooltip(fn (EnquiryMaster $record): ?string => $record->message)
+                    ->searchable()
+                    ->label('Message'),
+
                 TextColumn::make('created_at')
                     ->dateTime('d M Y h:i A')
                     ->sortable()
@@ -90,6 +97,29 @@ class EnquiryTable extends Component implements HasForms, HasTable
             ])
             ->actions([
                 ActionGroup::make([
+                    ViewAction::make()
+                        ->label('View Details')
+                        ->icon('heroicon-o-eye')
+                        ->form([
+                            Grid::make(2)->schema([
+                                TextInput::make('name')->label('Name')->disabled(),
+                                TextInput::make('email')->label('Email')->disabled(),
+                                TextInput::make('contact')->label('Contact')->disabled(),
+                                TextInput::make('company_name')->label('Company')->disabled(),
+                                TextInput::make('region')->label('Region')->disabled(),
+                                TextInput::make('requirement')->label('Requirement')->disabled(),
+                                TextInput::make('type')->label('Form Type')->disabled(),
+                                TextInput::make('created_at')
+                                    ->label('Enquiry Date')
+                                    ->formatStateUsing(fn ($state) => $state ? \Carbon\Carbon::parse($state)->format('d M Y h:i A') : '')
+                                    ->disabled(),
+                            ]),
+                            Textarea::make('message')
+                                ->label('Message / Details')
+                                ->rows(4)
+                                ->disabled()
+                                ->columnSpanFull(),
+                        ]),
 
                     Action::make('delete')
                         ->label('Delete')
@@ -123,11 +153,13 @@ class EnquiryTable extends Component implements HasForms, HasTable
                                     'email' => 'Email',
                                     'contact' => 'Contact',
                                     'company_name' => 'Company',
+                                    'region' => 'Region',
                                     'requirement' => 'Requirement',
                                     'type' => 'Type',
+                                    'message' => 'Message',
                                     'created_at' => 'Date',
                                 ])
-                                ->default(['id', 'name', 'email', 'contact', 'company_name', 'requirement', 'type', 'created_at'])
+                                ->default(['id', 'name', 'email', 'contact', 'company_name', 'region', 'requirement', 'type', 'message', 'created_at'])
                                 ->columns(2)
                                 ->required(),
                         ])
@@ -143,8 +175,10 @@ class EnquiryTable extends Component implements HasForms, HasTable
                                     'email' => 'Email',
                                     'contact' => 'Contact',
                                     'company_name' => 'Company',
+                                    'region' => 'Region',
                                     'requirement' => 'Requirement',
                                     'type' => 'Type',
+                                    'message' => 'Message',
                                     'created_at' => 'Date',
                                 ];
 

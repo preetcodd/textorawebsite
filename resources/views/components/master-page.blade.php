@@ -967,6 +967,16 @@
         <!-- Form -->
         <div class="p-5 sm:p-8">
 
+            @if ($errors->any() && old('isFormType') === 'Demo')
+                <div class="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs">
+                    <ul class="list-disc list-inside space-y-0.5">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             <form method="POST"
                 action="{{ url('enquiry-web') }}"
                 id="demo-form"
@@ -1110,6 +1120,16 @@
                             class="w-full px-4 py-4 border border-gray-200 rounded-xl outline-none resize-y focus:border-green-600 focus:ring-2 focus:ring-green-100 transition"></textarea>
                     </div>
 
+                </div>
+
+                <div class="flex items-start gap-2.5 text-left">
+                    <input type="checkbox" name="terms" id="demo-terms" value="1" required checked
+                        class="mt-1 h-4 w-4 rounded border-gray-300 text-[#049a3d] focus:ring-[#049a3d]">
+                    <label for="demo-terms" class="text-xs text-gray-600 leading-relaxed">
+                        I agree to Textora Technologies Pvt Ltd's
+                        <a href="{{ url('term-and-Conditions') }}" target="_blank" class="text-[#049a3d] font-semibold hover:underline">Terms &amp; Conditions</a>
+                        and <a href="{{ url('privacy-policy') }}" target="_blank" class="text-[#049a3d] font-semibold hover:underline">Privacy Policy</a>.
+                    </label>
                 </div>
 
                 <!-- Submit -->
@@ -1616,6 +1636,12 @@
         @if (session('success'))
 
             showToast('{{ session('success') }}');
+
+        @endif
+
+        @if ($errors->any() && old('isFormType') === 'Demo')
+
+            openModall();
 
         @endif
 
