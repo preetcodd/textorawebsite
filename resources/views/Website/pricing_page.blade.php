@@ -1,204 +1,284 @@
-<x-master-page title="Pricing | Textora SMS">
-    @php
+<x-master-page
+    title="Bulk SMS & WhatsApp API Pricing in India | Textora"
+    description="Check Bulk SMS, WhatsApp API, RCS and Bulk WhatsApp pricing in India. Explore Textora plans for business messaging and communication."
+>    @php
         function activeNav($path)
         {
-            return Request::path() === $path ? 'text-green-700 font-semibold' : 'text-gray-700';
+            return Request::path() === $path
+                ? 'text-green-700 font-semibold'
+                : 'text-gray-700';
         }
+
+        $pricingLabels = [
+            'SMS' => 'Bulk SMS',
+            'Whatsapp' => 'WhatsApp API',
+            'Bulk Whatsapp' => 'Bulk WhatsApp',
+            'Voice' => 'Voice Calls',
+            'RCS' => 'RCS Messaging',
+            'Email' => 'Email Marketing',
+        ];
+
+        $pricingIcons = [
+            'SMS' => 'fa-comment-sms',
+            'Whatsapp' => 'fa-brands fa-whatsapp',
+            'Bulk Whatsapp' => 'fa-paper-plane',
+            'Voice' => 'fa-phone-volume',
+            'RCS' => 'fa-message',
+            'Email' => 'fa-envelope',
+        ];
     @endphp
 
-    @push('head-scripts')
-        <script type="application/ld+json">
+   
+@push('head-scripts')
+<script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://textorasms.com/pricing-web/#webpage",
-      "url": "https://textorasms.com/pricing-web",
-      "name": "Textora SMS Pricing - WhatsApp API, Bulk SMS & RCS Plans",
-      "description": "Explore transparent and tiered pricing for WhatsApp Business API, Bulk SMS, RCS Messaging, and Voice Call services."
-    },
-    {
-      "@type": "ItemList",
-      "name": "Textora SMS Service Plans",
-      "itemListElement": [
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "Product",
-            "name": "WhatsApp Business API - Starter Plan",
-            "image": "https://textorasms.com/images/textorasms-svg-logo.svg",
-            "description": "10,000 Marketing messages with Blue Tick Verification and Chatbot Builder.",
-            "sku": "WABA-STARTER",
-            "brand": {
-              "@type": "Brand",
-              "name": "Textora"
-            },
-            "offers": {
-              "@type": "Offer",
-              "url": "https://textorasms.com/pricing-web",
-              "price": "9999.00",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "priceValidUntil": "2026-12-31"
+            "@type": "WebPage",
+            "@id": "https://textorasms.com/pricing-web#webpage",
+            "url": "https://textorasms.com/pricing-web",
+            "name": "Bulk SMS & WhatsApp API Pricing in India | Textora",
+            "description": "Explore Textora pricing for Bulk SMS, WhatsApp Business API, Bulk WhatsApp, RCS, Voice SMS and Email Marketing. Compare plans for your business.",
+            "breadcrumb": {
+                "@id": "https://textorasms.com/pricing-web#breadcrumb"
             }
-          }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "Product",
-            "name": "Bulk SMS Promotional - Starter Plan",
-            "image": "https://textorasms.com/images/textorasms-svg-logo.svg",
-            "description": "10,000 Promotional SMS with DND-safe delivery and web panel access.",
-            "sku": "SMS-PROM-STARTER",
-            "brand": {
-              "@type": "Brand",
-              "name": "Textora"
-            },
-            "offers": {
-              "@type": "Offer",
-              "url": "https://textorasms.com/pricing-web",
-              "price": "1999.00",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "priceValidUntil": "2026-12-31"
-            }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "item": {
-            "@type": "Product",
-            "name": "RCS Messaging - Starter Plan",
-            "image": "https://textorasms.com/images/textorasms-svg-logo.svg",
-            "description": "10,000 RCS messages with Rich Cards, Images & Carousels.",
-            "sku": "RCS-STARTER",
-            "brand": {
-              "@type": "Brand",
-              "name": "Textora"
-            },
-            "offers": {
-              "@type": "Offer",
-              "url": "https://textorasms.com/pricing-web",
-              "price": "2999.00",
-              "priceCurrency": "INR",
-              "availability": "https://schema.org/InStock",
-              "priceValidUntil": "2026-12-31"
-            }
-          }
+            "@type": "BreadcrumbList",
+            "@id": "https://textorasms.com/pricing-web#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://textorasms.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Pricing",
+                    "item": "https://textorasms.com/pricing-web"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Which plan is best for startups?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our Starter Plans are perfect for startups and small businesses, offering 10,000 messages with full access to our cloud dashboard and basic features."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you offer custom pricing for enterprises?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, our Enterprise Plans provide custom solutions for large agencies and corporations needing high-volume messaging, dedicated support, and advanced analytics."
-          }
-        }
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://textorasms.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Pricing",
-          "item": "https://textorasms.com/pricing-web"
-        }
-      ]
-    }
-  ]
+    ]
 }
 </script>
-    @endpush
+@endpush
 
-    <main class="md:pt-20 pt-10 bg-white">
-        <section class="xl:py-16 py-8 bg-white">
+    <style>
+        .pricing-page {
+            --textora-green: #087849;
+            --textora-bright: #049a3d;
+            --textora-light: #effaf3;
+        }
+
+        /* ================= SERVICE TABS ================= */
+
+        .pricing-page .product-tab,
+        .pricing-page .pricing-tab {
+            font-weight: 600 !important;
+            letter-spacing: -0.01em;
+            font-family: inherit;
+            background: #ffffff;
+            color: #475569;
+            border-color: #e5e7eb;
+            transition: all .25s ease;
+        }
+
+        .pricing-page .product-tab:hover,
+        .pricing-page .pricing-tab:hover {
+            color: #087849;
+            background: #f0faf4;
+            border-color: #ccebd7;
+        }
+
+        .pricing-page .product-tab.active,
+        .pricing-page .pricing-tab.active {
+            font-weight: 650 !important;
+            color: #ffffff !important;
+            background: #087849 !important;
+            border-color: #087849 !important;
+            box-shadow: 0 5px 14px rgba(8, 120, 73, .13);
+        }
+
+        /* ================= SUBCATEGORY TABS ================= */
+
+        .pricing-page .subcat-tab {
+            font-weight: 600 !important;
+            letter-spacing: -0.01em;
+            color: #64748b;
+            background: #ffffff;
+            border-color: #e2e8f0;
+            transition: all .25s ease;
+        }
+
+        .pricing-page .subcat-tab:hover {
+            color: #087849;
+            background: #f0faf4;
+            border-color: #ccebd7;
+        }
+
+        .pricing-page .subcat-tab.active {
+            font-weight: 600 !important;
+            color: #087849 !important;
+            background: #eaf7ef !important;
+            border-color: #b8e2c7 !important;
+            box-shadow: none;
+        }
+
+        .pricing-page #mobileServiceDropdown {
+            font-weight: 600 !important;
+            color: #087849;
+        }
+
+        /* ================= PRICING CARDS ================= */
+
+        .pricing-page .pricing-card {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+
+        .pricing-page .pricing-card:hover {
+            transform: translateY(-5px);
+            border-color: #a7dabb;
+            box-shadow: 0 18px 40px rgba(8, 120, 73, .09);
+        }
+
+        .pricing-page .pricing-card.recommended {
+            border: 1.5px solid #087849;
+            box-shadow: 0 12px 35px rgba(8, 120, 73, .09);
+        }
+
+        .pricing-page .pricing-card h3 {
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.25;
+        }
+
+        .pricing-page .pricing-card .price-value {
+            color: #087849;
+            letter-spacing: -0.045em;
+        }
+
+        .pricing-page .pricing-card .pricing-check {
+            color: #049a3d;
+        }
+
+        .pricing-page .choose-plan-btn {
+            background: linear-gradient(135deg, #087849, #049a3d);
+            transition: all .25s ease;
+        }
+
+        .pricing-page .choose-plan-btn:hover {
+            background: linear-gradient(135deg, #065e39, #087849);
+            box-shadow: 0 8px 20px rgba(8, 120, 73, .17);
+            transform: translateY(-1px);
+        }
+
+        .pricing-page .calc-plan-btn.selected {
+            border: 1.5px solid #087849;
+            background: #effaf3;
+        }
+
+        .pricing-page .calc-plan-btn {
+            transition: all .2s ease;
+        }
+
+        .pricing-page .calc-plan-btn:hover {
+            border-color: #8bd2a5;
+        }
+
+        .pricing-page .calculator-result {
+            background: linear-gradient(145deg, #f0faf4, #ffffff);
+        }
+
+        .pricing-page .pricing-input:focus {
+            outline: none;
+            border-color: #049a3d;
+            box-shadow: 0 0 0 3px rgba(4, 154, 61, .10);
+        }
+
+        @media(max-width:767px) {
+            .pricing-page .pricing-card.recommended {
+                transform: none !important;
+            }
+        }
+    </style>
+
+    <main class="pricing-page bg-white md:pt-20 pt-8">
+
+        {{-- HERO SECTION INTENTIONALLY HIDDEN --}}
+
+        <!-- ================= PRICING SECTION ================= -->
+
+        <section class="py-10 lg:py-16 bg-[#f8fbf9] border-y border-gray-100">
+
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <!-- Header -->
-                <div class="text-center md:mb-12 mb-4">
-                    <span class="text-[#049a3d] font-semibold tracking-wide uppercase md:text-sm text-xs">
-                        Pricing</span>
-                    <h2
-                        class="md:mt-2 mt-0 md:text-4xl sm:text-3xl text-2xl font-extrabold text-gray-900 tracking-tight mb-5">
-                        Tiered Pricing by Product
-                    </h2>
-                    <p class="md:text-lg text-md text-gray-500 mt-3">Choose the communication channel and scale that
-                        fits
-                        your business needs.</p>
+                <div class="text-center mb-8 lg:mb-10">
+
+                    <span class="inline-flex items-center gap-2 text-[#087849] font-semibold tracking-widest uppercase text-xs">
+                        <span class="w-6 h-px bg-[#087849]"></span>
+                        Our Pricing
+                        <span class="w-6 h-px bg-[#087849]"></span>
+                    </span>
+
+                  <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mt-3 tracking-tight">
+    Bulk SMS, WhatsApp API & RCS Messaging Pricing in India
+</h1>
+
+                    <p class="text-gray-500 mt-3 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+    Explore Textora SMS pricing for Bulk SMS, WhatsApp Business API,
+    Bulk WhatsApp, RCS Messaging, Voice Calls and Email Marketing.
+    Compare plans and choose the right messaging solution for your business.
+</p>
+
                 </div>
 
-                <!-- ==================== PRODUCT TABS (DESKTOP) ==================== -->
-                <div class="hidden md:flex border-b border-gray-200 justify-center overflow-x-auto mb-4">
+                <!-- DESKTOP PRODUCT TABS -->
+
+                <div class="hidden md:flex flex-wrap justify-center gap-2 p-2 bg-white border border-gray-200 rounded-2xl shadow-sm mb-8">
+
                     @foreach ($services as $service)
                         @php
-                            $serviceDisplay = match ($service) {
-                                'SMS' => 'Bulk SMS',
-                                'Whatsapp' => 'WhatsApp API',
-                                'Bulk Whatsapp' => 'Bulk Whatsapp',
-                                'Voice' => 'Voice Calls',
-                                'RCS' => 'RCS Messaging',
-                                'Email' => 'Email Marketing',
-                                // 'Reseller' => 'Reseller Plans',
-                                default => ucwords($service),
-                            };
-
-                            $isActive = $service === $firstService;
+                            $serviceDisplay = $pricingLabels[$service] ?? ucwords($service);
                             $targetId = 'service-' . strtolower(str_replace(' ', '-', $service));
+                            $isActive = $service === $firstService;
                         @endphp
 
-                        <button data-target="{{ $targetId }}"
-                            class="product-tab lg:px-6 lg:py-3 md:px-3 p-2 lg:text-xl text-md font-semibold border-b-4 transition-all duration-200 whitespace-nowrap
-                                                                            {{ $isActive ? 'border-[#049a3d] text-[#049a3d]' : 'border-transparent text-gray-600 hover:text-[#049a3d]' }}">
+                        <button
+                            type="button"
+                            data-target="{{ $targetId }}"
+                            class="product-tab pricing-tab px-5 py-3 rounded-xl border text-sm lg:text-base font-semibold whitespace-nowrap
+                            {{ $isActive ? 'active' : 'border-transparent text-gray-600 hover:bg-green-50 hover:text-[#087849]' }}">
+
                             {{ $serviceDisplay }}
                         </button>
                     @endforeach
+
                 </div>
 
-                <!-- ==================== PRODUCT TABS (MOBILE DROPDOWN) ==================== -->
-                <div class="md:hidden mb-4">
-                    <select id="mobileServiceDropdown"
-                        class="w-full border border-gray-300 rounded-lg py-2 px-3 text-gray-700"
-                        onchange="changeServiceTab(this.value)">
+                <!-- MOBILE PRODUCT DROPDOWN -->
 
+                <div class="md:hidden mb-6">
+
+                    <label class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                        Select Communication Service
+                    </label>
+
+                    <select
+                        id="mobileServiceDropdown"
+                        class="w-full bg-white border border-gray-200 rounded-xl py-3 px-4 text-gray-800 font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-green-100 focus:border-green-500"
+                        onchange="changeServiceTab(this.value)">
 
                         @foreach ($services as $service)
                             @php
-                                $serviceDisplay = match ($service) {
-                                    'SMS' => 'Bulk SMS',
-                                    'Whatsapp' => 'WhatsApp API',
-                                    'Voice' => 'Voice Calls',
-                                    'RCS' => 'RCS Messaging',
-                                     'Email' => 'Email Marketing',
-                                    // 'Reseller' => 'Reseller Plans',
-                                    default => ucwords($service),
-                                };
-
+                                $serviceDisplay = $pricingLabels[$service] ?? ucwords($service);
                                 $targetId = 'service-' . strtolower(str_replace(' ', '-', $service));
                                 $isActive = $service === $firstService;
                             @endphp
@@ -207,59 +287,70 @@
                                 {{ $serviceDisplay }}
                             </option>
                         @endforeach
+
                     </select>
+
                 </div>
 
-                <!-- ==================== SERVICE CONTENT AREA ==================== -->
+                <!-- SERVICE CONTENT -->
+
                 <div id="pricing-content-container">
+
                     @foreach ($services as $service)
+
                         @php
-    $serviceSubcats = $pricings->get($service, collect());
+                            $serviceSubcats = $pricings->get($service, collect());
 
-    // Special handling for 'Bulk Whatsapp': pull plans from 'Whatsapp' -> 'bulk_whatsapp'
-    $directPlans = collect();
-    if ($service === 'Bulk Whatsapp') {
-        $whatsappSubcats = $pricings->get('Whatsapp', collect());
-        $directPlans = $whatsappSubcats->get('bulk_whatsapp', collect());
-        $serviceSubcats = collect(); // No subcats for Bulk Whatsapp
-    }
+                            $directPlans = collect();
 
-    $serviceId = 'service-' . strtolower(str_replace(' ', '-', $service));
-    $isServiceHidden = $service !== $firstService;
-    $skipBulkWhatsappSubcat = $service === 'Whatsapp';
+                            if ($service === 'Bulk Whatsapp') {
+                                $whatsappSubcats = $pricings->get('Whatsapp', collect());
+                                $directPlans = $whatsappSubcats->get('bulk_whatsapp', collect());
+                                $serviceSubcats = collect();
+                            }
 
-    // Unit label for pricing quantity
-    $serviceName = strtolower($service);
+                            $serviceId = 'service-' . strtolower(str_replace(' ', '-', $service));
+                            $isServiceHidden = $service !== $firstService;
+                            $skipBulkWhatsappSubcat = $service === 'Whatsapp';
 
-    if (stripos($serviceName, 'email') !== false) {
-        $unitLabel = 'Emails';
-    } elseif (stripos($serviceName, 'rcs') !== false) {
-        $unitLabel = 'RCS Messages';
-    } elseif (stripos($serviceName, 'whatsapp') !== false) {
-        $unitLabel = 'Messages';
-    } else {
-        $unitLabel = 'SMS';
-    }
-@endphp
+                            $serviceName = strtolower($service);
+
+                            if (stripos($serviceName, 'email') !== false) {
+                                $unitLabel = 'Emails';
+                            } elseif (stripos($serviceName, 'rcs') !== false) {
+                                $unitLabel = 'RCS Messages';
+                            } elseif (stripos($serviceName, 'whatsapp') !== false) {
+                                $unitLabel = 'Messages';
+                            } elseif (stripos($serviceName, 'voice') !== false) {
+                                $unitLabel = 'Units';
+                            } else {
+                                $unitLabel = 'SMS';
+                            }
+                        @endphp
 
                         <div id="{{ $serviceId }}" class="service-section {{ $isServiceHidden ? 'hidden' : '' }}">
 
-                            <!-- SUB CATEGORY TABS -->
+                            <!-- SUBCATEGORY TABS -->
+
                             @if ($serviceSubcats->isNotEmpty())
-                                <div
-                                    class="md:flex grid grid-cols-2 justify-center overflow-x-auto md:mb-12 md:mt-10 my-5">
+
+                                <div class="flex flex-wrap justify-center gap-2 mb-8 mt-5">
+
                                     @foreach ($serviceSubcats as $subcat => $subcatPlans)
+
                                         @if ($skipBulkWhatsappSubcat && $subcat === 'bulk_whatsapp')
                                             @continue
                                         @endif
+
                                         @php
                                             $label = match ($subcat) {
-                                                'business_marketing' => 'Business Whatsapp - Marketing',
-                                                'business_utility' => 'Business Whatsapp - Utility',
+                                                'business_marketing' => 'WhatsApp Marketing',
+                                                'business_utility' => 'WhatsApp Utility',
                                                 'promotional' => 'Promotional SMS',
-                                                'transactional' => 'Transactional',
-                                                'sim_base' => 'Sim Base SMS',
+                                                'transactional' => 'Transactional SMS',
+                                                'sim_base' => 'SIM Base SMS',
                                                 'voice_sms' => 'Voice SMS',
+                                                'voice' => 'Voice Calls',
                                                 default => ucwords(str_replace('_', ' ', $subcat)),
                                             };
 
@@ -267,945 +358,1324 @@
                                             $isFirst = $loop->first && !$isServiceHidden;
                                         @endphp
 
-                                        <button data-target="{{ $subcatId }}"
-                                            class="subcat-tab px-5 py-2.5 text-lg font-medium transition-all duration-200 whitespace-nowrap
-                                                                                                                                                                                            {{ $isFirst ? 'border-[#049a3d] text-[#049a3d]' : 'border-transparent text-gray-600 hover:text-[#049a3d]' }}">
+                                        <button
+                                            type="button"
+                                            data-target="{{ $subcatId }}"
+                                            class="subcat-tab px-4 py-2.5 rounded-xl border text-sm font-semibold transition
+                                            {{ $isFirst ? 'active' : 'border-gray-200 bg-white text-gray-600 hover:border-green-200 hover:text-[#087849]' }}">
+
                                             {{ $label }}
+
                                         </button>
+
                                     @endforeach
+
                                 </div>
+
                             @endif
 
-                            <!-- SUB CATEGORY CONTENT -->
+                            <!-- SUBCATEGORY PLANS -->
+
                             @foreach ($serviceSubcats as $subcat => $subcatPlans)
+
+                                @php
+                                    if ($service === 'Voice' && $subcat === 'voice_sms') {
+                                        $subcatPlans = $subcatPlans
+                                            ->unique(function ($plan) {
+                                                $attributes = $plan->getAttributes();
+
+                                                unset(
+                                                    $attributes['id'],
+                                                    $attributes['created_at'],
+                                                    $attributes['updated_at']
+                                                );
+
+                                                ksort($attributes);
+
+                                                return md5(json_encode($attributes));
+                                            })
+                                            ->values();
+                                    }
+                                @endphp
+
                                 @if ($skipBulkWhatsappSubcat && $subcat === 'bulk_whatsapp')
                                     @continue
                                 @endif
+
                                 @php
                                     $subcatId = 'subcat-' . $service . '-' . $subcat;
                                     $isSubcatHidden = !($loop->first && !$isServiceHidden);
                                 @endphp
 
-                                <div id="{{ $subcatId }}"
-                                    class="subcat-section {{ $isSubcatHidden ? 'hidden' : '' }}">
+                                <div id="{{ $subcatId }}" class="subcat-section {{ $isSubcatHidden ? 'hidden' : '' }}">
 
                                     @if ($subcatPlans->isEmpty())
-                                        <div class="text-center py-16">
-                                            <p class="text-gray-500 text-lg">No pricing plans available at the moment.
+
+                                        <div class="bg-white border border-gray-200 rounded-2xl p-12 text-center">
+                                            <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4">
+                                                <i class="fa-solid fa-tags text-xl text-[#087849]"></i>
+                                            </div>
+
+                                            <p class="text-gray-500 font-medium">
+                                                No pricing plans available at the moment.
                                             </p>
                                         </div>
+
                                     @else
-                                        <div
-                                            class="grid grid-cols-1 md:grid-cols-3 xl:gap-10 lg:gap-6 gap-4 items-stretch all-pricing-card">
+
+                                        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-7 items-stretch all-pricing-card">
+
                                             @foreach ($subcatPlans as $index => $plan)
+
                                                 @php
                                                     $isRecommended = $index === 1;
-                                                    $borderColor = '#049a3d';
+
+                                                    /*
+                                                     * Avoid repeating the plan category.
+                                                     * If title or subtitle is the same as category,
+                                                     * it will not be displayed again.
+                                                     */
+
+                                                    $categoryName = trim((string) $plan->category);
+                                                    $planTitle = trim((string) ($plan->title ?? ''));
+                                                    $planSubtitle = trim((string) ($plan->sub_title ?? ''));
+
+                                                    $showPlanTitle = $planTitle !== ''
+                                                        && strcasecmp($planTitle, $categoryName) !== 0;
+
+                                                    $showPlanSubtitle = $planSubtitle !== ''
+                                                        && strcasecmp($planSubtitle, $categoryName) !== 0
+                                                        && strcasecmp($planSubtitle, $planTitle) !== 0;
                                                 @endphp
 
-                                                <div
-                                                    class="{{ $isRecommended ? 'xl:p-6 p-4 rounded-2xl shadow-xl border-2 border-[#c7a007] bg-white transform md:scale-105 -translate-y-4' : 'xl:p-6 p-4 rounded-xl border-2 mb-5 shadow-xl border-[#c7a007]' }} transition-all duration-300 flex flex-col justify-between">
-                                                  
+                                                <div class="pricing-card {{ $isRecommended ? 'recommended' : '' }} relative bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 flex flex-col justify-between">
 
-                                                  
-                                                  
-                                                  
-                                                    @if($plan->service == 'Whatsapp' && in_array($plan->subcategory,['business_marketing','business_utility']))
+                                                    <div>
 
-    {{-- WhatsApp API Card --}}
-    <div>
-
-        @if ($isRecommended)
-            <div class="text-center mb-4">
-                <span class="inline-block bg-gradient-to-r from-[#c7a007] to-[#a99648] text-white text-xs font-bold uppercase px-4 py-1.5 rounded-full">
-                    Recommended
-                </span>
-            </div>
-        @endif
-
-        <h4 class="xl:text-2xl text-lg font-bold text-gray-900 mb-1">
-            {{ $plan->category }}
-        </h4>
-
-        <p class="text-gray-600 mb-3">
-            {{ $plan->sub_title }}
-        </p>
-
-        <div class="space-y-2 border-t-2 border-gray-100 pt-4">
-
-            <div class="flex justify-between">
-                <span>Setup Cost</span>
-                <strong>₹{{ number_format($plan->setup_cost) }}</strong>
-            </div>
-
-            <div class="flex justify-between">
-                <span>Billing</span>
-                <strong>{{ $plan->billing_type }}</strong>
-            </div>
-
-            <div class="flex justify-between">
-                <span>Marketing</span>
-                <strong>₹{{ number_format($plan->marketing_price,2) }}/Conversation</strong>
-            </div>
-
-            <div class="flex justify-between">
-                <span>Utility</span>
-                <strong>₹{{ number_format($plan->utility_price,2) }}/Conversation</strong>
-            </div>
-
-            @if(!is_null($plan->authentication_price))
-            <div class="flex justify-between">
-                <span>OTP</span>
-                <strong>₹{{ number_format((float)$plan->authentication_price, 2) }}/Conversation</strong>
-            </div>
-            @endif
-
-            @if(!is_null($plan->service_price))
-            <div class="flex justify-between">
-                <span>Service</span>
-                <strong>₹{{ number_format((float)$plan->service_price, 2) }}/Conversation</strong>
-            </div>
-            @endif
-
-            @if(!empty($plan->extra_costs) && is_array($plan->extra_costs))
-                @foreach ($plan->extra_costs as $extra)
-                    @if(!empty(trim($extra['label'] ?? '')) && !empty(trim($extra['price'] ?? '')))
-                        <div class="flex justify-between">
-                            <span>{{ $extra['label'] }}</span>
-                            <strong>{{ str_starts_with(trim($extra['price']), '₹') || str_starts_with(trim($extra['price']), '$') ? $extra['price'] : (is_numeric(trim($extra['price'])) ? '₹' . number_format((float)$extra['price'], 2) : $extra['price']) }}</strong>
-                        </div>
-                    @endif
-                @endforeach
-            @endif
-
-        </div>
-
-        <ul class="lg:space-y-2 space-y-1 mb-4 border-t-2 border-gray-100 py-3">
-            @foreach ($plan->features ?? [] as $feature)
-                @if (!empty(trim($feature)))
-                    <li class="flex items-center text-gray-700 text-sm xl:text-md">
-                        <span class="text-[#0c963c] mr-3">✔</span>
-                        {{ $feature }}
-                    </li>
-                @endif
-            @endforeach
-        </ul>
-
-    </div>
-
-@elseif($plan->subcategory == 'rcs')
-                                                        <div>
-                                                            @if ($isRecommended)
-                                                                <div class="text-center mb-4">
-                                                                    <span
-                                                                        class="inline-block bg-gradient-to-r from-[#c7a007] to-[#a99648] text-white text-xs font-bold uppercase px-4 py-1.5 rounded-full">Recommended</span>
-                                                                </div>
-                                                            @endif
-
-                                                            <h4
-                                                                class="xl:text-2xl text-lg font-bold text-gray-900 mb-1">
-                                                                {{ $plan->category }}
-                                                            </h4>
-
-                                                            <p class="text-gray-600 mb-3 md:text-md text-sm">
-                                                                {{ $plan->sub_title ?? '' }}
-                                                            </p>
-
-                                                            <div class="mb-2">
-                                                                <span class="text-2xl font-medium text-gray-500"><i
-                                                                        class="fa fa-inr" aria-hidden="true"></i></span>
-                                                                <span
-                                                                    class="text-4xl font-bold text-[#c7a007]">{{ number_format($plan->monthly_price) }}</span>
-                                                                <span class="text-lg text-gray-700"> / Per
+                                                        @if ($isRecommended)
+                                                            <div class="flex justify-center mb-5">
+                                                                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 border border-green-200 text-[#087849] text-xs font-semibold uppercase tracking-wide">
+                                                                    <i class="fa-solid fa-star text-[10px]"></i>
+                                                                    Recommended
                                                                 </span>
-                                                                <div class="text-md font-bold text-gray-700">
-                                                                    {{ number_format($plan->monthly_total_messages) }}
-                                                                    {{ $unitLabel }}
+                                                            </div>
+                                                        @else
+                                                            <div class="h-8 mb-3"></div>
+                                                        @endif
+
+                                                        @if($plan->service == 'Whatsapp' && in_array($plan->subcategory, ['business_marketing', 'business_utility']))
+
+                                                            <!-- WHATSAPP API PRICING -->
+
+                                                            <div class="mb-5">
+
+                                                                <div class="text-xs font-semibold uppercase tracking-widest text-[#087849] mb-2">
+                                                                    {{ $plan->subcategory == 'business_marketing' ? 'WhatsApp Marketing' : 'WhatsApp Utility' }}
                                                                 </div>
+
+                                                                <h3 class="text-2xl font-bold text-slate-900">
+                                                                    {{ $plan->category }}
+                                                                </h3>
+
+                                                                @if($showPlanSubtitle)
+                                                                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                                                                        {{ $plan->sub_title }}
+                                                                    </p>
+                                                                @endif
+
                                                             </div>
 
-                                                            <ul
-                                                                class="lg:space-y-2 space-y-1 mb-4 border-t-2 border-gray-100 py-3">
-                                                                @foreach ($plan->features ?? [] as $feature)
-                                                                    @if (!empty(trim($feature)))
-                                                                        <li
-                                                                            class="flex items-center text-gray-700 text-sm xl:text-md">
-                                                                            <span class="text-[#0c963c] mr-3">✔</span>
-                                                                            {{ $feature }}
-                                                                        </li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
+                                                            <div class="rounded-xl bg-[#f8fbf9] border border-gray-100 p-4 space-y-3 mb-5">
 
-                                                        </div>
-                                                    @else
-                                                        <div>
-                                                            @if ($isRecommended)
-                                                                <div class="text-center mb-4">
-                                                                    <span
-                                                                        class="inline-block bg-gradient-to-r from-[#c7a007] to-[#a99648] text-white text-xs font-bold uppercase px-4 py-1.5 rounded-full">Recommended</span>
+                                                                <div class="flex justify-between items-center gap-3 text-sm">
+                                                                    <span class="text-gray-500">Setup Cost</span>
+                                                                    <strong class="text-slate-900 font-semibold">
+                                                                        ₹{{ number_format((float)$plan->setup_cost, 2) }}
+                                                                    </strong>
                                                                 </div>
-                                                            @endif
 
-                                                            <h4
-                                                                class="xl:text-2xl text-lg font-bold text-gray-900 mb-1">
-                                                                {{ $plan->category }}
-                                                            </h4>
-
-                                                            <div class="mb-2">
-                                                                <span class="text-2xl font-medium text-gray-500"><i
-                                                                        class="fa fa-inr" aria-hidden="true"></i></span>
-                                                                <span
-                                                                    class="text-4xl font-bold text-[#c7a007]">{{ number_format($plan->monthly_price) }}</span>
-                                                                <div class="text-md font-bold text-gray-700 mt-1">
-                                                                    {{ number_format($plan->monthly_total_messages) }}
-                                                                    {{ $unitLabel }}
+                                                                <div class="flex justify-between items-center gap-3 text-sm">
+                                                                    <span class="text-gray-500">Billing</span>
+                                                                    <strong class="text-slate-900 font-semibold">
+                                                                        {{ $plan->billing_type }}
+                                                                    </strong>
                                                                 </div>
-                                                            </div>
 
-                                                            @if(!empty($plan->extra_costs) && is_array($plan->extra_costs))
-                                                                <div class="space-y-1 my-2 text-sm text-gray-600">
+                                                                <div class="h-px bg-gray-200"></div>
+
+                                                                <div class="flex justify-between items-center gap-3 text-sm">
+                                                                    <span class="text-gray-600">Marketing</span>
+                                                                    <strong class="text-[#087849] font-semibold">
+                                                                        ₹{{ number_format((float)$plan->marketing_price, 2) }}
+                                                                    </strong>
+                                                                </div>
+
+                                                                <div class="flex justify-between items-center gap-3 text-sm">
+                                                                    <span class="text-gray-600">Utility</span>
+                                                                    <strong class="text-[#087849] font-semibold">
+                                                                        ₹{{ number_format((float)$plan->utility_price, 2) }}
+                                                                    </strong>
+                                                                </div>
+
+                                                                @if(!is_null($plan->authentication_price))
+                                                                    <div class="flex justify-between items-center gap-3 text-sm">
+                                                                        <span class="text-gray-600">Authentication / OTP</span>
+                                                                        <strong class="text-slate-900 font-semibold">
+                                                                            ₹{{ number_format((float)$plan->authentication_price, 2) }}
+                                                                        </strong>
+                                                                    </div>
+                                                                @endif
+
+                                                                @if(!is_null($plan->service_price))
+                                                                    <div class="flex justify-between items-center gap-3 text-sm">
+                                                                        <span class="text-gray-600">Service</span>
+                                                                        <strong class="text-slate-900 font-semibold">
+                                                                            ₹{{ number_format((float)$plan->service_price, 2) }}
+                                                                        </strong>
+                                                                    </div>
+                                                                @endif
+
+                                                                @if(!empty($plan->extra_costs) && is_array($plan->extra_costs))
                                                                     @foreach ($plan->extra_costs as $extra)
                                                                         @if(!empty(trim($extra['label'] ?? '')) && !empty(trim($extra['price'] ?? '')))
-                                                                            <div class="flex justify-between">
-                                                                                <span>{{ $extra['label'] }}:</span>
-                                                                                <strong class="text-gray-800">{{ str_starts_with(trim($extra['price']), '₹') || str_starts_with(trim($extra['price']), '$') ? $extra['price'] : (is_numeric(trim($extra['price'])) ? '₹' . number_format((float)$extra['price'], 2) : $extra['price']) }}</strong>
+                                                                            <div class="flex justify-between items-center gap-3 text-sm">
+                                                                                <span class="text-gray-600">{{ $extra['label'] }}</span>
+                                                                                <strong class="text-slate-900 font-semibold">
+                                                                                    {{ str_starts_with(trim($extra['price']), '₹') || str_starts_with(trim($extra['price']), '$')
+                                                                                        ? $extra['price']
+                                                                                        : (is_numeric(trim($extra['price'])) ? '₹' . number_format((float)$extra['price'], 2) : $extra['price']) }}
+                                                                                </strong>
                                                                             </div>
                                                                         @endif
                                                                     @endforeach
+                                                                @endif
+
+                                                                <p class="text-[11px] text-gray-400 pt-1">
+                                                                    Per conversation
+                                                                </p>
+
+                                                            </div>
+
+                                                        @elseif($plan->subcategory == 'rcs')
+
+                                                            <!-- RCS PRICING -->
+
+                                                            <div class="mb-5">
+
+                                                                <div class="text-xs font-semibold uppercase tracking-widest text-[#087849] mb-2">
+                                                                    RCS Messaging
+                                                                </div>
+
+                                                                <h3 class="text-2xl font-bold text-slate-900">
+                                                                    {{ $plan->category }}
+                                                                </h3>
+
+                                                                @if($showPlanSubtitle)
+                                                                    <p class="text-sm text-gray-500 mt-2">
+                                                                        {{ $plan->sub_title }}
+                                                                    </p>
+                                                                @endif
+
+                                                            </div>
+
+                                                            <div class="mb-5 p-4 rounded-xl bg-[#f8fbf9] border border-gray-100">
+
+                                                                <div class="text-sm text-gray-500 mb-1">
+                                                                    Plan Price
+                                                                </div>
+
+                                                                <div class="flex items-baseline gap-1">
+                                                                    <span class="text-xl font-medium text-gray-500">₹</span>
+                                                                    <span class="text-4xl font-bold price-value">
+                                                                        {{ number_format((float)$plan->monthly_price) }}
+                                                                    </span>
+                                                                </div>
+
+                                                                <div class="text-sm font-semibold text-slate-700 mt-2">
+                                                                    {{ number_format($plan->monthly_total_messages) }}
+                                                                    {{ $unitLabel }}
+                                                                </div>
+
+                                                            </div>
+
+                                                        @else
+
+                                                            <!-- STANDARD PRICING -->
+
+                                                            <div class="mb-5">
+
+                                                                <div class="text-xs font-semibold uppercase tracking-widest text-[#087849] mb-2">
+                                                                    {{ $pricingLabels[$service] ?? ucwords($service) }}
+                                                                </div>
+
+                                                                <h3 class="text-2xl font-bold text-slate-900">
+                                                                    {{ $plan->category }}
+                                                                </h3>
+
+                                                                @if($showPlanTitle)
+                                                                    <p class="text-sm font-medium text-gray-600 mt-2">
+                                                                        {{ $plan->title }}
+                                                                    </p>
+                                                                @endif
+
+                                                                @if($showPlanSubtitle)
+                                                                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+                                                                        {{ $plan->sub_title }}
+                                                                    </p>
+                                                                @endif
+
+                                                            </div>
+
+                                                            <div class="mb-5 p-4 rounded-xl bg-[#f8fbf9] border border-gray-100">
+
+                                                                <div class="text-sm text-gray-500 mb-1">
+                                                                    Plan Price
+                                                                </div>
+
+                                                                <div class="flex items-baseline gap-1">
+                                                                    <span class="text-xl font-medium text-gray-500">₹</span>
+                                                                    <span class="text-4xl font-bold price-value">
+                                                                        {{ number_format((float)$plan->monthly_price) }}
+                                                                    </span>
+                                                                </div>
+
+                                                                <div class="text-sm font-semibold text-slate-700 mt-2">
+                                                                    {{ number_format($plan->monthly_total_messages) }}
+                                                                    {{ $unitLabel }}
+                                                                </div>
+
+                                                            </div>
+
+                                                            @if(!empty($plan->extra_costs) && is_array($plan->extra_costs))
+                                                                <div class="space-y-2 mb-5 text-sm">
+
+                                                                    @foreach ($plan->extra_costs as $extra)
+                                                                        @if(!empty(trim($extra['label'] ?? '')) && !empty(trim($extra['price'] ?? '')))
+                                                                            <div class="flex justify-between items-center gap-3">
+                                                                                <span class="text-gray-500">{{ $extra['label'] }}</span>
+
+                                                                                <strong class="text-slate-800 font-semibold">
+                                                                                    {{ str_starts_with(trim($extra['price']), '₹') || str_starts_with(trim($extra['price']), '$')
+                                                                                        ? $extra['price']
+                                                                                        : (is_numeric(trim($extra['price'])) ? '₹' . number_format((float)$extra['price'], 2) : $extra['price']) }}
+                                                                                </strong>
+                                                                            </div>
+                                                                        @endif
+                                                                    @endforeach
+
                                                                 </div>
                                                             @endif
 
-                                                            <ul
-                                                                class="lg:space-y-2 space-y-1 mb-4 border-t-2 border-gray-100 py-3">
-                                                                @foreach ($plan->features ?? [] as $feature)
-                                                                    @if (!empty(trim($feature)))
-                                                                        <li
-                                                                            class="flex items-center text-gray-700 text-sm xl:text-md">
-                                                                            <span class="text-[#0c963c] mr-3">✔</span>
-                                                                            {{ $feature }}
-                                                                        </li>
-                                                                    @endif
-                                                                @endforeach
-                                                            </ul>
+                                                        @endif
+
+                                                        <!-- FEATURES -->
+
+                                                        @if(!empty($plan->features))
+
+                                                            <div class="border-t border-gray-100 pt-4 mt-4 mb-6">
+
+                                                                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                                                                    What's Included
+                                                                </p>
+
+                                                                <ul class="space-y-3">
+
+                                                                    @foreach ($plan->features ?? [] as $feature)
+                                                                        @if (!empty(trim($feature)))
+                                                                            <li class="flex items-start gap-2.5 text-sm text-gray-600 leading-relaxed">
+                                                                                <i class="fa-solid fa-circle-check pricing-check mt-0.5"></i>
+                                                                                <span>{{ $feature }}</span>
+                                                                            </li>
+                                                                        @endif
+                                                                    @endforeach
+
+                                                                </ul>
+
+                                                            </div>
+
+                                                        @endif
+
+                                                    </div>
+
+                                                    <button
+                                                        type="button"
+                                                        onclick="openModall()"
+                                                        class="choose-plan-btn w-full py-3 px-5 text-white font-semibold text-sm rounded-xl shadow-sm flex items-center justify-center gap-2">
+
+                                                        Choose Plan
+                                                        <i class="fa-solid fa-arrow-right text-xs"></i>
+
+                                                    </button>
+
+                                                </div>
+
+                                            @endforeach
+
+                                        </div>
+
+                                    @endif
+
+                                </div>
+
+                            @endforeach
+
+                            <!-- BULK WHATSAPP SPECIAL PLANS -->
+
+                            @if ($service === 'Bulk Whatsapp')
+
+                                @if ($directPlans->isNotEmpty())
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 lg:gap-7 items-stretch all-pricing-card mt-5">
+
+                                        @foreach ($directPlans as $index => $plan)
+
+                                            @php
+                                                $isRecommended = $index === 1;
+
+                                                $categoryName = trim((string) $plan->category);
+                                                $planTitle = trim((string) ($plan->title ?? ''));
+                                                $planSubtitle = trim((string) ($plan->sub_title ?? ''));
+
+                                                $showPlanTitle = $planTitle !== ''
+                                                    && strcasecmp($planTitle, $categoryName) !== 0;
+
+                                                $showPlanSubtitle = $planSubtitle !== ''
+                                                    && strcasecmp($planSubtitle, $categoryName) !== 0
+                                                    && strcasecmp($planSubtitle, $planTitle) !== 0;
+                                            @endphp
+
+                                            <div class="pricing-card {{ $isRecommended ? 'recommended' : '' }} relative bg-white rounded-2xl border border-gray-200 p-5 sm:p-6 flex flex-col justify-between">
+
+                                                <div>
+
+                                                    @if ($isRecommended)
+                                                        <div class="flex justify-center mb-5">
+                                                            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-50 border border-green-200 text-[#087849] text-xs font-semibold uppercase">
+                                                                <i class="fa-solid fa-star text-[10px]"></i>
+                                                                Recommended
+                                                            </span>
+                                                        </div>
+                                                    @else
+                                                        <div class="h-8 mb-3"></div>
+                                                    @endif
+
+                                                    <div class="text-xs font-semibold uppercase tracking-widest text-[#087849] mb-2">
+                                                        Bulk WhatsApp
+                                                    </div>
+
+                                                    <h3 class="text-2xl font-bold text-slate-900">
+                                                        {{ $plan->category }}
+                                                    </h3>
+
+                                                    @if($showPlanTitle)
+                                                        <p class="text-sm font-medium text-gray-600 mt-2">
+                                                            {{ $plan->title }}
+                                                        </p>
+                                                    @endif
+
+                                                    @if($showPlanSubtitle)
+                                                        <p class="text-sm text-gray-500 mt-2 mb-5">
+                                                            {{ $plan->sub_title }}
+                                                        </p>
+                                                    @endif
+
+                                                    <div class="p-4 rounded-xl bg-[#f8fbf9] border border-gray-100 mb-5">
+
+                                                        <div class="text-sm text-gray-500 mb-1">
+                                                            Plan Price
+                                                        </div>
+
+                                                        <div class="flex items-baseline gap-1">
+                                                            <span class="text-xl font-medium text-gray-500">₹</span>
+                                                            <span class="text-4xl font-bold price-value">
+                                                                {{ number_format((float)$plan->monthly_price) }}
+                                                            </span>
+                                                        </div>
+
+                                                        <div class="text-sm font-semibold text-slate-700 mt-2">
+                                                            {{ number_format($plan->monthly_total_messages) }} Messages
+                                                        </div>
+
+                                                    </div>
+
+                                                    @if(!empty($plan->extra_costs) && is_array($plan->extra_costs))
+                                                        <div class="space-y-2 mb-5 text-sm">
+
+                                                            @foreach ($plan->extra_costs as $extra)
+                                                                @if(!empty(trim($extra['label'] ?? '')) && !empty(trim($extra['price'] ?? '')))
+                                                                    <div class="flex justify-between items-center gap-3">
+                                                                        <span class="text-gray-500">{{ $extra['label'] }}</span>
+
+                                                                        <strong class="text-slate-800 font-semibold">
+                                                                            {{ str_starts_with(trim($extra['price']), '₹') || str_starts_with(trim($extra['price']), '$')
+                                                                                ? $extra['price']
+                                                                                : (is_numeric(trim($extra['price'])) ? '₹' . number_format((float)$extra['price'], 2) : $extra['price']) }}
+                                                                        </strong>
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
 
                                                         </div>
                                                     @endif
 
+                                                    @if(!empty($plan->features))
 
-                                                    <button onclick="openModall()"
-                                                        class="w-full py-2 px-6 bg-gradient-to-r from-[#c7a007] to-[#9a873c] text-white font-bold rounded-lg shadow-lg hover:from-[#035720] hover:to-[#1d8b41] transition">
-                                                        Choose Plan
-                                                    </button>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                                        <div class="border-t border-gray-100 pt-4 mt-4 mb-6">
 
-                                </div>
-                            @endforeach
+                                                            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                                                                What's Included
+                                                            </p>
 
-                            <!-- Special direct content for Bulk Whatsapp -->
-                            @if ($service === 'Bulk Whatsapp')
-                                @if ($directPlans->isNotEmpty())
-                                    <div class="subcat-section relative top-[70px]">
-                                        <div
-                                            class="grid grid-cols-1 md:grid-cols-3 xl:gap-10 lg:gap-6 gap-4 items-stretch all-pricing-card">
-                                            @foreach ($directPlans as $index => $plan)
-                                                @php
-                                                    $isRecommended = $index === 1;
-                                                    $borderColor = '#049a3d';
-                                                @endphp
+                                                            <ul class="space-y-3">
 
-                                                <div
-                                                    class="{{ $isRecommended ? 'xl:p-6 p-4 rounded-2xl shadow-xl border-2 border-[#c7a007] bg-white transform md:scale-105 -translate-y-4' : 'xl:p-6 p-4 rounded-xl border-2 mb-5 shadow-xl border-[#c7a007]' }} transition-all duration-300 flex flex-col justify-between">
-
-                                                    <div>
-                                                        @if ($isRecommended)
-                                                            <div class="text-center mb-4">
-                                                                <span
-                                                                    class="inline-block bg-gradient-to-r from-[#c7a007] to-[#a99648] text-white text-xs font-bold uppercase px-4 py-1.5 rounded-full">Recommended</span>
-                                                            </div>
-                                                        @endif
-
-                                                        <h4 class="xl:text-2xl text-lg font-bold text-gray-900 mb-1">
-                                                            {{ $plan->category }}
-                                                        </h4>
-
-                                                        <p class="text-gray-600 mb-3 md:text-md text-sm">
-                                                            {{ $plan->title ?? '' }}
-                                                        </p>
-                                                        <p class="text-gray-600 mb-3 md:text-md text-sm">
-                                                            {{ $plan->sub_title ?? '' }}
-                                                        </p>
-
-                                                        <div class="mb-2">
-                                                            <span class="text-2xl font-medium text-gray-500"><i
-                                                                    class="fa fa-inr" aria-hidden="true"></i></span>
-                                                            <span
-                                                                class="text-4xl font-bold text-[#c7a007]">{{ number_format($plan->monthly_price) }}</span>
-                                                            <span class="text-lg text-gray-700"> / Per
-                                                            </span>
-                                                            <div class="text-md font-bold text-gray-700">
-                                                                {{ number_format($plan->monthly_total_messages) }}
-                                                                {{ $unitLabel }}
-                                                            </div>
-                                                        </div>
-
-                                                        @if(!empty($plan->extra_costs) && is_array($plan->extra_costs))
-                                                            <div class="space-y-1 my-2 text-sm text-gray-600">
-                                                                @foreach ($plan->extra_costs as $extra)
-                                                                    @if(!empty(trim($extra['label'] ?? '')) && !empty(trim($extra['price'] ?? '')))
-                                                                        <div class="flex justify-between">
-                                                                            <span>{{ $extra['label'] }}:</span>
-                                                                            <strong class="text-gray-800">{{ str_starts_with(trim($extra['price']), '₹') || str_starts_with(trim($extra['price']), '$') ? $extra['price'] : (is_numeric(trim($extra['price'])) ? '₹' . number_format((float)$extra['price'], 2) : $extra['price']) }}</strong>
-                                                                        </div>
+                                                                @foreach ($plan->features ?? [] as $feature)
+                                                                    @if (!empty(trim($feature)))
+                                                                        <li class="flex items-start gap-2.5 text-sm text-gray-600">
+                                                                            <i class="fa-solid fa-circle-check pricing-check mt-0.5"></i>
+                                                                            <span>{{ $feature }}</span>
+                                                                        </li>
                                                                     @endif
                                                                 @endforeach
-                                                            </div>
-                                                        @endif
 
-                                                        <ul
-                                                            class="lg:space-y-2 space-y-1 mb-4 border-t-2 border-gray-100 py-3">
-                                                            @foreach ($plan->features ?? [] as $feature)
-                                                                @if (!empty(trim($feature)))
-                                                                    <li
-                                                                        class="flex items-center text-gray-700 text-sm xl:text-md">
-                                                                        <span class="text-[#0c963c] mr-3">✔</span>
-                                                                        {{ $feature }}
-                                                                    </li>
-                                                                @endif
-                                                            @endforeach
-                                                        </ul>
-                                                    </div>
+                                                            </ul>
 
-                                                    <button onclick="openModall()"
-                                                        class="w-full py-2 px-6 bg-gradient-to-r from-[#c7a007] to-[#9a873c] text-white font-bold rounded-lg shadow-lg hover:from-[#035720] hover:to-[#1d8b41] transition">
-                                                        Choose Plan
-                                                    </button>
+                                                        </div>
+
+                                                    @endif
+
                                                 </div>
-                                            @endforeach
-                                        </div>
+
+                                                <button
+                                                    type="button"
+                                                    onclick="openModall()"
+                                                    class="choose-plan-btn w-full py-3 px-5 text-white font-semibold text-sm rounded-xl shadow-sm flex items-center justify-center gap-2">
+
+                                                    Choose Plan
+                                                    <i class="fa-solid fa-arrow-right text-xs"></i>
+
+                                                </button>
+
+                                            </div>
+
+                                        @endforeach
+
                                     </div>
+
                                 @else
-                                    <div class="text-center py-16">
-                                        <p class="text-gray-500 text-lg">No pricing plans available at the moment.</p>
+
+                                    <div class="bg-white border border-gray-200 rounded-2xl p-12 text-center mt-5">
+
+                                        <div class="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mx-auto mb-4">
+                                            <i class="fa-solid fa-tags text-xl text-[#087849]"></i>
+                                        </div>
+
+                                        <p class="text-gray-500 font-medium">
+                                            No pricing plans available at the moment.
+                                        </p>
+
                                     </div>
+
                                 @endif
+
                             @endif
+
                         </div>
+
                     @endforeach
-                </div>
-            </div>
-        </section>
 
-@php
-
-$marketingPlans = $pricings->get('Whatsapp', collect())->get('business_marketing', collect());
-
-$whatsappPlans = [
-    'starter' => [
-        'setup' => $marketingPlans[0]->setup_cost ?? 0,
-        'marketing' => $marketingPlans[0]->marketing_price ?? 0,
-        'utility' => $marketingPlans[0]->utility_price ?? 0,
-    ],
-    'business' => [
-        'setup' => $marketingPlans[1]->setup_cost ?? 0,
-        'marketing' => $marketingPlans[1]->marketing_price ?? 0,
-        'utility' => $marketingPlans[1]->utility_price ?? 0,
-    ],
-    'enterprise' => [
-        'setup' => $marketingPlans[2]->setup_cost ?? 0,
-        'marketing' => $marketingPlans[2]->marketing_price ?? 0,
-        'utility' => $marketingPlans[2]->utility_price ?? 0,
-    ],
-];
-
-@endphp
-<script>
-window.whatsappPlans = @json($whatsappPlans);
-</script>
-   
- {{-- WhatsApp Pricing Calculator --}}
-<div id="whatsapp-calculator" class="scroll-mt-24 md:scroll-mt-28 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="text-center mb-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold tracking-wide mb-2 shadow-xs">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>INTERACTIVE ROI ESTIMATOR</span>
-        </div>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            <span class="text-[#049a3d]">WhatsApp</span> Pricing Calculator
-        </h2>
-        <p class="text-xs sm:text-sm text-slate-500 max-w-xl mx-auto mt-1.5">
-            Instant transparent pricing for Marketing &amp; Utility conversations with official Meta category rates.
-        </p>
-    </div>
-
-    <!-- Unified Compact Card Container -->
-    <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden">
-        <!-- Top accent gradient strip -->
-        <div class="h-1.5 w-full bg-gradient-to-r from-emerald-500 via-teal-500 to-green-600"></div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-100">
-
-            <!-- LEFT COLUMN: Inputs & Plan Selection (7 cols) -->
-            <div class="lg:col-span-7 p-5 sm:p-7 space-y-5 bg-white">
-
-                <!-- 1. Select Plan Tier -->
-                <div>
-                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-                        1. Select Plan Tier
-                    </label>
-
-                    <!-- Hidden select for full JS compatibility -->
-                    <select id="whatsappPlan" class="hidden">
-                        <option value="starter" selected>Starter Plan</option>
-                        <option value="business">Business Plan</option>
-                        <option value="enterprise">Enterprise Plan</option>
-                    </select>
-
-                    <!-- 3 Segmented Interactive Cards -->
-                    <div class="grid grid-cols-3 gap-2 sm:gap-2.5">
-                        <button type="button" onclick="setCalcPlan('starter')" id="calcPlanBtn-starter"
-                            class="calc-plan-btn p-2.5 sm:p-3 rounded-xl border-2 border-[#049a3d] bg-emerald-50/70 text-left transition duration-150 flex flex-col justify-between cursor-pointer">
-                            <div class="flex items-center justify-between w-full">
-                                <span class="text-xs sm:text-sm font-bold text-slate-900">Starter</span>
-                                <i class="fa-solid fa-circle-check text-xs text-[#049a3d] calc-plan-check"></i>
-                            </div>
-                            <span class="text-[11px] text-[#049a3d] font-semibold mt-1">₹0 Setup</span>
-                        </button>
-
-                        <button type="button" onclick="setCalcPlan('business')" id="calcPlanBtn-business"
-                            class="calc-plan-btn p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 text-left transition duration-150 flex flex-col justify-between cursor-pointer">
-                            <div class="flex items-center justify-between w-full">
-                                <span class="text-xs sm:text-sm font-bold text-slate-900">Business</span>
-                                <span class="text-[9px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded-full">POPULAR</span>
-                            </div>
-                            <span class="text-[11px] text-slate-500 mt-1">High Volume</span>
-                        </button>
-
-                        <button type="button" onclick="setCalcPlan('enterprise')" id="calcPlanBtn-enterprise"
-                            class="calc-plan-btn p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 text-left transition duration-150 flex flex-col justify-between cursor-pointer">
-                            <div class="flex items-center justify-between w-full">
-                                <span class="text-xs sm:text-sm font-bold text-slate-900">Enterprise</span>
-                                <i class="fa-solid fa-crown text-[10px] text-amber-500"></i>
-                            </div>
-                            <span class="text-[11px] text-slate-500 mt-1">Custom SLA</span>
-                        </button>
-                    </div>
                 </div>
 
-                <!-- 2. Marketing Conversations Input -->
-                <div>
-                    <div class="flex items-center justify-between mb-1.5">
-                        <label for="marketingCount" class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                            <span>Marketing Conversations</span>
-                        </label>
-                        <span class="text-[11px] text-slate-400 hidden sm:inline">Promotions, Offers &amp; Sales</span>
-                    </div>
+                <!-- CUSTOM REQUIREMENT STRIP -->
 
-                    <div class="relative rounded-xl border border-slate-200 shadow-xs focus-within:ring-2 focus-within:ring-emerald-500 focus-within:border-emerald-500 bg-slate-50/50">
-                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-emerald-600">
-                            <i class="fa-solid fa-bullhorn text-xs"></i>
+                <div class="mt-12 bg-white border border-green-100 rounded-2xl p-5 sm:p-7 flex flex-col md:flex-row items-center justify-between gap-5 shadow-sm">
+
+                    <div class="flex items-center gap-4">
+
+                        <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-headset text-xl text-[#087849]"></i>
                         </div>
-                        <input
-                            id="marketingCount"
-                            type="number"
-                            min="0"
-                            step="500"
-                            value="5000"
-                            class="block w-full pl-9 pr-16 py-2.5 text-sm sm:text-base font-semibold text-slate-900 bg-transparent rounded-xl focus:outline-none"
-                            placeholder="0">
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-xs text-slate-400 font-medium">
-                            msgs/mo
-                        </div>
-                    </div>
 
-                    <!-- Quick Preset Chips -->
-                    <div class="flex items-center gap-1.5 mt-2 overflow-x-auto pb-0.5">
-                        <span class="text-[11px] text-slate-400 shrink-0 font-medium">Presets:</span>
-                        <button type="button" onclick="setVolume('marketingCount', 1000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">1k</button>
-                        <button type="button" onclick="setVolume('marketingCount', 5000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">5k</button>
-                        <button type="button" onclick="setVolume('marketingCount', 10000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">10k</button>
-                        <button type="button" onclick="setVolume('marketingCount', 25000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">25k</button>
-                        <button type="button" onclick="setVolume('marketingCount', 50000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-emerald-100 hover:text-emerald-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">50k</button>
-                    </div>
-                </div>
-
-                <!-- 3. Utility Conversations Input -->
-                <div>
-                    <div class="flex items-center justify-between mb-1.5">
-                        <label for="utilityCount" class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
-                            <span>Utility Conversations</span>
-                        </label>
-                        <span class="text-[11px] text-slate-400 hidden sm:inline">OTPs, Order Status &amp; Alerts</span>
-                    </div>
-
-                    <div class="relative rounded-xl border border-slate-200 shadow-xs focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500 bg-slate-50/50">
-                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-blue-600">
-                            <i class="fa-solid fa-bell text-xs"></i>
-                        </div>
-                        <input
-                            id="utilityCount"
-                            type="number"
-                            min="0"
-                            step="500"
-                            value="5000"
-                            class="block w-full pl-9 pr-16 py-2.5 text-sm sm:text-base font-semibold text-slate-900 bg-transparent rounded-xl focus:outline-none"
-                            placeholder="0">
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-xs text-slate-400 font-medium">
-                            msgs/mo
-                        </div>
-                    </div>
-
-                    <!-- Quick Preset Chips -->
-                    <div class="flex items-center gap-1.5 mt-2 overflow-x-auto pb-0.5">
-                        <span class="text-[11px] text-slate-400 shrink-0 font-medium">Presets:</span>
-                        <button type="button" onclick="setVolume('utilityCount', 1000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">1k</button>
-                        <button type="button" onclick="setVolume('utilityCount', 5000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">5k</button>
-                        <button type="button" onclick="setVolume('utilityCount', 10000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">10k</button>
-                        <button type="button" onclick="setVolume('utilityCount', 25000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">25k</button>
-                        <button type="button" onclick="setVolume('utilityCount', 50000)" class="px-2 py-0.5 rounded-md bg-slate-100 hover:bg-blue-100 hover:text-blue-700 text-[11px] font-medium text-slate-600 transition cursor-pointer">50k</button>
-                    </div>
-                </div>
-                <!-- 4. Compact Category Guide Strip -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                    <div class="p-3 rounded-xl bg-emerald-50/70 border border-emerald-100 text-xs">
-                        <div class="font-bold text-emerald-800 flex items-center gap-1.5 mb-1">
-                            <i class="fa-solid fa-bullhorn text-[11px]"></i>
-                            <span>Marketing Category</span>
-                        </div>
-                        <p class="text-[11px] text-slate-600 leading-snug">
-                            Promotional offers, seasonal broadcasts, cart recovery &amp; product launches.
-                        </p>
-                    </div>
-
-                    <div class="p-3 rounded-xl bg-blue-50/70 border border-blue-100 text-xs">
-                        <div class="font-bold text-blue-800 flex items-center gap-1.5 mb-1">
-                            <i class="fa-solid fa-shield-halved text-[11px]"></i>
-                            <span>Utility Category</span>
-                        </div>
-                        <p class="text-[11px] text-slate-600 leading-snug">
-                            Mission-critical OTPs, transactional alerts, booking &amp; order status updates.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-            <!-- RIGHT COLUMN: Cost Breakdown & WhatsApp Quote (5 cols) -->
-            <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-slate-900 to-[#062c19] text-white p-5 sm:p-7 flex flex-col justify-between">
-                <div>
-                    <!-- Top Bar: Total Volume & Selected Plan -->
-                    <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
                         <div>
-                            <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Total Volume</span>
-                            <div class="flex items-baseline gap-1.5 mt-0.5">
-                                <span id="totalMessages" class="text-2xl sm:text-3xl font-black text-white font-mono">10,000</span>
-                                <span class="text-xs text-slate-400">conversations</span>
-                            </div>
+                            <h3 class="text-lg font-semibold text-slate-900">
+                                Need a Custom Enterprise Solution?
+                            </h3>
+
+                            <p class="text-sm text-gray-500 mt-1">
+                                Talk to our team for custom volumes, integrations and business requirements.
+                            </p>
                         </div>
 
-                        <span id="selectedPlanName" class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                            Starter Plan
-                        </span>
-                    </div>
-
-                    <!-- Itemized Cost Breakdown -->
-                    <div class="py-3.5 space-y-2.5 text-xs sm:text-sm">
-                        <div class="flex justify-between items-center text-slate-300">
-                            <span>One-Time Setup Fee</span>
-                            <strong id="setupFee" class="font-semibold text-white">₹0</strong>
-                        </div>
-
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <span class="text-slate-300">Marketing Cost</span>
-                                <span id="marketingInfo" class="block text-[11px] text-slate-400 font-mono">5,000 × ₹0.00</span>
-                            </div>
-                            <strong id="marketingCost" class="text-emerald-400 font-bold text-sm sm:text-base">₹0</strong>
-                        </div>
-
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <span class="text-slate-300">Utility Cost</span>
-                                <span id="utilityInfo" class="block text-[11px] text-slate-400 font-mono">5,000 × ₹0.00</span>
-                            </div>
-                            <strong id="utilityCost" class="text-cyan-400 font-bold text-sm sm:text-base">₹0</strong>
-                        </div>
-
-                        <div class="pt-2 border-t border-white/10 flex justify-between items-center text-slate-300">
-                            <span>Subtotal</span>
-                            <strong id="subTotal" class="font-semibold text-white">₹0</strong>
-                        </div>
-
-                        <div class="flex justify-between items-center text-slate-300">
-                            <span>GST (18%)</span>
-                            <strong id="gstAmount" class="font-semibold text-amber-400">₹0</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom: Total Payable & Primary Quote Button -->
-                <div class="pt-3.5 border-t border-white/10 space-y-3">
-                    <div class="flex items-baseline justify-between">
-                        <div>
-                            <span class="text-xs text-slate-300 block font-medium">Estimated Monthly Payable</span>
-                            <span class="text-[10px] text-emerald-400">Includes Meta API fees &amp; 18% GST</span>
-                        </div>
-                        <div id="finalAmount" class="text-2xl sm:text-3xl font-black text-white font-mono tracking-tight">
-                            ₹0
-                        </div>
                     </div>
 
                     <button
                         type="button"
-                        onclick="sendWhatsappQuote()"
-                        class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-[#049a3d] hover:from-emerald-400 hover:to-[#038334] text-white font-bold text-sm sm:text-base shadow-lg shadow-emerald-950/60 hover:-translate-y-0.5 transition duration-200 flex items-center justify-center gap-2 cursor-pointer">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>Get Instant Quote on WhatsApp</span>
+                        onclick="window.open('https://wa.me/919187054466', '_blank')"
+                        class="shrink-0 px-6 py-3 rounded-xl bg-[#087849] text-white text-sm font-semibold hover:bg-[#065e39] transition">
+
+                        Talk to Our Team
+                        <i class="fa-brands fa-whatsapp ml-2 text-sm"></i>
+
                     </button>
 
-                    <div class="flex items-center justify-center gap-3 text-[11px] text-slate-400 pt-0.5">
-                        <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-emerald-400 text-[9px]"></i> Meta Partner</span>
-                        <span>&bull;</span>
-                        <span class="flex items-center gap-1"><i class="fa-solid fa-file-invoice text-emerald-400 text-[9px]"></i> GST Invoice</span>
-                        <span>&bull;</span>
-                        <span class="flex items-center gap-1"><i class="fa-solid fa-bolt text-emerald-400 text-[9px]"></i> 24h Setup</span>
-                    </div>
-
-                    <!-- Hidden summary spans for sendWhatsappQuote backwards compatibility -->
-                    <div class="hidden" aria-hidden="true">
-                        <span id="summaryPlan">Starter Plan</span>
-                        <span id="summaryTotal">10,000</span>
-                        <span id="summaryMarketing">5,000</span>
-                        <span id="summaryUtility">5,000</span>
-                    </div>
                 </div>
 
             </div>
 
-        </div>
-    </div>
-</div>
+        </section>
+
+        <!-- ================= WHATSAPP CALCULATOR DATA ================= -->
+
+        @php
+            $marketingPlans = $pricings->get('Whatsapp', collect())->get('business_marketing', collect());
+
+            $whatsappPlans = [
+                'starter' => [
+                    'setup' => $marketingPlans[0]->setup_cost ?? 0,
+                    'marketing' => $marketingPlans[0]->marketing_price ?? 0,
+                    'utility' => $marketingPlans[0]->utility_price ?? 0,
+                ],
+                'business' => [
+                    'setup' => $marketingPlans[1]->setup_cost ?? 0,
+                    'marketing' => $marketingPlans[1]->marketing_price ?? 0,
+                    'utility' => $marketingPlans[1]->utility_price ?? 0,
+                ],
+                'enterprise' => [
+                    'setup' => $marketingPlans[2]->setup_cost ?? 0,
+                    'marketing' => $marketingPlans[2]->marketing_price ?? 0,
+                    'utility' => $marketingPlans[2]->utility_price ?? 0,
+                ],
+            ];
+        @endphp
+
+        <script>
+            window.whatsappPlans = @json($whatsappPlans);
+        </script>
+
+        <!-- ================= WHATSAPP CALCULATOR ================= -->
+
+        <section id="whatsapp-calculator" class="scroll-mt-24 md:scroll-mt-28 bg-white py-12 lg:py-16">
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-9">
+
+                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 border border-green-100 text-[#087849] text-xs font-semibold tracking-wider uppercase">
+                        <i class="fa-solid fa-calculator"></i>
+                        Interactive Pricing Tool
+                    </span>
+
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mt-4 tracking-tight">
+                        WhatsApp Pricing
+                        <span class="text-[#087849]">Calculator</span>
+                    </h2>
+
+                    <p class="text-sm sm:text-base text-gray-500 max-w-2xl mx-auto mt-3 leading-relaxed">
+                        Estimate your monthly WhatsApp Business API costs.
+                        Select a plan and enter your expected conversation volume.
+                    </p>
+
+                </div>
+
+                <div class="bg-white border border-gray-200 rounded-3xl shadow-xl overflow-hidden">
+
+                    <div class="h-1.5 bg-gradient-to-r from-[#087849] via-[#049a3d] to-emerald-300"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12">
+
+                        <!-- LEFT: INPUTS -->
+
+                        <div class="lg:col-span-7 p-5 sm:p-8 space-y-7">
+
+                            <!-- PLAN SELECTION -->
+
+                            <div>
+
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
+                                    01. Select Your Plan
+                                </label>
+
+                                <select id="whatsappPlan" class="hidden">
+                                    <option value="starter" selected>Starter Plan</option>
+                                    <option value="business">Business Plan</option>
+                                    <option value="enterprise">Enterprise Plan</option>
+                                </select>
+
+                                <div class="grid grid-cols-3 gap-2.5">
+
+                                    <button
+                                        type="button"
+                                        onclick="setCalcPlan('starter')"
+                                        id="calcPlanBtn-starter"
+                                        class="calc-plan-btn selected p-3 rounded-xl border text-left flex flex-col justify-between">
+
+                                        <div class="flex items-center justify-between gap-1">
+                                            <span class="text-xs sm:text-sm font-semibold text-slate-900">Starter</span>
+                                            <i class="fa-solid fa-circle-check text-[#087849] text-xs calc-plan-check"></i>
+                                        </div>
+
+                                        <span class="text-[11px] text-gray-500 mt-2">Getting Started</span>
+
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        onclick="setCalcPlan('business')"
+                                        id="calcPlanBtn-business"
+                                        class="calc-plan-btn p-3 rounded-xl border border-gray-200 text-left flex flex-col justify-between">
+
+                                        <div class="flex items-center justify-between gap-1">
+                                            <span class="text-xs sm:text-sm font-semibold text-slate-900">Business</span>
+                                            <span class="text-[9px] bg-green-100 text-[#087849] px-1.5 py-1 rounded-full font-semibold">POPULAR</span>
+                                        </div>
+
+                                        <span class="text-[11px] text-gray-500 mt-2">Growing Business</span>
+
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        onclick="setCalcPlan('enterprise')"
+                                        id="calcPlanBtn-enterprise"
+                                        class="calc-plan-btn p-3 rounded-xl border border-gray-200 text-left flex flex-col justify-between">
+
+                                        <div class="flex items-center justify-between gap-1">
+                                            <span class="text-xs sm:text-sm font-semibold text-slate-900">Enterprise</span>
+                                            <i class="fa-solid fa-building text-gray-400 text-xs"></i>
+                                        </div>
+
+                                        <span class="text-[11px] text-gray-500 mt-2">Large Scale</span>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- MARKETING INPUT -->
+
+                            <div>
+
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+
+                                    <label for="marketingCount" class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-[#049a3d]"></span>
+                                        Marketing Conversations
+                                    </label>
+
+                                    <span class="text-xs text-gray-400">
+                                        Promotions, offers & sales
+                                    </span>
+
+                                </div>
+
+                                <div class="relative">
+
+                                    <i class="fa-solid fa-bullhorn absolute left-4 top-1/2 -translate-y-1/2 text-[#087849]"></i>
+
+                                    <input
+                                        id="marketingCount"
+                                        type="number"
+                                        min="0"
+                                        step="500"
+                                        value="5000"
+                                        class="pricing-input w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-11 pr-20 text-slate-900 font-medium"
+                                        placeholder="Enter volume">
+
+                                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-400">
+                                        msgs/mo
+                                    </span>
+
+                                </div>
+
+                                <div class="flex flex-wrap items-center gap-2 mt-3">
+
+                                    <span class="text-xs text-gray-400">Quick select:</span>
+
+                                    @foreach ([1000, 5000, 10000, 25000, 50000] as $volume)
+                                        <button
+                                            type="button"
+                                            onclick="setVolume('marketingCount', {{ $volume }})"
+                                            class="px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-green-50 hover:text-[#087849] text-xs font-medium text-gray-600 transition">
+
+                                            {{ $volume >= 1000 ? ($volume / 1000) . 'k' : $volume }}
+
+                                        </button>
+                                    @endforeach
+
+                                </div>
+
+                            </div>
+
+                            <!-- UTILITY INPUT -->
+
+                            <div>
+
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+
+                                    <label for="utilityCount" class="text-sm font-semibold text-slate-800 flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                                        Utility Conversations
+                                    </label>
+
+                                    <span class="text-xs text-gray-400">
+                                        OTPs, alerts & order updates
+                                    </span>
+
+                                </div>
+
+                                <div class="relative">
+
+                                    <i class="fa-solid fa-bell absolute left-4 top-1/2 -translate-y-1/2 text-blue-600"></i>
+
+                                    <input
+                                        id="utilityCount"
+                                        type="number"
+                                        min="0"
+                                        step="500"
+                                        value="5000"
+                                        class="pricing-input w-full rounded-xl border border-gray-200 bg-gray-50 py-3 pl-11 pr-20 text-slate-900 font-medium"
+                                        placeholder="Enter volume">
+
+                                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-400">
+                                        msgs/mo
+                                    </span>
+
+                                </div>
+
+                                <div class="flex flex-wrap items-center gap-2 mt-3">
+
+                                    <span class="text-xs text-gray-400">Quick select:</span>
+
+                                    @foreach ([1000, 5000, 10000, 25000, 50000] as $volume)
+                                        <button
+                                            type="button"
+                                            onclick="setVolume('utilityCount', {{ $volume }})"
+                                            class="px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 hover:text-blue-700 text-xs font-medium text-gray-600 transition">
+
+                                            {{ $volume >= 1000 ? ($volume / 1000) . 'k' : $volume }}
+
+                                        </button>
+                                    @endforeach
+
+                                </div>
+
+                            </div>
+
+                            <!-- CATEGORY INFORMATION -->
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                                <div class="p-4 rounded-xl bg-green-50 border border-green-100">
+
+                                    <div class="flex items-center gap-2 text-[#087849] text-sm font-semibold mb-2">
+                                        <i class="fa-solid fa-bullhorn"></i>
+                                        Marketing
+                                    </div>
+
+                                    <p class="text-xs text-gray-600 leading-relaxed">
+                                        Promotional offers, product launches, campaigns and customer engagement.
+                                    </p>
+
+                                </div>
+
+                                <div class="p-4 rounded-xl bg-blue-50 border border-blue-100">
+
+                                    <div class="flex items-center gap-2 text-blue-700 text-sm font-semibold mb-2">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                        Utility
+                                    </div>
+
+                                    <p class="text-xs text-gray-600 leading-relaxed">
+                                        Order updates, booking confirmations, transactional alerts and notifications.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <p class="text-[11px] text-gray-400 leading-relaxed">
+                                * This calculator provides an estimate based on the configured plan rates. Actual billing may vary according to applicable Meta charges and your final commercial agreement.
+                            </p>
+
+                        </div>
+
+                        <!-- RIGHT: RESULT -->
+
+                        <div class="lg:col-span-5 p-5 sm:p-8 calculator-result border-t lg:border-t-0 lg:border-l border-gray-100 flex flex-col justify-between">
+
+                            <div>
+
+                                <div class="flex items-center justify-between pb-5 border-b border-green-100 gap-3">
+
+                                    <div>
+
+                                        <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">
+                                            Total Monthly Volume
+                                        </span>
+
+                                        <div class="text-3xl font-bold text-slate-900 mt-1" id="totalMessages">
+                                            10,000
+                                        </div>
+
+                                        <span class="text-xs text-gray-500">Conversations</span>
+
+                                    </div>
+
+                                    <span id="selectedPlanName" class="px-3 py-2 rounded-lg bg-white border border-green-100 text-[#087849] text-xs font-semibold">
+                                        Starter Plan
+                                    </span>
+
+                                </div>
+
+                                <div class="py-6 space-y-5">
+
+                                    <div class="flex justify-between items-center gap-3">
+                                        <div>
+                                            <p class="text-sm text-gray-600 font-medium">One-Time Setup Fee</p>
+                                        </div>
+
+                                        <strong id="setupFee" class="text-slate-900 text-sm font-semibold">₹0</strong>
+                                    </div>
+
+                                    <div class="flex justify-between items-center gap-3">
+                                        <div>
+                                            <p class="text-sm text-gray-600 font-medium">Marketing Cost</p>
+                                            <span id="marketingInfo" class="text-xs text-gray-400">5,000 × ₹0.00</span>
+                                        </div>
+
+                                        <strong id="marketingCost" class="text-[#087849] text-base font-semibold">₹0</strong>
+                                    </div>
+
+                                    <div class="flex justify-between items-center gap-3">
+                                        <div>
+                                            <p class="text-sm text-gray-600 font-medium">Utility Cost</p>
+                                            <span id="utilityInfo" class="text-xs text-gray-400">5,000 × ₹0.00</span>
+                                        </div>
+
+                                        <strong id="utilityCost" class="text-blue-600 text-base font-semibold">₹0</strong>
+                                    </div>
+
+                                    <div class="border-t border-green-100 pt-4 flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">Subtotal</span>
+                                        <strong id="subTotal" class="text-slate-900 font-semibold">₹0</strong>
+                                    </div>
+
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">GST (18%)</span>
+                                        <strong id="gstAmount" class="text-slate-900 font-semibold">₹0</strong>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="bg-white border border-green-100 rounded-2xl p-5 shadow-sm">
+
+                                <div class="flex items-end justify-between gap-3 mb-5">
+
+                                    <div>
+                                        <span class="text-xs text-gray-500 font-semibold">
+                                            Estimated Total
+                                        </span>
+
+                                        <p class="text-xs text-gray-400 mt-1">
+                                            Including 18% GST
+                                        </p>
+                                    </div>
+
+                                    <div id="finalAmount" class="text-2xl sm:text-3xl font-bold text-[#087849]">
+                                        ₹0
+                                    </div>
+
+                                </div>
+
+                                <button
+                                    type="button"
+                                    onclick="sendWhatsappQuote()"
+                                    class="w-full py-3.5 px-4 rounded-xl bg-[#087849] hover:bg-[#065e39] text-white font-semibold text-sm shadow-lg shadow-green-900/10 transition flex items-center justify-center gap-2">
+
+                                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                                    Get Instant Quote on WhatsApp
+
+                                </button>
+
+                                <div class="flex flex-wrap justify-center gap-4 mt-4 text-[11px] text-gray-400">
+
+                                    <span class="flex items-center gap-1">
+                                        <i class="fa-solid fa-lock text-[#087849]"></i>
+                                        Secure
+                                    </span>
+
+                                    <span class="flex items-center gap-1">
+                                        <i class="fa-solid fa-file-invoice text-[#087849]"></i>
+                                        GST Invoice
+                                    </span>
+
+                                    <span class="flex items-center gap-1">
+                                        <i class="fa-solid fa-headset text-[#087849]"></i>
+                                        Expert Support
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <!-- BACKWARD COMPATIBILITY -->
+
+                            <div class="hidden" aria-hidden="true">
+                                <span id="summaryPlan">Starter Plan</span>
+                                <span id="summaryTotal">10,000</span>
+                                <span id="summaryMarketing">5,000</span>
+                                <span id="summaryUtility">5,000</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
     </main>
 
-    <!-- ==================== JAVASCRIPT ==================== -->
+    <!-- ================= JAVASCRIPT ================= -->
+
     <script>
-       document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
 
-    window.setCalcPlan = function(planKey) {
-        const planDropdown = document.getElementById('whatsappPlan');
-        if (!planDropdown) return;
-        planDropdown.value = planKey;
-        
-        const planNameEl = document.getElementById('selectedPlanName');
-        if (planNameEl && planDropdown.options[planDropdown.selectedIndex]) {
-            planNameEl.innerText = planDropdown.options[planDropdown.selectedIndex].text;
-        }
+            /* ================= CALCULATOR ================= */
 
-        ['starter', 'business', 'enterprise'].forEach(function(key) {
-            const btn = document.getElementById('calcPlanBtn-' + key);
-            if (btn) {
-                if (key === planKey) {
-                    btn.className = 'calc-plan-btn p-2.5 sm:p-3 rounded-xl border-2 border-[#049a3d] bg-emerald-50/70 text-left transition duration-150 flex flex-col justify-between cursor-pointer';
-                    const icon = btn.querySelector('.calc-plan-check');
-                    if (icon) icon.className = 'fa-solid fa-circle-check text-xs text-[#049a3d] calc-plan-check';
-                } else {
-                    btn.className = 'calc-plan-btn p-2.5 sm:p-3 rounded-xl border border-slate-200 bg-white hover:border-emerald-300 text-left transition duration-150 flex flex-col justify-between cursor-pointer';
-                    const icon = btn.querySelector('.calc-plan-check');
-                    if (icon) icon.className = 'fa-regular fa-circle text-xs text-slate-300 calc-plan-check';
+            window.setCalcPlan = function(planKey) {
+
+                const planDropdown = document.getElementById('whatsappPlan');
+
+                if (!planDropdown) return;
+
+                planDropdown.value = planKey;
+
+                const planNameEl = document.getElementById('selectedPlanName');
+
+                if (planNameEl && planDropdown.options[planDropdown.selectedIndex]) {
+                    planNameEl.innerText = planDropdown.options[planDropdown.selectedIndex].text;
                 }
+
+                ['starter', 'business', 'enterprise'].forEach(function(key) {
+
+                    const btn = document.getElementById('calcPlanBtn-' + key);
+
+                    if (!btn) return;
+
+                    const icon = btn.querySelector('.calc-plan-check');
+
+                    if (key === planKey) {
+
+                        btn.classList.add('selected');
+                        btn.classList.remove('border-gray-200');
+
+                        if (icon) {
+                            icon.className = 'fa-solid fa-circle-check text-[#087849] text-xs calc-plan-check';
+                        }
+
+                    } else {
+
+                        btn.classList.remove('selected');
+
+                        if (icon) {
+                            icon.className = 'fa-regular fa-circle text-gray-300 text-xs calc-plan-check';
+                        }
+
+                    }
+
+                });
+
+                calculateWhatsappPrice();
+            };
+
+
+            window.setVolume = function(inputId, val) {
+
+                const el = document.getElementById(inputId);
+
+                if (el) {
+                    el.value = val;
+                    calculateWhatsappPrice();
+                }
+
+            };
+
+
+            function toggleCalculator(target) {
+
+                const calculator = document.getElementById('whatsapp-calculator');
+
+                if (!calculator) return;
+
+                if (target === 'service-whatsapp') {
+                    calculator.classList.remove('hidden');
+                } else {
+                    calculator.classList.add('hidden');
+                }
+
             }
-        });
 
-        calculateWhatsappPrice();
-    };
 
-    window.setVolume = function(inputId, val) {
-        const el = document.getElementById(inputId);
-        if (el) {
-            el.value = val;
+            function calculateWhatsappPrice() {
+
+                const planSelect = document.getElementById('whatsappPlan');
+
+                if (!planSelect || !window.whatsappPlans) return;
+
+                const selectedPlan = planSelect.value;
+                const plan = window.whatsappPlans[selectedPlan];
+
+                if (!plan) return;
+
+                const marketingRate = Number(plan.marketing) || 0;
+                const utilityRate = Number(plan.utility) || 0;
+                const setupCost = Number(plan.setup) || 0;
+
+                const marketing = Math.max(0, parseInt(document.getElementById('marketingCount')?.value) || 0);
+                const utility = Math.max(0, parseInt(document.getElementById('utilityCount')?.value) || 0);
+
+                const marketingCost = marketing * marketingRate;
+                const utilityCost = utility * utilityRate;
+
+                const subtotal = marketingCost + utilityCost + setupCost;
+                const gst = subtotal * 0.18;
+                const grandTotal = subtotal + gst;
+
+                const formatCurrency = function(value) {
+                    return '₹' + value.toLocaleString('en-IN', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    });
+                };
+
+                const setText = function(id, value) {
+                    const element = document.getElementById(id);
+                    if (element) element.innerText = value;
+                };
+
+                setText('totalMessages', (marketing + utility).toLocaleString('en-IN'));
+
+                setText('setupFee', '₹' + setupCost.toLocaleString('en-IN'));
+
+                setText(
+                    'marketingInfo',
+                    marketing.toLocaleString('en-IN') + ' × ₹' + marketingRate.toFixed(2)
+                );
+
+                setText(
+                    'utilityInfo',
+                    utility.toLocaleString('en-IN') + ' × ₹' + utilityRate.toFixed(2)
+                );
+
+                setText('marketingCost', formatCurrency(marketingCost));
+                setText('utilityCost', formatCurrency(utilityCost));
+                setText('subTotal', formatCurrency(subtotal));
+                setText('gstAmount', formatCurrency(gst));
+                setText('finalAmount', formatCurrency(grandTotal));
+
+                setText('summaryPlan', planSelect.options[planSelect.selectedIndex].text);
+                setText('summaryTotal', (marketing + utility).toLocaleString('en-IN'));
+                setText('summaryMarketing', marketing.toLocaleString('en-IN'));
+                setText('summaryUtility', utility.toLocaleString('en-IN'));
+
+            }
+
+
+            const marketingInput = document.getElementById('marketingCount');
+            const utilityInput = document.getElementById('utilityCount');
+
+            marketingInput?.addEventListener('input', calculateWhatsappPrice);
+            utilityInput?.addEventListener('input', calculateWhatsappPrice);
+
+
+            const planDropdown = document.getElementById('whatsappPlan');
+
+            if (planDropdown) {
+
+                planDropdown.addEventListener('change', function() {
+
+                    const nameElement = document.getElementById('selectedPlanName');
+
+                    if (nameElement) {
+                        nameElement.innerText = this.options[this.selectedIndex].text;
+                    }
+
+                    calculateWhatsappPrice();
+
+                });
+
+            }
+
             calculateWhatsappPrice();
-        }
-    };
 
-    function toggleCalculator(target) {
-        const calculator = document.getElementById('whatsapp-calculator');
 
-        if (!calculator) return;
+            /* ================= PRODUCT TABS ================= */
 
-        if (target === 'service-whatsapp') {
-            calculator.classList.remove('hidden');
-        } else {
-            calculator.classList.add('hidden');
-        }
-    }
-
-
-
-   function calculateWhatsappPrice() {
-
-    const planSelect = document.getElementById('whatsappPlan');
-
-    if(!planSelect || !window.whatsappPlans){
-        return;
-    }
-
-    const selectedPlan = planSelect.value;
-
-    const plan = window.whatsappPlans[selectedPlan];
-
-    if(!plan){
-        return;
-    }
-
-
-    const marketingRate = Number(plan.marketing);
-    const utilityRate   = Number(plan.utility);
-    const setupCost     = Number(plan.setup);
-
-
-    const marketing = parseInt(document.getElementById('marketingCount').value) || 0;
-    const utility   = parseInt(document.getElementById('utilityCount').value) || 0;
-
-
-    const marketingCost = marketing * marketingRate;
-    const utilityCost   = utility * utilityRate;
-
-
-    const subtotal = marketingCost + utilityCost + setupCost;
-
-    const gst = subtotal * 0.18;
-
-    const grandTotal = subtotal + gst;
-
-
-
-    document.getElementById('totalMessages').innerText =
-        (marketing + utility).toLocaleString();
-
-
-
-    document.getElementById('setupFee').innerText =
-        '₹' + setupCost.toLocaleString('en-IN');
-
-
-
-    document.getElementById('marketingInfo').innerText =
-        marketing.toLocaleString('en-IN') 
-        + ' × ₹' + marketingRate.toFixed(2);
-
-
-
-    document.getElementById('utilityInfo').innerText =
-        utility.toLocaleString('en-IN') 
-        + ' × ₹' + utilityRate.toFixed(2);
-
-
-
-    document.getElementById('marketingCost').innerText =
-        '₹' + marketingCost.toLocaleString('en-IN',{
-            minimumFractionDigits:2
-        });
-
-
-
-    document.getElementById('utilityCost').innerText =
-        '₹' + utilityCost.toLocaleString('en-IN',{
-            minimumFractionDigits:2
-        });
-
-
-
-    document.getElementById('subTotal').innerText =
-        '₹' + subtotal.toLocaleString('en-IN',{
-            minimumFractionDigits:2
-        });
-
-
-
-    document.getElementById('gstAmount').innerText =
-        '₹' + gst.toLocaleString('en-IN',{
-            minimumFractionDigits:2
-        });
-
-
-
-    document.getElementById('finalAmount').innerText =
-        '₹' + grandTotal.toLocaleString('en-IN',{
-            minimumFractionDigits:2
-        });
-
-// Summary
-document.getElementById('summaryPlan').innerText =
-    planSelect.options[planSelect.selectedIndex].text;
-
-document.getElementById('summaryTotal').innerText =
-    (marketing + utility).toLocaleString('en-IN');
-
-document.getElementById('summaryMarketing').innerText =
-    marketing.toLocaleString('en-IN');
-
-document.getElementById('summaryUtility').innerText =
-    utility.toLocaleString('en-IN');
-
-}
-
-  const marketingInput = document.getElementById('marketingCount');
-const utilityInput = document.getElementById('utilityCount');
-
-marketingInput?.addEventListener('input', calculateWhatsappPrice);
-utilityInput?.addEventListener('input', calculateWhatsappPrice);
-
-
-const planDropdown = document.getElementById('whatsappPlan');
-
-if(planDropdown){
-
-    planDropdown.addEventListener('change', function(){
-
-        document.getElementById('selectedPlanName').innerText =
-        this.options[this.selectedIndex].text;
-
-        calculateWhatsappPrice();
-
-    });
-
-}
-
-
-calculateWhatsappPrice();
-
-    // YAHI SE TUMHARA EXISTING CODE CONTINUE HOGA
-            /* ---------------------- 1. PRODUCT TABS (DESKTOP) ---------------------- */
             const productTabs = document.querySelectorAll('.product-tab');
             const serviceSections = document.querySelectorAll('.service-section');
 
             productTabs.forEach(tab => {
+
                 tab.addEventListener('click', () => {
+
                     const target = tab.getAttribute('data-target');
 
-                    // Hide all service sections
-                    serviceSections.forEach(s => s.classList.add('hidden'));
+                    serviceSections.forEach(section => section.classList.add('hidden'));
 
-                    // Show selected service
                     document.getElementById(target)?.classList.remove('hidden');
+
                     toggleCalculator(target);
 
-
-// Reset styles
                     productTabs.forEach(t => {
-                        t.classList.remove('border-[#049a3d]', 'text-[#049a3d]');
-                        t.classList.add('border-transparent', 'text-gray-600');
+                        t.classList.remove('active');
                     });
 
-                    // Active tab state
-                    tab.classList.add('border-[#049a3d]', 'text-[#049a3d]');
-                    tab.classList.remove('border-transparent', 'text-gray-600');
+                    tab.classList.add('active');
 
-                    // Activate first sub-category inside the selected service
                     const firstSubcatTab = document.querySelector(`#${target} .subcat-tab`);
-                    if (firstSubcatTab) firstSubcatTab.click();
 
-                    // Sync mobile dropdown
-                    document.getElementById('mobileServiceDropdown').value = target;
+                    if (firstSubcatTab) {
+                        firstSubcatTab.click();
+                    }
+
+                    const mobileDropdown = document.getElementById('mobileServiceDropdown');
+
+                    if (mobileDropdown) {
+                        mobileDropdown.value = target;
+                    }
+
                 });
+
             });
 
 
-            /* ---------------------- 2. SUB-CATEGORY TABS ---------------------- */
+            /* ================= SUBCATEGORY TABS ================= */
+
             const subcatTabs = document.querySelectorAll('.subcat-tab');
 
             subcatTabs.forEach(tab => {
+
                 tab.addEventListener('click', () => {
+
                     const target = tab.getAttribute('data-target');
                     const parentService = tab.closest('.service-section');
 
-                    // Hide subcategories inside current service
-                    parentService.querySelectorAll('.subcat-section')
-                        .forEach(s => s.classList.add('hidden'));
+                    if (!parentService) return;
 
-                    // Show selected
-                    document.getElementById(target)?.classList.remove('hidden');
-
-                    // Reset styles
-                    parentService.querySelectorAll('.subcat-tab').forEach(t => {
-                        t.classList.remove('border-[#049a3d]', 'text-[#049a3d]');
-                        t.classList.add('border-transparent', 'text-gray-600');
+                    parentService.querySelectorAll('.subcat-section').forEach(section => {
+                        section.classList.add('hidden');
                     });
 
-                    // Active state
-                    tab.classList.add('border-[#049a3d]', 'text-[#049a3d]');
-                    tab.classList.remove('border-transparent', 'text-gray-600');
+                    document.getElementById(target)?.classList.remove('hidden');
+
+                    parentService.querySelectorAll('.subcat-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+
+                    tab.classList.add('active');
+
                 });
+
             });
 
 
-            /* ---------------------- 3. MOBILE DROPDOWN ---------------------- */
+            /* ================= MOBILE DROPDOWN ================= */
+
             window.changeServiceTab = function(targetId) {
 
-                // Hide all
-                serviceSections.forEach(s => s.classList.add('hidden'));
+                serviceSections.forEach(section => section.classList.add('hidden'));
 
-                // Show selected
                 document.getElementById(targetId)?.classList.remove('hidden');
+
                 toggleCalculator(targetId);
-                // Update desktop tabs
+
                 productTabs.forEach(btn => {
-                    if (btn.dataset.target === targetId) {
-                        btn.classList.add('border-[#049a3d]', 'text-[#049a3d]');
-                        btn.classList.remove('border-transparent', 'text-gray-600');
-                    } else {
-                        btn.classList.remove('border-[#049a3d]', 'text-[#049a3d]');
-                        btn.classList.add('border-transparent', 'text-gray-600');
-                    }
+                    btn.classList.toggle('active', btn.dataset.target === targetId);
                 });
 
-                // Activate first sub-category automatically
                 const firstSubcatTab = document.querySelector(`#${targetId} .subcat-tab`);
-                if (firstSubcatTab) firstSubcatTab.click();
+
+                if (firstSubcatTab) {
+                    firstSubcatTab.click();
+                }
+
             };
 
 
-           /* ---------------------- 4. INITIAL LOAD → Default WhatsApp ---------------------- */
+            /* ================= INITIAL LOAD ================= */
 
-const whatsappTab = document.querySelector('[data-target="service-whatsapp"]');
+            const whatsappTab = document.querySelector('[data-target="service-whatsapp"]');
 
-if (whatsappTab) {
-    whatsappTab.click();
-} else {
-    const defaultTab = document.querySelector('.product-tab');
-    if (defaultTab) defaultTab.click();
-}
+            if (whatsappTab) {
+                whatsappTab.click();
+            } else {
 
-/* Deep link scroll directly to calculator if #whatsapp-calculator or #calculator is in URL */
-function handleCalculatorScroll() {
-    const hash = window.location.hash;
-    if (hash === '#whatsapp-calculator' || hash === '#calculator' || hash === '#pricing-calculator') {
-        if (whatsappTab) whatsappTab.click();
-        setTimeout(function() {
-            const calcEl = document.getElementById('whatsapp-calculator');
-            if (calcEl) {
-                calcEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const defaultTab = document.querySelector('.product-tab');
+
+                if (defaultTab) {
+                    defaultTab.click();
+                }
+
             }
-        }, 200);
-    }
-}
-handleCalculatorScroll();
-window.addEventListener('hashchange', handleCalculatorScroll);
+
+
+            /* ================= CALCULATOR DEEP LINK ================= */
+
+            function handleCalculatorScroll() {
+
+                const hash = window.location.hash;
+
+                if (
+                    hash === '#whatsapp-calculator' ||
+                    hash === '#calculator' ||
+                    hash === '#pricing-calculator'
+                ) {
+
+                    if (whatsappTab) {
+                        whatsappTab.click();
+                    }
+
+                    setTimeout(function() {
+
+                        const calcEl = document.getElementById('whatsapp-calculator');
+
+                        if (calcEl) {
+                            calcEl.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+
+                    }, 250);
+
+                }
+
+            }
+
+            handleCalculatorScroll();
+
+            window.addEventListener('hashchange', handleCalculatorScroll);
 
         });
+
+
+        /* ================= WHATSAPP QUOTE ================= */
+
         function sendWhatsappQuote() {
 
-    const plan = document.getElementById('summaryPlan').innerText;
-    const total = document.getElementById('summaryTotal').innerText;
-    const marketing = document.getElementById('summaryMarketing').innerText;
-    const utility = document.getElementById('summaryUtility').innerText;
-    const amount = document.getElementById('finalAmount').innerText;
+            const plan = document.getElementById('summaryPlan')?.innerText || '';
+            const total = document.getElementById('summaryTotal')?.innerText || '';
+            const marketing = document.getElementById('summaryMarketing')?.innerText || '';
+            const utility = document.getElementById('summaryUtility')?.innerText || '';
+            const amount = document.getElementById('finalAmount')?.innerText || '';
 
-    const message =
+            const message =
 `Hello Textora,
 
 I am interested in WhatsApp Business API.
@@ -1218,16 +1688,14 @@ I am interested in WhatsApp Business API.
 
 Please contact me with more details.`;
 
-    const phone = "919187054466";
+            const phone = "919187054466";
 
-    window.open(
-        `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-        "_blank"
-    );
-}
+            window.open(
+                `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+                "_blank"
+            );
+
+        }
     </script>
-    
-
 
 </x-master-page>
-    

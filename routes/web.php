@@ -7,6 +7,7 @@ use App\Http\Controllers\PricingMasterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VlogMastersController;
+use App\Http\Controllers\UrlShortenerController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SitemapController;
@@ -57,6 +58,18 @@ Route::view('/sms-api', 'Website.otp_api');
 Route::view('/whatsapp-link-generator', 'Website.whatsapp_link_generator');
 Route::post('/whatsapp-links/generate', [WhatsappLinkController::class, 'store'])->name('whatsapp.generate');
 Route::get('/w/{slug}', [WhatsappLinkController::class, 'redirect'])->name('whatsapp.w.redirect');
+
+// URL Shortener
+Route::get('/url-shortener', [UrlShortenerController::class, 'index'])
+    ->name('url-shortener.index');
+
+Route::post('/url-shortener/generate', [UrlShortenerController::class, 'store'])
+    ->middleware('throttle:10,1')
+    ->name('url-shortener.generate');
+
+Route::get('/go/{code}', [UrlShortenerController::class, 'redirectToDestination'])
+    ->where('code', '[a-z0-9]+')
+    ->name('url-shortener.redirect');
 
 // Subdomain short link route for custom domain (e.g. w.textorasms.com)
 $shortDomain = config('app.whatsapp_short_domain') ?: env('WHATSAPP_SHORT_DOMAIN');

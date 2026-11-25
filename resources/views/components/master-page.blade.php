@@ -748,6 +748,7 @@
                     <a href="{{ url('/email-marketing') }}" class="block py-1 pl-2 text-slate-600 hover:text-[#049a3d]">Email Marketing</a>
                     <a href="{{ url('/reseller') }}" class="block py-1 pl-2 text-slate-600 hover:text-[#049a3d]">Reseller Partner Program</a>
                     <a href="{{ url('/whatsapp-link-generator') }}" class="block py-1 pl-2 text-slate-600 hover:text-[#049a3d]">WhatsApp Link Generator</a>
+                    
                 </div>
             </details>
 
@@ -936,152 +937,217 @@
 
     </div>
 
-    <!-- book a demo or contact Modal -->
+ 
+<!-- Book a Demo Modal -->
 
-    <div id="connectModal"
+<div id="connectModal"
+    class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden items-center justify-center z-[9999] px-4 py-5">
 
-        class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden items-center justify-center z-50 px-4">
+    <div class="bg-white w-full max-w-3xl max-h-[92vh] overflow-y-auto rounded-2xl shadow-2xl relative">
 
-        <div class="bg-white w-full max-w-lg rounded-2xl shadow-2xl md:p-8 p-4 relative animate-fadeIn">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-[#168b49] to-[#35ad70] px-6 py-6 sm:px-8 relative rounded-t-2xl">
 
-            <!-- Close button -->
-
-            <button id="close-connect-modal" onclick="closeModall()"
-
-                class="absolute top-3 right-3 text-gray-500 hover:text-black text-xl">
-
-                ✕
-
+            <button type="button" id="close-connect-modal"
+                onclick="closeModall()"
+                class="absolute top-4 right-5 text-white hover:text-green-100 text-3xl">
+                &times;
             </button>
 
-            <!-- Title -->
-
-            <h2 class="md:text-3xl text-xl font-bold text-gray-900 mb-6">
-
+            <h2 class="text-2xl sm:text-3xl font-bold text-white pr-8">
                 Book A Free Demo
-
             </h2>
 
-            <!-- Form -->
+            <p class="text-green-50 text-sm sm:text-base mt-2">
+                Discover the right business solutions for your company.
+                Schedule your free demo with TextoraSMS.
+            </p>
+        </div>
 
-            <form method="POST" action="{{ url('enquiry-web') }}" id="demo-form" class="space-y-4"
+        <!-- Form -->
+        <div class="p-5 sm:p-8">
 
-                onsubmit="return validateDemoForm()">
+            <form method="POST"
+                action="{{ url('enquiry-web') }}"
+                id="demo-form"
+                class="space-y-5"
+                onsubmit="return validateDemoForm(event)">
 
                 @csrf
 
                 <input type="hidden" name="isFormType" value="Demo">
 
-                <div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
-                    <input type="text" id="name" name="name" placeholder="Enter Name" required minlength="2"
+                    <!-- Name -->
+                    <div>
+                        <label for="name"
+                            class="block text-sm font-semibold text-gray-700 mb-2">
+                            Full Name <span class="text-red-500">*</span>
+                        </label>
 
-                        maxlength="50"
+                        <input type="text" id="name" name="name"
+                            placeholder="Enter your full name"
+                            required minlength="2" maxlength="50"
+                            class="w-full h-14 px-4 border border-gray-200 rounded-xl outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition">
+                    </div>
 
-                        class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-600 focus:outline-none">
+                    <!-- Phone -->
+                    <div>
+                        <label for="contact"
+                            class="block text-sm font-semibold text-gray-700 mb-2">
+                            Mobile Number <span class="text-red-500">*</span>
+                        </label>
+
+                        <input type="tel" id="contact" name="contact"
+                            placeholder="Enter your mobile number"
+                            required minlength="10" maxlength="15"
+                            pattern="[0-9]{10,15}"
+                            class="w-full h-14 px-4 border border-gray-200 rounded-xl outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email"
+                            class="block text-sm font-semibold text-gray-700 mb-2">
+                            Email Address <span class="text-red-500">*</span>
+                        </label>
+
+                        <input type="email" id="email" name="email"
+                            placeholder="Enter your email address"
+                            required
+                            class="w-full h-14 px-4 border border-gray-200 rounded-xl outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition">
+                    </div>
+
+                    <!-- Company -->
+                    <div>
+                        <label for="company_name"
+                            class="block text-sm font-semibold text-gray-700 mb-2">
+                            Company Name <span class="text-red-500">*</span>
+                        </label>
+
+                        <input type="text" id="company_name" name="company_name"
+                            placeholder="Enter your company name"
+                            required minlength="2" maxlength="100"
+                            class="w-full h-14 px-4 border border-gray-200 rounded-xl outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition">
+                    </div>
+
+                    <!-- Service -->
+                    <div class="sm:col-span-2">
+                        <label for="requirement"
+                            class="block text-sm font-semibold text-gray-700 mb-2">
+                            Select Service <span class="text-red-500">*</span>
+                        </label>
+
+                        <select id="requirement" name="requirement"
+                            required onchange="toggleOtherService()"
+                            class="w-full h-14 px-4 border border-gray-200 rounded-xl bg-white outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition">
+
+                            <option value="" selected disabled>
+                                Choose a service
+                            </option>
+
+                            <option value="WhatsApp API">WhatsApp Business API</option>
+                            <option value="Bulk SMS">Bulk SMS</option>
+                            <option value="Bulk WhatsApp">Bulk WhatsApp</option>
+                            <option value="Voice Call">Voice Call</option>
+                            <option value="Chatbot">Chatbot</option>
+                            <option value="Reseller">Reseller</option>
+                            <option value="SMS API">SMS API</option>
+                            <option value="OTP API">OTP API</option>
+                            <option value="Email Marketing">Email Marketing</option>
+
+                            <option value="HRMS & Payroll Software">
+                                HRMS & Payroll Software
+                            </option>
+
+                            <option value="CRM Software">
+                                CRM Software
+                            </option>
+
+                            <option value="Software Development">
+                                Software Development
+                            </option>
+
+                            <option value="Web Development">
+                                Web Development
+                            </option>
+
+                            <option value="Other Services">
+                                Other Services
+                            </option>
+
+                        </select>
+                    </div>
+
+                    <!-- Other Service -->
+                    <div id="otherServiceBox" class="hidden sm:col-span-2">
+
+                        <label for="other_service"
+                            class="block text-sm font-semibold text-gray-700 mb-2">
+                            Other Service Requirement
+                        </label>
+
+                        <input type="text" id="other_service"
+                            name="other_service"
+                            placeholder="Please enter your service requirement"
+                            minlength="2" maxlength="150"
+                            class="w-full h-14 px-4 border border-gray-200 rounded-xl outline-none focus:border-green-600 focus:ring-2 focus:ring-green-100 transition">
+                    </div>
+
+                    <!-- Message -->
+                    <div class="sm:col-span-2">
+
+                        <label for="message"
+                            class="block text-sm font-semibold text-gray-700 mb-2">
+                            Your Message <span class="text-red-500">*</span>
+                        </label>
+
+                        <textarea id="message" name="message"
+                            rows="4"
+                            placeholder="Tell us about your requirements..."
+                            required minlength="10"
+                            class="w-full px-4 py-4 border border-gray-200 rounded-xl outline-none resize-y focus:border-green-600 focus:ring-2 focus:ring-green-100 transition"></textarea>
+                    </div>
 
                 </div>
 
-                <div>
-
-                    <input type="email" id="email" name="email" placeholder="Enter Email" required
-
-                        class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-600 focus:outline-none">
-
-                </div>
-
-                <div>
-
-                    <input type="tel" id="contact" name="contact" placeholder="Enter Phone Number" required
-
-                        minlength="10" maxlength="15" pattern="[0-9]{10,15}"
-
-                        class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-600 focus:outline-none">
-
-                </div>
-
-                <div>
-
-                    <input type="text" id="company_name" name="company_name" placeholder="Enter Company Name" required
-
-                        minlength="2" maxlength="100"
-
-                        class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-600 focus:outline-none">
-
-                </div>
-
-                <div>
-
-                    <select id="requirement" name="requirement" required
-
-                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-1 focus:ring-gray-600 outline-none bg-white"
-
-                        onchange="toggleOtherService()">
-
-                        <option value="" selected disabled>Select Requirement</option>
-
-                        <option value="WhatsApp API">WhatsApp API</option>
-
-                        <option value="Bulk SMS">Bulk SMS</option>
-
-                        <option value="Bulk WhatsApp">Bulk WhatsApp</option>
-
-                        <option value="Voice Call">Voice Call</option>
-
-                        <option value="Chatbot">Chatbot</option>
-
-                        <option value="Reseller">Reseller</option>
-
-                        <option value="SMS API">SMS API</option>
-
-                        <option value="OTP API">OTP API</option>
-
-                        <option value="Email Marketing">Email Marketing</option>
-
-                        <option value="website Development">website Development</option>
-
-                        <option value="Other Services">Other Services</option>
-
-                    </select>
-
-                </div>
-
-                <!-- Hidden additional field -->
-
-                <div id="otherServiceBox" class="hidden">
-
-                    <input type="text" id="other_service" name="other_service"
-
-                        placeholder="Please Enter Your Other Service Requirement" minlength="2" maxlength="150"
-
-                        class="w-full mt-1 p-3 border border-gray-300 rounded-lg focus:ring-1 focus:ring-gray-600 focus:outline-none">
-
-                </div>
-
-                <div>
-
-                    <textarea id="message" name="message" rows="3" placeholder="Write your message" required
-
-                        minlength="10"
-
-                        class="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:ring-1 focus:ring-gray-600 focus:outline-none"></textarea>
-
-                </div>
-
+                <!-- Submit -->
                 <button type="submit"
+                    class="w-full py-4 flex items-center justify-center gap-3 bg-gradient-to-r from-[#168b49] to-[#35ad70] hover:from-[#11763d] hover:to-[#27945c] text-white rounded-xl font-semibold text-lg shadow-lg shadow-green-100 transition duration-300">
 
-                    class="w-full py-3 bg-gradient-to-r from-[#1d8b41] to-[#4eb86a] text-white rounded-xl font-medium shadow-md hover:bg-green-700 transition">
+                    <span>Submit Enquiry</span>
 
-                    Submit
+                    <svg class="w-5 h-5" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
 
                 </button>
 
             </form>
 
+            <!-- Privacy -->
+            <div class="flex items-center justify-center gap-2 mt-6 text-center">
+
+                <svg class="w-5 h-5 text-green-600 shrink-0"
+                    fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M10 1.5l7 3v5c0 4.4-3 7.7-7 9-4-1.3-7-4.6-7-9v-5l7-3zm3.2 6.2a1 1 0 00-1.4-1.4L9 9.1 8.2 8.3a1 1 0 00-1.4 1.4l1.5 1.5a1 1 0 001.4 0l3.5-3.5z"
+                        clip-rule="evenodd"/>
+                </svg>
+
+                <p class="text-xs sm:text-sm text-gray-400">
+                    We respect your privacy. Your information is safe with us.
+                </p>
+
+            </div>
+
         </div>
-
     </div>
-
+</div>
 
 
     @if (session('success'))
@@ -1213,8 +1279,10 @@
                         <li><a href="{{ url('/email-marketing') }}" class="text-gray-300 hover:text-white transition">Email Marketing</a></li>
 
                         <li><a href="{{ url('/reseller') }}" class="text-gray-300 hover:text-white transition">Reseller Partner Portal</a></li>
-
                         <li><a href="{{ url('/whatsapp-link-generator') }}" class="text-gray-300 hover:text-white transition">WhatsApp Link Generator</a></li>
+
+                        <li><a href="{{ url('/url-shortener') }}" class="text-gray-300 hover:text-white transition"> Free Url Shortener</a></li>
+                        
 
                         <li><a href="{{ url('pricing-web#whatsapp-calculator') }}" class="text-gray-300 hover:text-white transition">Pricing Calculator</a></li>
 
@@ -1293,7 +1361,12 @@
         </li>
 
 
-
+ <li>
+            <a href="{{ route('url-shortener.index') }}"
+               class="text-gray-300 hover:text-white transition duration-300">
+                Free URL Shortener
+            </a>
+        </li>
         <li>
 
             <a href="{{ route('login') }}"
@@ -1359,6 +1432,16 @@
             <i class="fab fa-linkedin-in fa-md"></i>
 
         </a>
+        <!-- X (Twitter) -->
+<a href="https://x.com/TEXTORASMS"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Follow Textora on X"
+   class="text-white w-7 h-7 p-2 flex items-center border border-white justify-center rounded-full bg-black hover:bg-slate-800 transition duration-300">
+
+    <i class="fa-brands fa-x-twitter text-sm"></i>
+
+</a>
 
     </div>
 

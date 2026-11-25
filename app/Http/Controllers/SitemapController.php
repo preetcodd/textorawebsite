@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Response;
-
 class SitemapController extends Controller
 {
     public function index()
     {
-      
         $routes = [
             '/',
             '/about-us',
@@ -30,6 +27,8 @@ class SitemapController extends Controller
             '/sms-api',
             '/whatsapp-business-api',
             '/blog_list',
+            '/url-shortener',
+            '/whatsapp-link-generator',
         ];
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
@@ -37,7 +36,7 @@ class SitemapController extends Controller
 
         foreach ($routes as $route) {
             $xml .= '<url>';
-            $xml .= '<loc>' . url($route) . '</loc>';
+            $xml .= '<loc>' . htmlspecialchars(url($route), ENT_XML1, 'UTF-8') . '</loc>';
             $xml .= '<changefreq>weekly</changefreq>';
             $xml .= '<priority>0.8</priority>';
             $xml .= '</url>';
@@ -46,6 +45,6 @@ class SitemapController extends Controller
         $xml .= '</urlset>';
 
         return response($xml, 200)
-            ->header('Content-Type', 'application/xml');
+            ->header('Content-Type', 'application/xml; charset=UTF-8');
     }
 }

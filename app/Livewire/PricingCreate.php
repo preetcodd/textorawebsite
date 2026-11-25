@@ -90,7 +90,7 @@ class PricingCreate extends Component
                 'promotional' => 'Promotional SMS',
                 'transactional' => 'Transactional SMS',
                 'sim_base' => 'Sim Base SMS',
-                // 'voice_sms' => 'Voice SMS',
+                'voice_sms' => 'Voice SMS',
             ],
             'RCS' => [
                 'rcs' => 'RCS'

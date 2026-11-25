@@ -1,4 +1,6 @@
+
 <x-master-page title="FAQ | Textora SMS">
+
     @push('head-scripts')
         <script type="application/ld+json">
         {
@@ -97,117 +99,152 @@
         }
         </script>
     @endpush
-    @php
-        function activeNav($path)
-        {
-            return Request::path() === $path ? 'text-green-700 font-semibold' : 'text-gray-700';
-        }
-    @endphp
 
-    <main class="pt-20 bg-white font-roboto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main class="pt-20 bg-white font-roboto w-full max-w-full overflow-x-clip">
 
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 text-center">
+        <div class="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-10 sm:py-12 box-border">
+
+            <!-- PAGE HEADING -->
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 text-center leading-tight break-words">
                 Frequently Asked Questions
             </h1>
-            <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+
+            <p class="text-base sm:text-xl text-gray-600 text-center mb-10 sm:mb-12 max-w-3xl mx-auto leading-relaxed">
                 Find quick answers to common questions about our platform, services, and policies.
             </p>
 
-            <div class="max-w-4xl mx-auto space-y-4">
+            <!-- FAQ CONTAINER -->
+            <div class="w-full max-w-4xl mx-auto space-y-4 min-w-0 box-border">
 
-                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                <!-- FAQ 1 -->
+                <div class="w-full max-w-full min-w-0 border border-gray-200 rounded-lg overflow-hidden shadow-sm box-border">
                     <input type="checkbox" id="faq1" class="hidden peer">
+
                     <label for="faq1"
-                        class="flex justify-between items-center cursor-pointer p-5 bg-teal-50 hover:bg-teal-100 transition duration-300">
-                        <span class="text-lg font-semibold text-gray-900">1. What is the difference between
-                            Transactional and Promotional SMS?</span>
-                        <span class="text-[#049a3d] text-2xl peer-checked:rotate-180 transition duration-300">+</span>
+                        class="flex flex-row justify-between items-start gap-3 cursor-pointer p-4 sm:p-5 bg-teal-50 hover:bg-teal-100 transition duration-300 w-full min-w-0 box-border">
+
+                        <span class="flex-1 min-w-0 whitespace-normal break-words text-base sm:text-lg font-semibold text-gray-900 leading-relaxed">
+                            1. What is the difference between Transactional and Promotional SMS?
+                        </span>
+
+                        <span class="shrink-0 text-[#049a3d] text-2xl leading-none pt-0.5">
+                            +
+                        </span>
                     </label>
-                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white">
-                        <p class="p-5 text-gray-700 border-t border-gray-200">
-                            **Transactional SMS** are non-marketing messages like OTPs, order confirmations, and system
-                            alerts. They have the highest priority and are sent 24/7. **Promotional SMS** are marketing
-                            messages, subject to Do Not Disturb (DND) regulations and specific sending times.
+
+                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white w-full min-w-0">
+                        <p class="p-4 sm:p-5 text-sm sm:text-base text-gray-700 border-t border-gray-200 whitespace-normal break-words leading-relaxed">
+                            <strong>Transactional SMS</strong> are non-marketing messages like OTPs, order confirmations, and system alerts. They have the highest priority and are sent 24/7.
+                            <strong>Promotional SMS</strong> are marketing messages, subject to Do Not Disturb (DND) regulations and specific sending times.
                         </p>
                     </div>
                 </div>
 
-                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                <!-- FAQ 2 -->
+                <div class="w-full max-w-full min-w-0 border border-gray-200 rounded-lg overflow-hidden shadow-sm box-border">
                     <input type="checkbox" id="faq2" class="hidden peer">
+
                     <label for="faq2"
-                        class="flex justify-between items-center cursor-pointer p-5 bg-teal-50 hover:bg-teal-100 transition duration-300">
-                        <span class="text-lg font-semibold text-gray-900">2. Do I need approval for WhatsApp Business
-                            Message Templates?</span>
-                        <span class="text-[#049a3d] text-2xl peer-checked:rotate-180 transition duration-300">+</span>
+                        class="flex flex-row justify-between items-start gap-3 cursor-pointer p-4 sm:p-5 bg-teal-50 hover:bg-teal-100 transition duration-300 w-full min-w-0 box-border">
+
+                        <span class="flex-1 min-w-0 whitespace-normal break-words text-base sm:text-lg font-semibold text-gray-900 leading-relaxed">
+                            2. Do I need approval for WhatsApp Business Message Templates?
+                        </span>
+
+                        <span class="shrink-0 text-[#049a3d] text-2xl leading-none pt-0.5">
+                            +
+                        </span>
                     </label>
-                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white">
-                        <p class="p-5 text-gray-700 border-t border-gray-200">
-                            Yes, all Outbound (template-based) messages on the WhatsApp Business API require
-                            pre-approval from WhatsApp/Meta to ensure compliance with their commerce policy. Our
-                            platform simplifies the submission process significantly.
+
+                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white w-full min-w-0">
+                        <p class="p-4 sm:p-5 text-sm sm:text-base text-gray-700 border-t border-gray-200 whitespace-normal break-words leading-relaxed">
+                            Yes, all Outbound (template-based) messages on the WhatsApp Business API require pre-approval from WhatsApp/Meta to ensure compliance with their commerce policy. Our platform simplifies the submission process significantly.
                         </p>
                     </div>
                 </div>
 
-                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                <!-- FAQ 3 -->
+                <div class="w-full max-w-full min-w-0 border border-gray-200 rounded-lg overflow-hidden shadow-sm box-border">
                     <input type="checkbox" id="faq3" class="hidden peer">
+
                     <label for="faq3"
-                        class="flex justify-between items-center cursor-pointer p-5 bg-teal-50 hover:bg-teal-100 transition duration-300">
-                        <span class="text-lg font-semibold text-gray-900">3. What is the Anti-Block Gateway and how does
-                            it work?</span>
-                        <span class="text-[#049a3d] text-2xl peer-checked:rotate-180 transition duration-300">+</span>
+                        class="flex flex-row justify-between items-start gap-3 cursor-pointer p-4 sm:p-5 bg-teal-50 hover:bg-teal-100 transition duration-300 w-full min-w-0 box-border">
+
+                        <span class="flex-1 min-w-0 whitespace-normal break-words text-base sm:text-lg font-semibold text-gray-900 leading-relaxed">
+                            3. What is the Anti-Block Gateway and how does it work?
+                        </span>
+
+                        <span class="shrink-0 text-[#049a3d] text-2xl leading-none pt-0.5">
+                            +
+                        </span>
                     </label>
-                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white">
-                        <p class="p-5 text-gray-700 border-t border-gray-200">
-                            Our **Anti-Block Gateway** is an intelligent routing layer that constantly monitors carrier
-                            and regulatory compliance signals, automatically switching message routes to maintain the
-                            highest possible delivery rates and minimize the risk of your number being blocked or
-                            throttled.
+
+                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white w-full min-w-0">
+                        <p class="p-4 sm:p-5 text-sm sm:text-base text-gray-700 border-t border-gray-200 whitespace-normal break-words leading-relaxed">
+                            Our <strong>Anti-Block Gateway</strong> is an intelligent routing layer that constantly monitors carrier and regulatory compliance signals, automatically switching message routes to maintain the highest possible delivery rates and minimize the risk of your number being blocked or throttled.
                         </p>
                     </div>
                 </div>
 
-                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                <!-- FAQ 4 -->
+                <div class="w-full max-w-full min-w-0 border border-gray-200 rounded-lg overflow-hidden shadow-sm box-border">
                     <input type="checkbox" id="faq4" class="hidden peer">
+
                     <label for="faq4"
-                        class="flex justify-between items-center cursor-pointer p-5 bg-teal-50 hover:bg-teal-100 transition duration-300">
-                        <span class="text-lg font-semibold text-gray-900">4. Is your platform fully compliant with GDPR
-                            and CCPA?</span>
-                        <span class="text-[#049a3d] text-2xl peer-checked:rotate-180 transition duration-300">+</span>
+                        class="flex flex-row justify-between items-start gap-3 cursor-pointer p-4 sm:p-5 bg-teal-50 hover:bg-teal-100 transition duration-300 w-full min-w-0 box-border">
+
+                        <span class="flex-1 min-w-0 whitespace-normal break-words text-base sm:text-lg font-semibold text-gray-900 leading-relaxed">
+                            4. Is your platform fully compliant with GDPR and CCPA?
+                        </span>
+
+                        <span class="shrink-0 text-[#049a3d] text-2xl leading-none pt-0.5">
+                            +
+                        </span>
                     </label>
-                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white">
-                        <p class="p-5 text-gray-700 border-t border-gray-200">
-                            Yes, our data handling, processing, and storage practices are fully compliant with major
-                            global data privacy regulations including GDPR (Europe) and CCPA (California). Refer to our
-                            Privacy Policy for details.
+
+                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white w-full min-w-0">
+                        <p class="p-4 sm:p-5 text-sm sm:text-base text-gray-700 border-t border-gray-200 whitespace-normal break-words leading-relaxed">
+                            Yes, our data handling, processing, and storage practices are fully compliant with major global data privacy regulations including GDPR (Europe) and CCPA (California). Refer to our Privacy Policy for details.
                         </p>
                     </div>
                 </div>
 
-                <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                <!-- FAQ 5 -->
+                <div class="w-full max-w-full min-w-0 border border-gray-200 rounded-lg overflow-hidden shadow-sm box-border">
                     <input type="checkbox" id="faq5" class="hidden peer">
+
                     <label for="faq5"
-                        class="flex justify-between items-center cursor-pointer p-5 bg-teal-50 hover:bg-teal-100 transition duration-300">
-                        <span class="text-lg font-semibold text-gray-900">5. Do you offer an IVR setup for inbound
-                            calls?</span>
-                        <span class="text-[#049a3d] text-2xl peer-checked:rotate-180 transition duration-300">+</span>
+                        class="flex flex-row justify-between items-start gap-3 cursor-pointer p-4 sm:p-5 bg-teal-50 hover:bg-teal-100 transition duration-300 w-full min-w-0 box-border">
+
+                        <span class="flex-1 min-w-0 whitespace-normal break-words text-base sm:text-lg font-semibold text-gray-900 leading-relaxed">
+                            5. Do you offer an IVR setup for inbound calls?
+                        </span>
+
+                        <span class="shrink-0 text-[#049a3d] text-2xl leading-none pt-0.5">
+                            +
+                        </span>
                     </label>
-                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white">
-                        <p class="p-5 text-gray-700 border-t border-gray-200">
-                            Our Voice API includes robust features for setting up and managing Interactive Voice
-                            Response (IVR) systems. You can configure menus, handle user input, and route calls
-                            programmatically via our panel or API.
+
+                    <div class="max-h-0 peer-checked:max-h-96 transition-all duration-500 overflow-hidden bg-white w-full min-w-0">
+                        <p class="p-4 sm:p-5 text-sm sm:text-base text-gray-700 border-t border-gray-200 whitespace-normal break-words leading-relaxed">
+                            Our Voice API includes robust features for setting up and managing Interactive Voice Response (IVR) systems. You can configure menus, handle user input, and route calls programmatically via our panel or API.
                         </p>
                     </div>
                 </div>
 
-                <div class="text-center pt-8">
-                    <p class="text-gray-600">Didn't find your answer? <a href="contact.html"
-                            class="text-[#049a3d] font-semibold hover:underline">Contact our support team</a>.</p>
+                <!-- CONTACT SUPPORT -->
+                <div class="text-center pt-6 sm:pt-8 px-2 w-full min-w-0">
+                    <p class="text-sm sm:text-base text-gray-600 whitespace-normal break-words">
+                        Didn't find your answer?
+                        <a href="{{ url('/contact-us') }}"
+                           class="text-[#049a3d] font-semibold hover:underline">
+                            Contact our support team
+                        </a>.
+                    </p>
                 </div>
 
             </div>
         </div>
     </main>
+
 </x-master-page>

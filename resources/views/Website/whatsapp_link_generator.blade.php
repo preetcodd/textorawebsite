@@ -1,2423 +1,1893 @@
+
 <x-master-page
     title="Free WhatsApp Link Generator & QR Code | Textora Technologies"
     description="Create a free WhatsApp link and QR code with a pre-filled message using Textora's WhatsApp Link Generator. Generate, copy, share and download your WhatsApp QR code instantly."
 >
 
-    {{-- =========================================================
-        QR CODE LIBRARY + SEO SCHEMA
-    ========================================================== --}}
+@push('head-scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+@endpush
 
-    @push('head-scripts')
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-        <script type="application/ld+json">
+@push('head')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Free WhatsApp Link Generator & QR Code",
+      "url": "https://textorasms.com/whatsapp-link-generator",
+      "description": "Create WhatsApp links and QR codes with pre-filled messages."
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Textora WhatsApp Link Generator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "WebPage",
-                    "@id": "https://textorasms.com/whatsapp-link-generator#webpage",
-                    "url": "https://textorasms.com/whatsapp-link-generator",
-                    "name": "Free WhatsApp Link Generator & QR Code",
-                    "description": "Create a free WhatsApp link and QR code with a pre-filled message using Textora's WhatsApp Link Generator.",
-                    "isPartOf": {
-                        "@type": "WebSite",
-                        "name": "Textora Technologies",
-                        "url": "https://textorasms.com"
-                    }
-                },
-                {
-                    "@type": "SoftwareApplication",
-                    "name": "Textora WhatsApp Link Generator",
-                    "applicationCategory": "BusinessApplication",
-                    "operatingSystem": "Web Browser",
-                    "url": "https://textorasms.com/whatsapp-link-generator",
-                    "description": "Free online WhatsApp link and QR code generator with pre-filled messages.",
-                    "offers": {
-                        "@type": "Offer",
-                        "price": "0",
-                        "priceCurrency": "INR"
-                    }
-                },
-                {
-                    "@type": "FAQPage",
-                    "mainEntity": [
-                        {
-                            "@type": "Question",
-                            "name": "What is a WhatsApp Link Generator?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "A WhatsApp Link Generator creates a clickable WhatsApp chat link that allows customers to start a conversation with a WhatsApp number instantly."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Can I create a WhatsApp QR code?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Yes. Textora's WhatsApp Link Generator automatically creates a QR code for your WhatsApp chat link. You can download the QR code as a PNG image."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Can I add a pre-filled WhatsApp message?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Yes. You can enter a custom message before generating the WhatsApp link. The message will automatically appear in the WhatsApp chat box when the link is opened."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Is the WhatsApp Link Generator free?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Yes. Textora's WhatsApp Link Generator is free to use and does not require an account to generate a WhatsApp link or QR code."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Can I download the WhatsApp QR code?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "Yes. You can download the generated WhatsApp QR code as a PNG image and use it on websites, posters, brochures, packaging and marketing materials."
-                            }
-                        },
-                        {
-                            "@type": "Question",
-                            "name": "Does Textora store my WhatsApp number or message?",
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": "The WhatsApp link and QR code are generated directly in your browser. The generator does not need to send your number or message to a server to create the link."
-                            }
-                        }
-                    ]
-                },
-                {
-                    "@type": "BreadcrumbList",
-                    "itemListElement": [
-                        {
-                            "@type": "ListItem",
-                            "position": 1,
-                            "name": "Home",
-                            "item": "https://textorasms.com/"
-                        },
-                        {
-                            "@type": "ListItem",
-                            "position": 2,
-                            "name": "WhatsApp Link Generator",
-                            "item": "https://textorasms.com/whatsapp-link-generator"
-                        }
-                    ]
-                }
-            ]
+          "@type": "Question",
+          "name": "What is a WhatsApp Link Generator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A WhatsApp Link Generator creates a clickable link that opens a WhatsApp conversation with a specified phone number."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I create a WhatsApp QR code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can generate and download a QR code for your WhatsApp link."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add a pre-filled WhatsApp message?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can add a message that appears automatically when someone opens your WhatsApp link."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the WhatsApp Link Generator free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can generate WhatsApp links and QR codes using this free tool."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Textora store my WhatsApp number or message?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The QR code is generated in your browser. When you request a branded short link, your number and message are sent to Textora's link-generation endpoint."
+          }
         }
-        </script>
-
-    @endpush
-
-
-    {{-- =========================================================
-        CUSTOM STYLES
-    ========================================================== --}}
-
-    <style>
-
-        .wa-generator-page {
-            font-family: inherit;
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://textorasms.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "WhatsApp Link Generator",
+          "item": "https://textorasms.com/whatsapp-link-generator"
         }
-
-        .wa-gradient-text {
-            background: linear-gradient(
-                135deg,
-                #0b8f3c 0%,
-                #16a34a 50%,
-                #087f35 100%
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .wa-glow {
-            position: absolute;
-            border-radius: 9999px;
-            filter: blur(80px);
-            pointer-events: none;
-        }
-
-        .wa-input {
-            transition: all 0.25s ease;
-        }
-
-        .wa-input:focus {
-            border-color: #16a34a !important;
-            box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.10);
-            outline: none;
-        }
-
-        .wa-primary-btn {
-            transition: all 0.25s ease;
-        }
-
-        .wa-primary-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(22, 163, 74, 0.25);
-        }
-
-        .wa-primary-btn:active {
-            transform: translateY(0);
-        }
-
-        .wa-result-card {
-            animation: waResultShow 0.45s ease forwards;
-        }
-
-        @keyframes waResultShow {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .wa-feature-card {
-            transition: all 0.3s ease;
-        }
-
-        .wa-feature-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
-        }
-
-        .wa-step-card {
-            transition: all 0.3s ease;
-        }
-
-        .wa-step-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .wa-step-number {
-            transition: all 0.3s ease;
-        }
-
-        .wa-step-card:hover .wa-step-number {
-            transform: scale(1.08);
-        }
-
-        .wa-faq-item {
-            transition: all 0.25s ease;
-        }
-
-        .wa-faq-item[open] {
-            border-color: rgba(22, 163, 74, 0.30);
-            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
-        }
-
-        .wa-faq-icon {
-            transition: all 0.25s ease;
-        }
-
-        .wa-faq-item[open] .wa-faq-icon {
-            background: #dcfce7;
-            color: #15803d;
-            transform: rotate(180deg);
-        }
-
-        .wa-faq-answer {
-            animation: faqAnswer 0.25s ease;
-        }
-
-        @keyframes faqAnswer {
-            from {
-                opacity: 0;
-                transform: translateY(-5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary {
-            list-style: none;
-        }
-
-        #waQrCode canvas,
-        #waQrCode img {
-            display: block;
-            max-width: 100%;
-            height: auto !important;
-            margin: auto;
-        }
-
-        .wa-copy-success {
-            background: #16a34a !important;
-            color: white !important;
-        }
-
-        .wa-action-btn {
-            transition: all 0.2s ease;
-        }
-
-        .wa-action-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .wa-security-pill {
-            background: rgba(22, 163, 74, 0.08);
-            border: 1px solid rgba(22, 163, 74, 0.15);
-        }
-
-        @media (max-width: 640px) {
-
-            .wa-hero-title {
-                font-size: 2.35rem !important;
-                line-height: 1.1 !important;
-            }
-
-            .wa-generator-box {
-                border-radius: 22px !important;
-            }
-
-        }
-
-    </style>
-
-
-    {{-- =========================================================
-        MAIN PAGE
-    ========================================================== --}}
-
-    <div class="wa-generator-page">
-
-
-        {{-- =====================================================
-            HERO
-        ====================================================== --}}
-
-        <section class="relative overflow-hidden bg-[#06151f] text-white">
-
-            <div class="wa-glow w-96 h-96 bg-green-500/20 -top-40 -left-40"></div>
-
-            <div class="wa-glow w-96 h-96 bg-emerald-400/10 top-20 right-0"></div>
-
-            <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-
-                <div class="pt-32 pb-16 lg:pt-36 lg:pb-20 text-center">
-
-                    {{-- Badge --}}
-
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-400/20 bg-green-400/10 text-green-300 text-sm font-semibold mb-7">
-
-                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-
-                        Free WhatsApp Tool
-
-                    </div>
-
-
-                    {{-- Heading --}}
-
-                    <h1 class="wa-hero-title text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight max-w-5xl mx-auto">
-
-                        WhatsApp Link
-                        <span class="text-green-400">Generator</span>
-
-                    </h1>
-
-
-                    <p class="mt-6 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-
-                        Create a WhatsApp chat link and QR code in seconds.
-                        Add a pre-filled message, customize your QR code and
-                        share it anywhere.
-
-                    </p>
-
-
-                    {{-- Hero mini features --}}
-
-                    <div class="mt-8 flex flex-wrap justify-center gap-3">
-
-                        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">
-                            <i class="fa-solid fa-link text-green-400 mr-2"></i>
-                            WhatsApp Link
-                        </span>
-
-                        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">
-                            <i class="fa-solid fa-qrcode text-green-400 mr-2"></i>
-                            QR Code
-                        </span>
-
-                        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">
-                            <i class="fa-solid fa-message text-green-400 mr-2"></i>
-                            Pre-filled Message
-                        </span>
-
-                        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">
-                            <i class="fa-solid fa-bolt text-green-400 mr-2"></i>
-                            Instant
-                        </span>
-
-                    </div>
-
-                </div>
-
+      ]
+    }
+  ]
+}
+</script>
+@endpush
+
+<style>
+.wa-page {
+    color: #172033;
+    overflow: hidden;
+}
+
+.wa-container {
+    max-width: 1240px;
+    margin: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.wa-green { color: #087849; }
+
+.wa-gradient-text {
+    background: linear-gradient(110deg, #087849, #16a36a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.wa-hero {
+    position: relative;
+    background: #fff;
+    padding: 76px 0 66px;
+}
+
+.wa-hero:before {
+    content: "";
+    position: absolute;
+    width: 430px;
+    height: 430px;
+    top: -240px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(22,163,106,.10), transparent 70%);
+    pointer-events: none;
+}
+
+.wa-hero:after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    bottom: -240px;
+    left: -120px;
+    background: radial-gradient(circle, rgba(8,120,73,.07), transparent 70%);
+    pointer-events: none;
+}
+
+.wa-hero-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.wa-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 16px;
+    border: 1px solid #d8eee2;
+    border-radius: 50px;
+    background: #f1faf5;
+    color: #087849;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.wa-hero h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.12;
+    font-weight: 850;
+    letter-spacing: -1.8px;
+    color: #14221d;
+    max-width: 850px;
+    margin: 24px auto 18px;
+}
+
+.wa-hero-description {
+    max-width: 720px;
+    margin: auto;
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.wa-hero-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 27px;
+}
+
+.wa-hero-pills span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border: 1px solid #e5eee8;
+    border-radius: 50px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    background: #fff;
+}
+
+.wa-hero-pills i { color: #0b9b5b; }
+
+.wa-section { padding: 76px 0; }
+
+.wa-soft-section { background: #f7faf8; }
+
+.wa-section-heading {
+    text-align: center;
+    max-width: 740px;
+    margin: 0 auto 42px;
+}
+
+.wa-section-heading .eyebrow {
+    color: #087849;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.wa-section-heading h2 {
+    margin-top: 12px;
+    color: #172033;
+    font-size: clamp(27px, 3.5vw, 39px);
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -.8px;
+}
+
+.wa-section-heading p {
+    margin-top: 13px;
+    color: #64748b;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.wa-generator-card {
+    background: #fff;
+    border: 1px solid #e6eee9;
+    border-radius: 24px;
+    box-shadow: 0 16px 50px rgba(15, 50, 32, .055);
+    overflow: hidden;
+}
+
+.wa-card-heading {
+    padding: 25px 28px;
+    border-bottom: 1px solid #edf2ee;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.wa-card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: #eaf8f0;
+    color: #087849;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.wa-card-heading h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #172033;
+}
+
+.wa-card-heading p {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.wa-card-body { padding: 28px; }
+
+.wa-label {
+    display: block;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.wa-input,
+.wa-select,
+.wa-textarea {
+    width: 100%;
+    border: 1px solid #dce7e0;
+    border-radius: 12px;
+    padding: 13px 15px;
+    font-size: 14px;
+    color: #172033;
+    background: #fff;
+    outline: none;
+    transition: .2s ease;
+}
+
+.wa-input:focus,
+.wa-select:focus,
+.wa-textarea:focus {
+    border-color: #16a36a;
+    box-shadow: 0 0 0 4px rgba(22,163,106,.09);
+}
+
+.wa-textarea {
+    min-height: 125px;
+    resize: vertical;
+}
+
+.wa-form-group { margin-bottom: 22px; }
+
+.wa-phone-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 10px;
+}
+
+.wa-generate-btn {
+    width: 100%;
+    border: 0;
+    padding: 16px 22px;
+    border-radius: 12px;
+    color: #fff;
+    background: linear-gradient(110deg, #087849, #10a568);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .25s ease;
+    box-shadow: 0 9px 20px rgba(8,120,73,.18);
+}
+
+.wa-generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 13px 25px rgba(8,120,73,.24);
+}
+
+.wa-generate-btn:disabled {
+    opacity: .7;
+    cursor: wait;
+    transform: none;
+}
+
+.wa-privacy-note {
+    display: flex;
+    gap: 8px;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-top: 17px;
+}
+
+.wa-privacy-note i {
+    color: #0b9b5b;
+    margin-top: 2px;
+}
+
+/* QR PREVIEW */
+
+.wa-preview-panel {
+    height: 100%;
+    background: linear-gradient(145deg, #f4fbf6, #fff);
+    border: 1px solid #e2efe6;
+    border-radius: 20px;
+    padding: 28px;
+}
+
+.wa-preview-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.wa-preview-top h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #172033;
+}
+
+.wa-live-badge {
+    color: #087849;
+    background: #e3f6eb;
+    border-radius: 30px;
+    padding: 6px 10px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.wa-qr-placeholder {
+    width: 220px;
+    min-height: 220px;
+    max-width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px dashed #c8dfd0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    text-align: center;
+    padding: 20px;
+}
+
+.wa-qr-placeholder i {
+    font-size: 36px;
+    color: #a6cbb5;
+    margin-bottom: 12px;
+}
+
+#waInlineQrCode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+#waInlineQrCode canvas,
+#waInlineQrCode img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wa-customize {
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid #e4eee7;
+}
+
+.wa-customize h4 {
+    font-size: 14px;
+    color: #334155;
+    font-weight: 800;
+    margin-bottom: 17px;
+}
+
+.wa-color-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.wa-color-control label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.wa-color-control input[type="color"] {
+    width: 100%;
+    height: 43px;
+    border: 1px solid #dce7e0;
+    border-radius: 9px;
+    padding: 4px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.wa-size-control { margin-top: 18px; }
+
+.wa-size-control input {
+    width: 100%;
+    accent-color: #087849;
+    cursor: pointer;
+}
+
+.wa-reset-btn {
+    margin-top: 15px;
+    color: #087849;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    background: none;
+    border: 0;
+}
+
+/* FEATURES */
+
+.wa-feature-card {
+    background: #fff;
+    border: 1px solid #e8efea;
+    border-radius: 18px;
+    padding: 25px;
+    height: 100%;
+    transition: .25s ease;
+}
+
+.wa-feature-card:hover {
+    transform: translateY(-5px);
+    border-color: #b8dfc7;
+    box-shadow: 0 14px 30px rgba(15,50,32,.06);
+}
+
+.wa-feature-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #eaf8f0;
+    color: #087849;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    margin-bottom: 18px;
+}
+
+.wa-feature-card h3 {
+    color: #172033;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+.wa-feature-card p {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.wa-step-card {
+    display: flex;
+    gap: 17px;
+    align-items: flex-start;
+    padding: 22px;
+    border: 1px solid #e5eee8;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.wa-step-number {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf8f0;
+    color: #087849;
+    font-weight: 900;
+}
+
+.wa-step-card h3 {
+    color: #172033;
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.wa-step-card p {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.wa-use-card {
+    padding: 23px;
+    border: 1px solid #e5eee8;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.wa-use-card i {
+    color: #087849;
+    font-size: 22px;
+    margin-bottom: 13px;
+}
+
+.wa-use-card h3 {
+    color: #172033;
+    font-weight: 800;
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.wa-use-card p {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* FAQ */
+
+.wa-faq {
+    max-width: 850px;
+    margin: auto;
+}
+
+.wa-faq details {
+    background: #fff;
+    border: 1px solid #e5eee8;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.wa-faq summary {
+    padding: 19px 21px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    list-style: none;
+    color: #172033;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.wa-faq summary::-webkit-details-marker { display: none; }
+
+.wa-faq summary i {
+    color: #087849;
+    transition: .2s ease;
+}
+
+.wa-faq details[open] summary i { transform: rotate(45deg); }
+
+.wa-faq-answer {
+    padding: 0 21px 19px;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* CTA */
+
+.wa-cta {
+    background: linear-gradient(120deg, #effaf3, #f7fcf8);
+    border: 1px solid #dcefe2;
+    border-radius: 24px;
+    padding: 44px 25px;
+    text-align: center;
+}
+
+.wa-cta h2 {
+    font-size: clamp(25px, 3vw, 34px);
+    color: #172033;
+    font-weight: 850;
+}
+
+.wa-cta p {
+    color: #64748b;
+    font-size: 14px;
+    margin: 12px auto 22px;
+    max-width: 620px;
+    line-height: 1.8;
+}
+
+.wa-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.wa-btn-primary,
+.wa-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.wa-btn-primary {
+    background: #087849;
+    color: #fff;
+}
+
+.wa-btn-primary:hover {
+    background: #06633c;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.wa-btn-secondary {
+    background: #fff;
+    color: #087849;
+    border: 1px solid #cde5d5;
+}
+
+.wa-btn-secondary:hover {
+    border-color: #087849;
+    color: #087849;
+}
+
+/* RESULT MODAL */
+
+.wa-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(15,23,42,.62);
+    backdrop-filter: blur(7px);
+    opacity: 1;
+    visibility: visible;
+    transition: .25s ease;
+}
+
+.wa-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.wa-modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 510px;
+    max-height: 92vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 25px 80px rgba(0,0,0,.22);
+    transform: translateY(0);
+    transition: .25s ease;
+}
+
+.wa-modal.hidden .wa-modal-dialog { transform: translateY(20px); }
+
+.wa-modal-header {
+    position: relative;
+    padding: 28px 28px 20px;
+    text-align: center;
+    border-bottom: 1px solid #edf2ee;
+}
+
+.wa-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 17px;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #e5eee8;
+    border-radius: 50%;
+    background: #fff;
+    color: #64748b;
+    cursor: pointer;
+}
+
+.wa-success-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 13px;
+    border-radius: 18px;
+    background: #e8f8ee;
+    color: #087849;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+}
+
+.wa-modal-header h3 {
+    color: #172033;
+    font-size: 22px;
+    font-weight: 850;
+}
+
+.wa-modal-header p {
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+.wa-modal-body { padding: 23px 28px 28px; }
+
+.wa-modal-linkbox {
+    display: flex;
+    gap: 8px;
+    padding: 7px;
+    border: 1px solid #dce7e0;
+    border-radius: 12px;
+    background: #f8fbf9;
+}
+
+.wa-modal-linkbox input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    padding: 7px;
+    color: #334155;
+    font-size: 12px;
+}
+
+.wa-copy-btn {
+    flex-shrink: 0;
+    border: 0;
+    background: #087849;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.wa-modal-qr-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 23px 0;
+}
+
+#waModalQrCode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 190px;
+    min-width: 190px;
+    padding: 12px;
+    border: 1px solid #e5eee8;
+    border-radius: 16px;
+    background: #fff;
+}
+
+#waModalQrCode canvas,
+#waModalQrCode img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wa-modal-qr-wrap p {
+    color: #94a3b8;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.wa-modal-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.wa-modal-action {
+    border: 1px solid #dce7e0;
+    background: #fff;
+    color: #334155;
+    padding: 13px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.wa-modal-action:hover {
+    border-color: #087849;
+    color: #087849;
+    background: #f5fbf7;
+}
+
+.wa-modal-action.primary {
+    background: #087849;
+    border-color: #087849;
+    color: #fff;
+}
+
+.wa-modal-action.primary:hover { background: #06633c; }
+
+.wa-error {
+    display: none;
+    color: #dc2626;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+@media(max-width:767px) {
+    .wa-hero { padding: 52px 0 48px; }
+
+    .wa-hero h1 { letter-spacing: -1px; }
+
+    .wa-section { padding: 55px 0; }
+
+    .wa-container {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+    .wa-card-body,
+    .wa-preview-panel { padding: 21px; }
+
+    .wa-card-heading { padding: 21px; }
+
+    .wa-modal-body { padding: 20px; }
+
+    .wa-modal-header { padding: 25px 20px 18px; }
+
+    .wa-phone-row { grid-template-columns: 105px 1fr; }
+}
+</style>
+
+<div class="wa-page">
+
+    <!-- HERO SECTION -->
+    <section class="wa-hero">
+        <div class="wa-container wa-hero-inner text-center">
+
+            <span class="wa-eyebrow">
+                <i class="fas fa-bolt"></i>
+                FREE WHATSAPP TOOL
+            </span>
+
+            <h1>
+                Create Your WhatsApp
+                <span class="wa-gradient-text">Link & QR Code</span>
+            </h1>
+
+            <p class="wa-hero-description">
+                Make it easier for customers to connect with your business.
+                Generate a WhatsApp link with a pre-filled message and a
+                shareable QR code in just a few clicks.
+            </p>
+
+            <div class="wa-hero-pills">
+                <span><i class="fas fa-check-circle"></i> Instant Link Generation</span>
+                <span><i class="fas fa-qrcode"></i> QR Code Customization</span>
+                <span><i class="fas fa-gift"></i> Free to Use</span>
             </div>
 
-        </section>
-
-
-        {{-- =====================================================
-            GENERATOR
-        ====================================================== --}}
-
-        <section class="relative bg-slate-50 py-16 lg:py-20">
-
-            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-
-                <div class="grid lg:grid-cols-12 gap-8 items-start">
-
-
-                    {{-- =================================================
-                        LEFT GENERATOR CARD
-                    ================================================== --}}
-
-                    <div class="lg:col-span-7">
-
-                        <div class="wa-generator-box bg-white rounded-[28px] border border-slate-200 shadow-xl overflow-hidden">
-
-                            {{-- Card Header --}}
-
-                            <div class="px-6 md:px-8 py-6 border-b border-slate-100 bg-gradient-to-r from-white to-green-50/50">
-
-                                <div class="flex items-center gap-4">
-
-                                    <div class="w-12 h-12 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center text-xl">
-                                        <i class="fa-brands fa-whatsapp"></i>
-                                    </div>
-
-                                    <div>
-
-                                        <h2 class="text-xl md:text-2xl font-bold text-slate-900">
-                                            Create Your WhatsApp Link
-                                        </h2>
-
-                                        <p class="text-sm text-slate-500 mt-1">
-                                            Enter your number and optional message
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            {{-- Form --}}
-
-                            <div class="p-6 md:p-8">
-
-
-                                {{-- WhatsApp Number --}}
-
-                                <div>
-
-                                    <label
-                                        for="waPhoneNumber"
-                                        class="block text-sm font-bold text-slate-800 mb-2"
-                                    >
-                                        WhatsApp Number
-                                    </label>
-
-
-                                    <div class="flex gap-2">
-
-                                        <select
-                                            id="waCountryCode"
-                                            class="wa-input w-[105px] sm:w-[120px] px-3 py-3.5 rounded-xl border border-slate-300 bg-white text-slate-800 font-semibold cursor-pointer"
-                                        >
-
-                                            <option value="+91">🇮🇳 +91</option>
-                                            <option value="+1">🇺🇸 +1</option>
-                                            <option value="+44">🇬🇧 +44</option>
-                                            <option value="+61">🇦🇺 +61</option>
-                                            <option value="+971">🇦🇪 +971</option>
-                                            <option value="+65">🇸🇬 +65</option>
-                                            <option value="+60">🇲🇾 +60</option>
-                                            <option value="+94">🇱🇰 +94</option>
-                                            <option value="+880">🇧🇩 +880</option>
-                                            <option value="+27">🇿🇦 +27</option>
-                                            <option value="+49">🇩🇪 +49</option>
-                                            <option value="+33">🇫🇷 +33</option>
-                                            <option value="+81">🇯🇵 +81</option>
-                                            <option value="+82">🇰🇷 +82</option>
-                                        </select>
-
-
-                                        <input
-                                            type="tel"
-                                            id="waPhoneNumber"
-                                            maxlength="15"
-                                            inputmode="numeric"
-                                            autocomplete="tel"
-                                            placeholder="Enter WhatsApp number"
-                                            class="wa-input flex-1 min-w-0 px-4 py-3.5 rounded-xl border border-slate-300 text-slate-800 placeholder-slate-400"
-                                        >
-
-                                    </div>
-
-
-                                    <p
-                                        id="waPhoneError"
-                                        class="hidden text-red-600 text-sm mt-2"
-                                    >
-                                        Please enter a valid WhatsApp number.
-                                    </p>
-
-
-                                    <p class="text-xs text-slate-500 mt-2">
-                                        Enter the number without spaces, brackets or dashes.
-                                    </p>
-
-                                </div>
-
-
-                                {{-- Message --}}
-
-                                <div class="mt-6">
-
-                                    <div class="flex justify-between items-center mb-2">
-
-                                        <label
-                                            for="waMessage"
-                                            class="block text-sm font-bold text-slate-800"
-                                        >
-                                            Pre-filled Message
-                                            <span class="font-normal text-slate-400">
-                                                (Optional)
-                                            </span>
-                                        </label>
-
-                                        <span
-                                            id="waMessageCount"
-                                            class="text-xs font-medium text-slate-400"
-                                        >
-                                            0 / 1000
-                                        </span>
-
-                                    </div>
-
-
-                                    <textarea
-                                        id="waMessage"
-                                        rows="5"
-                                        maxlength="1000"
-                                        placeholder="Hello! I would like to know more about your services."
-                                        class="wa-input w-full px-4 py-3.5 rounded-xl border border-slate-300 text-slate-800 placeholder-slate-400 resize-none"
-                                    ></textarea>
-
-
-                                    <p class="text-xs text-slate-500 mt-2">
-                                        This message will appear automatically in the WhatsApp chat box.
-                                    </p>
-
-                                </div>
-
-
-                                {{-- Generate Button --}}
-
-                                <button
-                                    type="button"
-                                    id="waGenerateBtn"
-                                    class="wa-primary-btn mt-7 w-full py-4 px-6 rounded-xl bg-gradient-to-r from-[#16a34a] to-[#0d8f3f] text-white font-bold text-base flex items-center justify-center gap-3 shadow-lg"
-                                >
-
-                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-
-                                    Generate WhatsApp Link
-
-                                </button>
-
-
-                                {{-- Privacy --}}
-
-                                <div class="wa-security-pill mt-5 rounded-xl px-4 py-3 flex items-start gap-3">
-
-                                    <i class="fa-solid fa-shield-halved text-green-600 mt-0.5"></i>
-
-                                    <p class="text-xs text-slate-600 leading-relaxed">
-
-                                        <strong class="text-slate-800">
-                                            Branded Short Link & QR Code.
-                                        </strong>
-
-                                        Generates a clean <span class="font-semibold text-green-700">w.textorasms.com</span> short link with instant WhatsApp redirection and high-resolution QR code.
-
-                                    </p>
-
-                                </div>
-
-
-                            </div>
-
+        </div>
+    </section>
+
+
+    <!-- GENERATOR SECTION -->
+    <section class="wa-section wa-soft-section" id="generator">
+        <div class="wa-container">
+
+            <div class="wa-section-heading">
+                <span class="eyebrow">WHATSAPP LINK GENERATOR</span>
+                <h2>Generate Your WhatsApp Link in Seconds</h2>
+                <p>
+                    Enter your WhatsApp number, add an optional message
+                    and create your personal WhatsApp link with a QR code.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-7">
+
+                <!-- FORM -->
+                <div class="wa-generator-card">
+
+                    <div class="wa-card-heading">
+                        <div class="wa-card-icon">
+                            <i class="fab fa-whatsapp"></i>
                         </div>
-
+                        <div>
+                            <h3>Create Your WhatsApp Link</h3>
+                            <p>Enter your details below to get started</p>
+                        </div>
                     </div>
 
+                    <div class="wa-card-body">
 
-                    {{-- =================================================
-                        RIGHT QR CUSTOMIZATION
-                    ================================================== --}}
+                        <form id="waGeneratorForm">
 
-                    <div class="lg:col-span-5">
+                            <div class="wa-form-group">
+                                <label class="wa-label" for="waCountryCode">
+                                    Country Code
+                                </label>
 
-                        <div
-                            id="waQrWrapper"
-                            class="bg-white rounded-[28px] border border-slate-200 shadow-xl overflow-hidden"
-                        >
-
-                            <div class="px-6 py-6 border-b border-slate-100">
-
-                                <div class="flex items-center justify-between">
-
-                                    <div>
-
-                                        <h2 class="text-xl font-bold text-slate-900">
-                                            QR Code
-                                        </h2>
-
-                                        <p class="text-sm text-slate-500 mt-1">
-                                            Customize your QR code
-                                        </p>
-
-                                    </div>
-
-                                    <div class="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
-
-                                        <i class="fa-solid fa-qrcode text-xl"></i>
-
-                                    </div>
-
-                                </div>
-
+                                <select id="waCountryCode" class="wa-select">
+                                    <option value="+91" selected>India (+91)</option>
+                                    <option value="+1">United States (+1)</option>
+                                    <option value="+44">United Kingdom (+44)</option>
+                                    <option value="+61">Australia (+61)</option>
+                                    <option value="+971">UAE (+971)</option>
+                                    <option value="+65">Singapore (+65)</option>
+                                    <option value="+60">Malaysia (+60)</option>
+                                    <option value="+94">Sri Lanka (+94)</option>
+                                    <option value="+880">Bangladesh (+880)</option>
+                                    <option value="+27">South Africa (+27)</option>
+                                    <option value="+49">Germany (+49)</option>
+                                    <option value="+33">France (+33)</option>
+                                    <option value="+81">Japan (+81)</option>
+                                    <option value="+82">South Korea (+82)</option>
+                                </select>
                             </div>
 
-
-                            <div class="p-6">
-
-
-                                {{-- QR Preview --}}
-
-                                <div
-                                    id="waQrPreview"
-                                    class="min-h-[280px] rounded-2xl bg-slate-50 border border-slate-200 flex items-center justify-center p-6"
-                                >
-
-                                    <div
-                                        id="waQrPlaceholder"
-                                        class="text-center"
-                                    >
-
-                                        <div class="w-20 h-20 rounded-2xl bg-white shadow-sm border border-slate-200 flex items-center justify-center mx-auto mb-4">
-
-                                            <i class="fa-solid fa-qrcode text-4xl text-slate-300"></i>
-
-                                        </div>
-
-                                        <p class="font-semibold text-slate-700">
-                                            Your QR code will appear here
-                                        </p>
-
-                                        <p class="text-sm text-slate-400 mt-1">
-                                            Generate your WhatsApp link first
-                                        </p>
-
-                                    </div>
-
-
-                                    <div
-                                        id="waQrCode"
-                                        class="hidden bg-white p-4 rounded-2xl shadow-sm"
-                                    ></div>
-
-                                </div>
-
-
-                                {{-- QR Customization --}}
-
-                                <div class="mt-6">
-
-                                    <h3 class="font-bold text-slate-900 mb-4">
-                                        Customize QR
-                                    </h3>
-
-
-                                    <div class="grid sm:grid-cols-2 gap-4">
-
-
-                                        {{-- QR Color --}}
-
-                                        <div>
-
-                                            <label
-                                                for="waQrColor"
-                                                class="block text-sm font-semibold text-slate-700 mb-2"
-                                            >
-                                                QR Color
-                                            </label>
-
-                                            <div class="flex items-center gap-3">
-
-                                                <input
-                                                    type="color"
-                                                    id="waQrColor"
-                                                    value="#111827"
-                                                    class="w-12 h-11 rounded-lg border border-slate-300 cursor-pointer p-1 bg-white"
-                                                >
-
-                                                <span
-                                                    id="waQrColorValue"
-                                                    class="text-sm text-slate-500 font-mono"
-                                                >
-                                                    #111827
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-
-                                        {{-- Background Color --}}
-
-                                        <div>
-
-                                            <label
-                                                for="waBgColor"
-                                                class="block text-sm font-semibold text-slate-700 mb-2"
-                                            >
-                                                Background
-                                            </label>
-
-                                            <div class="flex items-center gap-3">
-
-                                                <input
-                                                    type="color"
-                                                    id="waBgColor"
-                                                    value="#ffffff"
-                                                    class="w-12 h-11 rounded-lg border border-slate-300 cursor-pointer p-1 bg-white"
-                                                >
-
-                                                <span
-                                                    id="waBgColorValue"
-                                                    class="text-sm text-slate-500 font-mono"
-                                                >
-                                                    #ffffff
-                                                </span>
-
-                                            </div>
-
-                                        </div>
-
-
-                                    </div>
-
-
-                                    {{-- Size --}}
-
-                                    <div class="mt-5">
-
-                                        <label
-                                            for="waQrSize"
-                                            class="block text-sm font-semibold text-slate-700 mb-2"
-                                        >
-                                            QR Code Size
-                                        </label>
-
-                                        <select
-                                            id="waQrSize"
-                                            class="wa-input w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-800"
-                                        >
-
-                                            <option value="180">Small — 180 × 180</option>
-                                            <option value="220" selected>Medium — 220 × 220</option>
-                                            <option value="280">Large — 280 × 280</option>
-                                            <option value="350">Extra Large — 350 × 350</option>
-
-                                        </select>
-
-                                    </div>
-
-
-                                    {{-- Reset --}}
-
-                                    <button
-                                        type="button"
-                                        id="waResetQr"
-                                        class="mt-4 text-sm font-semibold text-slate-500 hover:text-green-600 transition"
-                                    >
-
-                                        <i class="fa-solid fa-rotate-left mr-1"></i>
-
-                                        Reset QR Settings
-
-                                    </button>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                {{-- =================================================
-                    RESULT
-                ================================================== --}}
-
-                <div
-                    id="waResultArea"
-                    class="hidden mt-8"
-                >
-
-                    <div class="wa-result-card bg-white rounded-[28px] border border-green-200 shadow-xl overflow-hidden">
-
-
-                        {{-- Result Header --}}
-
-                        <div class="px-6 md:px-8 py-6 bg-gradient-to-r from-green-50 to-white border-b border-green-100">
-
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-
-                                <div class="flex items-center gap-4">
-
-                                    <div class="w-12 h-12 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center">
-
-                                        <i class="fa-solid fa-circle-check text-xl"></i>
-
-                                    </div>
-
-                                    <div>
-
-                                        <h2 class="text-xl md:text-2xl font-bold text-slate-900">
-                                            Your WhatsApp Link Is Ready
-                                        </h2>
-
-                                        <p class="text-sm text-slate-500 mt-1">
-                                            Copy, open, share or use your QR code.
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-
-                                <span class="inline-flex items-center gap-2 text-sm font-semibold text-green-700 bg-green-100 px-4 py-2 rounded-full">
-
-                                    <i class="fa-solid fa-check"></i>
-
-                                    Generated Successfully
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        {{-- Result Content --}}
-
-                        <div class="p-6 md:p-8">
-
-
-                            <label
-                                for="waGeneratedLink"
-                                class="block text-sm font-bold text-slate-800 mb-2"
-                            >
-                                Your WhatsApp Link
-                            </label>
-
-
-                            <div class="flex gap-2">
+                            <div class="wa-form-group">
+                                <label class="wa-label" for="waPhoneNumber">
+                                    WhatsApp Phone Number
+                                </label>
 
                                 <input
-                                    type="text"
-                                    id="waGeneratedLink"
-                                    readonly
-                                    class="wa-input flex-1 min-w-0 px-4 py-3.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-700 text-sm"
+                                    type="tel"
+                                    id="waPhoneNumber"
+                                    class="wa-input"
+                                    placeholder="Enter your WhatsApp number"
+                                    maxlength="15"
+                                    autocomplete="tel"
+                                    required
                                 >
 
-
-                                <button
-                                    type="button"
-                                    id="waCopyBtn"
-                                    title="Copy Link"
-                                    class="wa-action-btn shrink-0 w-12 h-12 mt-0.5 rounded-xl bg-slate-900 text-white flex items-center justify-center hover:bg-green-600"
-                                >
-
-                                    <i class="fa-regular fa-copy"></i>
-
-                                </button>
-
-                            </div>
-
-
-                            {{-- Actions --}}
-
-                            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-5">
-
-
-                                <button
-                                    type="button"
-                                    id="waOpenBtn"
-                                    class="wa-action-btn flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white font-semibold"
-                                >
-
-                                    <i class="fa-brands fa-whatsapp"></i>
-
-                                    Open WhatsApp
-
-                                </button>
-
-
-                                <button
-                                    type="button"
-                                    id="waDownloadBtn"
-                                    class="wa-action-btn flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold"
-                                >
-
-                                    <i class="fa-solid fa-download"></i>
-
-                                    Download QR
-
-                                </button>
-
-
-                                <button
-                                    type="button"
-                                    id="waShareBtn"
-                                    class="wa-action-btn flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-slate-300 bg-white hover:border-green-500 hover:text-green-600 text-slate-700 font-semibold"
-                                >
-
-                                    <i class="fa-solid fa-share-nodes"></i>
-
-                                    Share
-
-                                </button>
-
-
-                                <button
-                                    type="button"
-                                    id="waRegenerateBtn"
-                                    class="wa-action-btn flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-slate-300 bg-white hover:border-green-500 hover:text-green-600 text-slate-700 font-semibold"
-                                >
-
-                                    <i class="fa-solid fa-rotate"></i>
-
-                                    Regenerate
-
-                                </button>
-
-
-                            </div>
-
-
-                            {{-- Small note --}}
-
-                            <div class="mt-5 flex items-start gap-2 text-xs text-slate-500">
-
-                                <i class="fa-solid fa-circle-info mt-0.5"></i>
-
-                                <p>
-                                    Anyone with this link can start a WhatsApp conversation with the number associated with it.
+                                <p id="waPhoneError" class="wa-error">
+                                    Please enter a valid phone number between 6 and 15 digits.
                                 </p>
+                            </div>
 
+                            <div class="wa-form-group">
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="wa-label mb-0" for="waMessage">
+                                        Pre-filled Message
+                                        <span class="font-normal text-slate-400">(Optional)</span>
+                                    </label>
+
+                                    <span class="text-xs text-slate-400" id="waCharCount">0/500</span>
+                                </div>
+
+                                <textarea
+                                    id="waMessage"
+                                    class="wa-textarea"
+                                    maxlength="500"
+                                    placeholder="Hi! I would like to know more about your products and services."
+                                ></textarea>
+                            </div>
+
+                            <button type="submit" id="waGenerateBtn" class="wa-generate-btn">
+                                <i class="fas fa-magic mr-2"></i>
+                                Generate WhatsApp Link
+                            </button>
+
+                            <div class="wa-privacy-note">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>
+                                    Your QR code is generated in your browser.
+                                    A request is sent to Textora when creating a branded short link.
+                                </span>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+
+
+                <!-- QR PREVIEW AND CUSTOMIZATION -->
+                <div class="wa-preview-panel">
+
+                    <div class="wa-preview-top">
+                        <h3>QR Code Preview</h3>
+                        <span class="wa-live-badge">LIVE PREVIEW</span>
+                    </div>
+
+                    <div id="waInlineQrCode" class="wa-qr-placeholder">
+                        <div id="waQrPlaceholderContent">
+                            <i class="fas fa-qrcode block"></i>
+                            <p class="text-sm font-semibold text-slate-500">
+                                Your QR code will appear here
+                            </p>
+                            <p class="text-xs mt-2 text-slate-400">
+                                Generate your WhatsApp link to get started
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="wa-customize">
+
+                        <h4>
+                            <i class="fas fa-sliders-h wa-green mr-2"></i>
+                            Customize Your QR Code
+                        </h4>
+
+                        <div class="wa-color-row">
+
+                            <div class="wa-color-control">
+                                <label for="waQrColor">QR Code Color</label>
+                                <input type="color" id="waQrColor" value="#111827">
+                            </div>
+
+                            <div class="wa-color-control">
+                                <label for="waQrBgColor">Background Color</label>
+                                <input type="color" id="waQrBgColor" value="#ffffff">
                             </div>
 
                         </div>
 
-                    </div>
+                        <div class="wa-size-control">
+                            <div class="flex justify-between mb-2">
+                                <label class="text-xs font-bold text-slate-600" for="waQrSize">
+                                    QR Code Size
+                                </label>
 
-                </div>
+                                <span class="text-xs font-bold wa-green" id="waQrSizeValue">220 px</span>
+                            </div>
 
-            </div>
-
-        </section>
-
-
-        {{-- =====================================================
-            FEATURES
-        ====================================================== --}}
-
-        <section class="py-20 bg-white">
-
-            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-
-
-                <div class="text-center max-w-3xl mx-auto">
-
-                    <span class="text-green-600 font-bold text-sm uppercase tracking-wider">
-                        Simple. Fast. Powerful.
-                    </span>
-
-                    <h2 class="mt-3 text-3xl md:text-4xl font-extrabold text-slate-900">
-                        Everything You Need to Share WhatsApp
-                    </h2>
-
-                    <p class="mt-4 text-slate-600 text-lg">
-                        Create professional WhatsApp links and QR codes without complicated software or technical setup.
-                    </p>
-
-                </div>
-
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-
-
-                    {{-- Feature 1 --}}
-
-                    <div class="wa-feature-card p-7 rounded-3xl border border-slate-200 bg-white">
-
-                        <div class="w-14 h-14 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center text-xl">
-
-                            <i class="fa-solid fa-link"></i>
-
+                            <input
+                                type="range"
+                                id="waQrSize"
+                                min="160"
+                                max="320"
+                                step="20"
+                                value="220"
+                            >
                         </div>
 
-                        <h3 class="mt-6 text-xl font-bold text-slate-900">
-                            Instant WhatsApp Link
-                        </h3>
-
-                        <p class="mt-3 text-slate-600 leading-relaxed">
-                            Generate a direct WhatsApp chat link that opens a conversation instantly.
-                        </p>
-
-                    </div>
-
-
-                    {{-- Feature 2 --}}
-
-                    <div class="wa-feature-card p-7 rounded-3xl border border-slate-200 bg-white">
-
-                        <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl">
-
-                            <i class="fa-solid fa-qrcode"></i>
-
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold text-slate-900">
-                            QR Code Generator
-                        </h3>
-
-                        <p class="mt-3 text-slate-600 leading-relaxed">
-                            Automatically generate a scannable WhatsApp QR code and download it as PNG.
-                        </p>
-
-                    </div>
-
-
-                    {{-- Feature 3 --}}
-
-                    <div class="wa-feature-card p-7 rounded-3xl border border-slate-200 bg-white">
-
-                        <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl">
-
-                            <i class="fa-solid fa-message"></i>
-
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold text-slate-900">
-                            Pre-filled Messages
-                        </h3>
-
-                        <p class="mt-3 text-slate-600 leading-relaxed">
-                            Add a ready-made message so customers know exactly what to ask when they contact you.
-                        </p>
-
-                    </div>
-
-
-                    {{-- Feature 4 --}}
-
-                    <div class="wa-feature-card p-7 rounded-3xl border border-slate-200 bg-white">
-
-                        <div class="w-14 h-14 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-xl">
-
-                            <i class="fa-solid fa-palette"></i>
-
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold text-slate-900">
-                            QR Customization
-                        </h3>
-
-                        <p class="mt-3 text-slate-600 leading-relaxed">
-                            Change QR color, background color and size to match your marketing material.
-                        </p>
-
-                    </div>
-
-
-                    {{-- Feature 5 --}}
-
-                    <div class="wa-feature-card p-7 rounded-3xl border border-slate-200 bg-white">
-
-                        <div class="w-14 h-14 rounded-2xl bg-pink-100 text-pink-600 flex items-center justify-center text-xl">
-
-                            <i class="fa-solid fa-share-nodes"></i>
-
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold text-slate-900">
-                            Share Anywhere
-                        </h3>
-
-                        <p class="mt-3 text-slate-600 leading-relaxed">
-                            Copy your link or use the native share option on supported mobile and desktop browsers.
-                        </p>
-
-                    </div>
-
-
-                    {{-- Feature 6 --}}
-
-                    <div class="wa-feature-card p-7 rounded-3xl border border-slate-200 bg-white">
-
-                        <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-xl">
-
-                            <i class="fa-solid fa-shield-halved"></i>
-
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold text-slate-900">
-                            Browser-Based
-                        </h3>
-
-                        <p class="mt-3 text-slate-600 leading-relaxed">
-                            The link is created directly in your browser without requiring a database or server-side generation.
-                        </p>
+                        <button type="button" id="waResetQr" class="wa-reset-btn">
+                            <i class="fas fa-undo mr-1"></i>
+                            Reset QR Customization
+                        </button>
 
                     </div>
 
                 </div>
 
             </div>
-
-        </section>
-
-
-        {{-- =====================================================
-            HOW IT WORKS
-        ====================================================== --}}
-
-        <section class="py-20 bg-slate-50">
-
-            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        </div>
+    </section>
 
 
-                <div class="text-center max-w-3xl mx-auto">
+    <!-- FEATURES -->
+    <section class="wa-section">
+        <div class="wa-container">
 
-                    <span class="text-green-600 font-bold text-sm uppercase tracking-wider">
-                        How It Works
-                    </span>
+            <div class="wa-section-heading">
+                <span class="eyebrow">WHY USE OUR TOOL</span>
+                <h2>A Simpler Way to Connect on WhatsApp</h2>
+                <p>
+                    Make customer communication easier with a ready-to-share
+                    WhatsApp link and customizable QR code.
+                </p>
+            </div>
 
-                    <h2 class="mt-3 text-3xl md:text-4xl font-extrabold text-slate-900">
-                        Create Your WhatsApp Link in 3 Steps
-                    </h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
+                <div class="wa-feature-card">
+                    <div class="wa-feature-icon"><i class="fas fa-link"></i></div>
+                    <h3>Instant WhatsApp Link</h3>
+                    <p>Create a clickable link that takes customers directly to your WhatsApp conversation.</p>
                 </div>
 
+                <div class="wa-feature-card">
+                    <div class="wa-feature-icon"><i class="fas fa-qrcode"></i></div>
+                    <h3>Downloadable QR Code</h3>
+                    <p>Generate a QR code that customers can scan to start a WhatsApp conversation.</p>
+                </div>
 
-                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="wa-feature-card">
+                    <div class="wa-feature-icon"><i class="fas fa-comment-dots"></i></div>
+                    <h3>Pre-filled Messages</h3>
+                    <p>Add a ready-made message so customers can start conversations more easily.</p>
+                </div>
 
+                <div class="wa-feature-card">
+                    <div class="wa-feature-icon"><i class="fas fa-palette"></i></div>
+                    <h3>QR Code Customization</h3>
+                    <p>Choose QR code colors and sizes to suit your brand and promotional materials.</p>
+                </div>
 
-                    {{-- Step 1 --}}
+                <div class="wa-feature-card">
+                    <div class="wa-feature-icon"><i class="fas fa-share-alt"></i></div>
+                    <h3>Easy to Share</h3>
+                    <p>Copy your WhatsApp link or share it across websites, social media and campaigns.</p>
+                </div>
 
-                    <div class="wa-step-card relative text-center bg-white rounded-3xl p-8 border border-slate-200">
-
-                        <div class="wa-step-number mx-auto w-16 h-16 rounded-2xl bg-green-600 text-white flex items-center justify-center text-2xl font-extrabold shadow-lg">
-                            1
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold text-slate-900">
-                            Enter Number
-                        </h3>
-
-                        <p class="mt-3 text-slate-600">
-                            Select the country code and enter your WhatsApp number.
-                        </p>
-
-                    </div>
-
-
-                    {{-- Step 2 --}}
-
-                    <div class="wa-step-card relative text-center bg-white rounded-3xl p-8 border border-slate-200">
-
-                        <div class="wa-step-number mx-auto w-16 h-16 rounded-2xl bg-green-600 text-white flex items-center justify-center text-2xl font-extrabold shadow-lg">
-                            2
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold text-slate-900">
-                            Add Message
-                        </h3>
-
-                        <p class="mt-3 text-slate-600">
-                            Add an optional pre-filled message for your customers.
-                        </p>
-
-                    </div>
-
-
-                    {{-- Step 3 --}}
-
-                    <div class="wa-step-card relative text-center bg-white rounded-3xl p-8 border border-slate-200">
-
-                        <div class="wa-step-number mx-auto w-16 h-16 rounded-2xl bg-green-600 text-white flex items-center justify-center text-2xl font-extrabold shadow-lg">
-                            3
-                        </div>
-
-                        <h3 class="mt-6 text-xl font-bold text-slate-900">
-                            Generate & Share
-                        </h3>
-
-                        <p class="mt-3 text-slate-600">
-                            Generate your link and QR code, then share it anywhere.
-                        </p>
-
-                    </div>
-
+                <div class="wa-feature-card">
+                    <div class="wa-feature-icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Simple Online Tool</h3>
+                    <p>Generate your link and QR code directly from your browser without installing software.</p>
                 </div>
 
             </div>
-
-        </section>
-
-
-        {{-- =====================================================
-            USE CASES
-        ====================================================== --}}
-
-        <section class="py-20 bg-white">
-
-            <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        </div>
+    </section>
 
 
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <!-- HOW IT WORKS -->
+    <section class="wa-section wa-soft-section">
+        <div class="wa-container">
 
+            <div class="wa-section-heading">
+                <span class="eyebrow">HOW IT WORKS</span>
+                <h2>Get Your WhatsApp Link in 3 Easy Steps</h2>
+                <p>No complicated setup. Just enter your details and generate your link.</p>
+            </div>
 
+            <div class="grid md:grid-cols-3 gap-5">
+
+                <div class="wa-step-card">
+                    <div class="wa-step-number">01</div>
                     <div>
-
-                        <span class="text-green-600 font-bold text-sm uppercase tracking-wider">
-                            Business Use Cases
-                        </span>
-
-                        <h2 class="mt-3 text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
-                            Turn Every Customer Touchpoint Into a WhatsApp Conversation
-                        </h2>
-
-                        <p class="mt-5 text-lg text-slate-600 leading-relaxed">
-                            Use your WhatsApp link and QR code across your digital and offline marketing channels.
-                        </p>
-
-
-                        <div class="mt-8 space-y-4">
-
-
-                            <div class="flex items-start gap-4">
-
-                                <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-globe"></i>
-                                </div>
-
-                                <div>
-                                    <h3 class="font-bold text-slate-900">
-                                        Websites & Landing Pages
-                                    </h3>
-
-                                    <p class="text-sm text-slate-600 mt-1">
-                                        Add a direct WhatsApp CTA to your website.
-                                    </p>
-                                </div>
-
-                            </div>
-
-
-                            <div class="flex items-start gap-4">
-
-                                <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-print"></i>
-                                </div>
-
-                                <div>
-                                    <h3 class="font-bold text-slate-900">
-                                        Posters & Brochures
-                                    </h3>
-
-                                    <p class="text-sm text-slate-600 mt-1">
-                                        Print your QR code on brochures, banners and flyers.
-                                    </p>
-                                </div>
-
-                            </div>
-
-
-                            <div class="flex items-start gap-4">
-
-                                <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-box"></i>
-                                </div>
-
-                                <div>
-                                    <h3 class="font-bold text-slate-900">
-                                        Product Packaging
-                                    </h3>
-
-                                    <p class="text-sm text-slate-600 mt-1">
-                                        Let customers scan your packaging and contact your business.
-                                    </p>
-                                </div>
-
-                            </div>
-
-
-                            <div class="flex items-start gap-4">
-
-                                <div class="w-10 h-10 rounded-xl bg-green-100 text-green-600 flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-store"></i>
-                                </div>
-
-                                <div>
-                                    <h3 class="font-bold text-slate-900">
-                                        Shops & Retail Stores
-                                    </h3>
-
-                                    <p class="text-sm text-slate-600 mt-1">
-                                        Display your QR code at counters, reception desks and stores.
-                                    </p>
-                                </div>
-
-                            </div>
-
-                        </div>
-
+                        <h3>Enter Your Number</h3>
+                        <p>Select your country code and enter the WhatsApp number you want customers to contact.</p>
                     </div>
+                </div>
 
-
-                    {{-- Visual Card --}}
-
+                <div class="wa-step-card">
+                    <div class="wa-step-number">02</div>
                     <div>
-
-                        <div class="relative rounded-[32px] bg-gradient-to-br from-[#06151f] to-[#0b3825] p-8 md:p-12 overflow-hidden">
-
-                            <div class="absolute w-64 h-64 bg-green-400/20 rounded-full blur-3xl -top-20 -right-20"></div>
-
-                            <div class="relative text-center">
-
-                                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-green-300 text-sm font-semibold">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                    Connect on WhatsApp
-                                </div>
-
-
-                                <div class="mt-8 bg-white rounded-3xl p-7 max-w-sm mx-auto shadow-2xl">
-
-                                    <div class="w-14 h-14 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto">
-
-                                        <i class="fa-brands fa-whatsapp text-2xl"></i>
-
-                                    </div>
-
-                                    <h3 class="mt-5 text-xl font-bold text-slate-900">
-                                        Start a Conversation
-                                    </h3>
-
-                                    <p class="text-sm text-slate-500 mt-2">
-                                        Scan the QR code or click the WhatsApp link.
-                                    </p>
-
-                                    <div class="mt-6 rounded-2xl bg-slate-100 p-5">
-
-                                        <i class="fa-solid fa-qrcode text-7xl text-slate-800"></i>
-
-                                    </div>
-
-                                    <div class="mt-5 py-3 rounded-xl bg-green-600 text-white font-bold">
-                                        Chat on WhatsApp
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
+                        <h3>Add Your Message</h3>
+                        <p>Enter an optional pre-filled message that customers can use when starting a conversation.</p>
                     </div>
+                </div>
 
+                <div class="wa-step-card">
+                    <div class="wa-step-number">03</div>
+                    <div>
+                        <h3>Generate & Share</h3>
+                        <p>Generate your WhatsApp link, download its QR code and share it with your audience.</p>
+                    </div>
                 </div>
 
             </div>
-
-        </section>
-
-
-        {{-- =====================================================
-            FAQ
-        ====================================================== --}}
-
-        <section class="py-20 bg-slate-50">
-
-            <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+        </div>
+    </section>
 
 
-                <div class="text-center">
+    <!-- USE CASES -->
+    <section class="wa-section">
+        <div class="wa-container">
 
-                    <span class="text-green-600 font-bold text-sm uppercase tracking-wider">
-                        FAQ
-                    </span>
+            <div class="wa-section-heading">
+                <span class="eyebrow">BUSINESS APPLICATIONS</span>
+                <h2>Where Can You Use Your WhatsApp QR Code?</h2>
+                <p>Bring your customers closer to your business across multiple touchpoints.</p>
+            </div>
 
-                    <h2 class="mt-3 text-3xl md:text-4xl font-extrabold text-slate-900">
-                        Frequently Asked Questions
-                    </h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-                    <p class="mt-4 text-slate-600">
-                        Everything you need to know about WhatsApp links and QR codes.
-                    </p>
-
+                <div class="wa-use-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Business Websites</h3>
+                    <p>Add your WhatsApp link to your website and landing pages.</p>
                 </div>
 
-
-                <div class="mt-10 space-y-4">
-
-
-                    {{-- FAQ 1 --}}
-
-                    <details class="wa-faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-
-                        <summary class="cursor-pointer px-5 md:px-6 py-5 flex items-center justify-between gap-5">
-
-                            <span class="font-bold text-slate-900">
-                                What is a WhatsApp Link Generator?
-                            </span>
-
-                            <span class="wa-faq-icon shrink-0 w-9 h-9 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">
-                                +
-                            </span>
-
-                        </summary>
-
-                        <div class="wa-faq-answer px-5 md:px-6 pb-5">
-
-                            <p class="text-slate-600 leading-relaxed">
-                                A WhatsApp Link Generator creates a clickable WhatsApp chat link that allows customers to start a conversation with a WhatsApp number instantly.
-                            </p>
-
-                        </div>
-
-                    </details>
-
-
-                    {{-- FAQ 2 --}}
-
-                    <details class="wa-faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-
-                        <summary class="cursor-pointer px-5 md:px-6 py-5 flex items-center justify-between gap-5">
-
-                            <span class="font-bold text-slate-900">
-                                Can I create a WhatsApp QR code?
-                            </span>
-
-                            <span class="wa-faq-icon shrink-0 w-9 h-9 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">
-                                +
-                            </span>
-
-                        </summary>
-
-                        <div class="wa-faq-answer px-5 md:px-6 pb-5">
-
-                            <p class="text-slate-600 leading-relaxed">
-                                Yes. Textora's WhatsApp Link Generator automatically creates a QR code for your WhatsApp chat link. You can download the QR code as a PNG image.
-                            </p>
-
-                        </div>
-
-                    </details>
-
-
-                    {{-- FAQ 3 --}}
-
-                    <details class="wa-faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-
-                        <summary class="cursor-pointer px-5 md:px-6 py-5 flex items-center justify-between gap-5">
-
-                            <span class="font-bold text-slate-900">
-                                Can I add a pre-filled WhatsApp message?
-                            </span>
-
-                            <span class="wa-faq-icon shrink-0 w-9 h-9 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">
-                                +
-                            </span>
-
-                        </summary>
-
-                        <div class="wa-faq-answer px-5 md:px-6 pb-5">
-
-                            <p class="text-slate-600 leading-relaxed">
-                                Yes. Enter your custom message before generating the link. The message will automatically appear in the WhatsApp chat box when the link is opened.
-                            </p>
-
-                        </div>
-
-                    </details>
-
-
-                    {{-- FAQ 4 --}}
-
-                    <details class="wa-faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-
-                        <summary class="cursor-pointer px-5 md:px-6 py-5 flex items-center justify-between gap-5">
-
-                            <span class="font-bold text-slate-900">
-                                Is the WhatsApp Link Generator free?
-                            </span>
-
-                            <span class="wa-faq-icon shrink-0 w-9 h-9 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">
-                                +
-                            </span>
-
-                        </summary>
-
-                        <div class="wa-faq-answer px-5 md:px-6 pb-5">
-
-                            <p class="text-slate-600 leading-relaxed">
-                                Yes. Textora's WhatsApp Link Generator is free to use and does not require an account to generate a WhatsApp link or QR code.
-                            </p>
-
-                        </div>
-
-                    </details>
-
-
-                    {{-- FAQ 5 --}}
-
-                    <details class="wa-faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-
-                        <summary class="cursor-pointer px-5 md:px-6 py-5 flex items-center justify-between gap-5">
-
-                            <span class="font-bold text-slate-900">
-                                Can I download the WhatsApp QR code?
-                            </span>
-
-                            <span class="wa-faq-icon shrink-0 w-9 h-9 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">
-                                +
-                            </span>
-
-                        </summary>
-
-                        <div class="wa-faq-answer px-5 md:px-6 pb-5">
-
-                            <p class="text-slate-600 leading-relaxed">
-                                Yes. You can download the generated QR code as a PNG image and use it on websites, posters, brochures, packaging and marketing materials.
-                            </p>
-
-                        </div>
-
-                    </details>
-
-
-                    {{-- FAQ 6 --}}
-
-                    <details class="wa-faq-item bg-white border border-slate-200 rounded-2xl overflow-hidden">
-
-                        <summary class="cursor-pointer px-5 md:px-6 py-5 flex items-center justify-between gap-5">
-
-                            <span class="font-bold text-slate-900">
-                                Does Textora store my WhatsApp number or message?
-                            </span>
-
-                            <span class="wa-faq-icon shrink-0 w-9 h-9 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">
-                                +
-                            </span>
-
-                        </summary>
-
-                        <div class="wa-faq-answer px-5 md:px-6 pb-5">
-
-                            <p class="text-slate-600 leading-relaxed">
-                                The WhatsApp link and QR code are generated directly in your browser. The generator does not need to send your number or message to a server to create the link.
-                            </p>
-
-                        </div>
-
-                    </details>
-
-
+                <div class="wa-use-card">
+                    <i class="fas fa-print"></i>
+                    <h3>Posters & Brochures</h3>
+                    <p>Print your QR code on marketing materials for easy customer access.</p>
+                </div>
+
+                <div class="wa-use-card">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Product Packaging</h3>
+                    <p>Place your WhatsApp QR code on product boxes and labels.</p>
+                </div>
+
+                <div class="wa-use-card">
+                    <i class="fas fa-store"></i>
+                    <h3>Retail Stores</h3>
+                    <p>Display your QR code at counters and in-store promotional displays.</p>
                 </div>
 
             </div>
-
-        </section>
-
-
-        {{-- =====================================================
-            CTA
-        ====================================================== --}}
-
-        <section class="relative overflow-hidden bg-[#06151f] text-white py-20">
-
-            <div class="absolute w-96 h-96 rounded-full bg-green-500/10 blur-3xl -top-40 left-1/4"></div>
-
-            <div class="relative max-w-5xl mx-auto px-5 text-center">
-
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-400/10 border border-green-400/20 text-green-300 text-sm font-semibold">
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                    Grow Your Business With WhatsApp
-
-                </div>
+        </div>
+    </section>
 
 
-                <h2 class="mt-6 text-3xl md:text-5xl font-extrabold leading-tight">
+    <!-- FAQ -->
+    <section class="wa-section wa-soft-section">
+        <div class="wa-container">
 
-                    Need More Than a WhatsApp Link?
+            <div class="wa-section-heading">
+                <span class="eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+                <h2>Everything You Need to Know</h2>
+                <p>Find answers to common questions about WhatsApp links and QR codes.</p>
+            </div>
 
-                </h2>
+            <div class="wa-faq">
+
+                <details>
+                    <summary>
+                        What is a WhatsApp Link Generator?
+                        <i class="fas fa-plus"></i>
+                    </summary>
+                    <div class="wa-faq-answer">
+                        A WhatsApp Link Generator creates a clickable link that opens a WhatsApp conversation with a specified phone number. You can share the link with customers so they can contact your business directly.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        Can I create a WhatsApp QR code?
+                        <i class="fas fa-plus"></i>
+                    </summary>
+                    <div class="wa-faq-answer">
+                        Yes. Once you generate your WhatsApp link, a QR code is created for it. You can customize its colors and size, then download it for use on posters, packaging, websites and other materials.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        Can I add a pre-filled WhatsApp message?
+                        <i class="fas fa-plus"></i>
+                    </summary>
+                    <div class="wa-faq-answer">
+                        Yes. You can enter an optional message while generating your link. The message will appear automatically in the WhatsApp chat when someone opens the link.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        Is the WhatsApp Link Generator free?
+                        <i class="fas fa-plus"></i>
+                    </summary>
+                    <div class="wa-faq-answer">
+                        Yes. You can use this tool to generate WhatsApp links and QR codes without paying a tool usage fee.
+                    </div>
+                </details>
+
+                <details>
+                    <summary>
+                        Does Textora store my WhatsApp number or message?
+                        <i class="fas fa-plus"></i>
+                    </summary>
+                    <div class="wa-faq-answer">
+                        The QR code is generated in your browser. When you request a branded short link, your phone number and message are sent to Textora's link-generation endpoint to create that short link.
+                    </div>
+                </details>
+
+            </div>
+        </div>
+    </section>
 
 
-                <p class="mt-5 text-lg text-slate-300 max-w-2xl mx-auto">
+    <!-- CTA -->
+    <section class="wa-section">
+        <div class="wa-container">
 
-                    Explore Textora's WhatsApp Business API solutions for business messaging, automation, templates, customer engagement and more.
+            <div class="wa-cta">
 
+                <span class="wa-eyebrow">
+                    <i class="fas fa-comments"></i>
+                    GROW YOUR BUSINESS
+                </span>
+
+                <h2 class="mt-5">Need More Than a WhatsApp Link?</h2>
+
+                <p>
+                    Take your business communication further with WhatsApp Business API,
+                    bulk messaging and intelligent customer engagement solutions from Textora.
                 </p>
 
+                <div class="wa-cta-buttons">
 
-                <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-
-                    <a
-                        href="{{ url('/whatsapp-business-api') }}"
-                        class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold transition"
-                    >
-
-                        Explore WhatsApp API
-
-                        <i class="fa-solid fa-arrow-right"></i>
-
+                    <a href="/whatsapp-business-api" class="wa-btn-primary">
+                        Explore WhatsApp Business API
+                        <i class="fas fa-arrow-right"></i>
                     </a>
 
-
-                    <a
-                        href="{{ url('/contact-us') }}"
-                        class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-bold transition"
-                    >
-
-                        Talk to Textora
-
-                        <i class="fa-solid fa-headset"></i>
-
+                    <a href="/contact-us" class="wa-btn-secondary">
+                        Talk to Our Team
+                        <i class="fas fa-headset"></i>
                     </a>
 
                 </div>
 
             </div>
+        </div>
+    </section>
 
-        </section>
+</div>
 
 
+<!-- RESULT POPUP -->
+<div
+    id="waResultModal"
+    class="wa-modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="waModalTitle"
+    aria-hidden="true"
+>
+    <div class="wa-modal-dialog">
+
+        <div class="wa-modal-header">
+
+            <button
+                type="button"
+                id="waModalClose"
+                class="wa-modal-close"
+                aria-label="Close popup"
+            >
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="wa-success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+
+            <h3 id="waModalTitle">Your WhatsApp Link Is Ready!</h3>
+
+            <p>Your link and QR code are ready to share with customers.</p>
+
+        </div>
+
+        <div class="wa-modal-body">
+
+            <label class="wa-label" for="waModalLink">
+                Your Generated WhatsApp Link
+            </label>
+
+            <div class="wa-modal-linkbox">
+                <input type="text" id="waModalLink" readonly>
+
+                <button type="button" id="waCopyLink" class="wa-copy-btn">
+                    <i class="fas fa-copy mr-1"></i> Copy
+                </button>
+            </div>
+
+            <div class="wa-modal-qr-wrap">
+                <div id="waModalQrCode"></div>
+                <p>Scan this QR code to open WhatsApp</p>
+            </div>
+
+            <div class="wa-modal-actions">
+
+                <button type="button" id="waDownloadQr" class="wa-modal-action">
+                    <i class="fas fa-download mr-1"></i>
+                    Download QR
+                </button>
+
+                <button type="button" id="waOpenWhatsapp" class="wa-modal-action primary">
+                    <i class="fab fa-whatsapp mr-1"></i>
+                    Open WhatsApp
+                </button>
+
+                <button
+                    type="button"
+                    id="waShareLink"
+                    class="wa-modal-action"
+                    style="grid-column:1/-1;"
+                >
+                    <i class="fas fa-share-alt mr-1"></i>
+                    Share Link
+                </button>
+
+            </div>
+
+        </div>
     </div>
+</div>
 
 
-    {{-- =========================================================
-        JAVASCRIPT
-    ========================================================== --}}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
-    <script>
+    const form = document.getElementById('waGeneratorForm');
+    const countryCode = document.getElementById('waCountryCode');
+    const phoneInput = document.getElementById('waPhoneNumber');
+    const messageInput = document.getElementById('waMessage');
+    const charCount = document.getElementById('waCharCount');
+    const generateBtn = document.getElementById('waGenerateBtn');
+    const phoneError = document.getElementById('waPhoneError');
 
-        document.addEventListener('DOMContentLoaded', function () {
+    const qrColor = document.getElementById('waQrColor');
+    const qrBgColor = document.getElementById('waQrBgColor');
+    const qrSize = document.getElementById('waQrSize');
+    const qrSizeValue = document.getElementById('waQrSizeValue');
+    const resetQr = document.getElementById('waResetQr');
 
-            /* =====================================================
-               ELEMENTS
-            ====================================================== */
+    const inlineQr = document.getElementById('waInlineQrCode');
 
-            const countryCode =
-                document.getElementById('waCountryCode');
+    const modal = document.getElementById('waResultModal');
+    const modalClose = document.getElementById('waModalClose');
+    const modalLink = document.getElementById('waModalLink');
+    const modalQr = document.getElementById('waModalQrCode');
 
-            const phoneNumber =
-                document.getElementById('waPhoneNumber');
+    const copyBtn = document.getElementById('waCopyLink');
+    const downloadBtn = document.getElementById('waDownloadQr');
+    const openWhatsappBtn = document.getElementById('waOpenWhatsapp');
+    const shareBtn = document.getElementById('waShareLink');
 
-            const message =
-                document.getElementById('waMessage');
+    let generatedLink = '';
+    let generatedPhone = '';
+    let lastFocusedElement = null;
 
-            const messageCount =
-                document.getElementById('waMessageCount');
+    function getCsrfToken() {
+        const token = document.querySelector('meta[name="csrf-token"]');
+        return token ? token.getAttribute('content') : '';
+    }
 
-            const generateBtn =
-                document.getElementById('waGenerateBtn');
+    function getCleanPhone() {
+        return phoneInput.value.replace(/\D/g, '');
+    }
 
-            const phoneError =
-                document.getElementById('waPhoneError');
+    function getFullPhone() {
+        return countryCode.value.replace(/\D/g, '') + getCleanPhone();
+    }
 
-            const qrCode =
-                document.getElementById('waQrCode');
+    messageInput.addEventListener('input', function () {
+        charCount.textContent = messageInput.value.length + '/500';
+    });
 
-            const qrPlaceholder =
-                document.getElementById('waQrPlaceholder');
+    phoneInput.addEventListener('input', function () {
+        phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 15);
+        phoneError.style.display = 'none';
+        phoneInput.classList.remove('border-red-500');
+    });
 
-            const resultArea =
-                document.getElementById('waResultArea');
+    /* QR GENERATION */
 
-            const generatedLink =
-                document.getElementById('waGeneratedLink');
+    function renderQr(target, text) {
 
-            const copyBtn =
-                document.getElementById('waCopyBtn');
+        if (!target || !text) return;
 
-            const openBtn =
-                document.getElementById('waOpenBtn');
+        if (typeof QRCode === 'undefined') {
+            console.error('QRCodeJS library is not loaded.');
+            alert('QR Code library load nahi hui. Please page refresh karein.');
+            return;
+        }
 
-            const downloadBtn =
-                document.getElementById('waDownloadBtn');
+        target.innerHTML = '';
 
-            const shareBtn =
-                document.getElementById('waShareBtn');
+        const size = parseInt(qrSize.value, 10) || 220;
 
-            const regenerateBtn =
-                document.getElementById('waRegenerateBtn');
+        new QRCode(target, {
+            text: text,
+            width: size,
+            height: size,
+            colorDark: qrColor.value,
+            colorLight: qrBgColor.value,
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
 
-            const qrColor =
-                document.getElementById('waQrColor');
+    function renderAllQr() {
 
-            const bgColor =
-                document.getElementById('waBgColor');
+        if (!generatedLink) return;
 
-            const qrSize =
-                document.getElementById('waQrSize');
+        renderQr(inlineQr, generatedLink);
 
-            const resetQr =
-                document.getElementById('waResetQr');
+        if (!modal.classList.contains('hidden')) {
+            renderQr(modalQr, generatedLink);
+        }
+    }
 
-            const qrColorValue =
-                document.getElementById('waQrColorValue');
+    /* MODAL */
 
-            const bgColorValue =
-                document.getElementById('waBgColorValue');
+    function openModal() {
 
+        lastFocusedElement = document.activeElement;
 
-            let currentWhatsappLink = '';
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
 
+        document.body.style.overflow = 'hidden';
 
-            /* =====================================================
-               MESSAGE COUNTER
-            ====================================================== */
-
-            function updateMessageCount() {
-
-                const length = message.value.length;
-
-                messageCount.textContent =
-                    length + ' / 1000';
-
-            }
-
-            message.addEventListener(
-                'input',
-                updateMessageCount
-            );
-
-            updateMessageCount();
-
-
-            /* =====================================================
-               PHONE INPUT
-            ====================================================== */
-
-            phoneNumber.addEventListener(
-                'input',
-                function () {
-
-                    this.value =
-                        this.value.replace(/\D/g, '');
-
-                    phoneError.classList.add('hidden');
-
-                }
-            );
-
-
-            /* =====================================================
-               CREATE WHATSAPP LINK
-            ====================================================== */
-
-            function createWhatsappLink() {
-
-                const code =
-                    countryCode.value;
-
-                const number =
-                    phoneNumber.value.trim();
-
-                const text =
-                    message.value.trim();
-
-
-                if (!number || number.length < 6) {
-
-                    phoneError.classList.remove('hidden');
-
-                    phoneNumber.focus();
-
-                    return null;
-
-                }
-
-
-                phoneError.classList.add('hidden');
-
-
-                const fullNumber =
-                    code.replace(/\D/g, '') +
-                    number;
-
-
-                let link =
-                    'https://wa.me/' +
-                    fullNumber;
-
-
-                if (text.length > 0) {
-
-                    link +=
-                        '?text=' +
-                        encodeURIComponent(text);
-
-                }
-
-
-                return link;
-
-            }
-
-
-            /* =====================================================
-               GENERATE QR CODE
-            ====================================================== */
-
-            function generateQRCode(link) {
-
-                if (!link) {
-                    return;
-                }
-
-
-                if (typeof QRCode === 'undefined') {
-
-                    alert(
-                        'QR Code library could not be loaded. Please refresh the page and try again.'
-                    );
-
-                    return;
-
-                }
-
-
-                qrCode.innerHTML = '';
-
-                qrCode.classList.remove('hidden');
-
-                qrPlaceholder.classList.add('hidden');
-
-
-                const size =
-                    parseInt(qrSize.value, 10);
-
-
-                new QRCode(qrCode, {
-
-                    text: link,
-
-                    width: size,
-
-                    height: size,
-
-                    colorDark: qrColor.value,
-
-                    colorLight: bgColor.value,
-
-                    correctLevel:
-                        QRCode.CorrectLevel.H
-
-                });
-
-            }
-
-
-            /* =====================================================
-               GENERATE (BRANDED SHORT LINK)
-            ====================================================== */
-
-            async function generate() {
-
-                const code =
-                    countryCode.value;
-
-                const number =
-                    phoneNumber.value.trim();
-
-                const text =
-                    message.value.trim();
-
-                if (!number || number.length < 6) {
-
-                    phoneError.classList.remove('hidden');
-
-                    phoneNumber.focus();
-
-                    return;
-
-                }
-
-                phoneError.classList.add('hidden');
-
-                const originalBtnContent =
-                    generateBtn.innerHTML;
-
-                generateBtn.disabled = true;
-                generateBtn.innerHTML =
-                    '<i class="fa-solid fa-circle-notch fa-spin"></i> Generating Short Link...';
-
-                const csrfToken =
-                    document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
-
-                try {
-
-                    const response = await fetch('/whatsapp-links/generate', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken
-                        },
-                        body: JSON.stringify({
-                            country_code: code,
-                            phone_number: number,
-                            message: text
-                        })
-                    });
-
-                    const data = await response.json();
-
-                    if (response.ok && data.status === 'success') {
-
-                        currentWhatsappLink =
-                            data.short_url;
-
-                        generatedLink.value =
-                            data.short_url;
-
-                        resultArea.classList.remove(
-                            'hidden'
-                        );
-
-                        generateQRCode(data.short_url);
-
-                        setTimeout(function () {
-                            resultArea.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'center'
-                            });
-                        }, 100);
-
-                    } else {
-                        // Fallback to client-side direct link if backend error
-                        console.warn('Backend returned error, falling back to direct link:', data);
-                        const fallbackLink = createWhatsappLink();
-                        if (fallbackLink) {
-                            currentWhatsappLink = fallbackLink;
-                            generatedLink.value = fallbackLink;
-                            resultArea.classList.remove('hidden');
-                            generateQRCode(fallbackLink);
-                            setTimeout(function () {
-                                resultArea.scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'center'
-                                });
-                            }, 100);
-                        }
-                    }
-
-                } catch (err) {
-                    console.error('Fetch error, falling back to direct link:', err);
-                    const fallbackLink = createWhatsappLink();
-                    if (fallbackLink) {
-                        currentWhatsappLink = fallbackLink;
-                        generatedLink.value = fallbackLink;
-                        resultArea.classList.remove('hidden');
-                        generateQRCode(fallbackLink);
-                        setTimeout(function () {
-                            resultArea.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'center'
-                            });
-                        }, 100);
-                    }
-                } finally {
-                    generateBtn.disabled = false;
-                    generateBtn.innerHTML = originalBtnContent;
-                }
-
-            }
-
-
-            generateBtn.addEventListener(
-                'click',
-                generate
-            );
-
-
-            /* =====================================================
-               ENTER KEY
-            ====================================================== */
-
-            phoneNumber.addEventListener(
-                'keydown',
-                function (event) {
-
-                    if (event.key === 'Enter') {
-
-                        event.preventDefault();
-
-                        generate();
-
-                    }
-
-                }
-            );
-
-
-            /* =====================================================
-               COPY LINK
-            ====================================================== */
-
-            copyBtn.addEventListener(
-                'click',
-                async function () {
-
-                    if (!currentWhatsappLink) {
-                        return;
-                    }
-
-
-                    const original =
-                        copyBtn.innerHTML;
-
-
-                    try {
-
-                        if (
-                            navigator.clipboard &&
-                            window.isSecureContext
-                        ) {
-
-                            await navigator.clipboard.writeText(
-                                currentWhatsappLink
-                            );
-
-                        } else {
-
-                            generatedLink.select();
-
-                            document.execCommand('copy');
-
-                        }
-
-
-                        copyBtn.innerHTML =
-                            '<i class="fa-solid fa-check"></i>';
-
-                        copyBtn.classList.add(
-                            'wa-copy-success'
-                        );
-
-
-                        setTimeout(function () {
-
-                            copyBtn.innerHTML =
-                                original;
-
-                            copyBtn.classList.remove(
-                                'wa-copy-success'
-                            );
-
-                        }, 1600);
-
-
-                    } catch (error) {
-
-                        generatedLink.select();
-
-                        document.execCommand('copy');
-
-                        alert('WhatsApp link copied.');
-
-                    }
-
-                }
-            );
-
-
-            /* =====================================================
-               OPEN WHATSAPP
-            ====================================================== */
-
-            openBtn.addEventListener(
-                'click',
-                function () {
-
-                    if (!currentWhatsappLink) {
-                        return;
-                    }
-
-
-                    window.open(
-                        currentWhatsappLink,
-                        '_blank',
-                        'noopener,noreferrer'
-                    );
-
-                }
-            );
-
-
-            /* =====================================================
-               DOWNLOAD QR
-            ====================================================== */
-
-            downloadBtn.addEventListener(
-                'click',
-                function () {
-
-                    const canvas =
-                        qrCode.querySelector('canvas');
-
-                    const image =
-                        qrCode.querySelector('img');
-
-
-                    if (!canvas && !image) {
-
-                        alert(
-                            'Please generate the QR code first.'
-                        );
-
-                        return;
-
-                    }
-
-
-                    const downloadLink =
-                        document.createElement('a');
-
-
-                    downloadLink.download =
-                        'textora-whatsapp-qr.png';
-
-
-                    if (canvas) {
-
-                        downloadLink.href =
-                            canvas.toDataURL('image/png');
-
-                    } else {
-
-                        downloadLink.href =
-                            image.src;
-
-                    }
-
-
-                    document.body.appendChild(
-                        downloadLink
-                    );
-
-
-                    downloadLink.click();
-
-
-                    document.body.removeChild(
-                        downloadLink
-                    );
-
-                }
-            );
-
-
-            /* =====================================================
-               SHARE
-            ====================================================== */
-
-            shareBtn.addEventListener(
-                'click',
-                async function () {
-
-                    if (!currentWhatsappLink) {
-                        return;
-                    }
-
-
-                    if (navigator.share) {
-
-                        try {
-
-                            await navigator.share({
-
-                                title:
-                                    'Chat with us on WhatsApp',
-
-                                text:
-                                    'Connect with us on WhatsApp',
-
-                                url:
-                                    currentWhatsappLink
-
-                            });
-
-                        } catch (error) {
-
-                            // User cancelled share
-
-                        }
-
-                    } else {
-
-                        try {
-
-                            if (
-                                navigator.clipboard &&
-                                window.isSecureContext
-                            ) {
-
-                                await navigator.clipboard.writeText(
-                                    currentWhatsappLink
-                                );
-
-                                const original =
-                                    shareBtn.innerHTML;
-
-
-                                shareBtn.innerHTML =
-                                    '<i class="fa-solid fa-check"></i> Link Copied';
-
-
-                                setTimeout(function () {
-
-                                    shareBtn.innerHTML =
-                                        original;
-
-                                }, 1600);
-
-                            } else {
-
-                                generatedLink.select();
-
-                                document.execCommand('copy');
-
-                                alert(
-                                    'WhatsApp link copied.'
-                                );
-
-                            }
-
-                        } catch (error) {
-
-                            alert(
-                                'Please copy the WhatsApp link manually.'
-                            );
-
-                        }
-
-                    }
-
-                }
-            );
-
-
-            /* =====================================================
-               REGENERATE
-            ====================================================== */
-
-            regenerateBtn.addEventListener(
-                'click',
-                function () {
-
-                    generate();
-
-                }
-            );
-
-
-            /* =====================================================
-               QR CUSTOMIZATION
-            ====================================================== */
-
-            function regenerateQrIfAvailable() {
-
-                qrColorValue.textContent =
-                    qrColor.value;
-
-                bgColorValue.textContent =
-                    bgColor.value;
-
-
-                if (currentWhatsappLink) {
-
-                    generateQRCode(
-                        currentWhatsappLink
-                    );
-
-                }
-
-            }
-
-
-            qrColor.addEventListener(
-                'input',
-                regenerateQrIfAvailable
-            );
-
-
-            bgColor.addEventListener(
-                'input',
-                regenerateQrIfAvailable
-            );
-
-
-            qrSize.addEventListener(
-                'change',
-                regenerateQrIfAvailable
-            );
-
-
-            /* =====================================================
-               RESET QR
-            ====================================================== */
-
-            resetQr.addEventListener(
-                'click',
-                function () {
-
-                    qrColor.value =
-                        '#111827';
-
-                    bgColor.value =
-                        '#ffffff';
-
-                    qrSize.value =
-                        '220';
-
-
-                    qrColorValue.textContent =
-                        '#111827';
-
-                    bgColorValue.textContent =
-                        '#ffffff';
-
-
-                    if (currentWhatsappLink) {
-
-                        generateQRCode(
-                            currentWhatsappLink
-                        );
-
-                    }
-
-                }
-            );
-
-
-            /* =====================================================
-               FAQ ACCORDION
-            ====================================================== */
-
-            const faqItems =
-                document.querySelectorAll(
-                    '.wa-faq-item'
-                );
-
-
-            faqItems.forEach(function (item) {
-
-                item.addEventListener(
-                    'toggle',
-                    function () {
-
-                        const icon =
-                            item.querySelector(
-                                '.wa-faq-icon'
-                            );
-
-
-                        if (item.open) {
-
-
-                            faqItems.forEach(
-                                function (otherItem) {
-
-                                    if (
-                                        otherItem !== item &&
-                                        otherItem.open
-                                    ) {
-
-                                        otherItem.open =
-                                            false;
-
-                                    }
-
-                                }
-                            );
-
-
-                            if (icon) {
-
-                                icon.textContent =
-                                    '−';
-
-                            }
-
-
-                        } else {
-
-                            if (icon) {
-
-                                icon.textContent =
-                                    '+';
-
-                            }
-
-                        }
-
-                    }
-                );
-
-            });
-
-
+        requestAnimationFrame(function () {
+            renderQr(modalQr, generatedLink);
         });
 
-    </script>
+        modalClose.focus();
+    }
 
+    function closeModal() {
+
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+
+        document.body.style.overflow = '';
+
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+    }
+
+    modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
+
+    /* COPY LINK */
+
+    function fallbackCopy(text) {
+
+        const temp = document.createElement('textarea');
+
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+
+        document.body.appendChild(temp);
+
+        temp.select();
+
+        let success = false;
+
+        try {
+            success = document.execCommand('copy');
+        } catch (error) {
+            success = false;
+        }
+
+        temp.remove();
+
+        return success;
+    }
+
+    async function copyText(text) {
+
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+                return true;
+            }
+        } catch (error) {}
+
+        return fallbackCopy(text);
+    }
+
+    function showCopySuccess(button) {
+
+        const original = button.innerHTML;
+
+        button.innerHTML = '<i class="fas fa-check mr-1"></i> Copied!';
+
+        setTimeout(function () {
+            button.innerHTML = original;
+        }, 1800);
+    }
+
+    copyBtn.addEventListener('click', async function () {
+
+        if (!generatedLink) return;
+
+        const success = await copyText(generatedLink);
+
+        if (success) {
+            showCopySuccess(copyBtn);
+        } else {
+            alert('Unable to copy automatically. Please select and copy the link.');
+        }
+    });
+
+    /* DOWNLOAD QR */
+
+    function downloadQr() {
+
+        const canvas = modalQr.querySelector('canvas');
+        const image = modalQr.querySelector('img');
+
+        let imageUrl = '';
+
+        if (canvas) {
+            imageUrl = canvas.toDataURL('image/png');
+        } else if (image && image.src) {
+            imageUrl = image.src;
+        }
+
+        if (!imageUrl) {
+            alert('QR code is not ready yet. Please try again.');
+            return;
+        }
+
+        const link = document.createElement('a');
+
+        link.href = imageUrl;
+        link.download = 'textora-whatsapp-qr.png';
+
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    }
+
+    downloadBtn.addEventListener('click', downloadQr);
+
+    /* OPEN WHATSAPP */
+
+    openWhatsappBtn.addEventListener('click', function () {
+
+        if (!generatedLink) return;
+
+        window.open(generatedLink, '_blank', 'noopener,noreferrer');
+    });
+
+    /* SHARE LINK */
+
+    shareBtn.addEventListener('click', async function () {
+
+        if (!generatedLink) return;
+
+        if (navigator.share) {
+
+            try {
+                await navigator.share({
+                    title: 'Connect with me on WhatsApp',
+                    text: 'Start a WhatsApp conversation with me.',
+                    url: generatedLink
+                });
+
+            } catch (error) {
+
+                if (error.name !== 'AbortError') {
+                    const success = await copyText(generatedLink);
+
+                    if (success) {
+                        showCopySuccess(shareBtn);
+                    }
+                }
+            }
+
+        } else {
+
+            const success = await copyText(generatedLink);
+
+            if (success) {
+                showCopySuccess(shareBtn);
+            } else {
+                alert('Unable to share. Please copy the link manually.');
+            }
+        }
+    });
+
+    /* DIRECT WHATSAPP LINK */
+
+    function directWhatsappLink(phone, message) {
+
+        return 'https://wa.me/' + phone +
+            (message ? '?text=' + encodeURIComponent(message) : '');
+    }
+
+    /* BACKEND SHORT LINK */
+
+    async function createBrandedLink(phone, message) {
+
+        const response = await fetch('/whatsapp-links/generate', {
+            method: 'POST',
+
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': getCsrfToken()
+            },
+
+            body: JSON.stringify({
+                country_code: countryCode.value,
+                phone_number: phone,
+                message: message
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Unable to generate branded link');
+        }
+
+        const data = await response.json();
+
+        if (data.status === 'success' && data.short_url) {
+            return data.short_url;
+        }
+
+        throw new Error('Branded short link not returned');
+    }
+
+    /* GENERATE BUTTON */
+
+    form.addEventListener('submit', async function (event) {
+
+        event.preventDefault();
+
+        const phone = getCleanPhone();
+        const message = messageInput.value.trim();
+
+        if (phone.length < 6 || phone.length > 15) {
+
+            phoneError.style.display = 'block';
+            phoneInput.classList.add('border-red-500');
+            phoneInput.focus();
+
+            return;
+        }
+
+        if (!getCsrfToken()) {
+            alert('Security token is missing. Please refresh the page and try again.');
+            return;
+        }
+
+        generateBtn.disabled = true;
+
+        generateBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin mr-2"></i> Generating...';
+
+        generatedPhone = getFullPhone();
+
+        // Fallback link, used if the branded link endpoint fails.
+        generatedLink = directWhatsappLink(generatedPhone, message);
+
+        try {
+
+            generatedLink = await createBrandedLink(phone, message);
+
+        } catch (error) {
+
+            console.warn('Using direct WhatsApp link:', error);
+        }
+
+        modalLink.value = generatedLink;
+
+        // Generate inline QR with current customization.
+        renderQr(inlineQr, generatedLink);
+
+        // Open popup and render its QR.
+        openModal();
+
+        generateBtn.disabled = false;
+
+        generateBtn.innerHTML =
+            '<i class="fas fa-magic mr-2"></i> Generate WhatsApp Link';
+    });
+
+    /* LIVE QR CUSTOMIZATION */
+
+    function refreshQrIfGenerated() {
+
+        qrSizeValue.textContent = qrSize.value + ' px';
+
+        if (generatedLink) {
+            renderAllQr();
+        }
+    }
+
+    qrColor.addEventListener('input', refreshQrIfGenerated);
+    qrColor.addEventListener('change', refreshQrIfGenerated);
+
+    qrBgColor.addEventListener('input', refreshQrIfGenerated);
+    qrBgColor.addEventListener('change', refreshQrIfGenerated);
+
+    qrSize.addEventListener('input', refreshQrIfGenerated);
+    qrSize.addEventListener('change', refreshQrIfGenerated);
+
+    /* RESET CUSTOMIZATION */
+
+    resetQr.addEventListener('click', function () {
+
+        qrColor.value = '#111827';
+        qrBgColor.value = '#ffffff';
+        qrSize.value = '220';
+
+        refreshQrIfGenerated();
+    });
+
+    /* FAQ ACCORDION */
+
+    document.querySelectorAll('.wa-faq details').forEach(function (detail) {
+
+        detail.addEventListener('toggle', function () {
+
+            if (!detail.open) return;
+
+            document.querySelectorAll('.wa-faq details').forEach(function (other) {
+
+                if (other !== detail) {
+                    other.open = false;
+                }
+            });
+        });
+    });
+
+});
+</script>
 
 </x-master-page>

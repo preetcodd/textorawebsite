@@ -1,961 +1,2235 @@
-<x-master-page title="Best Email Marketing Service | Textora SMS"
-    description="Use our Email Marketing Service for mass media-rich broadcasts. Send your promotional campaigns via our secure web panel. Grow your reach now!">
-    @php
-        function activeNav($path)
-        {
-            return Request::path() === $path ? 'text-green-700 font-semibold' : 'text-gray-700';
-        }
-    @endphp
-    @push('head-scripts')
-        <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Service",
-      "name": "Bulk Email Marketing Service",
-      "serviceType": "Email Marketing Solution",
-      "provider": {
-        "@type": "Organization",
-        "name": "Textora Email Marketing",
-        "url": "https://textorasms.com/email-marketing"
-      },
-      "description": "Send high-impact Email promotional Mails, alerts, and media-rich campaigns to thousands of users instantly with a 98% open rate.",
-      "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/InStock",
-        "areaServed": "IN"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Email Marketing Features",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Large-scale WhatsApp Outreach"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Email Broadcast Software"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Regional Language (Unicode) Support"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is Bulk Email Marketing legal in India?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, it is a widely used marketing practice. Our service provides a professional platform that allows you to send informational and promotional messages to your opted-in customer base following standard business guidelines."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I send 100,000 Emails without getting blocked?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Using a professional Bulk Email Sender Tool is key. Our platform uses advanced routing and virtual numbers to manage high volumes safely, ensuring your primary business number remains protected."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do I need to save the Email ID in my Laptop to send bulk Emails?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Our software allows you to upload thousands of Email ID via Excel or CSV. You can send to both saved and unsaved Email Id directly from our online web panel."
-          }
-        }
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://textorasms.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Bulk Email Marketing",
-          "item": "https://textorasms.com/email-marketing"
-        }
-      ]
-    }
-  ]
+
+<x-master-page
+    title="Email Marketing Services | Bulk Email Marketing Solutions | Textora SMS"
+    description="Grow your business with professional email marketing solutions from Textora. Create campaigns, reach your audience and build stronger customer relationships."
+>
+
+<style>
+.email-saas {
+    color: #17251c;
+    overflow: hidden;
 }
-</script>
-    @endpush
+
+.email-saas * {
+    box-sizing: border-box;
+}
+
+.email-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 0 24px;
+}
+
+.email-section {
+    padding: 85px 0;
+}
+
+.email-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #087849;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.email-eyebrow:before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: #16a36a;
+    border-radius: 10px;
+}
+
+.email-heading {
+    color: #14251a;
+    font-size: clamp(30px, 4vw, 43px);
+    font-weight: 850;
+    line-height: 1.17;
+    letter-spacing: -1.5px;
+}
+
+.email-description {
+    color: #68766d;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.email-primary-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 24px;
+    color: #fff !important;
+    background: #087849;
+    border: 1px solid #087849;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none !important;
+    transition: .25s ease;
+    box-shadow: 0 9px 22px rgba(8,120,73,.16);
+}
+
+.email-primary-btn:hover {
+    background: #06643d;
+    transform: translateY(-3px);
+}
+
+.email-secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 15px 22px;
+    color: #25372b !important;
+    background: #fff;
+    border: 1px solid #dfe8e1;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none !important;
+    transition: .25s ease;
+}
+
+.email-secondary-btn:hover {
+    border-color: #087849;
+    color: #087849 !important;
+    transform: translateY(-3px);
+}
+
+/* ========================================
+   HERO
+======================================== */
+
+.email-hero {
+    position: relative;
+    padding: 75px 0 85px;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(215,244,224,.55), transparent 31%),
+        linear-gradient(120deg, #ffffff 0%, #f9fcf9 100%);
+}
+
+.email-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.email-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.email-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 14px;
+    margin-bottom: 23px;
+    background: #edf8f0;
+    border: 1px solid #dcefe1;
+    border-radius: 50px;
+    color: #087849;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .7px;
+}
+
+.email-hero-title {
+    max-width: 600px;
+    margin: 0 0 22px;
+    color: #14251a;
+    font-size: clamp(39px, 5vw, 57px);
+    font-weight: 900;
+    line-height: 1.09;
+    letter-spacing: -2.7px;
+}
+
+.email-hero-title span {
+    color: #087849;
+}
+
+.email-hero-text {
+    max-width: 540px;
+    margin-bottom: 28px;
+    color: #66756b;
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.email-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.email-hero-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.email-hero-point {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #56665b;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.email-hero-point i {
+    color: #0b9a5b;
+}
+
+/* ========================================
+   CSS GENERATED HERO ILLUSTRATION
+======================================== */
+
+.email-visual {
+    position: relative;
+    width: 100%;
+    max-width: 590px;
+    height: 475px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+}
+
+.email-visual-bg {
+    position: absolute;
+    inset: 25px 5px;
+    border-radius: 48% 52% 45% 55%;
+    background:
+        radial-gradient(circle at 50% 48%, #e2f4e6 0%, #eef8f0 48%, #f8fcf8 75%);
+    z-index: -2;
+}
+
+.email-visual-orbit {
+    position: absolute;
+    width: 390px;
+    height: 390px;
+    border: 1px dashed rgba(8,120,73,.19);
+    border-radius: 50%;
+    animation: emailOrbit 35s linear infinite;
+}
+
+.email-visual-orbit:before,
+.email-visual-orbit:after {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #0b9660;
+    box-shadow: 0 0 0 7px rgba(11,150,96,.10);
+}
+
+.email-visual-orbit:before {
+    top: 50px;
+    left: 35px;
+}
+
+.email-visual-orbit:after {
+    right: 28px;
+    bottom: 65px;
+}
+
+@keyframes emailOrbit {
+    to { transform: rotate(360deg); }
+}
+
+/* Main dashboard */
+
+.email-dashboard {
+    position: relative;
+    z-index: 2;
+    width: 78%;
+    max-width: 430px;
+    padding: 22px;
+    background: rgba(255,255,255,.96);
+    border: 1px solid #e1ebe3;
+    border-radius: 19px;
+    box-shadow:
+        0 30px 75px rgba(24,66,39,.13),
+        0 5px 15px rgba(24,66,39,.05);
+    transform: rotate(-3deg);
+}
+
+.email-dashboard-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #edf1ed;
+}
+
+.email-dashboard-brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #26392d;
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.email-dashboard-brand i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: #eaf7ed;
+    color: #087849;
+}
+
+.email-dashboard-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    color: #07834d;
+    background: #eaf8ef;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.email-dashboard-heading {
+    margin-top: 19px;
+    color: #273a2d;
+    font-size: 14px;
+    font-weight: 850;
+}
+
+.email-dashboard-subtitle {
+    margin-top: 5px;
+    color: #95a097;
+    font-size: 9px;
+}
+
+.email-campaign-preview {
+    margin-top: 17px;
+    padding: 17px;
+    border: 1px solid #edf1ed;
+    border-radius: 12px;
+    background: #fbfdfb;
+}
+
+.email-preview-top {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 15px;
+}
+
+.email-preview-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    border-radius: 10px;
+    background: #eaf7ed;
+    color: #087849;
+    font-size: 15px;
+}
+
+.email-preview-lines {
+    flex: 1;
+}
+
+.email-line {
+    display: block;
+    height: 6px;
+    margin: 6px 0;
+    border-radius: 10px;
+    background: #e6ece7;
+}
+
+.email-line.long { width: 85%; }
+.email-line.short { width: 50%; }
+
+.email-preview-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 95px;
+    border-radius: 9px;
+    background: linear-gradient(120deg, #e4f5e8, #c9e9d2);
+    color: #087849;
+    font-size: 32px;
+}
+
+.email-preview-banner i {
+    filter: drop-shadow(0 8px 9px rgba(8,120,73,.15));
+}
+
+.email-preview-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 13px;
+}
+
+.email-preview-footer span {
+    width: 40%;
+    height: 6px;
+    border-radius: 10px;
+    background: #e6ece7;
+}
+
+.email-preview-footer b {
+    padding: 7px 13px;
+    border-radius: 6px;
+    background: #087849;
+    color: #fff;
+    font-size: 8px;
+}
+
+.email-dashboard-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+    margin-top: 15px;
+}
+
+.email-stat-box {
+    padding: 12px;
+    border: 1px solid #edf1ed;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.email-stat-box span {
+    display: block;
+    color: #89958c;
+    font-size: 9px;
+}
+
+.email-stat-box strong {
+    display: block;
+    margin-top: 6px;
+    color: #25392c;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.email-stat-box small {
+    display: block;
+    margin-top: 3px;
+    color: #0a9658;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+/* Floating cards */
+
+.email-float-card {
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px 15px;
+    border: 1px solid #e5ede6;
+    border-radius: 13px;
+    background: rgba(255,255,255,.97);
+    box-shadow: 0 15px 35px rgba(24,54,34,.12);
+    animation: emailFloat 4s ease-in-out infinite;
+}
+
+@keyframes emailFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+.email-float-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #edf8f0;
+    color: #087849;
+    font-size: 16px;
+}
+
+.email-float-card strong {
+    display: block;
+    color: #263c2d;
+    font-size: 10px;
+    font-weight: 850;
+}
+
+.email-float-card small {
+    display: block;
+    margin-top: 4px;
+    color: #89958c;
+    font-size: 8px;
+}
+
+.email-float-top {
+    top: 25px;
+    right: 0;
+}
+
+.email-float-bottom {
+    bottom: 34px;
+    left: -5px;
+    animation-delay: 1.5s;
+}
+
+/* Audience mini card */
+
+.email-mini-audience {
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    bottom: 90px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px solid #e5ede6;
+    border-radius: 11px;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(24,54,34,.10);
+}
+
+.email-mini-avatars {
+    display: flex;
+    padding-left: 4px;
+}
+
+.email-mini-avatars span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    margin-left: -5px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #dff1e3;
+    color: #087849;
+    font-size: 7px;
+    font-weight: 900;
+}
+
+.email-mini-audience strong {
+    display: block;
+    color: #304436;
+    font-size: 9px;
+}
+
+.email-mini-audience small {
+    display: block;
+    margin-top: 3px;
+    color: #94a096;
+    font-size: 7px;
+}
+
+/* ========================================
+   TRUST STRIP
+======================================== */
+
+.email-trust-strip {
+    padding: 24px 0;
+    background: #fff;
+    border-top: 1px solid #edf1ed;
+    border-bottom: 1px solid #edf1ed;
+}
+
+.email-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.email-trust-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.email-trust-item i {
+    color: #087849;
+    font-size: 21px;
+}
+
+.email-trust-item strong {
+    display: block;
+    color: #26392d;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.email-trust-item span {
+    display: block;
+    margin-top: 3px;
+    color: #87938a;
+    font-size: 10px;
+}
+
+/* ========================================
+   INTRODUCTION
+======================================== */
+
+.email-intro-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.email-intro-visual {
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #edf8ef, #f7fbf7);
+    border: 1px solid #e2eee4;
+}
+
+.email-intro-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    background: #fff;
+    border-radius: 35px;
+    color: #087849;
+    font-size: 65px;
+    box-shadow: 0 20px 45px rgba(8,120,73,.12);
+}
+
+.email-intro-tag {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 12px 15px;
+    background: #fff;
+    border: 1px solid #e5eee7;
+    border-radius: 11px;
+    box-shadow: 0 10px 25px rgba(20,57,35,.07);
+    color: #34483a;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.email-intro-tag i { color: #087849; }
+.email-intro-tag-one { top: 28px; left: 18px; }
+.email-intro-tag-two { right: 18px; bottom: 30px; }
+
+/* ========================================
+   FEATURES
+======================================== */
+
+.email-features-section,
+.email-workflow-section,
+.email-faq-section {
+    background: #f8fbf8;
+}
+
+.email-section-header {
+    max-width: 720px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.email-section-header .email-eyebrow {
+    justify-content: center;
+}
+
+.email-section-header .email-heading {
+    margin: 15px 0;
+}
+
+.email-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.email-feature-card {
+    padding: 28px 25px;
+    background: #fff;
+    border: 1px solid #e8eee9;
+    border-radius: 17px;
+    transition: .28s ease;
+}
+
+.email-feature-card:hover {
+    transform: translateY(-6px);
+    border-color: #c9e6d1;
+    box-shadow: 0 18px 38px rgba(24,54,34,.07);
+}
+
+.email-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 49px;
+    height: 49px;
+    margin-bottom: 20px;
+    border-radius: 13px;
+    background: #edf8f0;
+    color: #087849;
+    font-size: 20px;
+}
+
+.email-feature-card h3 {
+    margin-bottom: 10px;
+    color: #203528;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.email-feature-card p {
+    margin: 0;
+    color: #748077;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   AUDIENCE
+======================================== */
+
+.email-audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.email-audience-visual {
+    padding: 35px;
+    border-radius: 22px;
+    background: #f2f8f3;
+    border: 1px solid #e5eee6;
+}
+
+.email-audience-panel {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e8eee9;
+    border-radius: 16px;
+    box-shadow: 0 14px 35px rgba(24,54,34,.06);
+}
+
+.email-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.email-panel-header strong {
+    color: #26392d;
+    font-size: 13px;
+}
+
+.email-panel-header span {
+    padding: 6px 9px;
+    background: #edf8f0;
+    color: #087849;
+    border-radius: 7px;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.email-audience-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid #f0f3f0;
+}
+
+.email-audience-row:last-child { border-bottom: 0; }
+
+.email-audience-person {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.email-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: #edf8f0;
+    border-radius: 50%;
+    color: #087849;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.email-audience-person strong {
+    display: block;
+    color: #34483a;
+    font-size: 10px;
+}
+
+.email-audience-person small {
+    display: block;
+    margin-top: 3px;
+    color: #98a199;
+    font-size: 9px;
+}
+
+.email-audience-status {
+    color: #0b9660;
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.email-check-list {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.email-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.email-check-item i {
+    margin-top: 3px;
+    color: #0b9a5b;
+}
+
+.email-check-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #293d30;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.email-check-item span {
+    color: #78857c;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   WORKFLOW
+======================================== */
+
+.email-workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.email-workflow-card {
+    padding: 27px 22px;
+    background: #fff;
+    border: 1px solid #e7eee8;
+    border-radius: 16px;
+}
+
+.email-workflow-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 20px;
+    background: #edf8f0;
+    border-radius: 12px;
+    color: #087849;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.email-workflow-card h3 {
+    margin-bottom: 9px;
+    color: #26392d;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.email-workflow-card p {
+    margin: 0;
+    color: #7a867d;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   INDUSTRIES
+======================================== */
+
+.email-industry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.email-industry-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 19px 17px;
+    background: #fff;
+    border: 1px solid #e8eee9;
+    border-radius: 13px;
+    transition: .25s ease;
+}
+
+.email-industry-card:hover {
+    border-color: #b9ddc3;
+    background: #f8fcf9;
+    transform: translateY(-3px);
+}
+
+.email-industry-card i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #edf8f0;
+    color: #087849;
+    font-size: 16px;
+}
+
+.email-industry-card strong {
+    color: #334638;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* ========================================
+   WHY TEXTORA
+======================================== */
+
+.email-why-section {
+    background: #fff;
+    border-top: 1px solid #edf1ed;
+    border-bottom: 1px solid #edf1ed;
+}
+
+.email-why-grid {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.email-why-points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.email-why-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.email-why-point i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 37px;
+    height: 37px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #edf8f0;
+    color: #087849;
+    font-size: 14px;
+}
+
+.email-why-point strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #26392d;
+    font-size: 12px;
+    font-weight: 850;
+}
+
+.email-why-point span {
+    color: #7b887e;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+/* ========================================
+   FAQ
+======================================== */
+
+.email-faq-list {
+    max-width: 850px;
+    margin: auto;
+}
+
+.email-faq {
+    margin-bottom: 12px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e5ece6;
+    border-radius: 13px;
+}
+
+.email-faq button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 20px 22px;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    color: #293d30;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.email-faq button i {
+    color: #087849;
+    transition: .25s ease;
+}
+
+.email-faq.active button i {
+    transform: rotate(180deg);
+}
+
+.email-faq-answer {
+    display: none;
+    padding: 0 22px 20px;
+    color: #748077;
+    font-size: 12px;
+    line-height: 1.85;
+}
+
+.email-faq.active .email-faq-answer {
+    display: block;
+}
+
+/* ========================================
+   CTA
+======================================== */
+
+.email-final-cta {
+    padding: 75px 0;
+    background: linear-gradient(120deg, #075c39, #087849 60%, #0a8751);
+}
+
+.email-final-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.email-final-cta h2 {
+    max-width: 650px;
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(28px, 4vw, 39px);
+    font-weight: 850;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.email-final-cta p {
+    margin: 0;
+    color: rgba(255,255,255,.78);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.email-final-cta .email-primary-btn {
+    flex-shrink: 0;
+    background: #fff;
+    border-color: #fff;
+    color: #087849 !important;
+    box-shadow: none;
+}
+
+.email-final-cta .email-primary-btn:hover {
+    background: #edf8f0;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media(max-width:1024px) {
+    .email-hero-grid { gap: 25px; }
+    .email-hero-title { font-size: 45px; }
+    .email-feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .email-workflow-grid { grid-template-columns: repeat(2, 1fr); }
+    .email-industry-grid { grid-template-columns: repeat(2, 1fr); }
+    .email-why-grid { gap: 40px; }
+    .email-visual { transform: scale(.94); }
+}
+
+@media(max-width:767px) {
+    .email-container { padding: 0 19px; }
+    .email-section { padding: 60px 0; }
+    .email-hero { padding: 55px 0; }
+
+    .email-hero-grid,
+    .email-intro-grid,
+    .email-audience-grid,
+    .email-why-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .email-hero-title {
+        font-size: 39px;
+        letter-spacing: -1.8px;
+    }
+
+    .email-hero-text { font-size: 14px; }
+
+    .email-visual {
+        width: 100%;
+        height: 390px;
+        transform: none;
+    }
+
+    .email-visual-orbit {
+        width: 300px;
+        height: 300px;
+    }
+
+    .email-dashboard {
+        width: 82%;
+        padding: 15px;
+    }
+
+    .email-float-top {
+        top: 7px;
+        right: 0;
+    }
+
+    .email-float-bottom {
+        bottom: 15px;
+        left: 0;
+    }
+
+    .email-mini-audience {
+        right: 0;
+        bottom: 80px;
+    }
+
+    .email-float-card {
+        padding: 9px 10px;
+        gap: 7px;
+    }
+
+    .email-float-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+    }
+
+    .email-float-card strong { font-size: 8px; }
+    .email-float-card small { font-size: 7px; }
+
+    .email-trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px 10px;
+    }
+
+    .email-trust-item { justify-content: flex-start; }
+    .email-trust-item i { font-size: 18px; }
+    .email-trust-item strong { font-size: 10px; }
+    .email-trust-item span { font-size: 9px; }
+
+    .email-intro-visual { min-height: 280px; }
+
+    .email-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .email-feature-card { padding: 23px; }
+    .email-audience-visual { padding: 17px; }
+
+    .email-workflow-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .email-workflow-card { padding: 20px 16px; }
+
+    .email-industry-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .email-industry-card {
+        padding: 13px 10px;
+        gap: 8px;
+    }
+
+    .email-industry-card i {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .email-industry-card strong { font-size: 9px; }
+
+    .email-why-points {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .email-faq button {
+        padding: 17px;
+        font-size: 12px;
+    }
+
+    .email-faq-answer { padding: 0 17px 17px; }
+
+    .email-final-cta { padding: 55px 0; }
+
+    .email-final-cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media(max-width:380px) {
+    .email-hero-title { font-size: 34px; }
+    .email-workflow-grid { grid-template-columns: 1fr; }
+    .email-visual { height: 350px; }
+    .email-dashboard { width: 85%; }
+}
+</style>
 
 
+<div class="email-saas">
 
-    <!-- ===================== HERO SECTION ===================== -->
-    <section class="relative overflow-hidden email-banner md:block hidden">
-        <div class="relative max-w-7xl mx-auto px-6 text-white">
-            <div class="grid grid-cols-12">
-                <div class="col-span-7">
-                    <h1 class="xl:text-4xl lg:text-3xl text-2xl font-bold drop-shadow-lg pt-8 lg:pt-12">
-Grow Your Business with Bulk Email Marketing                    </h1>
+    <!-- HERO SECTION -->
 
-                    <p class="mt-2 md:mt-4 lg:text-base text-sm opacity-90 max-w-3xl">
-Grow your business with powerful Bulk Email Marketing. Send promotional emails, newsletters, product updates, and automated campaigns with high deliverability, advanced analytics, and real-time tracking.</p>
+    <section class="email-hero">
 
-                    <a href="{{ url('pricing-web') }}"
-                        class="mt-4 lg:mt-8 inline-block border me-4 border-white text-white lg:px-8 px-3 py-2 lg:py-3 rounded-xl shadow-lg lg:text-lg text-md font-semibold hover:scale-105 transition">
-                        Purchase Now <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <button onclick="openModall()"
-                        class="border border-white text-white md:w-auto w-fit px-3 lg:px-8 py-2 lg:py-3 mx-auto xl:mt-0 mt-3 rounded-lg lg:text-lg text-md font-semibold hover:bg-white hover:text-black transition duration-300 shadow-lg transform hover:scale-105">
-                        Book a Free Demo
-                    </button>
+        <div class="email-container">
+
+            <div class="email-hero-grid">
+
+                <div class="email-hero-content">
+
+                    <div class="email-hero-badge">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        SMART EMAIL MARKETING SOLUTIONS
+                    </div>
+
+                    <h1 class="email-hero-title">
+                        Emails That Connect.
+                        <span>Campaigns That Grow.</span>
+                    </h1>
+
+                    <p class="email-hero-text">
+                        Build meaningful customer relationships with professional
+                        email marketing solutions. Create engaging campaigns,
+                        reach your audience and keep your business connected
+                        with Textora.
+                    </p>
+
+                    <div class="email-hero-actions">
+
+                        <a href="javascript:void(0)"
+                           onclick="openModall()"
+                           class="email-primary-btn">
+                            Get Started
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="{{ url('pricing-web') }}"
+                           class="email-secondary-btn">
+                            Explore Pricing
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="email-hero-points">
+
+                        <div class="email-hero-point">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Business Communication
+                        </div>
+
+                        <div class="email-hero-point">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Campaign Management
+                        </div>
+
+                        <div class="email-hero-point">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Audience Engagement
+                        </div>
+
+                    </div>
+
                 </div>
+
+
+                <!-- CSS GENERATED EMAIL MARKETING VISUAL -->
+
+                <div class="email-visual">
+
+                    <div class="email-visual-bg"></div>
+
+                    <div class="email-visual-orbit"></div>
+
+
+                    <!-- MAIN EMAIL DASHBOARD -->
+
+                    <div class="email-dashboard">
+
+                        <div class="email-dashboard-top">
+
+                            <div class="email-dashboard-brand">
+                                <i class="fa-solid fa-envelope"></i>
+                                Campaign Studio
+                            </div>
+
+                            <span class="email-dashboard-status">
+                                <i class="fa-solid fa-circle-check"></i>
+                                Ready
+                            </span>
+
+                        </div>
+
+
+                        <div class="email-dashboard-heading">
+                            Email Campaign Preview
+                        </div>
+
+                        <div class="email-dashboard-subtitle">
+                            Your next business communication
+                        </div>
+
+
+                        <div class="email-campaign-preview">
+
+                            <div class="email-preview-top">
+
+                                <div class="email-preview-icon">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </div>
+
+                                <div class="email-preview-lines">
+                                    <span class="email-line long"></span>
+                                    <span class="email-line short"></span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="email-preview-banner">
+                                <i class="fa-solid fa-envelope-open-text"></i>
+                            </div>
+
+
+                            <div class="email-preview-footer">
+                                <span></span>
+                                <b>VIEW CAMPAIGN</b>
+                            </div>
+
+                        </div>
+
+
+                        <div class="email-dashboard-stats">
+
+                            <div class="email-stat-box">
+                                <span>Campaign Activity</span>
+                                <strong>
+                                    <i class="fa-solid fa-chart-line"
+                                       style="color:#087849;font-size:13px;"></i>
+                                </strong>
+                                <small>Track your campaigns</small>
+                            </div>
+
+                            <div class="email-stat-box">
+                                <span>Audience</span>
+                                <strong>
+                                    <i class="fa-solid fa-users"
+                                       style="color:#087849;font-size:13px;"></i>
+                                </strong>
+                                <small>Manage contacts</small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FLOATING CAMPAIGN CARD -->
+
+                    <div class="email-float-card email-float-top">
+
+                        <div class="email-float-icon">
+                            <i class="fa-solid fa-envelope-circle-check"></i>
+                        </div>
+
+                        <div>
+                            <strong>Email Campaigns</strong>
+                            <small>Business communication</small>
+                        </div>
+
+                    </div>
+
+
+                    <!-- FLOATING ANALYTICS CARD -->
+
+                    <div class="email-float-card email-float-bottom">
+
+                        <div class="email-float-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+
+                        <div>
+                            <strong>Campaign Insights</strong>
+                            <small>Review campaign activity</small>
+                        </div>
+
+                    </div>
+
+
+                    <!-- FLOATING AUDIENCE CARD -->
+
+                    <div class="email-mini-audience">
+
+                        <div class="email-mini-avatars">
+                            <span>A</span>
+                            <span>B</span>
+                            <span>C</span>
+                        </div>
+
+                        <div>
+                            <strong>Audience Management</strong>
+                            <small>Organised contacts</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
+
     </section>
 
-    {{-- mob banner section --}}
-   <div class="mob-banner block md:hidden relative bg-cover bg-center"
-     style="background-image: url('{{ URL::asset('images/banners/bulk-email-mobile.png') }}');
-            min-height:100vh;
-            background-size:cover;
-            background-position:center top;">
 
-    <div class="relative z-10 h-full flex flex-col items-center justify-start pt-[100px] px-4 text-center">
+    <!-- TRUST STRIP -->
 
-        <h3 class="text-white text-2xl font-bold drop-shadow-lg">
-            Grow Your Business with Bulk Email Marketing                    </h1>
+    <section class="email-trust-strip">
 
-        </h3>
+        <div class="email-container">
 
-        <h6 class="mt-3 text-white text-sm leading-6">
-            Grow your business with powerful Bulk Email Marketing. Send promotional emails, newsletters, product updates, and automated campaigns with high deliverability, advanced analytics, and real-time tracking..
-        </h6>
+            <div class="email-trust-grid">
 
-        <div class="flex flex-col gap-3 mt-15 w-fIT">
+                <div class="email-trust-item">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <div>
+                        <strong>Targeted Campaigns</strong>
+                        <span>Reach relevant audiences</span>
+                    </div>
+                </div>
 
-           <a href="{{ url('pricing-web') }}"
-   class="mt-8 inline-flex items-center justify-center border border-white text-white px-6 py-3 rounded-full text-sm font-semibold w-fit mx-auto">
-    Purchase Now
-    <i class="fa-solid fa-arrow-right ml-2"></i>
-</a>
-            
+                <div class="email-trust-item">
+                    <i class="fa-solid fa-envelope-circle-check"></i>
+                    <div>
+                        <strong>Business Emails</strong>
+                        <span>Professional communication</span>
+                    </div>
+                </div>
+
+                <div class="email-trust-item">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <div>
+                        <strong>Campaign Insights</strong>
+                        <span>Understand campaign activity</span>
+                    </div>
+                </div>
+
+                <div class="email-trust-item">
+                    <i class="fa-solid fa-headset"></i>
+                    <div>
+                        <strong>Dedicated Support</strong>
+                        <span>Assistance when you need it</span>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="email-section">
+
+        <div class="email-container">
+
+            <div class="email-intro-grid">
+
+                <div class="email-intro-visual">
+
+                    <div class="email-intro-icon">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+
+                    <div class="email-intro-tag email-intro-tag-one">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email Campaigns
+                    </div>
+
+                    <div class="email-intro-tag email-intro-tag-two">
+                        <i class="fa-solid fa-users"></i>
+                        Customer Engagement
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <span class="email-eyebrow">
+                        EMAIL MARKETING SERVICES
+                    </span>
+
+                    <h2 class="email-heading mt-4 mb-4">
+                        Make Every Email
+                        <span style="color:#087849;">Count.</span>
+                    </h2>
+
+                    <p class="email-description mb-4">
+                        Email remains an important channel for businesses to
+                        communicate with customers, share updates and build
+                        long-term relationships.
+                    </p>
+
+                    <p class="email-description mb-4">
+                        Textora helps businesses plan and manage email marketing
+                        campaigns that support their communication goals.
+                        Whether you want to share company updates, introduce
+                        a new product, announce an offer or stay connected
+                        with your audience, our solutions help simplify
+                        your email communication.
+                    </p>
+
+                    <a href="javascript:void(0)"
+                       onclick="openModall()"
+                       class="email-primary-btn">
+                        Discuss Your Requirements
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="email-section email-features-section">
+
+        <div class="email-container">
+
+            <div class="email-section-header">
+
+                <span class="email-eyebrow">WHAT WE OFFER</span>
+
+                <h2 class="email-heading">
+                    Everything You Need for
+                    <span style="color:#087849;">Email Marketing</span>
+                </h2>
+
+                <p class="email-description">
+                    Simplify your business communication with email marketing
+                    services designed to support your campaigns and customer
+                    engagement.
+                </p>
+
+            </div>
+
+
+            <div class="email-feature-grid">
+
+                <div class="email-feature-card">
+                    <div class="email-feature-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3>Bulk Email Campaigns</h3>
+                    <p>
+                        Plan and send business email campaigns to your intended
+                        audience for announcements, promotions and updates.
+                    </p>
+                </div>
+
+                <div class="email-feature-card">
+                    <div class="email-feature-icon">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <h3>Professional Email Content</h3>
+                    <p>
+                        Share clear and engaging email communication that
+                        represents your brand and communicates your message.
+                    </p>
+                </div>
+
+                <div class="email-feature-card">
+                    <div class="email-feature-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3>Audience Management</h3>
+                    <p>
+                        Organise your customer contacts and manage audience
+                        information for more relevant communication.
+                    </p>
+                </div>
+
+                <div class="email-feature-card">
+                    <div class="email-feature-icon">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+                    <h3>Campaign Planning</h3>
+                    <p>
+                        Organise your email communication around product
+                        launches, business updates and marketing activities.
+                    </p>
+                </div>
+
+                <div class="email-feature-card">
+                    <div class="email-feature-icon">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <h3>Campaign Reporting</h3>
+                    <p>
+                        Review available campaign activity and reporting
+                        information to understand your email communication.
+                    </p>
+                </div>
+
+                <div class="email-feature-card">
+                    <div class="email-feature-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h3>Business Support</h3>
+                    <p>
+                        Get assistance with your email marketing requirements
+                        and campaign-related queries.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AUDIENCE MANAGEMENT -->
+
+    <section class="email-section">
+
+        <div class="email-container">
+
+            <div class="email-audience-grid">
+
+                <div>
+
+                    <span class="email-eyebrow">
+                        CONNECT WITH YOUR AUDIENCE
+                    </span>
+
+                    <h2 class="email-heading mt-4 mb-4">
+                        Reach the Right Audience
+                        with <span style="color:#087849;">Relevant Emails.</span>
+                    </h2>
+
+                    <p class="email-description">
+                        Effective email communication starts with understanding
+                        your audience. Organise your contacts and plan campaigns
+                        around the interests and communication needs of your
+                        customers.
+                    </p>
+
+                    <div class="email-check-list">
+
+                        <div class="email-check-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong>Organised Contact Lists</strong>
+                                <span>
+                                    Keep your business contact information
+                                    organised for campaign planning.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="email-check-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong>Relevant Communication</strong>
+                                <span>
+                                    Plan messages based on customer interests
+                                    and business communication objectives.
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="email-check-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong>Better Campaign Planning</strong>
+                                <span>
+                                    Structure your email campaigns around
+                                    important business activities.
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="email-audience-visual">
+
+                    <div class="email-audience-panel">
+
+                        <div class="email-panel-header">
+                            <strong>Audience Overview</strong>
+                            <span>CONTACT LIST</span>
+                        </div>
+
+                        <div class="email-audience-row">
+                            <div class="email-audience-person">
+                                <div class="email-avatar">C</div>
+                                <div>
+                                    <strong>Customer Updates</strong>
+                                    <small>Business communication</small>
+                                </div>
+                            </div>
+                            <span class="email-audience-status">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </span>
+                        </div>
+
+                        <div class="email-audience-row">
+                            <div class="email-audience-person">
+                                <div class="email-avatar">M</div>
+                                <div>
+                                    <strong>Marketing Audience</strong>
+                                    <small>Promotional communication</small>
+                                </div>
+                            </div>
+                            <span class="email-audience-status">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </span>
+                        </div>
+
+                        <div class="email-audience-row">
+                            <div class="email-audience-person">
+                                <div class="email-avatar">N</div>
+                                <div>
+                                    <strong>New Subscribers</strong>
+                                    <small>Business updates</small>
+                                </div>
+                            </div>
+                            <span class="email-audience-status">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </span>
+                        </div>
+
+                        <div class="email-audience-row">
+                            <div class="email-audience-person">
+                                <div class="email-avatar">L</div>
+                                <div>
+                                    <strong>Lead Communication</strong>
+                                    <small>Customer enquiries</small>
+                                </div>
+                            </div>
+                            <span class="email-audience-status">
+                                <i class="fa-solid fa-check-circle"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WORKFLOW -->
+
+    <section class="email-section email-workflow-section">
+
+        <div class="email-container">
+
+            <div class="email-section-header">
+
+                <span class="email-eyebrow">HOW IT WORKS</span>
+
+                <h2 class="email-heading">
+                    Your Email Campaign,
+                    <span style="color:#087849;">Made Simple.</span>
+                </h2>
+
+                <p class="email-description">
+                    A straightforward approach to planning and managing
+                    your business email communication.
+                </p>
+
+            </div>
+
+
+            <div class="email-workflow-grid">
+
+                <div class="email-workflow-card">
+                    <div class="email-workflow-number">01</div>
+                    <h3>Understand Your Goals</h3>
+                    <p>
+                        Discuss your business objectives, audience and
+                        email communication requirements.
+                    </p>
+                </div>
+
+                <div class="email-workflow-card">
+                    <div class="email-workflow-number">02</div>
+                    <h3>Prepare Your Campaign</h3>
+                    <p>
+                        Organise your email content and campaign details
+                        according to your communication needs.
+                    </p>
+                </div>
+
+                <div class="email-workflow-card">
+                    <div class="email-workflow-number">03</div>
+                    <h3>Campaign Execution</h3>
+                    <p>
+                        Proceed with your planned email campaign using
+                        the agreed campaign requirements.
+                    </p>
+                </div>
+
+                <div class="email-workflow-card">
+                    <div class="email-workflow-number">04</div>
+                    <h3>Review Campaign Activity</h3>
+                    <p>
+                        Review available campaign information and plan
+                        your next communication activity.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INDUSTRIES -->
+
+    <section class="email-section">
+
+        <div class="email-container">
+
+            <div class="email-section-header">
+
+                <span class="email-eyebrow">INDUSTRIES WE SERVE</span>
+
+                <h2 class="email-heading">
+                    Email Marketing for
+                    <span style="color:#087849;">Every Business.</span>
+                </h2>
+
+                <p class="email-description">
+                    Support your customer communication across different
+                    industries with business-focused email marketing solutions.
+                </p>
+
+            </div>
+
+
+            <div class="email-industry-grid">
+
+                <div class="email-industry-card">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <strong>E-Commerce</strong>
+                </div>
+
+                <div class="email-industry-card">
+                    <i class="fa-solid fa-building"></i>
+                    <strong>Real Estate</strong>
+                </div>
+
+                <div class="email-industry-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <strong>Education</strong>
+                </div>
+
+                <div class="email-industry-card">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <strong>Healthcare</strong>
+                </div>
+
+                <div class="email-industry-card">
+                    <i class="fa-solid fa-landmark"></i>
+                    <strong>Financial Services</strong>
+                </div>
+
+                <div class="email-industry-card">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <strong>Professional Services</strong>
+                </div>
+
+                <div class="email-industry-card">
+                    <i class="fa-solid fa-hotel"></i>
+                    <strong>Travel & Hospitality</strong>
+                </div>
+
+                <div class="email-industry-card">
+                    <i class="fa-solid fa-store"></i>
+                    <strong>Retail & Businesses</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY CHOOSE TEXTORA -->
+
+    <section class="email-section email-why-section">
+
+        <div class="email-container">
+
+            <div class="email-why-grid">
+
+                <div>
+
+                    <span class="email-eyebrow">WHY TEXTORA</span>
+
+                    <h2 class="email-heading mt-4 mb-4">
+                        A Smarter Way to
+                        <span style="color:#087849;">Stay Connected.</span>
+                    </h2>
+
+                    <p class="email-description mb-4">
+                        Textora helps businesses simplify their digital
+                        communication with practical messaging and marketing
+                        solutions. Our focus is on reliable service,
+                        business requirements and customer support.
+                    </p>
+
+                    <a href="javascript:void(0)"
+                       onclick="openModall()"
+                       class="email-primary-btn">
+                        Talk to Our Team
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="email-why-points">
+
+                    <div class="email-why-point">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <div>
+                            <strong>Business-Focused Solutions</strong>
+                            <span>
+                                Communication services aligned with your
+                                business requirements.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="email-why-point">
+                        <i class="fa-solid fa-sliders"></i>
+                        <div>
+                            <strong>Flexible Campaign Planning</strong>
+                            <span>
+                                Plan campaigns according to your audience
+                                and communication goals.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="email-why-point">
+                        <i class="fa-solid fa-headset"></i>
+                        <div>
+                            <strong>Dedicated Assistance</strong>
+                            <span>
+                                Get support for your campaign and
+                                service-related requirements.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="email-why-point">
+                        <i class="fa-solid fa-comments"></i>
+                        <div>
+                            <strong>Multiple Communication Channels</strong>
+                            <span>
+                                Explore SMS, WhatsApp, RCS, voice and
+                                email solutions from one provider.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="email-why-point">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>
+                            <strong>Responsible Communication</strong>
+                            <span>
+                                Support permission-based and compliant
+                                customer communication practices.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="email-why-point">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <div>
+                            <strong>Growth-Oriented Approach</strong>
+                            <span>
+                                Build consistent communication as your
+                                business grows.
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="email-section email-faq-section">
+
+        <div class="email-container">
+
+            <div class="email-section-header">
+
+                <span class="email-eyebrow">
+                    FREQUENTLY ASKED QUESTIONS
+                </span>
+
+                <h2 class="email-heading">
+                    Everything You Need to
+                    <span style="color:#087849;">Know.</span>
+                </h2>
+
+                <p class="email-description">
+                    Find answers to common questions about our email
+                    marketing services.
+                </p>
+
+            </div>
+
+
+            <div class="email-faq-list">
+
+                <div class="email-faq active">
+
+                    <button type="button" onclick="toggleEmailFaq(this)">
+                        What is email marketing?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="email-faq-answer">
+                        Email marketing is a digital communication method
+                        that allows businesses to share promotional
+                        messages, company updates, product information
+                        and other relevant content with their audience
+                        through email.
+                    </div>
+
+                </div>
+
+
+                <div class="email-faq">
+
+                    <button type="button" onclick="toggleEmailFaq(this)">
+                        What types of email campaigns can I send?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="email-faq-answer">
+                        Businesses can use email campaigns for product
+                        announcements, promotional offers, newsletters,
+                        company updates, event invitations and other
+                        relevant business communications.
+                    </div>
+
+                </div>
+
+
+                <div class="email-faq">
+
+                    <button type="button" onclick="toggleEmailFaq(this)">
+                        Can I send bulk emails to my customers?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="email-faq-answer">
+                        Yes. Textora provides bulk email marketing
+                        solutions for businesses that need to communicate
+                        with their intended audience. Campaign requirements
+                        and available sending options can be discussed
+                        with our team.
+                    </div>
+
+                </div>
+
+
+                <div class="email-faq">
+
+                    <button type="button" onclick="toggleEmailFaq(this)">
+                        How can I get started with Textora?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="email-faq-answer">
+                        You can contact our team through the enquiry form
+                        on this website. Share your requirements, and our
+                        team will help you understand the suitable email
+                        marketing solution for your business.
+                    </div>
+
+                </div>
+
+
+                <div class="email-faq">
+
+                    <button type="button" onclick="toggleEmailFaq(this)">
+                        Does Textora provide other business messaging services?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <div class="email-faq-answer">
+                        Yes. Textora offers business communication solutions
+                        including WhatsApp Business API, bulk WhatsApp,
+                        RCS messaging, transactional SMS, promotional SMS
+                        and voice SMS, along with email marketing.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+
+    <section class="email-final-cta">
+
+        <div class="email-container">
+
+            <div class="email-final-cta-inner">
+
+                <div>
+
+                    <h2>
+                        Ready to Make Your Business Communication Better?
+                    </h2>
+
+                    <p>
+                        Let's plan email campaigns that help your business
+                        connect with customers and build lasting relationships.
+                    </p>
+
+                </div>
+
+                <a href="javascript:void(0)"
+                   onclick="openModall()"
+                   class="email-primary-btn">
+                    Get in Touch
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </div>
-    {{-- what is service section --}}
-    <section class="lg:py-20 md:py-10 py-6 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 md:gap-12">
-            <div class="flex flex-col justify-center">
-                <p class="text-sm text-[#4eb86a] font-semibold mb-2">Bulk Email Marketing</p>
-                <h2 class="lg:text-4xl sm:text-3xl text-2xl font-bold leading-snug mb-4">
-                    What Exactly Is Bulk Email Marketing?
 
-                </h2>
 
-                <p class="text-gray-600 mb-3">Think of it as the modern-day upgrade to the mass email—but without the
-                    "ignored" folder. Bulk Email Marketing is a strategy that lets businesses chat with thousands of
-                    customers at once, all while keeping that personal, one-on-one feel. </p>
-                <p class="text-gray-600 mb-8">
-                    Instead of being tied down by the limitations of the regular Emails  (like those tiny broadcast
-                    list caps), you use a professional provider to send out your Emails to the masses in one go.
-                </p>
-            </div>
-            <img src="{{ URL::asset('images/email.jpg') }}" alt="">
-        </div>
+<script>
+function toggleEmailFaq(button) {
 
+    const current = button.closest('.email-faq');
 
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8 md:gap-12 mt-12">
+    const allFaqs = document.querySelectorAll(
+        '.email-saas .email-faq'
+    );
 
-            <img src="{{ URL::asset('images/bulk-email.jpg') }}" alt=""
-                class="order-2 md:order-1">
-            <div class="flex flex-col justify-center order-1 md:order-2">
+    allFaqs.forEach(function(faq) {
 
-                <h2 class="lg:text-4xl sm:text-3xl text-2xl font-bold leading-snug mb-4 ">
-                    Expand Your Business with Bulk Email Campaign
-
-                </h2>
-
-                <p class="text-gray-600 mb-3"> Bulk Email Marketing is the most effective way for Indian businesses to
-                    communicate directly with their customers. Our Bulk Email Sender Tool allows you to send text,
-                    images, and videos to thousands of users instantly, bypassing the 256-contact limits of personal
-                    accounts. Unlike traditional Bulk Email Campaigns offers a 98% open rate, ensuring your
-                    brand message is seen and read by your target audience immediately. </p>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ===================== WHY WABA ===================== -->
-    <section class="lg:py-20 md:py-10 py-6">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto md:mb-16 mb-10">
-                <span class="text-[#049a3d] font-semibold tracking-wide uppercase md:text-sm text-xs">Bulk Email
-                    Service</span>
-                <h2 class="md:mt-2 mt-0 md:text-4xl sm:text-3xl text-2xl font-extrabold text-gray-900 tracking-tight">
-                    Why Email Marketing is the Secret Sauce for Business Growth
-                </h2>
-                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16 mt-2">
-                    Let’s be real: email inboxes are crowded and social media feeds are noisy. If you want your business
-                    to grow, you need to be where people actually look. Bulk Email Campaigns isn't just about sending
-                    texts; it’s about starting conversations in the most popular app on the planet.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 lg:gap-10 ma:gap-6 gap-4 text-center">
-
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 bg-white shadow-xl rounded-2xl transition group hover:text-white hover:bg-black">
-                    <i
-                        class="fa-solid fa-bullhorn md:text-4xl sm:text-3xl text-2xl text-green-600 mb-3 group-hover:text-white"></i>
-                    <h3 class="text-xl font-semibold">A Massive Playground</h3>
-                    <p class="text-gray-600 mt-2 group-hover:text-white">You’re tapping into a network of over 3 billion
-                        active users. Your customers are already there—you just need to join them.</p>
-                </div>
-
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 bg-white shadow-xl rounded-2xl transition group hover:text-white hover:bg-black">
-                    <i
-                        class="fa-solid fa-photo-film md:text-4xl sm:text-3xl text-2xl text-green-600 mb-3 group-hover:text-white"></i>
-                    <h3 class="text-xl font-semibold">The "5-Minute" Rule</h3>
-                    <p class="text-gray-600 mt-2 group-hover:text-white">With a 98% open rate, most Emails are read
-                        within five minutes. That’s five times more effective than email.</p>
-                </div>
-
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 bg-white shadow-xl rounded-2xl transition group hover:text-white hover:bg-black">
-                    <i
-                        class="fa-solid fa-shield md:text-4xl sm:text-3xl text-2xl text-green-600 mb-3 group-hover:text-white"></i>
-                    <h3 class="text-xl font-semibold">More Than Just Words</h3>
-                    <p class="text-gray-600 mt-2 group-hover:text-white"> Don't just tell them about your product—show
-                        them. Send high-def videos, browseable catalogs, or PDF brochures with clickable buttons that
-                        lead straight to a sale.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ===================== FEATURES ===================== -->
-    <section class="lg:py-20 md:py-10 py-6 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto md:mb-16 mb-10">
-                <span class="text-[#049a3d] font-semibold tracking-wide uppercase md:text-sm text-xs">Features</span>
-                <h2 class="md:mt-2 mt-0 md:text-4xl sm:text-3xl text-2xl font-extrabold text-gray-900 tracking-tight">
-                    Pro-Level Email Campaign Software Built for Your Success
-
-                </h2>
-                <p class="text-center text-gray-600 max-w-2xl mx-auto md:mb-16 mb-6 mt-2">
-                    Managing a large-scale outreach doesn't have to be a headache. Our platform is designed to handle
-                    the heavy lifting so you can focus on the "big picture" strategy.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 lg:gap-10 ma:gap-6 gap-4">
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 rounded-2xl shadow-xl business-feature-card relative group hover:text-white">
-                    <h3 class="font-semibold text-xl">Limitless Reach</h3>
-                    <p class="text-gray-600 mt-2 group-hover:text-white">Blast out updates to your entire contact list
-                        at once without hitting a wall.
-
-                    </p>
-                </div>
-
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 rounded-2xl shadow-xl business-feature-card relative group hover:text-white">
-                    <h3 class="font-semibold text-xl">Command Center</h3>
-                    <p class="text-gray-600 mt-2 group-hover:text-white">Use a sleek dashboard to track your campaigns
-                        and see what's working in real-time.</p>
-                </div>
-
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 rounded-2xl shadow-xl business-feature-card relative group hover:text-white">
-                    <h3 class="font-semibold text-xl">High Deliverability</h3>
-                    <p class="text-gray-600 mt-2 group-hover:text-white">We use professional virtual routing to ensure
-                        your Email actually land in the inbox, not in limbo.
-                    </p>
-                </div>
-
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 rounded-2xl shadow-xl business-feature-card relative group hover:text-white">
-                    <h3 class="font-semibold text-xl">Rich Content</h3>
-                    <p class="text-gray-600 mt-2 group-hover:text-white">Send long-form text (up to 1500 characters)
-                        plus images and files—all in one go.
-                    </p>
-                </div>
-
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 rounded-2xl shadow-xl business-feature-card relative group hover:text-white">
-                    <h3 class="font-semibold text-xl">Smart Safety</h3>
-                    <p class="text-gray-600 mt-2 group-hover:text-white">Our intelligent gateway is built to protect
-                        your Email id, allowing you to scale up to 100,000 Emails safely.</p>
-                </div>
-
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 rounded-2xl shadow-xl business-feature-card relative group hover:text-white">
-                    <h3 class="font-semibold text-xl">Full Transparency</h3>
-                    <p class="text-gray-600 mt-2 group-hover:text-white">Check your logs to see exactly who received
-                        your Emails and when.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== Benefits ===================== -->
-    <section class="lg:py-20 md:py-10 py-6">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
-
-            <div class="flex flex-col justify-center">
-                <p class="text-sm text-[#4eb86a] font-semibold mb-2">Benefits</p>
-                <h2 class="md:text-4xl sm:text-3xl text-2xl font-bold leading-snug mb-4">
-                    Turn Conversations into Revenue with Email Marketing
-                </h2>
-
-                <p class="text-gray-600 mb-8">
-                    At the end of the day, marketing is about ROI. Emails allows you to build a direct bridge to your
-                    customers that feels personal, not "salesy."
-                </p>
-
-                <a href="{{ url('pricing-web') }}"
-                    class="bg-gradient-to-r from-[#1d8b41] to-[#4eb86a] text-white font-semibold px-6 py-3 rounded-lg flex items-center gap-2 w-fit">
-                    View Bulk Email Pricing
-                    <span class="text-xl">→</span>
-                </a>
-            </div>
-
-            <div class="grid sm:grid-cols-2 md:gap-6 gap-4">
-
-                <!-- Boost Customer Engagement -->
-                <div class="xl:p-8 lg:p-6 md:p-4 p-3 bg-white shadow-sm border rounded-xl hover:border-green-700">
-                    <i class="fa-solid fa-comments-dollar text-[#4eb86a] md:text-4xl sm:text-3xl text-2xl"></i>
-                    <h4 class="font-semibold text-lg mb-2">Talk, Don’t Just Broadcast</h4>
-                    <p class="text-gray-600 text-sm">
-                        Use two-way messaging to answer questions and close deals faster.
-                    </p>
-                </div>
-
-                <!-- Save Time and Resources -->
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 bg-white shadow-sm border rounded-xl lg:mt-5 mt-0 hover:border-green-700">
-                    <i class="fa-solid fa-robot text-[#4eb86a] md:text-4xl sm:text-3xl text-2xl"></i>
-                    <h4 class="font-semibold text-lg mb-2">Keep Your Budget Happy</h4>
-                    <p class="text-gray-600 text-sm">
-                        Stop overspending on ads that get scrolled past. Email is a cost-effective way to get better
-                        results.
-                    </p>
-                </div>
-
-                <!-- Enhance Customer Support -->
-                <div class="xl:p-8 lg:p-6 md:p-4 p-3 bg-white shadow-sm border rounded-xl hover:border-green-700">
-                    <i class="fa-solid fa-headset text-[#4eb86a] md:text-4xl sm:text-3xl text-2xl"></i>
-                    <h4 class="font-semibold text-lg mb-2">Information at Their Fingertips</h4>
-                    <p class="text-gray-600 text-sm">
-                        Send price lists or seasonal catalogs instantly so your customers have everything they need to
-                        say "yes."
-
-                    </p>
-                </div>
-
-                <!-- Increase Conversions -->
-                <div
-                    class="xl:p-8 lg:p-6 md:p-4 p-3 bg-white shadow-sm border rounded-xl lg:mt-3 mt-0 hover:border-green-700">
-                    <i class="fa-solid fa-cart-arrow-down text-[#4eb86a] md:text-4xl sm:text-3xl text-2xl"></i>
-                    <h4 class="font-semibold text-lg mb-2">Convert Faster </h4>
-                    <p class="text-gray-600 text-sm">
-                        When you reach someone directly on their phone with a clear call-to-action, "browsers" become
-                        "buyers" in record time.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section class="py-20  bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-
-            <!-- Section Heading -->
-            <div class="text-center mb-14">
-                <span class="text-[#049a3d] font-semibold tracking-wide uppercase md:text-sm text-xs">How It
-                    Works</span>
-                <h2
-                    class="md:mt-2 mt-0 md:text-4xl sm:text-3xl text-2xl font-extrabold text-gray-900 tracking-tight mb-4">
-                    Launch Your Bulk Email Marketing Campaign in 5 Simple Steps
-
-                </h2>
-                <p class="text-gray-600 mb-8">
-                    Getting your message out shouldn't feel like rocket science. We’ve streamlined the process so you
-                    can go from "idea" to "inbox" in just a few minutes. Here is how it works:
-                </p>
-            </div>
-            <div class="relative">
-                <div class="absolute inset-y-0 left-1/2 w-0.5 bg-gray-200 hidden md:block transform -translate-x-1/2">
-                </div>
-
-                <ul class="space-y-4">
-
-                    <li class="relative md:flex items-start md:justify-start">
-                        <div
-                            class="md:absolute md:left-1/2 md:top-0 md:transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#157b42] text-white text-xl font-bold shadow-xl z-10 mx-auto md:mx-0">
-                            01
-                        </div>
-
-                        <div
-                            class="group bg-service-1 lg:p-6 p-3 rounded-xl shadow-lg text-center md:text-left border border-gray-100 mt-4 md:mt-0 md:w-[45%] transition duration-500 ease-in-out hover:shadow-lg hover:border-gray-300">
-                            <h4 class="md:text-2xl text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700">
-                                Quick Sign-Up</h4>
-                            <p class="text-gray-600">Create your account and get instant access to your new marketing
-                                dashboard. It’s your new home base for everything Email.</p>
-                        </div>
-                    </li>
-
-                    <li class="relative md:flex items-start md:justify-end">
-                        <div
-                            class="md:absolute md:left-1/2 md:top-0 md:transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#157b42] text-white text-xl font-bold shadow-xl z-10 mx-auto md:mx-0">
-                            02
-                        </div>
-
-                        <div
-                            class="group bg-service-2 lg:p-6 p-3 rounded-xl shadow-lg text-center md:text-left border border-gray-100 mt-4 md:mt-0 md:w-[45%] transition duration-500 ease-in-out hover:shadow-lg hover:border-gray-300">
-                            <h4 class="md:text-2xl text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700">
-                                Craft Your Message
-                            </h4>
-                            <p class="text-gray-600">Write a message that sounds like you. Add a catchy image, a
-                                helpful
-                                video, or a PDF to make it pop and keep your audience engaged.
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="relative md:flex items-start md:justify-start">
-                        <div
-                            class="md:absolute md:left-1/2 md:top-0 md:transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#157b42] text-white text-xl font-bold shadow-xl z-10 mx-auto md:mx-0">
-                            03
-                        </div>
-
-                        <div
-                            class="group bg-service-3 lg:p-6 p-3 rounded-xl shadow-lg text-center md:text-left border border-gray-100 mt-4 md:mt-0 md:w-[45%] transition duration-500 ease-in-out hover:shadow-lg hover:border-gray-300">
-                            <h4 class="md:text-2xl text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700">
-                                Upload Your Contacts
-                            </h4>
-                            <p class="text-gray-600"> No need to type numbers one by one. Simply drop in your existing
-                                customer list from an Excel or CSV file, and you’re ready to go.</p>
-                        </div>
-                    </li>
-
-                    <li class="relative md:flex items-start md:justify-end">
-                        <div
-                            class="md:absolute md:left-1/2 md:top-0 md:transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#157b42] text-white text-xl font-bold shadow-xl z-10 mx-auto md:mx-0">
-                            04
-                        </div>
-
-                        <div
-                            class="group bg-service-4 lg:p-6 p-3 rounded-xl shadow-lg text-center md:text-left border border-gray-100 mt-4 md:mt-0 md:w-[45%] transition duration-500 ease-in-out hover:shadow-lg hover:border-gray-300">
-                            <h4 class="md:text-2xl text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700">
-                                Hit Send
-                            </h4>
-                            <p class="text-gray-600">With one click, our software takes over. It handles the heavy
-                                lifting, delivering your broadcast to thousands of customers simultaneously.</p>
-                        </div>
-                    </li>
-
-                    <li class="relative md:flex items-start md:justify-start">
-                        <div
-                            class="md:absolute md:left-1/2 md:top-0 md:transform md:-translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-[#157b42] text-white text-xl font-bold shadow-xl z-10 mx-auto md:mx-0">
-                            05
-                        </div>
-
-                        <div
-                            class="group bg-service-5 lg:p-6 p-3 rounded-xl shadow-lg text-center md:text-left border border-gray-100 mt-4 md:mt-0 md:w-[45%] transition duration-500 ease-in-out hover:shadow-lg hover:border-gray-300">
-                            <h4 class="md:text-2xl text-xl font-bold text-gray-900 mb-2 group-hover:text-green-700">
-                                See What’s Working</h4>
-                            <p class="text-gray-600">Don’t fly blind. Use your web panel to see exactly who received
-                                your message and track your responses in real-time.</p>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================== INDUSTRIES ===================== -->
-    <section class="lg:py-20 md:py-10 py-6">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto md:mb-16 mb-10">
-                <span class="text-[#049a3d] font-semibold tracking-wide uppercase md:text-sm text-xs">Industry</span>
-                <h2 class="md:mt-2 mt-0 md:text-4xl sm:text-3xl text-2xl font-extrabold text-gray-900 tracking-tight">
-                    Personalized Mass Bulk Email Campaigns for Every Sector
-
-                </h2>
-                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16 mt-2">
-                    Reach customers instantly with rich, personalized Email notifications tailored for your
-                    business—across multiple sectors and use cases.
-                </p>
-            </div>
-
-            <!-- Grid : 3 x 2 -->
-            <div class="grid md:grid-cols-3 gap-4">
-
-                <!-- E-commerce & Retail -->
-                <div
-                    class="bg-white shadow-md xl:p-8 lg:p-6 md:p-4 p-3 text-center rounded-lg border group hover:bg-black hover:text-white transition">
-                    <i
-                        class="fa-solid fa-cart-shopping md:text-4xl sm:text-3xl text-2xl text-green-600 mb-4 group-hover:text-white"></i>
-                    <h3 class="font-semibold text-xl mb-2">Retail & E-commerce</h3>
-                    <p class="text-gray-600 group-hover:text-white">
-                        Send flash sale alerts, new arrival photos, and order updates to your customers.
-                    </p>
-                </div>
-
-                <!-- Healthcare -->
-                <div
-                    class="bg-white shadow-md xl:p-8 lg:p-6 md:p-4 p-3 text-center rounded-lg border group hover:bg-black hover:text-white transition">
-                    <i
-                        class="fa-solid fa-heart-pulse md:text-4xl sm:text-3xl text-2xl text-green-600 mb-4 group-hover:text-white"></i>
-                    <h3 class="font-semibold text-xl mb-2">Healthcare</h3>
-                    <p class="text-gray-600 group-hover:text-white">
-                        Share health tips and informative brochures directly with your patients.
-
-                    </p>
-                </div>
-
-                <!-- Education -->
-                <div
-                    class="bg-white shadow-md xl:p-8 lg:p-6 md:p-4 p-3 text-center rounded-lg border group hover:bg-black hover:text-white transition">
-                    <i
-                        class="fa-solid fa-graduation-cap md:text-4xl sm:text-3xl text-2xl text-green-600 mb-4 group-hover:text-white"></i>
-                    <h3 class="font-semibold text-xl mb-2">Education</h3>
-                    <p class="text-gray-600 group-hover:text-white">
-                        Broadcast school news, fee reminders, and event invites to parents and students.
-
-                    </p>
-                </div>
-
-                <!-- Banking & Finance -->
-                <div
-                    class="bg-white shadow-md xl:p-8 lg:p-6 md:p-4 p-3 text-center rounded-lg border group hover:bg-black hover:text-white transition">
-                    <i
-                        class="fa-solid fa-landmark md:text-4xl sm:text-3xl text-2xl text-green-600 mb-4 group-hover:text-white"></i>
-                    <h3 class="font-semibold text-xl mb-2">Banking & Finance</h3>
-                    <p class="text-gray-600 group-hover:text-white">
-                        Deliver informational alerts and loan offer brochures via secure routing.
-
-                    </p>
-                </div>
-
-                <!-- Events & Hospitality -->
-                <div
-                    class="bg-white shadow-md xl:p-8 lg:p-6 md:p-4 p-3 text-center rounded-lg border group hover:bg-black hover:text-white transition">
-                    <i
-                        class="fa-solid fa-house md:text-4xl sm:text-3xl text-2xl text-green-600 mb-4 group-hover:text-white"></i>
-                    <h3 class="font-semibold text-xl mb-2">Real Estate</h3>
-                    <p class="text-gray-600 group-hover:text-white">
-                        Send site-visit invites and property PDF catalogs to potential leads instantly.
-                    </p>
-                </div>
-
-                <!-- Event Management -->
-                <div
-                    class="bg-white shadow-md xl:p-8 lg:p-6 md:p-4 p-3 text-center rounded-lg border group hover:bg-black hover:text-white transition">
-                    <i
-                        class="fa-solid fa-layer-group md:text-4xl sm:text-3xl text-2xl text-green-600 mb-4 group-hover:text-white"></i>
-                    <h3 class="font-semibold text-xl mb-2">Events & Hospitality</h3>
-                    <p class="text-gray-600 group-hover:text-white">
-                        Share event schedules, ticket images, and guest reminders.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    {{-- WHY CHOOSE US --}}
-    <section class="lg:py-20 md:py-16 py-10 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-
-            <p class="text-sm font-semibold tracking-widest text-green-700 uppercase text-center mb-2">
-                WHY CHOOSE US
-            </p>
-            <h2 class="md:text-4xl sm:text-3xl text-2xl font-extrabold text-gray-900 text-center max-w-4xl mx-auto">
-                India’s Most Reliable Best Bulk Email Messaging Service
-
-            </h2>
-            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-16 mt-2">
-                Finding a reliable partner for your business shouldn't be a headache. We’ve built a platform that
-                combines power with simplicity, helping Indian businesses connect with their customers where they
-                actually hang out.
-            </p>
-            <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-8 text-center">
-
-                <div
-                    class="group bg-service-1 p-8 rounded-xl shadow-lg border-b-4 border-b-white 
-                        hover:border-b-green-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-
-                    <div class="flex items-center justify-center w-full mb-6">
-                        <div
-                            class="flex items-center justify-center w-14 h-14 rounded-full bg-[#15803d0f] transition duration-300">
-                            <i class="fa-solid fa-list-check text-2xl text-green-700"></i>
-                        </div>
-                    </div>
-
-                    <h3 class="font-extrabold text-xl text-gray-900 mb-2">Everything You Need in One Place</h3>
-
-                    <div class="w-10 h-0.5 bg-black mb-4 transition-all duration-300 group-hover:w-20 mx-auto"></div>
-
-                    <p class="text-gray-600">
-                        From smart contact filters that keep your lists clean to full media support for your photos and
-                        videos—we’ve got you covered.
-
-                    </p>
-                </div>
-
-                <div
-                    class="group bg-service-2 p-8 rounded-xl shadow-lg border-b-4 border-b-white 
-                        hover:border-b-green-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="flex items-center justify-center w-full mb-6">
-                        <div
-                            class="flex items-center justify-center w-14 h-14 rounded-full bg-[#15803d0f] transition duration-300">
-                            <i class="fa-solid fa-circle-check text-2xl text-green-700"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-extrabold text-xl text-gray-900 mb-2">A Community of Growth</h3>
-                    <div class="w-10 h-0.5 bg-black mb-4 transition-all duration-300 group-hover:w-20 mx-auto"></div>
-                    <p class="text-gray-600">
-                        You’re in good company. Join over 5,000 businesses who trust our software every day to reach
-                        their goals.
-                    </p>
-                </div>
-
-                <div
-                    class="group bg-service-3 p-8 rounded-xl shadow-lg border-b-4 border-b-white 
-                        hover:border-b-green-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="flex items-center justify-center w-full mb-6">
-                        <div
-                            class="flex items-center justify-center w-14 h-14 rounded-full bg-[#15803d0f] transition duration-300">
-                            <i class="fa-solid fa-gear text-2xl text-green-700"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-extrabold text-xl text-gray-900 mb-2">Pricing That Makes Sense</h3>
-                    <div class="w-10 h-0.5 bg-black mb-4 transition-all duration-300 group-hover:w-20 mx-auto"></div>
-                    <p class="text-gray-600">
-                        We believe in honest, competitive pricing. No hidden fees, no "gotchas"—just straightforward
-                        plans that fit your budget.
-                    </p>
-                </div>
-
-                <div
-                    class="group bg-service-4 p-8 rounded-xl shadow-lg border-b-4 border-b-white 
-                        hover:border-b-green-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="flex items-center justify-center w-full mb-6">
-                        <div
-                            class="flex items-center justify-center w-14 h-14 rounded-full bg-[#15803d0f] transition duration-300">
-                            <i class="fa-solid fa-lock text-2xl text-green-700"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-extrabold text-xl text-gray-900 mb-2">We’ve Got Your Back, 24/7</h3>
-                    <div class="w-10 h-0.5 bg-black mb-4 transition-all duration-300 group-hover:w-20 mx-auto"></div>
-                    <p class="text-gray-600">
-                        Marketing doesn't stop, and neither do we. Our support team is always a message away whenever
-                        you need a hand.
-                    </p>
-                </div>
-
-                <div
-                    class="group bg-service-5 p-8 rounded-xl shadow-lg border-b-4 border-b-white 
-                        hover:border-b-green-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="flex items-center justify-center w-full mb-6">
-                        <div
-                            class="flex items-center justify-center w-14 h-14 rounded-full bg-[#15803d0f] transition duration-300">
-                            <i class="fa-solid fa-life-ring text-2xl text-green-700"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-extrabold text-xl text-gray-900 mb-2">Start Messaging in Minutes</h3>
-                    <div class="w-10 h-0.5 bg-black mb-4 transition-all duration-300 group-hover:w-20 mx-auto"></div>
-                    <p class="text-gray-600">
-                        You don't need to be a tech wizard. Our interface is so simple that you can send your first
-                        campaign almost as soon as you sign up.
-                    </p>
-                </div>
-
-                <div
-                    class="group bg-service-6 p-8 rounded-xl shadow-lg border-b-4 border-b-white 
-                        hover:border-b-green-700 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                    <div class="flex items-center justify-center w-full mb-6">
-                        <div
-                            class="flex items-center justify-center w-14 h-14 rounded-full bg-[#15803d0f] transition duration-300">
-                            <i class="fa-solid fa-dollar-sign text-2xl text-green-700"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-extrabold text-xl text-gray-900 mb-2">Grows With You</h3>
-                    <div class="w-10 h-0.5 bg-black mb-4 transition-all duration-300 group-hover:w-20 mx-auto"></div>
-                    <p class="text-gray-600">
-                        Whether you’re a local boutique or a national enterprise, our system scales to handle your
-                        ambition.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    {{-- cta section --}}
-    <section class="relative w-full lg:py-20 md:py-10 py-6 overflow-hidden comn-cta-section">
-        <!-- Content -->
-        <div class="relative z-10 max-w-4xl mx-auto text-center px-5">
-            <h2 class="text-white md:md:text-4xl sm:text-3xl text-2xl font-semibold mb-4">
-                Ready to Reach Millions with Bulk Email Marketing?
-            </h2>
-
-            <p class="text-white text-lg md:text-xl mb-8">
-                Stop waiting. Use our fast and secure Bulk Email Sender Tool to grow your business revenue today.
-            </p>
-
-            <button id="ctaBtn" onclick="openModall()"
-                class="bg-gradient-to-r from-[#1d8b41] to-[#4eb86a] transition md:px-10 px-4 md:py-4 py-2 
-           text-white font-semibold text-lg rounded shadow-lg">
-                Request A Free Demo
-            </button>
-        </div>
-    </section>
-
-
-    <!-- ===================== FAQ ===================== -->
-    <section class="lg:py-20 md:py-10 py-6">
-        <div class="w-full md:max-w-6xl mx-auto px-6">
-            <h2 class="md:text-4xl sm:text-3xl text-2xl font-bold text-center mb-12">Frequently Asked Questions (FAQs)
-            </h2>
-            <div class="grid grid-cols-12 lg:gap-10 ma:gap-6 gap-4">
-                <div class="col-span-12 mb-10 md:mb-0">
-                    <div class="space-y-4">
-                        <!-- Accordion Item 1 -->
-                        <div class="border-b px-5 bg-white rounded-xl border-slate-200">
-                            <button onclick="toggleAccordion(1)"
-                                class="w-full flex justify-between text-lg items-center py-5 text-slate-800">
-                                <span class="text-left"> Is Bulk Email Marketing legal in India?</span>
-                                <span id="icon-1" class="text-slate-800 transition-transform duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                                        class="w-4 h-4">
-                                        <path
-                                            d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-                                    </svg>
-                                </span>
-                            </button>
-                            <div id="content-1"
-                                class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="pb-5 text-sm text-slate-500">
-                                    Yes, it is a widely used marketing practice. Our Bulk Email Marketing Service
-                                    provides a professional platform that allows you to send informational and
-                                    promotional Emails to your opted-in customer base following standard business
-                                    guidelines.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Accordion Item 2 -->
-                        <div class="border-b px-5 bg-white rounded-xl border-slate-200">
-                            <button onclick="toggleAccordion(2)"
-                                class="w-full flex justify-between text-lg items-center py-5 text-slate-800">
-                                <span class="text-left"> How can I send 100,000 Emails without getting
-                                    blocked?
-                                </span>
-                                <span id="icon-2" class="text-slate-800 transition-transform duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                                        class="w-4 h-4">
-                                        <path
-                                            d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-                                    </svg>
-                                </span>
-                            </button>
-                            <div id="content-2"
-                                class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="pb-5 text-sm text-slate-500">
-                                    Using a professional Bulk Email Sender Tool is key. Our platform uses advanced
-                                    routing and virtual numbers to manage high volumes safely, ensuring your primary
-                                    business number remains protected while you reach a massive audience.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Accordion Item 3 -->
-                        <div class="border-b px-5 bg-white rounded-xl border-slate-200">
-                            <button onclick="toggleAccordion(3)"
-                                class="w-full flex justify-between text-lg items-center py-5 text-slate-800">
-                                <span class="text-left"> Do I need to save the Emails id in my sytem to send bulk
-                                    Email? </span>
-                                <span id="icon-3" class="text-slate-800 transition-transform duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                                        class="w-4 h-4">
-                                        <path
-                                            d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-                                    </svg>
-                                </span>
-                            </button>
-                            <div id="content-3"
-                                class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="pb-5 text-sm text-slate-500">
-                                    No. Our Bulk Email Broadcast Software allows you to upload thousands of Emails  via
-                                    Excel or CSV. You can send Emails to both saved and unsaved contacts directly from
-                                    our online web panel.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Accordion Item 4 -->
-                        <div class="border-b px-5 bg-white rounded-xl border-slate-200">
-                            <button onclick="toggleAccordion(4)"
-                                class="w-full flex justify-between text-lg items-center py-5 text-slate-800">
-                                <span class="text-left">What kind of media can I send in a bulk Email
-                                    broadcast?</span>
-                                <span id="icon-4" class="text-slate-800 transition-transform duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                                        class="w-4 h-4">
-                                        <path
-                                            d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-                                    </svg>
-                                </span>
-                            </button>
-                            <div id="content-4"
-                                class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="pb-5 text-sm text-slate-500">You can send Email up to 20000
-                                    characters along with media files like images, videos, and PDF documents (up to 2MB
-                                    each). This makes it the best Bulk Email messaging service for sharing catalogs
-                                    and brochures.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Accordion Item 5 -->
-                        <div class="border-b px-5 bg-white rounded-xl border-slate-200">
-                            <button onclick="toggleAccordion(5)"
-                                class="w-full flex justify-between text-lg items-center py-5 text-slate-800">
-                                <span class="text-left">How long does it take for Emails to be delivered?
-                                </span>
-                                <span id="icon-4" class="text-slate-800 transition-transform duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                                        class="w-4 h-4">
-                                        <path
-                                            d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-                                    </svg>
-                                </span>
-                            </button>
-                            <div id="content-5"
-                                class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="pb-5 text-sm text-slate-500">Delivery usually happens within minutes. For
-                                    very large volumes, our Bulk Email Notifications system ensures completion within
-                                    1 to 4 hours, maintaining a steady flow to maximize delivery success.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Accordion Item 6 -->
-                        <div class="border-b px-5 bg-white rounded-xl border-slate-200">
-                            <button onclick="toggleAccordion(6)"
-                                class="w-full flex justify-between text-lg items-center py-5 text-slate-800">
-                                <span class="text-left">Can I see who received my Emails?
-                                </span>
-                                <span id="icon-4" class="text-slate-800 transition-transform duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                                        class="w-4 h-4">
-                                        <path
-                                            d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-                                    </svg>
-                                </span>
-                            </button>
-                            <div id="content-6"
-                                class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="pb-5 text-sm text-slate-500">Yes. Our dashboard provides a real-time
-                                    history
-                                    and delivery logs. You can track which Email were successfully delivered to your
-                                    audience through our EmailCampaign Management interface.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Accordion Item 7 -->
-                        <div class="border-b px-5 bg-white rounded-xl border-slate-200">
-                            <button onclick="toggleAccordion(7)"
-                                class="w-full flex justify-between text-lg items-center py-5 text-slate-800">
-                                <span class="text-left">Does your platform support regional Indian languages?
-
-                                </span>
-                                <span id="icon-4" class="text-slate-800 transition-transform duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                                        class="w-4 h-4">
-                                        <path
-                                            d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-                                    </svg>
-                                </span>
-                            </button>
-                            <div id="content-7"
-                                class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <div class="pb-5 text-sm text-slate-500">Yes. Our Email Campaign Software supports
-                                    Unicode, allowing you to send Email in Hindi, Kannada, Tamil, Telugu, and other
-                                    regional languages to connect with your local audience more effectively.
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function toggleAccordion(index) {
-            const content = document.getElementById(`content-${index}`);
-            const icon = document.getElementById(`icon-${index}`);
-
-            // SVG for Minus icon
-            const minusSVG = `
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
-                <path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" />
-            </svg>
-            `;
-
-            // SVG for Plus icon
-            const plusSVG = `
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
-                <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-            </svg>
-            `;
-
-            // Toggle the content's max-height for smooth opening and closing
-            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-                content.style.maxHeight = '0';
-                icon.innerHTML = plusSVG;
-            } else {
-                content.style.maxHeight = content.scrollHeight + 'px';
-                icon.innerHTML = minusSVG;
-            }
+        if (faq !== current) {
+            faq.classList.remove('active');
         }
-    </script>
+
+    });
+
+    current.classList.toggle('active');
+
+}
+</script>
 
 </x-master-page>

@@ -64,7 +64,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <!-- Breadcrumb Navigation -->
-        <nav class="flex items-center gap-2 text-xs text-slate-500 mb-6 sm:mb-8" aria-label="Breadcrumb">
+        <nav class="flex items-center gap-2 text-xs text-slate-500  mt-6 sm:mt-8 mb-6 sm:mb-8" aria-label="Breadcrumb">
             <a href="{{ url('/') }}" class="hover:text-emerald-700 transition flex items-center gap-1.5 font-medium">
                 <i class="fa-solid fa-house text-[11px] text-slate-400"></i> Home
             </a>
@@ -208,111 +208,242 @@
 </section>
 
 <!-- =========================================================
-     OUR TRUSTED PARTNERS CAROUSEL (BEST-IN-CLASS, PROMINENT & FULL COLOR)
+     OUR TRUSTED PARTNERS CAROUSEL
+     FULL COLOR | ENLARGED LOGOS | INFINITE TICKER
 ========================================================= -->
+
 <section class="py-14 sm:py-20 bg-white border-b border-slate-100 overflow-hidden" data-aos="fade-up">
+
+    <!-- SECTION HEADING -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs sm:text-sm font-bold border border-emerald-200/90 shadow-xs mb-3">
+
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs sm:text-sm font-bold border border-emerald-200/90 shadow-sm mb-3">
             <i class="fa-solid fa-handshake-angle text-[#049a3d]"></i>
             OUR TRUSTED PARTNERS
         </span>
+
         <h2 class="mt-2 text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Trusted by Businesses <span class="text-[#049a3d]">Across Industries</span>
+            Trusted by Businesses
+            <span class="text-[#049a3d]">Across Industries</span>
         </h2>
+
         <p class="mt-3 text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Organizations trust Textora Technologies for secure, scalable and reliable business communication.
         </p>
+
     </div>
 
-    <!-- Infinite Auto-scrolling Ticker Track with Full Color & Large Logos -->
+
+    <!-- INFINITE LOGO TICKER -->
     <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_8%,white_92%,transparent)] py-4">
-        <div class="animate-logo-ticker py-2">
-            
-            <!-- Repeat 1 of Logos (Full Authentic Color & Sized for Maximum Clarity) -->
-            <div class="flex items-center gap-6 sm:gap-8 md:gap-10 shrink-0 px-4 sm:px-6">
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="Reliable Properties" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+        <div class="animate-logo-ticker flex w-max py-2">
+
+            <!-- ================= LOGO SET 1 ================= -->
+
+            <div class="flex items-center gap-8 sm:gap-10 md:gap-12 shrink-0 px-5 sm:px-7">
+
+                <!-- RELIABLE PROPERTIES - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/reliable.png') }}"
+                         alt="Reliable Properties"
+                         class="h-24 sm:h-28 md:h-32 max-w-[210px] sm:max-w-[240px] md:max-w-[270px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="Tax Safar" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- DEVALAYA - NEW -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/Devalaya.png') }}"
+                         alt="Devalaya"
+                         class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[210px] md:max-w-[230px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="Surabhi Medical Science" class="h-16 sm:h-20 md:h-24 max-h-24 w-auto max-w-[130px] sm:max-w-[160px] md:max-w-[180px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- WAY2CREDIT - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/way2.png') }}"
+                         alt="Way2Credit"
+                         class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="Sahyogi" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- OSG WATER SOLUTIONS - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/osgwater.png') }}"
+                         alt="OSG Water Solutions"
+                         class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="AIMT Leadership School" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- TAX SAFAR -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/tax.png') }}"
+                         alt="Tax Safar"
+                         class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[220px] md:max-w-[250px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="BTM Vet Clinic" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- SURABHI MEDICAL SCIENCE -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/surabhi.png') }}"
+                         alt="Surabhi Medical Science"
+                         class="h-20 sm:h-24 md:h-28 max-w-[160px] sm:max-w-[180px] md:max-w-[200px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="Design Exam" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- SAHYOGI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/sahyogi.png') }}"
+                         alt="Sahyogi"
+                         class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="Parkway" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- AIMT - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/aimt.png') }}"
+                         alt="AIMT Leadership School"
+                         class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="Shreeji" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- BTM VET CLINIC -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/btm.png') }}"
+                         alt="BTM Vet Clinic"
+                         class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[200px] md:max-w-[220px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="Jabalipuram" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[160px] sm:max-w-[190px] md:max-w-[220px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- DEXAM / DESIGN EXAM - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/dexam.png') }}"
+                         alt="Design Exam"
+                         class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="Arihant Enterprises" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- PARKWAY -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/parkway.png') }}"
+                         alt="Parkway"
+                         class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[200px] md:max-w-[220px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="Rapid Drop" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[230px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- SHREEJI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/shreeji.png') }}"
+                         alt="Shreeji"
+                         class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[220px] md:max-w-[250px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="Nari" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- JABALIPURAM -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/jablipuram.png') }}"
+                         alt="Jabalipuram"
+                         class="h-20 sm:h-24 md:h-28 max-w-[190px] sm:max-w-[210px] md:max-w-[230px] w-auto object-contain transition duration-300 transform hover:scale-110">
                 </div>
+
+                <!-- ARIHANT ENTERPRISES -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/arihant.png') }}"
+                         alt="Arihant Enterprises"
+                         class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain transition duration-300 transform hover:scale-110">
+                </div>
+
+                <!-- RAPID DROP -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}"
+                         alt="Rapid Drop"
+                         class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[210px] md:max-w-[240px] w-auto object-contain transition duration-300 transform hover:scale-110">
+                </div>
+
+                <!-- NARI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/nari.png') }}"
+                         alt="Nari"
+                         class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain transition duration-300 transform hover:scale-110">
+                </div>
+
             </div>
 
-            <!-- Repeat 2 of Logos (For seamless infinite loop) -->
-            <div class="flex items-center gap-6 sm:gap-8 md:gap-10 shrink-0 px-4 sm:px-6">
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="Reliable Properties" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+            <!-- ================= LOGO SET 2 - DUPLICATE ================= -->
+
+            <div class="flex items-center gap-8 sm:gap-10 md:gap-12 shrink-0 px-5 sm:px-7" aria-hidden="true">
+
+                <!-- RELIABLE PROPERTIES -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[210px] sm:max-w-[240px] md:max-w-[270px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="Tax Safar" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- DEVALAYA -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/Devalaya.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[210px] md:max-w-[230px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="Surabhi Medical Science" class="h-16 sm:h-20 md:h-24 max-h-24 w-auto max-w-[130px] sm:max-w-[160px] md:max-w-[180px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- WAY2CREDIT -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/way2.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="Sahyogi" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- OSG WATER SOLUTIONS -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/osgwater.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="AIMT Leadership School" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- TAX SAFAR -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="" class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[220px] md:max-w-[250px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="BTM Vet Clinic" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- SURABHI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[160px] sm:max-w-[180px] md:max-w-[200px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="Design Exam" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- SAHYOGI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="Parkway" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- AIMT -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="Shreeji" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- BTM VET CLINIC -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[200px] md:max-w-[220px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="Jabalipuram" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[160px] sm:max-w-[190px] md:max-w-[220px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- DEXAM -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="Arihant Enterprises" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- PARKWAY -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[200px] md:max-w-[220px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="Rapid Drop" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[230px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- SHREEJI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="" class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[220px] md:max-w-[250px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="Nari" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-300 transform hover:scale-110 drop-shadow-xs">
+
+                <!-- JABALIPURAM -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[190px] sm:max-w-[210px] md:max-w-[230px] w-auto object-contain">
                 </div>
+
+                <!-- ARIHANT -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain">
+                </div>
+
+                <!-- RAPID DROP -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="" class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[210px] md:max-w-[240px] w-auto object-contain">
+                </div>
+
+                <!-- NARI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain">
+                </div>
+
             </div>
+
         </div>
     </div>
 </section>

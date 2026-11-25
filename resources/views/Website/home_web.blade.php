@@ -1,7 +1,7 @@
-﻿<x-master-page
-    title="Official WhatsApp Business API, Bulk SMS Gateway & Enterprise CRM | Textora"
-    description="Textora Technologies provides Enterprise WhatsApp Business API, Bulk SMS Gateway, RCS Messaging, Voice OBD, and in-house Textora CRM & HRMS suites. 100% TRAI DLT compliant with multi-operator routing."
-    keywords="WhatsApp Business API, Bulk SMS Gateway, RCS Messaging, OTP SMS, Voice OBD, DLT Registration, Textora CRM, Textora HRMS, CPaaS India"
+<x-master-page
+    title="WhatsApp API, Bulk SMS, CRM, HRMS & IT Solutions | Textora"
+    description="Textora Technologies provides WhatsApp Business API, Bulk SMS, RCS messaging, CRM, HRMS, website development and custom software solutions for growing businesses across India."
+    keywords="WhatsApp Business API, Bulk SMS Service Provider, RCS Messaging, OTP SMS, Voice SMS, Business CRM Software, HRMS Software, Website Development Company, Custom Software Development, IT Solutions India"
 >
 
 @push('head-scripts')
@@ -12,34 +12,61 @@
     {
       "@type": "Organization",
       "@id": "https://textorasms.com/#organization",
-      "name": "Textora Technologies Pvt. Ltd.",
-      "url": "https://textorasms.com",
-      "logo": "https://textorasms.com/images/textorasms-svg-logo.svg",
+      "name": "Textora Technologies Pvt Ltd",
+      "url": "https://textorasms.com/",
+      "description": "Textora Technologies provides business communication, WhatsApp Business API, Bulk SMS, RCS messaging, CRM, HRMS, website development and custom software solutions.",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://textorasms.com/#logo",
+        "url": "https://textorasms.com/images/textorasms-svg-logo.svg",
+        "contentUrl": "https://textorasms.com/images/textorasms-svg-logo.svg"
+      },
+      "email": "support@textorasms.com",
+      "telephone": "+91-9187054466",
       "sameAs": [
         "https://www.facebook.com/profile.php?id=61584312038555",
         "https://www.instagram.com/textora_sms/",
-        "https://www.linkedin.com/company/textora-technologies/"
+        "https://www.linkedin.com/company/textora-technologies-pvt-ltd/"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+91-9187054466",
-        "contactType": "sales",
+        "email": "support@textorasms.com",
+        "contactType": "customer support",
         "areaServed": "IN",
-        "availableLanguage": ["en", "hi"]
+        "availableLanguage": ["English", "Hindi"]
       }
     },
     {
       "@type": "WebSite",
       "@id": "https://textorasms.com/#website",
-      "url": "https://textorasms.com",
-      "name": "Textora Technologies",
+      "url": "https://textorasms.com/",
+      "name": "Textora",
+      "alternateName": "Textora Technologies",
       "publisher": {
         "@id": "https://textorasms.com/#organization"
-      }
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://textorasms.com/#webpage",
+      "url": "https://textorasms.com/",
+      "name": "WhatsApp API, Bulk SMS, CRM, HRMS & IT Solutions | Textora",
+      "description": "Business communication and IT solutions including WhatsApp API, SMS, RCS, CRM, HRMS and website development.",
+      "isPartOf": {
+        "@id": "https://textorasms.com/#website"
+      },
+      "about": {
+        "@id": "https://textorasms.com/#organization"
+      },
+      "inLanguage": "en-IN"
     }
   ]
 }
 </script>
+
+
 <style>
   /* Smooth infinite marquee for partner logos */
   @keyframes logoTicker {
@@ -107,99 +134,176 @@
 <main class="text-slate-900 bg-white">
 
 <!-- =========================================================
-     HERO SECTION
-     Tighter top padding, reduced gap with header, outcome-focused
+     HOME PAGE HERO SECTION
+     SEO Optimized | Premium SaaS Design | Responsive
+     Textora Green Theme
 ========================================================= -->
-<section class="relative pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-32 lg:pb-24 bg-[#fafafa] border-b border-slate-200/80 overflow-hidden">
 
-
+<section class="relative pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-32 lg:pb-24 bg-gradient-to-br from-white via-[#f8fcf9] to-[#f1faf4] border-b border-green-100/80 overflow-hidden">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            <!-- Left: Hero Copy & Value Proposition -->
+
+            <!-- LEFT: HERO CONTENT -->
             <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                
-                <!-- Trust Badge Pill -->
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#049a3d]"></span>
-                    <span>Official Meta Tech Partner &middot; 100% TRAI DLT Compliant</span>
+
+                <!-- Trust Badge -->
+                <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 px-4 py-2 rounded-full border border-green-200 shadow-sm"
+                     style="background:linear-gradient(120deg,#e8f7ef,#d1fae5);">
+
+                    <span class="w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-sm">
+                        <i class="fa-solid fa-shield-halved text-[#087849] text-[10px]"></i>
+                    </span>
+
+                    <span class="text-xs sm:text-sm font-semibold text-[#087849]">
+                        Business Communication & IT Solutions
+                    </span>
+
                 </div>
 
-                <!-- Primary Headline -->
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-semibold tracking-tight text-slate-900 leading-[1.15]">
-                    Enterprise messaging infrastructure for <br class="hidden sm:inline">
-                    <span class="text-[#049a3d]">
-                        WhatsApp, SMS & RCS
+
+                <!-- Primary SEO H1 -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] xl:text-[52px] font-bold tracking-tight text-slate-900 leading-[1.15]">
+
+                    Business Communication
+
+                    <br class="hidden sm:inline">
+
+                    & Technology Solutions
+
+                    <span class="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-[#087849] via-[#049a3d] to-[#22a45a]">
+                        That Drive Business Growth
                     </span>
+
                 </h1>
 
-                <!-- Outcome-Oriented Subhead -->
+
+                <!-- SEO Description -->
                 <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                    Direct telecom routes, sub-2.4s OTP dispatch, and high-throughput campaign broadcasting with smart multi-operator failover across Airtel, Jio, and Vi.
+
+                    Grow your business with Textora's WhatsApp Business API, Bulk SMS, RCS messaging, Voice SMS, Email Marketing, CRM and HRMS solutions. We also build professional websites and custom software to help businesses connect with customers, automate workflows and scale operations.
+
                 </p>
 
-                <!-- Dual Action CTAs -->
+
+                <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-1">
-                    <a href="{{ url('pricing-web') }}" 
-                        class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#049a3d] text-white font-medium text-sm hover:bg-[#038334] transition">
+
+                    <a href="{{ url('pricing-web') }}"
+                       class="group inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#087849] text-white font-semibold text-sm sm:text-base shadow-lg shadow-green-900/15 hover:bg-[#06663d] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+
                         <span>Explore Pricing & Plans</span>
-                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-200"></i>
+
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform duration-300"></i>
+
                     </a>
-                    
-                    <button type="button" onclick="openModall()" 
-                        class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-white text-slate-700 font-medium text-sm border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition">
-                        <i class="fa-regular fa-calendar text-slate-500"></i>
-                        <span>Book 15-Min Live Demo</span>
+
+
+                    <button type="button"
+                            onclick="openModall()"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white text-slate-700 font-semibold text-sm sm:text-base border border-slate-200 shadow-sm hover:border-green-300 hover:bg-green-50/50 hover:text-[#087849] hover:-translate-y-0.5 transition-all duration-300">
+
+                        <i class="fa-regular fa-calendar text-[#087849]"></i>
+
+                        <span>Book a Free Demo</span>
+
                     </button>
+
                 </div>
 
-                <!-- Core Proof Points -->
-                <div class="pt-6 border-t border-slate-200 grid grid-cols-3 gap-4 text-center lg:text-left">
+
+                <!-- Core Service Highlights -->
+                <div class="pt-6 border-t border-green-100 grid grid-cols-3 gap-3 sm:gap-4 text-center lg:text-left">
+
                     <div>
-                        <div class="text-xl sm:text-2xl font-semibold text-slate-900 font-mono tracking-tight">10M+</div>
-                        <div class="text-xs text-slate-500 mt-0.5">Daily messages routed</div>
+                        <div class="text-xl sm:text-2xl font-bold text-[#087849] tracking-tight">
+                            Messaging
+                        </div>
+
+                        <div class="text-[11px] sm:text-xs text-slate-500 mt-1 leading-snug">
+                            WhatsApp, SMS & RCS
+                        </div>
                     </div>
+
+
                     <div>
-                        <div class="text-xl sm:text-2xl font-semibold text-slate-900 font-mono tracking-tight">&lt; 2.4s</div>
-                        <div class="text-xs text-slate-500 mt-0.5">Average OTP latency</div>
+                        <div class="text-xl sm:text-2xl font-bold text-[#087849] tracking-tight">
+                            Automation
+                        </div>
+
+                        <div class="text-[11px] sm:text-xs text-slate-500 mt-1 leading-snug">
+                            CRM & HRMS Solutions
+                        </div>
                     </div>
+
+
                     <div>
-                        <div class="text-xl sm:text-2xl font-semibold text-slate-900 font-mono tracking-tight">99.98%</div>
-                        <div class="text-xs text-slate-500 mt-0.5">Platform uptime SLA</div>
+                        <div class="text-xl sm:text-2xl font-bold text-[#087849] tracking-tight">
+                            Development
+                        </div>
+
+                        <div class="text-[11px] sm:text-xs text-slate-500 mt-1 leading-snug">
+                            Websites & Software
+                        </div>
                     </div>
+
                 </div>
 
             </div>
 
-            <!-- Right: Textora Telecom Gateway & Campaign Dispatch Terminal inside Smartphone Chassis -->
-            <div class="lg:col-span-5 flex justify-center relative pt-4 lg:pt-2" data-aos="fade-left" data-aos-duration="700">
-                
-                <!-- Floating Top-Right Telemetry Badge (Modern Gentle Float Motion) -->
-                <div class="absolute -top-3 -right-2 sm:-right-4 z-30 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md border border-slate-200/90 flex items-center gap-2 text-xs font-semibold text-slate-800 animate-float-gentle hidden sm:flex">
+
+            <!-- RIGHT: SMARTPHONE MOCKUP -->
+            <div class="lg:col-span-5 flex justify-center relative pt-4 lg:pt-2"
+                 data-aos="fade-left"
+                 data-aos-duration="700">
+
+
+                <!-- Floating Top Badge -->
+                <div class="absolute -top-3 -right-2 sm:-right-4 z-30 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-full shadow-lg border border-green-100 flex items-center gap-2 text-xs font-semibold text-slate-800 animate-float-gentle hidden sm:flex">
+
                     <span class="w-2 h-2 rounded-full bg-[#049a3d] animate-pulse"></span>
-                    <span>Meta Cloud API</span>
-                    <span class="text-[10px] text-emerald-700 font-mono font-bold bg-emerald-50 px-1.5 py-0.5 rounded">&lt; 1.8s</span>
+
+                    <span>Business Messaging</span>
+
+                    <span class="text-[10px] text-emerald-700 font-mono font-bold bg-emerald-50 px-1.5 py-0.5 rounded">
+                        API
+                    </span>
+
                 </div>
 
-                <!-- Floating Bottom-Left Telemetry Badge -->
-                <div class="absolute -bottom-4 -left-2 sm:-left-4 z-30 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md border border-slate-200/90 flex items-center gap-2 text-xs font-semibold text-slate-800 animate-float-gentle-delayed hidden sm:flex">
+
+                <!-- Floating Bottom Badge -->
+                <div class="absolute -bottom-4 -left-2 sm:-left-4 z-30 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-full shadow-lg border border-green-100 flex items-center gap-2 text-xs font-semibold text-slate-800 animate-float-gentle-delayed hidden sm:flex">
+
                     <i class="fa-solid fa-shield-halved text-[#049a3d]"></i>
-                    <span>TRAI DLT Compliant</span>
-                    <span class="text-[10px] text-slate-500 font-mono">Zero Drops</span>
+
+                    <span>Business Solutions</span>
+
+                    <span class="text-[10px] text-slate-500 font-mono">
+                        Smart Automation
+                    </span>
+
                 </div>
 
-                <!-- Smartphone Chassis (Sleek, Modern & Notch-Protected) -->
-                <div class="w-full max-w-[340px] sm:max-w-[360px] bg-slate-900 p-2.5 sm:p-3 rounded-[44px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] ring-1 ring-slate-800 relative z-10 transition-transform duration-300 hover:-translate-y-1">
-                    
-                    <!-- Dynamic Island Notch & Top Status Bar -->
+
+                <!-- Smartphone Chassis -->
+                <div class="w-full max-w-[340px] sm:max-w-[360px] bg-slate-900 p-2.5 sm:p-3 rounded-[44px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.25)] ring-1 ring-slate-800 relative z-10 transition-transform duration-300 hover:-translate-y-1">
+
+
+                    <!-- Status Bar -->
                     <div class="flex items-center justify-between px-5 py-1 mb-1 text-slate-400">
-                        <span class="text-[11px] font-mono font-semibold text-slate-300">10:42</span>
-                        
-                        <!-- Dynamic Island Notch Capsule -->
+
+                        <span class="text-[11px] font-mono font-semibold text-slate-300">
+                            10:42
+                        </span>
+
                         <div class="w-20 h-3.5 bg-slate-950 rounded-full border border-slate-800/90 flex items-center justify-center gap-1.5 px-2">
+
                             <span class="w-1.5 h-1.5 rounded-full bg-slate-700"></span>
+
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+
                         </div>
 
                         <div class="flex items-center gap-1 text-[10px] text-slate-300">
@@ -207,293 +311,619 @@
                             <i class="fa-solid fa-wifi text-[9px]"></i>
                             <i class="fa-solid fa-battery-full text-[10px]"></i>
                         </div>
+
                     </div>
+
 
                     <!-- Smartphone Screen -->
                     <div class="bg-[#efeae2] rounded-[34px] overflow-hidden border border-slate-800 text-xs">
-                        
-                        <!-- WhatsApp Official Business Header -->
-                        <div class="bg-[#075e54] text-white px-3.5 py-3 flex items-center justify-between shadow-xs">
+
+
+                        <!-- WhatsApp Business Header -->
+                        <div class="bg-[#075e54] text-white px-3.5 py-3 flex items-center justify-between shadow-sm">
+
                             <div class="flex items-center gap-2.5">
-                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center p-0.5 shadow-xs shrink-0">
-                                    <img src="{{ asset('images/PNG/Icon.png') }}" alt="Textora" class="w-full h-full object-contain">
+
+                                <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm shrink-0">
+
+                                    <img src="{{ asset('images/PNG/Icon.png') }}"
+                                         alt="Textora Business Messaging"
+                                         class="w-full h-full object-contain">
+
                                 </div>
+
                                 <div>
+
                                     <div class="font-bold flex items-center gap-1 text-xs text-white">
+
                                         <span>Textora Updates</span>
-                                        <i class="fa-solid fa-circle-check text-emerald-300 text-[10px]" title="Official Verified Green Tick"></i>
+
+                                        <i class="fa-solid fa-circle-check text-emerald-300 text-[10px]"
+                                           title="Verified Business Account"></i>
+
                                     </div>
+
                                     <div class="text-[10px] text-emerald-100 font-medium flex items-center gap-1">
+
                                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                                        <span>Official Business Account</span>
+
+                                        <span>Business Messaging Solutions</span>
+
                                     </div>
+
                                 </div>
+
                             </div>
+
                             <div class="flex items-center gap-3 text-emerald-100 text-xs">
-                                <i class="fa-solid fa-phone cursor-pointer hover:text-white transition"></i>
-                                <i class="fa-solid fa-ellipsis-vertical cursor-pointer hover:text-white transition"></i>
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+
                             </div>
+
                         </div>
 
-                        <!-- Live Telecom Telemetry Sub-Ribbon (Embedded Gateway Status) -->
+
+                        <!-- Gateway Status -->
                         <div class="bg-slate-950 text-slate-300 px-3 py-1.5 text-[10px] font-mono flex items-center justify-between border-b border-slate-800">
+
                             <div class="flex items-center gap-1.5">
+
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                                <span class="text-emerald-400 font-semibold">SMPP BIND: ACTIVE</span>
+
+                                <span class="text-emerald-400 font-semibold">
+                                    MESSAGING GATEWAY
+                                </span>
+
                             </div>
+
                             <div class="text-slate-400">
-                                <span>AIRTEL &middot; JIO &middot; VI &middot; 99.98%</span>
+                                <span>WHATSAPP &middot; SMS &middot; RCS</span>
                             </div>
+
                         </div>
 
-                        <!-- Chat Conversation Canvas with Simulated Live Stream -->
+
+                        <!-- Chat Conversation -->
                         <div class="p-3 space-y-2.5 max-h-[355px] overflow-y-auto bg-[radial-gradient(#d4dbd7_1px,transparent_1px)] [background-size:12px_12px]">
-                            
+
+
                             <!-- Security Notice -->
                             <div class="text-center my-0.5">
-                                <span class="bg-[#e1f3fb] text-[#128c7e] text-[9px] font-semibold px-2.5 py-0.5 rounded-md shadow-2xs inline-block">
-                                    <i class="fa-solid fa-lock text-[8px]"></i> End-to-end encrypted via Meta Cloud
+
+                                <span class="bg-[#e1f3fb] text-[#128c7e] text-[9px] font-semibold px-2.5 py-0.5 rounded-md shadow-sm inline-block">
+
+                                    <i class="fa-solid fa-lock text-[8px]"></i>
+
+                                    Secure Business Messaging
+
                                 </span>
+
                             </div>
 
-                            <!-- Verified Campaign Broadcast Message with Interactive CTAs -->
+
+                            <!-- Campaign Message -->
                             <div class="bg-white rounded-xl rounded-tl-none p-2.5 shadow-sm max-w-[92%] space-y-1.5 border border-slate-100 animate-message-in">
+
                                 <div class="relative rounded-lg overflow-hidden bg-slate-900 text-white p-2 border border-slate-800">
+
                                     <div class="flex items-center justify-between text-[10px] font-semibold text-emerald-400">
-                                        <span>FESTIVE FLASH SALE BROADCAST</span>
-                                        <span class="text-slate-300 font-mono text-[9px]">98.6% Open</span>
+
+                                        <span>CAMPAIGN BROADCAST</span>
+
+                                        <span class="text-slate-300 font-mono text-[9px]">
+                                            TEXTORA
+                                        </span>
+
                                     </div>
-                                    <p class="text-[9px] text-slate-300 mt-0.5 leading-snug">Reach 50,000+ customers instantly with guaranteed delivery &amp; rich CTA buttons.</p>
+
+                                    <p class="text-[9px] text-slate-300 mt-1 leading-snug">
+                                        Connect with your customers through scalable WhatsApp messaging campaigns.
+                                    </p>
+
                                 </div>
+
+
                                 <p class="text-slate-800 text-[10px] leading-snug">
-                                    Hi Rahul! Your festive promotion campaign has been approved. Launch to your audience or calculate cost:
+                                    Hi Rahul! Your campaign is ready. Explore Textora's business messaging and technology solutions.
                                 </p>
-                                <span class="text-[9px] text-slate-400 block text-right font-mono">10:42 AM</span>
 
-                                <!-- Interactive Action Chips -->
+                                <span class="text-[9px] text-slate-400 block text-right font-mono">
+                                    10:42 AM
+                                </span>
+
+
+                                <!-- Action Buttons -->
                                 <div class="pt-1.5 border-t border-slate-100 space-y-1">
-                                    <button type="button" onclick="openModall()" class="w-full py-1.5 px-2.5 bg-emerald-50 hover:bg-emerald-100 text-[#049a3d] font-bold text-[10px] rounded-lg flex items-center justify-center gap-1.5 transition duration-150">
+
+                                    <button type="button"
+                                            onclick="openModall()"
+                                            class="w-full py-1.5 px-2.5 bg-emerald-50 hover:bg-emerald-100 text-[#049a3d] font-bold text-[10px] rounded-lg flex items-center justify-center gap-1.5 transition duration-150">
+
                                         <i class="fa-solid fa-bolt text-[9px]"></i>
-                                        <span>Launch Broadcast Now</span>
+
+                                        <span>Book a Live Demo</span>
+
                                     </button>
-                                    <a href="{{ url('pricing-web#whatsapp-calculator') }}" class="w-full py-1.5 px-2.5 bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-[10px] rounded-lg flex items-center justify-center gap-1.5 transition duration-150">
+
+
+                                    <a href="{{ url('pricing-web#whatsapp-calculator') }}"
+                                       class="w-full py-1.5 px-2.5 bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold text-[10px] rounded-lg flex items-center justify-center gap-1.5 transition duration-150">
+
                                         <i class="fa-solid fa-calculator text-[9px]"></i>
+
                                         <span>Calculate Campaign Cost</span>
+
                                     </a>
+
                                 </div>
+
                             </div>
 
-                            <!-- Outgoing User Response with Read Receipts -->
-                            <div class="bg-[#dcf8c6] rounded-xl rounded-tr-none p-2 shadow-xs max-w-[85%] ml-auto text-slate-800 text-[10px] animate-message-in-delayed">
-                                <p class="leading-snug">Broadcast triggered! 98.4% delivered in 14 seconds</p>
+
+                            <!-- Outgoing Message -->
+                            <div class="bg-[#dcf8c6] rounded-xl rounded-tr-none p-2 shadow-sm max-w-[85%] ml-auto text-slate-800 text-[10px] animate-message-in-delayed">
+
+                                <p class="leading-snug">
+                                    Thank you! I would like to explore Textora's business solutions.
+                                </p>
+
                                 <div class="flex items-center justify-end gap-1 text-[8px] text-slate-500 mt-0.5 font-mono">
+
                                     <span>10:43 AM</span>
+
                                     <i class="fa-solid fa-check-double text-blue-500"></i>
+
                                 </div>
+
                             </div>
 
-                            <!-- Mission-Critical SMS OTP Failover Notification -->
-                            <div class="bg-white rounded-xl p-2 shadow-xs border-l-4 border-emerald-500 text-[10px] animate-message-in-delayed-2">
+
+                            <!-- SMS OTP Notification -->
+                            <div class="bg-white rounded-xl p-2 shadow-sm border-l-4 border-emerald-500 text-[10px] animate-message-in-delayed-2">
+
                                 <div class="font-bold text-slate-800 flex items-center justify-between text-[9px]">
-                                    <span class="flex items-center gap-1 text-emerald-800 font-mono"><i class="fa-solid fa-tower-broadcast text-emerald-600"></i> SMS OTP FAILOVER</span>
-                                    <span class="text-emerald-700 font-mono font-bold">&lt; 1.8s &middot; DELIVRD</span>
+
+                                    <span class="flex items-center gap-1 text-emerald-800 font-mono">
+
+                                        <i class="fa-solid fa-tower-broadcast text-emerald-600"></i>
+
+                                        SMS OTP NOTIFICATION
+
+                                    </span>
+
+                                    <span class="text-emerald-700 font-mono font-bold">
+                                        TRANSACTIONAL
+                                    </span>
+
                                 </div>
-                                <p class="text-slate-600 text-[9px] mt-0.5">Your Textora security login OTP is <span class="font-mono font-bold text-slate-900 bg-slate-100 px-1 py-0.5 rounded">482910</span>. Valid for 10 minutes.</p>
+
+                                <p class="text-slate-600 text-[9px] mt-1">
+                                    Your Textora demo OTP is
+                                    <span class="font-mono font-bold text-slate-900 bg-slate-100 px-1 py-0.5 rounded">
+                                        123456
+                                    </span>.
+                                    Valid for 10 minutes.
+                                </p>
+
                             </div>
 
                         </div>
+
 
                         <!-- Chat Input Bar -->
                         <div class="bg-[#f0f2f5] px-3 py-2 flex items-center gap-2 border-t border-slate-200">
+
                             <i class="fa-regular fa-face-smile text-slate-500 text-xs"></i>
+
                             <div class="flex-1 bg-white rounded-full px-2.5 py-1 text-[10px] text-slate-400">
                                 Type a message...
                             </div>
-                            <div class="w-6 h-6 rounded-full bg-[#049a3d] text-white flex items-center justify-center text-[10px] shadow-xs">
+
+                            <div class="w-6 h-6 rounded-full bg-[#049a3d] text-white flex items-center justify-center text-[10px] shadow-sm">
                                 <i class="fa-solid fa-paper-plane"></i>
                             </div>
+
                         </div>
 
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
 
 <!-- =========================================================
-     DIRECT TELECOM & META CLOUD GATEWAYS (ENLARGED & PROMINENT)
+     TELECOM CONNECTIVITY & BUSINESS MESSAGING INFRASTRUCTURE
 ========================================================= -->
-<section class="border-y border-slate-200/90 bg-white py-8 shadow-xs relative z-10" data-aos="fade-up">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
-            
-            <div class="text-center lg:text-left shrink-0">
-                <span class="text-xs font-mono text-slate-500 block mb-1">
-                    telecom // carrier-infrastructure
+
+<section class="relative border-y border-green-100 bg-gradient-to-r from-white via-[#f9fcfa] to-white py-10 sm:py-12 overflow-hidden"
+         data-aos="fade-up">
+
+    <div class="absolute top-0 right-0 w-72 h-72 bg-green-100/30 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
+
+            <!-- SECTION CONTENT -->
+            <div class="text-center lg:text-left shrink-0 max-w-lg">
+
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide border border-green-200 mb-3"
+                      style="background:linear-gradient(120deg,#e8f7ef,#d1fae5);color:#087849;">
+
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#087849]"></span>
+
+                    CONNECTIVITY & MESSAGING ECOSYSTEM
+
                 </span>
-                <h2 class="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Direct Telecom &amp; Meta Cloud Gateways</h2>
-                <p class="text-xs text-slate-500 mt-0.5">Direct carrier SMPP binds and tier-1 infrastructure with sub-2.4s delivery latency</p>
+
+                <h2 class="text-xl sm:text-2xl lg:text-[26px] font-bold text-slate-900 tracking-tight leading-snug">
+
+                    Telecom Connectivity &
+
+                    <span class="text-[#049a3d]">Business Messaging Infrastructure</span>
+
+                </h2>
+
+                <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed max-w-md mx-auto lg:mx-0">
+
+                    Deliver business communications through messaging platforms and telecom networks. Explore scalable connectivity for WhatsApp Business API, SMS and RCS messaging.
+
+                </p>
+
             </div>
 
-            <!-- Operator & Platform Badges with Authentic Original Logos -->
-            <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
-                
-                <!-- Airtel -->
-                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150" title="Bharti Airtel Direct Telecom Gateway">
-                    <img src="{{ asset('images/operators/airtel.png') }}" 
-                         alt="Bharti Airtel" 
-                         class="h-10 sm:h-12 w-auto max-w-[95px] object-contain">
-                </div>
 
-                <!-- Jio Reliance -->
-                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150" title="Reliance Jio Direct Telecom Gateway">
-                    <img src="{{ asset('images/operators/jio.png') }}" 
-                         alt="Reliance Jio" 
-                         class="h-10 sm:h-12 w-auto max-w-[95px] object-contain">
-                </div>
+            <!-- OPERATOR & PLATFORM LOGOS -->
+            <div class="flex-1 w-full">
 
-                <!-- Vodafone Idea (Vi) -->
-                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150" title="Vodafone Idea (Vi) Direct Telecom Gateway">
-                    <img src="{{ asset('images/operators/vi.png') }}" 
-                         alt="Vodafone Idea (Vi)" 
-                         class="h-10 sm:h-12 w-auto max-w-[95px] object-contain">
-                </div>
+                <div class="flex flex-wrap items-center justify-center lg:justify-end gap-3 sm:gap-4">
 
-                <!-- BSNL -->
-                <div class="flex items-center justify-center h-16 sm:h-20 w-28 sm:w-32 px-3 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150" title="BSNL Direct Telecom Gateway">
-                    <img src="{{ asset('images/operators/bsnl.png') }}" 
-                         alt="BSNL Telecom" 
-                         class="h-10 sm:h-12 w-auto max-w-[95px] object-contain">
-                </div>
+                    <!-- AIRTEL -->
+                    <div class="group flex items-center justify-center h-16 sm:h-[76px] w-[112px] sm:w-[125px] px-3 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-green-200 hover:-translate-y-1 transition-all duration-300"
+                         title="Bharti Airtel">
 
-                <!-- Meta Cloud API Partner -->
-                <div class="flex items-center justify-center h-16 sm:h-20 px-5 py-2 rounded-xl bg-white border border-slate-200 hover:border-slate-300 transition duration-150 min-w-[130px]" title="Official Meta Cloud API Business Partner">
-                    <img src="{{ asset('images/operators/meta.png') }}" 
-                         alt="Official Meta Business Partner" 
-                         class="h-8 sm:h-10 w-auto max-w-[125px] object-contain">
-                </div>
+                        <img src="{{ asset('images/operators/airtel.png') }}"
+                             alt="Bharti Airtel telecom network"
+                             loading="lazy"
+                             class="h-9 sm:h-11 w-auto max-w-[95px] object-contain transition-transform duration-300 group-hover:scale-105">
 
-                <!-- TRAI DLT Compliant Badge -->
-                <div class="flex items-center gap-2 text-emerald-800 bg-emerald-50 px-5 py-3.5 rounded-2xl text-xs font-bold border border-emerald-200 shadow-xs">
-                    <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>
-                    <div>
-                        <div class="leading-none">100% TRAI DLT</div>
-                        <div class="text-[10px] text-emerald-700 font-semibold mt-0.5">Compliant Binds</div>
                     </div>
+
+
+                    <!-- JIO -->
+                    <div class="group flex items-center justify-center h-16 sm:h-[76px] w-[112px] sm:w-[125px] px-3 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-green-200 hover:-translate-y-1 transition-all duration-300"
+                         title="Reliance Jio">
+
+                        <img src="{{ asset('images/operators/jio.png') }}"
+                             alt="Reliance Jio telecom network"
+                             loading="lazy"
+                             class="h-9 sm:h-11 w-auto max-w-[95px] object-contain transition-transform duration-300 group-hover:scale-105">
+
+                    </div>
+
+
+                    <!-- VI -->
+                    <div class="group flex items-center justify-center h-16 sm:h-[76px] w-[112px] sm:w-[125px] px-3 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-green-200 hover:-translate-y-1 transition-all duration-300"
+                         title="Vodafone Idea Vi">
+
+                        <img src="{{ asset('images/operators/vi.png') }}"
+                             alt="Vodafone Idea Vi telecom network"
+                             loading="lazy"
+                             class="h-9 sm:h-11 w-auto max-w-[95px] object-contain transition-transform duration-300 group-hover:scale-105">
+
+                    </div>
+
+
+                    <!-- BSNL -->
+                    <div class="group flex items-center justify-center h-16 sm:h-[76px] w-[112px] sm:w-[125px] px-3 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-green-200 hover:-translate-y-1 transition-all duration-300"
+                         title="BSNL">
+
+                        <img src="{{ asset('images/operators/bsnl.png') }}"
+                             alt="BSNL telecom network"
+                             loading="lazy"
+                             class="h-9 sm:h-11 w-auto max-w-[95px] object-contain transition-transform duration-300 group-hover:scale-105">
+
+                    </div>
+
+
+                    <!-- META -->
+                    <div class="group flex items-center justify-center h-16 sm:h-[76px] w-[130px] sm:w-[145px] px-4 py-3 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-green-200 hover:-translate-y-1 transition-all duration-300"
+                         title="Meta">
+
+                        <img src="{{ asset('images/operators/meta.png') }}"
+                             alt="Meta messaging platform"
+                             loading="lazy"
+                             class="h-8 sm:h-10 w-auto max-w-[115px] object-contain transition-transform duration-300 group-hover:scale-105">
+
+                    </div>
+
+
+                    <!-- DLT -->
+                    <div class="flex items-center justify-center gap-2.5 h-16 sm:h-[76px] px-4 sm:px-5 rounded-2xl border border-green-200 shadow-sm"
+                         style="background:linear-gradient(120deg,#e8f7ef,#d1fae5);">
+
+                        <div class="w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow-sm shrink-0">
+
+                            <i class="fa-solid fa-shield-halved text-[#087849] text-lg"></i>
+
+                        </div>
+
+                        <div class="text-left">
+
+                            <div class="text-xs sm:text-sm font-bold text-[#087849] leading-tight">
+                                DLT
+                            </div>
+
+                            <div class="text-[10px] text-emerald-800 font-semibold mt-1">
+                                SMS Ecosystem
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
 
         </div>
+
     </div>
+
 </section>
 
 <!-- =========================================================
-     OUR TRUSTED PARTNERS CAROUSEL (BEST-IN-CLASS, PROMINENT & FULL COLOR)
+     OUR TRUSTED PARTNERS CAROUSEL
+     CLEAN STRUCTURE | FULL COLOR | ENHANCED LOGO SIZES
 ========================================================= -->
+
 <section class="py-14 sm:py-20 bg-white border-b border-slate-100 overflow-hidden" data-aos="fade-up">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium border border-slate-200 mb-3">
-            Client network
-        </span>
-        <h2 class="mt-2 text-3xl sm:text-4xl font-semibold text-slate-900 tracking-tight">
-            Trusted by enterprises and fast-growing brands
-        </h2>
-        <p class="mt-3 text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Organizations trust Textora Technologies for secure, scalable and reliable business communication.
-        </p>
-    </div>
 
-    <!-- Infinite Auto-scrolling Ticker Track with Full Color & Large Logos -->
+<!-- SECTION HEADING -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
+
+    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold border border-green-200 shadow-sm mb-3"
+          style="background:linear-gradient(120deg,#e8f7ef,#d1fae5); color:#087849;">
+
+        <i class="fa-solid fa-handshake-angle text-[#087849]"></i>
+
+        OUR CLIENTS
+
+    </span>
+
+    <h2 class="mt-3 text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+
+        Businesses That Choose
+
+        <span class="text-[#049a3d]">Textora Technologies</span>
+
+    </h2>
+
+    <p class="mt-3 text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+
+        We help businesses across industries simplify customer communication, improve operational efficiency and grow with reliable messaging and technology solutions.
+
+    </p>
+
+</div>
+
+    <!-- INFINITE LOGO TICKER -->
     <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_8%,white_92%,transparent)] py-4">
-        <div class="animate-logo-ticker py-2">
-            
-            <!-- Repeat 1 of Logos (Full Authentic Color & Sized for Maximum Clarity) -->
-            <div class="flex items-center gap-6 sm:gap-8 md:gap-10 shrink-0 px-4 sm:px-6">
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="Reliable Properties" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+        <div class="animate-logo-ticker flex w-max py-2">
+
+            <!-- ================= SET 1 ================= -->
+            <div class="flex items-center gap-8 sm:gap-10 md:gap-12 shrink-0 px-5 sm:px-7">
+
+                <!-- RELIABLE PROPERTIES - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/reliable.png') }}"
+                         alt="Reliable Properties"
+                         class="h-24 sm:h-28 md:h-32 max-w-[210px] sm:max-w-[240px] md:max-w-[270px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="Tax Safar" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- DEVALAYA -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/Devalaya.png') }}"
+                         alt="Devalaya"
+                         class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="Surabhi Medical Science" class="h-16 sm:h-20 md:h-24 max-h-24 w-auto max-w-[130px] sm:max-w-[160px] md:max-w-[180px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- WAY2CREDIT - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/way2.png') }}"
+                         alt="Way2Credit"
+                         class="h-24 sm:h-28 md:h-32 max-w-[220px] sm:max-w-[250px] md:max-w-[280px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="Sahyogi" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- OSG WATER SOLUTIONS - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/osgwater.png') }}"
+                         alt="OSG Water Solutions"
+                         class="h-24 sm:h-28 md:h-32 max-w-[220px] sm:max-w-[250px] md:max-w-[280px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="AIMT Leadership School" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- TAX SAFAR -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/tax.png') }}"
+                         alt="Tax Safar"
+                         class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[220px] md:max-w-[250px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="BTM Vet Clinic" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- SURABHI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/surabhi.png') }}"
+                         alt="Surabhi Medical Science"
+                         class="h-20 sm:h-24 md:h-28 max-w-[160px] sm:max-w-[180px] md:max-w-[200px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="Design Exam" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- SAHYOGI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/sahyogi.png') }}"
+                         alt="Sahyogi"
+                         class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="Parkway" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- AIMT - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/aimt.png') }}"
+                         alt="AIMT Leadership School"
+                         class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="Shreeji" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- BTM VET CLINIC -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/btm.png') }}"
+                         alt="BTM Vet Clinic"
+                         class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[200px] md:max-w-[220px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="Jabalipuram" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[160px] sm:max-w-[190px] md:max-w-[220px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- DEXAM / DESIGN EXAM - ENLARGED -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/dexam.png') }}"
+                         alt="Design Exam"
+                         class="h-24 sm:h-28 md:h-32 max-w-[220px] sm:max-w-[250px] md:max-w-[280px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="Arihant Enterprises" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- PARKWAY -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/parkway.png') }}"
+                         alt="Parkway"
+                         class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[200px] md:max-w-[220px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="Rapid Drop" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[230px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- SHREEJI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/shreeji.png') }}"
+                         alt="Shreeji"
+                         class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[220px] md:max-w-[250px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="Nari" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- JABALIPURAM -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/jablipuram.png') }}"
+                         alt="Jabalipuram"
+                         class="h-20 sm:h-24 md:h-28 max-w-[190px] sm:max-w-[210px] md:max-w-[230px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
                 </div>
+
+                <!-- ARIHANT -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/arihant.png') }}"
+                         alt="Arihant Enterprises"
+                         class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
+                </div>
+
+                <!-- RAPID DROP -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}"
+                         alt="Rapid Drop"
+                         class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[210px] md:max-w-[240px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
+                </div>
+
+                <!-- NARI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/nari.png') }}"
+                         alt="Nari"
+                         class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain transition duration-300 opacity-90 hover:opacity-100 hover:scale-105">
+                </div>
+
             </div>
 
-            <!-- Repeat 2 of Logos (For seamless infinite loop) -->
-            <div class="flex items-center gap-6 sm:gap-8 md:gap-10 shrink-0 px-4 sm:px-6">
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="Reliable Properties" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+            <!-- ================= SET 2 - SEAMLESS DUPLICATE ================= -->
+            <div class="flex items-center gap-8 sm:gap-10 md:gap-12 shrink-0 px-5 sm:px-7" aria-hidden="true">
+
+                <!-- RELIABLE PROPERTIES -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/reliable.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[210px] sm:max-w-[240px] md:max-w-[270px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="Tax Safar" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- DEVALAYA -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/Devalaya.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="Surabhi Medical Science" class="h-16 sm:h-20 md:h-24 max-h-24 w-auto max-w-[130px] sm:max-w-[160px] md:max-w-[180px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- WAY2CREDIT -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/way2.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[220px] sm:max-w-[250px] md:max-w-[280px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="Sahyogi" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- OSG WATER -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/osgwater.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[220px] sm:max-w-[250px] md:max-w-[280px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="AIMT Leadership School" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- TAX SAFAR -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/tax.png') }}" alt="" class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[220px] md:max-w-[250px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="BTM Vet Clinic" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- SURABHI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/surabhi.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[160px] sm:max-w-[180px] md:max-w-[200px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="Design Exam" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- SAHYOGI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/sahyogi.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="Parkway" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[150px] sm:max-w-[180px] md:max-w-[200px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- AIMT -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/aimt.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[230px] sm:max-w-[260px] md:max-w-[290px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="Shreeji" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[180px] sm:max-w-[220px] md:max-w-[250px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- BTM VET CLINIC -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/btm.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[200px] md:max-w-[220px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="Jabalipuram" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[160px] sm:max-w-[190px] md:max-w-[220px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- DEXAM -->
+                <div class="h-28 sm:h-32 md:h-36 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/dexam.png') }}" alt="" class="h-24 sm:h-28 md:h-32 max-w-[220px] sm:max-w-[250px] md:max-w-[280px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="Arihant Enterprises" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- PARKWAY -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/parkway.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[180px] sm:max-w-[200px] md:max-w-[220px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="Rapid Drop" class="h-14 sm:h-18 md:h-20 max-h-20 w-auto max-w-[160px] sm:max-w-[200px] md:max-w-[230px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- SHREEJI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/shreeji.png') }}" alt="" class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[220px] md:max-w-[250px] w-auto object-contain">
                 </div>
-                <div class="h-20 sm:h-24 md:h-28 flex items-center justify-center shrink-0 px-1">
-                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="Nari" class="h-16 sm:h-20 md:h-22 max-h-24 w-auto max-w-[140px] sm:max-w-[170px] md:max-w-[190px] object-contain transition duration-200 opacity-80 hover:opacity-100">
+
+                <!-- JABALIPURAM -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/jablipuram.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[190px] sm:max-w-[210px] md:max-w-[230px] w-auto object-contain">
                 </div>
+
+                <!-- ARIHANT -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/arihant.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain">
+                </div>
+
+                <!-- RAPID DROP -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/rapiddrop.png') }}" alt="" class="h-16 sm:h-20 md:h-24 max-w-[180px] sm:max-w-[210px] md:max-w-[240px] w-auto object-contain">
+                </div>
+
+                <!-- NARI -->
+                <div class="h-24 sm:h-28 md:h-32 flex items-center justify-center shrink-0 px-2">
+                    <img src="{{ asset('images/client-logo/nari.png') }}" alt="" class="h-20 sm:h-24 md:h-28 max-w-[170px] sm:max-w-[190px] md:max-w-[210px] w-auto object-contain">
+                </div>
+
             </div>
+
         </div>
     </div>
 </section>
@@ -506,19 +936,26 @@
 <section class="py-12 lg:py-16 bg-white" id="cpaas-solutions" data-aos="fade-up">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
-                Solutions
-            </span>
-            <h2 class="mt-3 text-3xl sm:text-4xl font-semibold text-slate-900 tracking-tight leading-tight">
-                Unified business messaging engineered to scale
-            </h2>
-            <p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-                Empower your marketing, transactional alerts, and customer support with official APIs, verified delivery, and zero telecom bottlenecks.
-            </p>
-        </div>
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto mb-12">
 
+    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold border border-green-200 shadow-sm mb-3"
+          style="background:linear-gradient(120deg,#e8f7ef,#d1fae5); color:#087849;">
+        <span class="w-2 h-2 rounded-full bg-[#087849]"></span>
+        Solutions
+    </span>
+<h2 class="mt-3 text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+    Business Communication Solutions
+    <span class="text-[#087849]">Built to Connect and Scale</span>
+</h2>
+
+<p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+    Simplify customer communication with WhatsApp Business API, Bulk SMS,
+    RCS messaging, Voice SMS and developer APIs. Textora helps businesses
+    automate customer engagement, deliver important notifications and
+    manage communication across multiple channels.
+</p>
+</div>
         <!-- The Structured 3x2 Grid (6 Balanced Cards) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
@@ -543,7 +980,7 @@
 
                     <ul class="mt-4 space-y-2 text-xs text-slate-600 font-medium border-t border-slate-100 pt-4">
                         <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i> Blue Tick verification assistance</li>
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i> 98% open rates with rich media catalogs</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i> Rich media messages and interactive product catalogs</li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-600"></i> Multi-agent shared team inbox</li>
                     </ul>
                 </div>
@@ -575,7 +1012,7 @@
                         Bulk SMS Gateway & OTPs
                     </h3>
                     <p class="mt-2.5 text-slate-600 text-xs sm:text-sm leading-relaxed">
-                        100% TRAI DLT compliant promotional, transactional, and OTP SMS routing. Intelligent multi-operator routing prevents delivery bottlenecks.
+                       DLT-compliant promotional, transactional and OTP SMS solutions with intelligent multi-operator routing.
                     </p>
 
                     <ul class="mt-4 space-y-2 text-xs text-slate-600 font-medium border-t border-slate-100 pt-4">
@@ -807,19 +1244,25 @@
 ========================================================= -->
 <section class="py-12 lg:py-16 bg-[#fafcfb] border-t border-slate-100" id="enterprise-products" data-aos="fade-up">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
         <!-- Header -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-medium border border-slate-200">
-                Enterprise software
-            </span>
-            <h2 class="mt-3 text-3xl sm:text-4xl font-semibold text-slate-900 tracking-tight leading-tight">
-                Textora enterprise software suites
-            </h2>
-            <p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-                Engineered internally to run our own high-scale operations. We are now offering these battle-tested platforms for external enterprise deployment, licensing, and purchase.
-            </p>
-        </div>
+<div class="text-center max-w-3xl mx-auto mb-12">
+
+    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold border border-green-200 shadow-sm mb-3"
+          style="background:linear-gradient(120deg,#e8f7ef,#d1fae5); color:#087849;">
+        <span class="w-2 h-2 rounded-full bg-[#087849]"></span>
+        Enterprise software
+    </span>
+<h2 class="mt-3 text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+    Business Management Software
+    <span style="color:#087849 !important;">CRM & HRMS by Textora</span>
+</h2>
+<p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+    Manage your business operations with Textora CRM and HRMS software.
+    Streamline customer relationship management, sales activities, employee
+    attendance, leave management and payroll operations with integrated
+    business management solutions.
+</p>
+</div>
 
         <!-- 2 Side-by-Side Product Cards -->
         <div class="grid lg:grid-cols-2 gap-8">
@@ -1186,53 +1629,56 @@
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-10">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold uppercase tracking-wider">
-                <i class="fa-solid fa-scale-balanced text-[#049a3d]"></i>
-                Market Comparison
-            </span>
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold border border-green-200 shadow-sm mb-3"
+      style="background:linear-gradient(120deg,#e8f7ef,#d1fae5); color:#087849;">
+    <span class="w-2 h-2 rounded-full bg-[#087849]"></span>
+    Market Comparison
+</span>
             <h2 class="mt-3 text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                Why Industry Leaders Choose <span class="text-[#049a3d]">Textora</span>
-            </h2>
-            <p class="mt-2 text-sm text-slate-600">
-                Compare direct enterprise-grade infrastructure against generic, unregulated SMS resellers.
-            </p>
+    Why Businesses Choose <span class="text-[#049a3d]">Textora</span>
+</h2>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+    Explore how Textora's business messaging solutions, communication
+    infrastructure and integrated CRM and HRMS software support growing
+    businesses with reliable customer communication and business operations.
+</p>
         </div>
 
         <div class="overflow-x-auto bg-white rounded-2xl border border-slate-200 shadow-sm">
             <table class="w-full text-left border-collapse text-xs sm:text-sm">
                 <thead>
                     <tr class="border-b border-slate-200 bg-slate-50 text-slate-700">
-                        <th class="py-4 px-6 font-bold">Capabilities & Infrastructure</th>
+                        <th class="py-4 px-6 font-bold">Business Capabilities</th>
                         <th class="py-4 px-6 font-black text-[#049a3d] bg-emerald-50/80 border-x border-emerald-100">
                             <div class="flex items-center gap-2">
                                 <span class="w-2.5 h-2.5 rounded-full bg-[#049a3d]"></span>
                                 <span>Textora Enterprise CPaaS</span>
                             </div>
                         </th>
-                        <th class="py-4 px-6 font-bold text-slate-500">Unregistered Resellers / Grey Routes</th>
+                        <th class="py-4 px-6 font-bold text-slate-500">Basic Messaging Providers</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100 text-slate-700">
                     <tr>
-                        <td class="py-3.5 px-6 font-semibold">Meta WhatsApp Business API Integration</td>
+                        <td class="py-3.5 px-6 font-semibold"> WhatsApp Business API Integration</td>
                         <td class="py-3.5 px-6 font-bold text-emerald-800 bg-emerald-50/40 border-x border-emerald-100 flex items-center gap-2">
-                            <i class="fa-solid fa-circle-check text-emerald-600"></i> Official Meta Cloud API (Zero Ban Risk)
+                            <i class="fa-solid fa-circle-check text-emerald-600"></i> WhatsApp Business Platform Integration (subject to Meta approval and policies)
                         </td>
-                        <td class="py-3.5 px-6 text-slate-500">QR-code scraper scripts (Frequent account bans)</td>
+                        <td class="py-3.5 px-6 text-slate-500">Unofficial messaging tools with platform policy risks</td>
                     </tr>
                     <tr>
                         <td class="py-3.5 px-6 font-semibold">TRAI DLT Compliance & Sender IDs</td>
                         <td class="py-3.5 px-6 font-bold text-emerald-800 bg-emerald-50/40 border-x border-emerald-100">
-                            <i class="fa-solid fa-circle-check text-emerald-600"></i> 100% Registered Entity & Header Guidance
+                            <i class="fa-solid fa-circle-check text-emerald-600"></i> DLT Registration, Header & Template Guidance
                         </td>
-                        <td class="py-3.5 px-6 text-slate-500">Shared headers without compliance guarantee</td>
+                        <td class="py-3.5 px-6 text-slate-500">Limited DLT registration and template assistance</td>
                     </tr>
                     <tr>
                         <td class="py-3.5 px-6 font-semibold">OTP Delivery Latency</td>
                         <td class="py-3.5 px-6 font-bold text-emerald-800 bg-emerald-50/40 border-x border-emerald-100">
-                            <i class="fa-solid fa-circle-check text-emerald-600"></i> &lt; 2.4 seconds average via Tier-1 Telco pipes
+                            <i class="fa-solid fa-circle-check text-emerald-600"></i> Multi-operator SMS routing with delivery reports
                         </td>
-                        <td class="py-3.5 px-6 text-slate-500">15â€“90 seconds delay with heavy message drops</td>
+                        <td class="py-3.5 px-6 text-slate-500">15–90 seconds delay with potential delivery issues</td>
                     </tr>
                     <tr>
                         <td class="py-3.5 px-6 font-semibold">In-House Business Software</td>
@@ -1244,7 +1690,7 @@
                     <tr>
                         <td class="py-3.5 px-6 font-semibold">Dedicated Customer Success & SLAs</td>
                         <td class="py-3.5 px-6 font-bold text-emerald-800 bg-emerald-50/40 border-x border-emerald-100">
-                            <i class="fa-solid fa-circle-check text-emerald-600"></i> 24/7 Priority Support & WhatsApp Account Manager
+                            <i class="fa-solid fa-circle-check text-emerald-600"></i> Dedicated Business Support & Customer Assistance
                         </td>
                         <td class="py-3.5 px-6 text-slate-500">Email ticket queue or unassisted bots</td>
                     </tr>
@@ -1267,11 +1713,14 @@
                 Sector Solutions
             </span>
             <h2 class="mt-3 text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                Tailored for High-Performing <span class="text-[#049a3d]">Industries</span>
-            </h2>
-            <p class="mt-2 text-sm text-slate-600">
-                Pre-configured communication blueprints designed for specific regulatory, operational, and customer journey needs.
-            </p>
+    Business Messaging Solutions for
+    <span class="text-[#049a3d]">Every Industry</span>
+</h2>
+            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+    From customer notifications and OTP delivery to WhatsApp Business messaging
+    and automated communication, Textora helps businesses across industries
+    improve customer engagement and streamline communication workflows.
+</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1282,8 +1731,9 @@
                 </div>
                 <h3 class="text-base font-bold text-slate-900">E-Commerce & Retail</h3>
                 <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                    Abandoned cart recovery, COD confirmation bots, real-time shipment updates, and WhatsApp catalog checkout.
-                </p>
+    Improve customer engagement with WhatsApp order updates, COD confirmations,
+    abandoned cart reminders, promotional SMS and shipment notifications.
+</p>
             </div>
 
             <div class="p-6 rounded-2xl bg-[#fafcfb] border border-slate-200 hover:border-emerald-500 transition duration-200">
@@ -1292,8 +1742,9 @@
                 </div>
                 <h3 class="text-base font-bold text-slate-900">FinTech & NBFC</h3>
                 <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                    Instant sub-second authentication OTPs, KYC document collectors, and automated loan repayment alerts.
-                </p>
+    Support financial communication with OTP SMS, transaction alerts,
+    payment reminders, loan notifications and customer verification workflows.
+</p>
             </div>
 
             <div class="p-6 rounded-2xl bg-[#fafcfb] border border-slate-200 hover:border-emerald-500 transition duration-200">
@@ -1301,9 +1752,11 @@
                     <i class="fa-solid fa-house-chimney"></i>
                 </div>
                 <h3 class="text-base font-bold text-slate-900">Real Estate & Developers</h3>
-                <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                    Auto-qualify property leads from Facebook/Google ads, dispatch brochures, and schedule site inspections instantly.
-                </p>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+    Connect with property enquiries through WhatsApp Business messaging,
+    lead follow-ups, property brochure sharing, site visit reminders
+    and promotional SMS campaigns.
+</p>
             </div>
 
             <div class="p-6 rounded-2xl bg-[#fafcfb] border border-slate-200 hover:border-emerald-500 transition duration-200">
@@ -1312,8 +1765,10 @@
                 </div>
                 <h3 class="text-base font-bold text-slate-900">Healthcare & Clinics</h3>
                 <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-                    Doctor appointment confirmations, digital lab report delivery over WhatsApp, and automated prescription reminders.
-                </p>
+    Simplify patient communication with appointment reminders,
+    booking confirmations, healthcare notifications and follow-up messages
+    through available messaging channels.
+</p>
             </div>
 
         </div>
@@ -1322,68 +1777,518 @@
 </section>
 
 <!-- =========================================================
-     TESTIMONIALS SECTION
+     TEXTORA PREMIUM TESTIMONIAL CAROUSEL
+     9 CLIENTS | AUTO ROTATION | RESPONSIVE
+     UPDATED: REMOVED CLIENT STORIES & 1/9 COUNTER
 ========================================================= -->
-<section class="py-12 lg:py-16 bg-[#fafcfb] border-t border-slate-100">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100/70 text-emerald-800 text-[11px] font-bold uppercase tracking-wider">
+
+<section id="textora-testimonials"
+         class="py-14 lg:py-20 bg-[#fafcfb] border-t border-slate-100 overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- SECTION HEADING -->
+        <div class="text-center max-w-2xl mx-auto mb-10 lg:mb-12">
+
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-bold uppercase tracking-wider border border-emerald-100">
                 <i class="fa-solid fa-star text-emerald-600"></i>
                 Client Feedback
             </span>
-            <h2 class="mt-2 text-3xl font-black text-slate-900 tracking-tight">
-                Trusted by 500+ Indian Businesses
-            </h2>
+
+<h2 class="mt-4 text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+    What Our Clients Say About
+    <span style="color:#087849;">Textora Technologies</span>
+</h2>
+          <p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+    Read customer feedback about Textora's WhatsApp Business API,
+    Bulk SMS services and business communication solutions.
+    We value long-term client relationships, reliable services
+    and responsive customer support.
+</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
-                <div>
-                    <div class="flex text-amber-400 text-xs mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+
+        <!-- TESTIMONIAL CAROUSEL -->
+        <div class="relative">
+
+            <!-- PREVIOUS BUTTON -->
+            <button
+                type="button"
+                id="testimonial-prev"
+                aria-label="Previous testimonials"
+                class="absolute z-20 left-0 lg:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 flex items-center justify-center">
+
+                <i class="fa-solid fa-chevron-left text-sm"></i>
+
+            </button>
+
+
+            <!-- VIEWPORT -->
+            <div id="testimonial-viewport"
+     class="overflow-hidden mx-5 lg:mx-2"
+     aria-label="Textora client testimonials">
+
+                <!-- TRACK -->
+                <div id="testimonial-track"
+                     class="flex gap-5 lg:gap-6 transition-transform duration-700 ease-in-out">
+
+
+                    <!-- 1. ARHAM ENTERPRISES -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]">
+
+                        <div class="bg-white h-full min-h-[225px] p-6 lg:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+
+                            <div>
+                                <div class="flex text-amber-400 text-xs mb-4">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+
+                                <p class="text-sm text-slate-600 leading-relaxed italic">
+                                    "Textora Technologies has been a trusted partner for our Bulk SMS and WhatsApp communication needs. Their service quality and support are truly outstanding."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100">
+                                <div class="font-bold text-slate-900 text-sm">Ankit Jain</div>
+                                <div class="text-xs text-slate-500 mt-1">Arham Enterprises</div>
+                            </div>
+
+                        </div>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
-                        "Textora Technologies has been a trusted partner for our Bulk SMS and WhatsApp communication needs. Their service quality and support are truly outstanding."
-                    </p>
-                </div>
-                <div class="mt-4 pt-4 border-t border-slate-100">
-                    <div class="font-bold text-slate-900 text-sm">Ankit Jain</div>
-                    <div class="text-xs text-slate-500">Arham Enterprises</div>
+
+
+                    <!-- 2. RAPID DROP -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]">
+
+                        <div class="bg-white h-full min-h-[225px] p-6 lg:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+
+                            <div>
+                                <div class="flex text-amber-400 text-xs mb-4">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+
+                                <p class="text-sm text-slate-600 leading-relaxed italic">
+                                    "We are highly satisfied with Textora Technologies WhatsApp API and Transactional OTP services. Reliable platform and prompt support."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100">
+                                <div class="font-bold text-slate-900 text-sm">Shivam Trivedi</div>
+                                <div class="text-xs text-slate-500 mt-1">Rapid Drop Next Distributor Pvt. Ltd.</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 3. RELIABLE PROPERTIES -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]">
+
+                        <div class="bg-white h-full min-h-[225px] p-6 lg:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+
+                            <div>
+                                <div class="flex text-amber-400 text-xs mb-4">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+
+                                <p class="text-sm text-slate-600 leading-relaxed italic">
+                                    "Textora Technologies WhatsApp API service transformed our property marketing. We connect with buyers instantly and share brochures with zero lag."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100">
+                                <div class="font-bold text-slate-900 text-sm">Shyam Kadam</div>
+                                <div class="text-xs text-slate-500 mt-1">Reliable Properties</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 4. WAY2CREDIT FINANCE -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]">
+
+                        <div class="bg-white h-full min-h-[225px] p-6 lg:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+
+                            <div>
+                                <div class="flex text-amber-400 text-xs mb-4">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+
+                                <p class="text-sm text-slate-600 leading-relaxed italic">
+                                    "Textora Technologies provides reliable business communication solutions. Their platform and support help us stay connected with our customers efficiently."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100">
+                                <div class="font-bold text-slate-900 text-sm">Mr. Dheeraj Gowda</div>
+                                <div class="text-xs text-slate-500 mt-1">Way2Credit Finance Pvt. Ltd.</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 5. DEVALAYA -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]">
+
+                        <div class="bg-white h-full min-h-[225px] p-6 lg:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+
+                            <div>
+                                <div class="flex text-amber-400 text-xs mb-4">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+
+                                <p class="text-sm text-slate-600 leading-relaxed italic">
+                                    "We appreciate Textora Technologies for their business communication services and responsive support. Their solutions make customer communication easier."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100">
+                                <div class="font-bold text-slate-900 text-sm">Mr. Pradeep</div>
+                                <div class="text-xs text-slate-500 mt-1">Devalaya · Owner</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 6. OSG WATER SOLUTIONS -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]">
+
+                        <div class="bg-white h-full min-h-[225px] p-6 lg:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+
+                            <div>
+                                <div class="flex text-amber-400 text-xs mb-4">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+
+                                <p class="text-sm text-slate-600 leading-relaxed italic">
+                                    "Textora Technologies has been helpful in managing our business communication requirements. Their services and support make it easier to stay connected with our customers."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100">
+                                <div class="font-bold text-slate-900 text-sm">Mr. Sandeep Sharma</div>
+                                <div class="text-xs text-slate-500 mt-1">OSG Water Solutions</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 7. GEO GROUPS -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]">
+
+                        <div class="bg-white h-full min-h-[225px] p-6 lg:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+
+                            <div>
+                                <div class="flex text-amber-400 text-xs mb-4">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+
+                                <p class="text-sm text-slate-600 leading-relaxed italic">
+                                    "We value the communication solutions offered by Textora Technologies. Their team is responsive, and their services help streamline our customer interactions."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100">
+                                <div class="font-bold text-slate-900 text-sm">Mr. Pious Abraham</div>
+                                <div class="text-xs text-slate-500 mt-1">GEO Groups</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 8. KSHIRSAGAR PROVISION STORES -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]">
+
+                        <div class="bg-white h-full min-h-[225px] p-6 lg:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+
+                            <div>
+                                <div class="flex text-amber-400 text-xs mb-4">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+
+                                <p class="text-sm text-slate-600 leading-relaxed italic">
+                                    "Textora Technologies offers useful communication services for our business. Their support and solutions help us communicate with customers more conveniently."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100">
+                                <div class="font-bold text-slate-900 text-sm">Mr. Sanjay Kshirsagar</div>
+                                <div class="text-xs text-slate-500 mt-1">Kshirsagar Provision Stores</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- 9. GROWELL INVESTMENT -->
+                    <div class="testimonial-card flex-shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)]">
+
+                        <div class="bg-white h-full min-h-[225px] p-6 lg:p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:border-green-200 hover:shadow-lg transition-all duration-300">
+
+                            <div>
+                                <div class="flex text-amber-400 text-xs mb-4">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+
+                                <p class="text-sm text-slate-600 leading-relaxed italic">
+                                    "Textora Technologies provides convenient business communication solutions. Their team has been helpful in supporting our communication needs."
+                                </p>
+                            </div>
+
+                            <div class="mt-6 pt-4 border-t border-slate-100">
+                                <div class="font-bold text-slate-900 text-sm">Mr. P. K. Grover</div>
+                                <div class="text-xs text-slate-500 mt-1">Growell Investment Pvt. Ltd.</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
-                <div>
-                    <div class="flex text-amber-400 text-xs mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
-                        "We are highly satisfied with Textora Technologies WhatsApp API and Transactional OTP services. Reliable platform and prompt support."
-                    </p>
-                </div>
-                <div class="mt-4 pt-4 border-t border-slate-100">
-                    <div class="font-bold text-slate-900 text-sm">Shivam Trivedi</div>
-                    <div class="text-xs text-slate-500">Rapid Drop Next Distributor Pvt. Ltd.</div>
-                </div>
-            </div>
 
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
-                <div>
-                    <div class="flex text-amber-400 text-xs mb-3">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed italic">
-                        "Textora Technologies WhatsApp API service transformed our property marketing. We connect with buyers instantly and share brochures with zero lag."
-                    </p>
-                </div>
-                <div class="mt-4 pt-4 border-t border-slate-100">
-                    <div class="font-bold text-slate-900 text-sm">Shyam Kadam</div>
-                    <div class="text-xs text-slate-500">Reliable Properties</div>
-                </div>
-            </div>
+            <!-- NEXT BUTTON -->
+            <button
+                type="button"
+                id="testimonial-next"
+                aria-label="Next testimonials"
+                class="absolute z-20 right-0 lg:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 lg:w-11 lg:h-11 rounded-full bg-white border border-slate-200 shadow-md text-slate-700 hover:bg-green-700 hover:text-white hover:border-green-700 transition-all duration-300 flex items-center justify-center">
+
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+
+            </button>
+
         </div>
+
     </div>
 </section>
+
+
+<!-- =========================================================
+     TESTIMONIAL CAROUSEL SCRIPT
+     COUNTER REMOVED | AUTO SLIDE | RESPONSIVE
+========================================================= -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const section = document.getElementById('textora-testimonials');
+
+    if (!section) return;
+
+    const track = section.querySelector('#testimonial-track');
+    const viewport = section.querySelector('#testimonial-viewport');
+    const cards = Array.from(section.querySelectorAll('.testimonial-card'));
+    const prevBtn = section.querySelector('#testimonial-prev');
+    const nextBtn = section.querySelector('#testimonial-next');
+
+    if (!track || !viewport || cards.length === 0) return;
+
+    let currentIndex = 0;
+    let visibleCards = 3;
+    let autoplay = null;
+    let resizeTimer = null;
+
+    const gap = () => window.innerWidth >= 1024 ? 24 : 20;
+
+
+    // RESPONSIVE VISIBLE CARD COUNT
+    function getVisibleCards() {
+
+        if (window.innerWidth < 768) return 1;
+
+        if (window.innerWidth < 1024) return 2;
+
+        return 3;
+    }
+
+
+    // UPDATE SLIDER POSITION
+    function updateCarousel() {
+
+        visibleCards = getVisibleCards();
+
+        const maxIndex = Math.max(0, cards.length - visibleCards);
+
+        if (currentIndex > maxIndex) {
+            currentIndex = 0;
+        }
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+
+        const offset = currentIndex * (cardWidth + gap());
+
+        track.style.transform = `translateX(-${offset}px)`;
+
+        // PREVIOUS BUTTON
+        if (prevBtn) {
+
+            prevBtn.disabled = currentIndex === 0;
+
+            prevBtn.style.opacity = currentIndex === 0 ? '0.55' : '1';
+        }
+
+        // NEXT BUTTON
+        if (nextBtn) {
+
+            nextBtn.disabled = currentIndex >= maxIndex;
+
+            nextBtn.style.opacity = currentIndex >= maxIndex ? '0.55' : '1';
+        }
+    }
+
+
+    // NEXT SLIDE
+    function nextSlide() {
+
+        const maxIndex = Math.max(0, cards.length - visibleCards);
+
+        currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+
+        updateCarousel();
+    }
+
+
+    // PREVIOUS SLIDE
+    function prevSlide() {
+
+        const maxIndex = Math.max(0, cards.length - visibleCards);
+
+        currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+
+        updateCarousel();
+    }
+
+
+    // STOP AUTOPLAY
+    function stopAutoplay() {
+
+        if (autoplay) {
+
+            clearInterval(autoplay);
+
+            autoplay = null;
+        }
+    }
+
+
+    // START AUTOPLAY
+    function startAutoplay() {
+
+        stopAutoplay();
+
+        autoplay = setInterval(function () {
+
+            nextSlide();
+
+        }, 4000);
+    }
+
+
+    // NEXT BUTTON CLICK
+    if (nextBtn) {
+
+        nextBtn.addEventListener('click', function () {
+
+            nextSlide();
+
+            startAutoplay();
+        });
+    }
+
+
+    // PREVIOUS BUTTON CLICK
+    if (prevBtn) {
+
+        prevBtn.addEventListener('click', function () {
+
+            prevSlide();
+
+            startAutoplay();
+        });
+    }
+
+
+    // PAUSE ON HOVER
+    section.addEventListener('mouseenter', stopAutoplay);
+
+    section.addEventListener('mouseleave', startAutoplay);
+
+
+    // PAUSE ON KEYBOARD FOCUS
+    section.addEventListener('focusin', stopAutoplay);
+
+    section.addEventListener('focusout', function (event) {
+
+        if (!section.contains(event.relatedTarget)) {
+
+            startAutoplay();
+        }
+    });
+
+
+    // RESPONSIVE RESIZE
+    window.addEventListener('resize', function () {
+
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(function () {
+
+            updateCarousel();
+
+        }, 150);
+    });
+
+
+    // INITIALIZE
+    updateCarousel();
+
+    startAutoplay();
+
+});
+</script>
 
 <!-- =========================================================
      FREQUENTLY ASKED QUESTIONS (ACCORDION)
@@ -1392,10 +2297,12 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center mb-10">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
-                <i class="fa-solid fa-circle-question text-[#049a3d]"></i>
-                Clear Answers
-            </span>
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold border border-green-200 shadow-sm mb-3"
+      style="background:linear-gradient(120deg,#e8f7ef,#d1fae5); color:#087849;">
+    <span class="w-2 h-2 rounded-full bg-[#087849]"></span>
+        Help & Information
+
+</span>
             <h2 class="mt-3 text-3xl font-black text-slate-900 tracking-tight">
                 Frequently Asked Questions
             </h2>
@@ -1405,49 +2312,70 @@
             
             <div class="border border-slate-200 px-5 py-2 bg-white rounded-xl shadow-xs">
                 <button onclick="toggleAccordion(1)" class="w-full flex justify-between text-sm sm:text-base font-bold items-center py-3 text-slate-800 text-left">
-                    <span>What is the difference between standard WhatsApp Business and the WhatsApp API?</span>
+                    <span>What is WhatsApp Business API and how is it different from the WhatsApp Business App?</span>
                     <span id="icon-1" class="text-slate-400 text-lg font-bold ml-4">+</span>
                 </button>
                 <div id="content-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <p class="pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        The regular WhatsApp Business app is limited to 1 smartphone and 4 web sessions, making it unsuitable for teams and high-volume broadcasts. The official <strong>WhatsApp Business API</strong> connects directly to Meta Cloud servers, allowing unlimited team agents on a shared inbox, AI chatbot automation, CRM integrations, verified Green Tick badges, and broadcasting to tens of thousands of opted-in customers with zero ban risk.
-                    </p>
+                  <p class="pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+    The WhatsApp Business App is designed mainly for small businesses
+    managing customer conversations through an app. The WhatsApp Business
+    Platform (API) is designed for businesses that need scalable messaging,
+    team-based customer support, automated notifications and integration
+    with CRM or other business systems. With Textora's WhatsApp Business API
+    solutions, businesses can streamline customer communication and manage
+    messaging workflows. Features and availability depend on Meta's policies
+    and account eligibility.
+</p>
                 </div>
             </div>
 
             <div class="border border-slate-200 px-5 py-2 bg-white rounded-xl shadow-xs">
                 <button onclick="toggleAccordion(2)" class="w-full flex justify-between text-sm sm:text-base font-bold items-center py-3 text-slate-800 text-left">
-                    <span>How does DLT compliance work for Bulk SMS in India?</span>
+                    <span>How does TRAI DLT registration work for Bulk SMS in India?</span>
                     <span id="icon-2" class="text-slate-400 text-lg font-bold ml-4">+</span>
                 </button>
                 <div id="content-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <p class="pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Under TRAI telecom guidelines, every business in India sending commercial SMS must register their Entity, Sender Header (Sender ID), and Consent Templates on a Distributed Ledger Technology (DLT) portal (like Airtel, Jio, or Vodafone). Textora provides free, full-service DLT onboarding assistance to get your templates whitelisted within 24â€“48 hours.
-                    </p>
+                   <p class="pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+    Businesses sending commercial SMS in India need to follow applicable
+    TRAI regulations and DLT requirements. This generally includes registering
+    the Principal Entity, Sender Header and message templates through an
+    authorised telecom operator's DLT portal. Textora assists businesses
+    with DLT registration guidance, sender header requirements and
+    message template processes for promotional, transactional and OTP SMS.
+</p>
                 </div>
             </div>
 
             <div class="border border-slate-200 px-5 py-2 bg-white rounded-xl shadow-xs">
                 <button onclick="toggleAccordion(3)" class="w-full flex justify-between text-sm sm:text-base font-bold items-center py-3 text-slate-800 text-left">
-                    <span>Can we purchase or license Textora CRM and HRMS for our company?</span>
+                    <span>Can businesses purchase or get a license for Textora CRM and HRMS software?</span>
                     <span id="icon-3" class="text-slate-400 text-lg font-bold ml-4">+</span>
                 </button>
                 <div id="content-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <p class="pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Yes! Both Textora CRM and Textora HRMS are proprietary products that we develop and operate. We offer flexible options: monthly/annual SaaS cloud subscriptions, dedicated private cloud deployments, or custom white-labeled software configured specifically for your workflows and company branding.
-                    </p>
+<p class="pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+    Yes. Textora offers its in-house CRM and HRMS software solutions
+    for businesses looking to manage customer relationships, sales
+    activities, employee records, attendance, leave applications and
+    payroll operations. Contact our team to discuss product features,
+    licensing options, pricing and deployment requirements for your business.
+</p>
                 </div>
             </div>
 
             <div class="border border-slate-200 px-5 py-2 bg-white rounded-xl shadow-xs">
                 <button onclick="toggleAccordion(4)" class="w-full flex justify-between text-sm sm:text-base font-bold items-center py-3 text-slate-800 text-left">
-                    <span>How fast are Textora's OTP SMS APIs?</span>
+                    <span>How does Textora's OTP SMS service help businesses?</span>
                     <span id="icon-4" class="text-slate-400 text-lg font-bold ml-4">+</span>
                 </button>
                 <div id="content-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                    <p class="pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                        Our high-priority transactional SMS pipes feature an average delivery latency under 2.4 seconds across major Indian telecom operators (Jio, Airtel, Vi, BSNL). If an operator route encounters latency, our gateway automatically falls back to an alternate carrier instantly.
-                    </p>
+                   <p class="pb-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+    Textora's Bulk SMS gateway supports OTP and transactional messaging
+    for applications, websites and business platforms. Businesses can
+    integrate OTP SMS into their workflows for user verification,
+    login authentication and important notifications. Actual message
+    delivery time depends on telecom operator networks, routing conditions
+    and recipient availability.
+</p>
                 </div>
             </div>
 
@@ -1462,17 +2390,18 @@
 <section class="bg-slate-900 py-14 text-white border-t border-slate-800">
     <div class="max-w-4xl mx-auto px-6 text-center">
         <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-            gateway // enterprise-onboarding
+        Textora // Business Solutions
         </span>
 
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mt-4 mb-3 tracking-tight leading-tight">
-            Direct telecom routes with sub-2.4s verified latency
-        </h2>
+<h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-white mt-4 mb-3 tracking-tight leading-tight">
+    Grow Your Business with Smart Communication Solutions
+</h2>
 
-        <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-7 leading-relaxed">
-            Connect with Textora engineers to configure dedicated SMPP binds, Meta Cloud API access, or schedule an enterprise platform walkthrough.
-        </p>
-
+<p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-7 leading-relaxed">
+    Explore WhatsApp Business API, Bulk SMS, RCS messaging, Voice SMS,
+    CRM and HRMS solutions with Textora. Connect with our team to find
+    the right technology solutions for your business.
+</p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
             <button type="button" onclick="openModall()"
                 class="w-full sm:w-auto px-6 py-3 bg-[#049a3d] hover:bg-[#037f32] text-white font-medium rounded-lg transition duration-150 text-sm">
