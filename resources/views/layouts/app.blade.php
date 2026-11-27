@@ -120,6 +120,7 @@
         </div>
     </div>
 
+    @livewire('notifications')
     @filamentScripts
     @vite('resources/js/app.js')
 </body>

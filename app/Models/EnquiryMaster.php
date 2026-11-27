@@ -19,6 +19,11 @@ class EnquiryMaster extends Model
         'company_name',
         'requirement',
         'type',
+        'ip_address',
         'is_terms_accepted',
+    ];
+
+    protected $casts = [
+        'is_terms_accepted' => 'boolean',
     ];
 }

@@ -368,6 +368,12 @@
 
                         <input type="hidden" name="isFormType" value="Contact">
 
+                        <!-- Honeypot Anti-Bot Field (Keep Hidden Off-Screen) -->
+                        <div style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; opacity:0;" aria-hidden="true">
+                            <label for="contact_website_url">Website URL</label>
+                            <input type="text" id="contact_website_url" name="website_url" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div class="grid sm:grid-cols-2 gap-4">
 
                             <!-- Full Name -->
@@ -620,6 +626,11 @@ function validateContactForm(event) {
 
     const form = document.getElementById('contact-frm');
 
+    if (form.dataset.submitting === 'true') {
+        event.preventDefault();
+        return false;
+    }
+
     if (!form.checkValidity()) {
 
         event.preventDefault();
@@ -630,6 +641,15 @@ function validateContactForm(event) {
         form.reportValidity();
 
         return false;
+    }
+
+    form.dataset.submitting = 'true';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+        submitBtn.dataset.originalHtml = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+        submitBtn.innerText = 'Submitting... Please wait';
     }
 
     return true;

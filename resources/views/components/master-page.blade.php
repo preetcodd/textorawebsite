@@ -987,6 +987,12 @@
 
                 <input type="hidden" name="isFormType" value="Demo">
 
+                <!-- Honeypot Anti-Bot Field (Keep Hidden Off-Screen) -->
+                <div style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; opacity:0;" aria-hidden="true">
+                    <label for="demo_website_url">Website URL</label>
+                    <input type="text" id="demo_website_url" name="website_url" tabindex="-1" autocomplete="off">
+                </div>
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
                     <!-- Name -->
@@ -1561,11 +1567,16 @@
 
         }
 
-        // Demo form validation
+        // Demo form validation & double-submit lock
 
         function validateDemoForm(event) {
 
             const form = document.getElementById('demo-form');
+
+            if (form.dataset.submitting === 'true') {
+                event.preventDefault();
+                return false;
+            }
 
             if (!form.checkValidity()) {
 
@@ -1581,9 +1592,33 @@
 
             }
 
+            form.dataset.submitting = 'true';
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.dataset.originalHtml = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+                submitBtn.innerHTML = '<span>Submitting... Please wait</span>';
+            }
+
             return true;
 
         }
+
+        window.addEventListener('pageshow', function () {
+            ['demo-form', 'contact-frm'].forEach(function (id) {
+                const form = document.getElementById(id);
+                if (form && form.dataset.submitting === 'true') {
+                    delete form.dataset.submitting;
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    if (submitBtn && submitBtn.dataset.originalHtml) {
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                        submitBtn.innerHTML = submitBtn.dataset.originalHtml;
+                    }
+                }
+            });
+        });
 
         AOS.init({ once: true, duration: 650, easing: 'ease-out-cubic', offset: 50 });
 

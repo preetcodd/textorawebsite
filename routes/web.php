@@ -177,7 +177,7 @@ Route::get('/blog_list', [VlogMastersController::class, 'blog_list']);
 Route::get('/blog_details/{id}', [VlogMastersController::class, 'blog_details']);
 
 
-Route::post('enquiry-web', [EnquiryMasterController::class, 'store']);
+Route::post('enquiry-web', [EnquiryMasterController::class, 'store'])->middleware('throttle:10,1');
 
 
 
