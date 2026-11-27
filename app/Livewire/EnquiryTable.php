@@ -101,9 +101,11 @@ class EnquiryTable extends Component implements HasForms, HasTable
 
                 TextColumn::make('block_status')
                     ->label('Status')
-                    ->badge()
                     ->state(fn (EnquiryMaster $record): string => $this->isRecordBlocked($record) ? 'Blocked' : 'Active')
-                    ->color(fn (string $state): string => $state === 'Blocked' ? 'danger' : 'success'),
+                    ->formatStateUsing(fn (string $state): string => $state === 'Blocked'
+                        ? '<span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background-color:#fee2e2;color:#b91c1c;border:1px solid #fecaca;">Blocked</span>'
+                        : '<span style="display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:600;background-color:#dcfce7;color:#15803d;border:1px solid #bbf7d0;">Active</span>')
+                    ->html(),
 
                 TextColumn::make('message')
                     ->limit(40)

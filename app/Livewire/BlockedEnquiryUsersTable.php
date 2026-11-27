@@ -84,6 +84,7 @@ class BlockedEnquiryUsersTable extends Component implements HasForms, HasTable
                     ->label('Block Email / Phone / IP')
                     ->icon('heroicon-o-no-symbol')
                     ->color('danger')
+                    ->extraAttributes(['style' => 'background-color: #dc2626; color: #ffffff;'])
                     ->form([
                         Grid::make(2)->schema([
                             TextInput::make('email')
